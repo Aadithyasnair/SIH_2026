@@ -4,8 +4,8 @@ __pycache__/
 .pytest_cache/
 *.egg-info/
 .DS_Store
-
 # Model artifacts (keep repo clean, track only .gitkeep)
 ml_detection/models/*.pkl
 ml_detection/models/*.pt
 !ml_detection/models/.gitkeep
+

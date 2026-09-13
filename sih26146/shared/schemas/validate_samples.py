@@ -30,7 +30,7 @@ except ImportError:
 
 def validate_file(file_path: Path, model_cls):
     if not file_path.exists():
-        print(f"[FAIL] {file_path.name} not found.")
+        print(f"[FAIL] Required file {file_path.name} not found.")
         return False
 
     with open(file_path, "r", encoding="utf-8") as f:

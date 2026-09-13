@@ -3,14 +3,14 @@ import uuid
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
-import sys
 import argparse
 
-# Paths
-parser = argparse.ArgumentParser(description="Generate sample data for SIH26146")
-parser.add_argument("--output", type=str, default=str(Path(__file__).resolve().parent), help="Output directory")
+# Paths - derive dynamically relative to this file
+parser = argparse.ArgumentParser(description="Generate sample datasets for SIH26146")
+parser.add_argument("--output-dir", "--output", dest="output_dir", type=str, default=None, help="Directory to output sample data files")
 args, _ = parser.parse_known_args()
-out_dir = Path(args.output).resolve()
+
+out_dir = Path(args.output_dir).resolve() if args.output_dir else Path(__file__).resolve().parent
 out_dir.mkdir(parents=True, exist_ok=True)
 
 base_time = datetime(2026, 3, 10, 12, 0, 0, tzinfo=timezone.utc)
