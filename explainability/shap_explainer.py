@@ -23,7 +23,7 @@ except ImportError:
     shap = None
 
 
-DEFAULT_MODEL_PATH = "sih26146/ml_detection/models/anomaly_model.joblib"
+DEFAULT_MODEL_PATH = "ml_detection/models/isolation_forest.joblib"
 
 
 class SHAPExplainer:

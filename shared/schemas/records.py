@@ -2,6 +2,7 @@
 Shared Data Contracts for SIH26146
 Official Pydantic v2 models matching NTRO Problem Statement fields exactly.
 """
+import uuid
 from typing import List, Optional
 from pydantic import BaseModel, Field
 
@@ -51,7 +52,7 @@ class Cluster(BaseModel):
 
 
 class Alert(BaseModel):
-    alert_id: str = Field(..., description="UUID string identifying the alert")
+    alert_id: str = Field(default_factory=lambda: str(uuid.uuid4()), description="UUID string identifying the alert")
     txid: str = Field(..., description="Transaction ID associated with the alert")
     involved_addresses: List[str] = Field(..., description="List of addresses involved in the alert")
     risk_score: float = Field(..., ge=0.0, le=1.0, description="Final combined risk score [0, 1]")

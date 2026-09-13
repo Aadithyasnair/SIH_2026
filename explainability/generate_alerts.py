@@ -10,6 +10,7 @@ and geo summary generation, producing the final ranked `alerts.json`.
 import os
 import sys
 import json
+import uuid
 import datetime
 from pathlib import Path
 from typing import List, Dict, Any
@@ -38,7 +39,7 @@ except ImportError:
 
 def process_upstream_data_to_alerts(
     input_records: List[Dict[str, Any]],
-    model_path: str = "ml_detection/models/anomaly_model.joblib",
+    model_path: str = "ml_detection/models/isolation_forest.joblib",
 ) -> List[Dict[str, Any]]:
     """
     Transforms upstream records into final ranked, explainable Alert records.
@@ -94,6 +95,7 @@ def process_upstream_data_to_alerts(
 
         # Instantiate Pydantic model for strict validation
         alert_obj = Alert(
+            alert_id=rec.get("alert_id", str(uuid.uuid4())),
             txid=txid,
             involved_addresses=involved_addresses,
             risk_score=risk_score,
@@ -129,6 +131,7 @@ def generate_alerts_json(
         # Generate sample representative upstream records if file doesn't exist yet
         records = [
             {
+                "alert_id": "952d7d55-a8d4-48bf-b9d4-463d9e03c067",
                 "txid": "b6f123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
                 "involved_addresses": ["1PeelAddr1xxxx", "1PeelAddr2xxxx"],
                 "anomaly_score": 0.88,
@@ -145,6 +148,7 @@ def generate_alerts_json(
                 "features": {"amount_zscore": 3.4, "txn_frequency": 12.0, "geo_diversity": 3.0},
             },
             {
+                "alert_id": "7f88938c-6c46-414e-9ca8-cddc786d9a82",
                 "txid": "c7f987654321fedcba987654321fedcba987654321fedcba987654321fedcba",
                 "involved_addresses": ["1MixerIn1xxxx", "1MixerIn2xxxx", "1MixerOut1xxxx"],
                 "anomaly_score": 0.92,
@@ -161,6 +165,7 @@ def generate_alerts_json(
                 "features": {"small_remainder_ratio": 0.95, "degree_centrality": 0.82},
             },
             {
+                "alert_id": "84207cf3-8e6a-43c9-8a53-d6579762d469",
                 "txid": "d8a112233445566778899aabbccddeeff112233445566778899aabbccddeeff",
                 "involved_addresses": ["1Hop2RiskAddrxxxx"],
                 "anomaly_score": 0.65,
@@ -178,6 +183,7 @@ def generate_alerts_json(
                 "features": {"propagated_risk": 0.82, "burst_count": 5.0},
             },
             {
+                "alert_id": "2204ca4f-507f-481b-a80b-fbb98d84875d",
                 "txid": "e9b2233445566778899aabbccddeeff00112233445566778899aabbccddeeff",
                 "involved_addresses": ["1HighValAddrxxxx"],
                 "anomaly_score": 0.79,
@@ -193,6 +199,7 @@ def generate_alerts_json(
                 "features": {"amount_zscore": 4.1, "txn_frequency": 15.0},
             },
             {
+                "alert_id": "137bcce6-4874-4355-aa7e-7671a5aebfe9",
                 "txid": "f0c33445566778899aabbccddeeff00112233445566778899aabbccddeeff11",
                 "involved_addresses": ["1NormalUserAddrxxxx"],
                 "anomaly_score": 0.12,

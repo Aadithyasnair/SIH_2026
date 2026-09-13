@@ -66,7 +66,14 @@ def evaluate_model(
     if thresholds is None:
         thresholds = [0.3, 0.5, 0.7]
 
-    # 1. Load pipeline inputs & context
+    # 1. Validate and load ground truth labels (strictly for evaluation comparison)
+    if not labels_path.exists():
+        raise FileNotFoundError(f"Ground-truth labels not found: {labels_path}")
+    labels_data = load_labels(labels_path)
+    if not isinstance(labels_data, dict) or "anomalous_transactions" not in labels_data:
+        raise ValueError(f"Invalid labels.json structure: expected 'anomalous_transactions' key")
+
+    # 2. Load pipeline inputs & context
     txns = load_blockchain_txns(data_dir)
     events = load_network_events(data_dir)
     edges = load_correlation_edges(data_dir)
@@ -80,20 +87,13 @@ def evaluate_model(
         "graph": graph,
     }
 
-    # 2. Score all transactions using model
+    # 3. Score all transactions using model
     predictions = score_transactions(
         transactions=txns,
         data_context=context,
         models_dir=models_dir,
     )
     pred_by_txid = {p["txid"]: p for p in predictions}
-
-    # 3. Load ground truth labels (strictly for evaluation comparison)
-    if not labels_path.exists():
-        raise FileNotFoundError(f"Ground-truth labels not found: {labels_path}")
-    labels_data = load_labels(labels_path)
-    if not isinstance(labels_data, dict) or "anomalous_transactions" not in labels_data:
-        raise ValueError(f"Invalid labels file: {labels_path}")
     anomalous_records = labels_data["anomalous_transactions"]
     anomalous_txids = {rec["txid"] for rec in anomalous_records if isinstance(rec, dict) and "txid" in rec}
 
