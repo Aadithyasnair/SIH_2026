@@ -63,7 +63,8 @@ def main():
         ("network_events.json", NetworkEvent),
         ("blockchain_txns.json", BlockchainTxn),
         ("correlation_edges.json", CorrelationEdge),
-        ("clusters.json", Cluster)
+        ("clusters.json", Cluster),
+        ("alerts.json", Alert)
     ]
 
     for filename, model_cls in targets:
