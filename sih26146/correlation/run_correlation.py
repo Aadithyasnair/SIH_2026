@@ -109,8 +109,9 @@ def run_pipeline(
 
 
 def main():
+    default_sample_dir = Path(__file__).resolve().parents[1] / "shared" / "sample_data"
     parser = argparse.ArgumentParser(description="Run Module 2 Correlation Pipeline")
-    parser.add_argument("--data-dir", type=str, default="/Users/sufiyankhan/Desktop/SIH2026/sih26146/shared/sample_data")
+    parser.add_argument("--data-dir", type=str, default=str(default_sample_dir))
     parser.add_argument("--output-dir", type=str, default=None)
     args = parser.parse_args()
 

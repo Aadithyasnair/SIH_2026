@@ -52,3 +52,45 @@ def test_risk_propagation_decay_across_hops():
     # Check bounds [0.0, 1.0]
     for w, r in risk_scores.items():
         assert 0.0 <= r <= 1.0
+
+
+def test_risk_does_not_propagate_to_upstream_funder():
+    """
+    Test that risk propagates outward along fund transfers, not backward into innocent upstream funders.
+    Scenario:
+    - InnocentFunder sends funds to SeedIllicitWallet
+    - SeedIllicitWallet sends funds to TaintedDestination
+    InnocentFunder must NOT receive propagated risk.
+    """
+    txns = [
+        BlockchainTxn(
+            txid="tx_fund_seed",
+            timestamp="2026-03-10T12:00:00Z",
+            input_addresses=["addr_innocent_funder"],
+            output_addresses=["addr_seed_illicit"],
+            input_amounts=[5.0],
+            output_amounts=[4.999],
+            fee=0.001,
+            script_type="P2PKH"
+        ),
+        BlockchainTxn(
+            txid="tx_seed_spends",
+            timestamp="2026-03-10T12:05:00Z",
+            input_addresses=["addr_seed_illicit"],
+            output_addresses=["addr_tainted_dest"],
+            input_amounts=[4.999],
+            output_amounts=[4.998],
+            fee=0.001,
+            script_type="P2PKH"
+        )
+    ]
+
+    G = build_graph([], txns)
+    labels = {"seed_illicit_wallets": ["addr_seed_illicit"]}
+
+    risk_scores = propagate_risk(G, labels, method="hop_decay")
+
+    assert risk_scores["addr_seed_illicit"] == 1.0
+    assert risk_scores["addr_tainted_dest"] >= 0.50
+    # Innocent upstream funder must remain at 0.0 (no backward propagation)
+    assert risk_scores["addr_innocent_funder"] == 0.0

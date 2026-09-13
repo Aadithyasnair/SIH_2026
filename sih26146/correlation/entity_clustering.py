@@ -130,18 +130,19 @@ def compute_embedding_clusters(wallet_g: nx.Graph, min_cluster_size: int = 2) ->
     embeddings = {}
     if Node2Vec is not None:
         try:
-            # Configure Node2Vec for structural embeddings
+            # Configure Node2Vec for structural embeddings with deterministic seed
             n2v = Node2Vec(
                 wallet_g,
                 dimensions=16,
                 walk_length=10,
-                num_walks=20,
+                num_walks=40,
                 p=1.0,
                 q=0.5,
+                seed=42,
                 workers=1,
                 quiet=True
             )
-            model = n2v.fit(window=5, min_count=1, batch_words=4)
+            model = n2v.fit(window=5, min_count=1, batch_words=4, seed=42)
             for node in nodes:
                 if str(node) in model.wv:
                     embeddings[node] = model.wv[str(node)]
@@ -159,21 +160,24 @@ def compute_embedding_clusters(wallet_g: nx.Graph, min_cluster_size: int = 2) ->
     node_list = list(embeddings.keys())
     X = np.array([embeddings[n] for n in node_list])
 
-    # Cluster using HDBSCAN or KMeans
+    # Cluster using HDBSCAN if graph is sufficiently large and noise is bounded, else KMeans
     cluster_labels = {}
-    if hdbscan is not None and len(node_list) >= 4:
+    if hdbscan is not None and len(node_list) >= 12:
         try:
-            clusterer = hdbscan.HDBSCAN(min_cluster_size=min_cluster_size, min_samples=1)
+            clusterer = hdbscan.HDBSCAN(min_cluster_size=max(2, min_cluster_size), min_samples=1)
             labels = clusterer.fit_predict(X)
-            for node, lbl in zip(node_list, labels):
-                cluster_labels[node] = int(lbl)
+            noise_ratio = sum(1 for l in labels if l < 0) / len(labels)
+            if noise_ratio < 0.35:
+                for node, lbl in zip(node_list, labels):
+                    cluster_labels[node] = int(lbl)
         except Exception:
             cluster_labels = {}
 
     if not cluster_labels:
-        # Use KMeans with adaptive k
-        k = max(2, min(len(node_list) // 2, 5))
-        kmeans = KMeans(n_clusters=k, random_state=42, n_init="auto")
+        # Use KMeans with component-aware k
+        n_components = nx.number_connected_components(wallet_g)
+        k = max(1, min(n_components, len(node_list) // 2))
+        kmeans = KMeans(n_clusters=k, random_state=42, n_init=10)
         labels = kmeans.fit_predict(X)
         for node, lbl in zip(node_list, labels):
             cluster_labels[node] = int(lbl)

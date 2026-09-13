@@ -64,7 +64,14 @@ def test_dual_signal_clustering_and_embeddings_catch_hidden_relationship():
         assert c.clustering_method == "common_input_ownership+node2vec_embedding"
         assert c.member_count == len(c.member_addresses)
 
-    # Verify lookup function
+    # Verify lookup function and assert that embedding clustering successfully bridged
+    # the two distinct heuristic groups (Addr_A* and Addr_B*) through Addr_Bridge
     c_a1 = get_cluster_for_address(clusters, "Addr_A1")
     assert c_a1 is not None
     assert "Addr_A1" in c_a1.member_addresses
+    assert "Addr_A2" in c_a1.member_addresses
+    # Crucial assertion addressed from PR review:
+    # Embedding clustering must bridge across the intermediate transaction to unite both groups
+    assert "Addr_Bridge" in c_a1.member_addresses, "Embedding signal must include intermediate bridge address"
+    assert "Addr_B1" in c_a1.member_addresses, "Embedding signal must bridge to second group Addr_B1"
+    assert "Addr_B2" in c_a1.member_addresses, "Embedding signal must bridge to second group Addr_B2"

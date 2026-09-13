@@ -1,170 +1,170 @@
 [
   {
-    "edge_id": "d6c981ab-0714-432a-9439-efd0e9207eb2",
+    "edge_id": "4d8cbe7e-cdc1-42cf-bdce-008dd177b538",
     "network_event_id": "ffba2a17-dd78-4d46-bf8d-eaa9bd72fa10",
     "txid": "tx_peel_chain_hop_0_4349209e",
-    "confidence": 0.7,
+    "confidence": 0.595,
     "correlation_type": "ip_reuse"
   },
   {
-    "edge_id": "bc7ce3e1-c5d1-48d4-a75a-10e3f923d241",
+    "edge_id": "222eafec-bcc5-4502-b612-3a38f1b287c4",
     "network_event_id": "4169a37c-f3fa-4395-9e9a-c2a306be1605",
     "txid": "tx_peel_chain_hop_1_a675af44",
-    "confidence": 0.7,
+    "confidence": 0.595,
     "correlation_type": "ip_reuse"
   },
   {
-    "edge_id": "9619a3d8-32e6-4ac2-a9e3-a68dcd7658f4",
+    "edge_id": "14132a28-4fb6-42cc-bc79-8d78867bc12b",
     "network_event_id": "7581f037-513b-4f22-9d9e-978c8bf43279",
     "txid": "tx_peel_chain_hop_2_547f4c56",
-    "confidence": 0.7,
+    "confidence": 0.595,
     "correlation_type": "ip_reuse"
   },
   {
-    "edge_id": "ec6bc469-9361-4d76-a9ff-1ddde938b41b",
+    "edge_id": "734a99bb-18cf-4d40-ac0c-15daff1b97fc",
     "network_event_id": "dc500fc8-a5f0-4382-a2b3-13d5c794ed3f",
     "txid": "tx_peel_chain_hop_3_4c1b09b1",
-    "confidence": 0.7,
+    "confidence": 0.595,
     "correlation_type": "ip_reuse"
   },
   {
-    "edge_id": "873d766c-e7fb-47ef-b4c0-a15ee541a9e8",
+    "edge_id": "b3b46c19-4ac3-4d54-9528-90cadc5ecc72",
     "network_event_id": "42cda188-5728-42bf-8786-402b4fb13583",
     "txid": "tx_coinjoin_mixing_42622f42",
-    "confidence": 0.7,
+    "confidence": 0.595,
     "correlation_type": "ip_reuse"
   },
   {
-    "edge_id": "5ce11d12-8ea5-411a-9197-d5b8c49d0fbc",
+    "edge_id": "f98efde3-dd5a-4df9-aa8e-7f2395ac46a1",
     "network_event_id": "a540875e-7098-42c0-9175-86d026b71a10",
     "txid": "tx_common_input_cluster_0700c277",
-    "confidence": 0.7,
+    "confidence": 0.595,
     "correlation_type": "ip_reuse"
   },
   {
-    "edge_id": "80e6faf0-e978-4818-98cf-43b85fa747f7",
+    "edge_id": "17a54fcc-9de0-4400-868b-dbf105a32197",
     "network_event_id": "9a983b0d-6a1a-4ec6-893c-9e5efdd10677",
     "txid": "tx_normal_0_2cde31e0",
-    "confidence": 0.7,
+    "confidence": 0.595,
     "correlation_type": "ip_reuse"
   },
   {
-    "edge_id": "cab353f7-3c55-4b2c-b92f-44f50ed44dce",
+    "edge_id": "bf500aaf-7e85-49b2-b336-0af58f8d9393",
     "network_event_id": "449f09e8-1eb2-4707-b50d-46bdcc357185",
     "txid": "tx_normal_1_b9daa6d6",
-    "confidence": 0.7,
+    "confidence": 0.595,
     "correlation_type": "ip_reuse"
   },
   {
-    "edge_id": "2bbcf956-9d9b-4db7-b0b8-412b5c8c4869",
+    "edge_id": "dd901707-cfe5-42bf-ad0d-72b667d525e9",
     "network_event_id": "54e48e40-cc84-4664-888b-358308125ae0",
     "txid": "tx_normal_2_f538ec95",
-    "confidence": 0.7,
+    "confidence": 0.595,
     "correlation_type": "ip_reuse"
   },
   {
-    "edge_id": "7f1f65ad-be03-418b-98b5-ff73793c7805",
+    "edge_id": "bf40ea13-6206-4ef9-84a1-47555f986892",
     "network_event_id": "4e7d7753-80bf-4a89-8123-01583f5d87b8",
     "txid": "tx_normal_3_db95b3ec",
-    "confidence": 0.7,
+    "confidence": 0.595,
     "correlation_type": "ip_reuse"
   },
   {
-    "edge_id": "51070644-75bc-4cd1-9004-0aa78b3d9f39",
+    "edge_id": "f5091a29-119b-4116-9fa2-9238b15a1cb4",
     "network_event_id": "9e8b5eb7-1eca-4643-8651-e5ca0d122682",
     "txid": "tx_normal_4_483d5ef6",
-    "confidence": 0.7,
+    "confidence": 0.595,
     "correlation_type": "ip_reuse"
   },
   {
-    "edge_id": "25f39a8d-15bd-40ba-bd77-2d57c59c341f",
+    "edge_id": "3347df5e-3320-486c-87bf-fe2b66df63dd",
     "network_event_id": "e2691ee4-892b-4ec7-a218-08de047e57bb",
     "txid": "tx_normal_5_b4a511bc",
-    "confidence": 0.7,
+    "confidence": 0.595,
     "correlation_type": "ip_reuse"
   },
   {
-    "edge_id": "3c31d85a-44ff-457f-8c89-e4f5910440b1",
+    "edge_id": "cdf3232a-c1c2-4fcd-b2b3-6e16e267eaf4",
     "network_event_id": "26a8a191-711d-4d27-a0e3-362c5056f7e0",
     "txid": "tx_normal_6_64ad4f8e",
-    "confidence": 0.7,
+    "confidence": 0.595,
     "correlation_type": "ip_reuse"
   },
   {
-    "edge_id": "d7f79d38-59f7-4d01-b490-2c787dbe0c4d",
+    "edge_id": "7fae70b2-509e-4bd3-9e44-a94684b23357",
     "network_event_id": "87596384-6caf-4020-a8ec-0c56346fa38f",
     "txid": "tx_normal_7_90c6c6c5",
-    "confidence": 0.7,
+    "confidence": 0.595,
     "correlation_type": "ip_reuse"
   },
   {
-    "edge_id": "ec64e738-55cb-4e83-a1d5-44a46b2d1ca8",
+    "edge_id": "9e2c7238-82f2-4e9e-97ef-66c48a075bad",
     "network_event_id": "8a02f43b-de42-4e68-9ced-a2308a36f192",
     "txid": "tx_normal_8_322111ff",
-    "confidence": 0.7,
+    "confidence": 0.595,
     "correlation_type": "ip_reuse"
   },
   {
-    "edge_id": "c5f5e594-e033-47f6-988d-7983fa6c300e",
+    "edge_id": "dfd5c777-a746-43f2-9830-8213544b4569",
     "network_event_id": "9a79b55d-900a-456d-a761-6099da6045b1",
     "txid": "tx_normal_9_6b06a8cb",
-    "confidence": 0.7,
+    "confidence": 0.595,
     "correlation_type": "ip_reuse"
   },
   {
-    "edge_id": "0b6c3312-15d2-4b01-909c-2363d557aaa1",
+    "edge_id": "c49dbaf1-4774-4162-a69d-f107d2bad628",
     "network_event_id": "175cbf0d-13da-44df-8c8a-43aeff0152fc",
     "txid": "tx_normal_10_871657ce",
-    "confidence": 0.7,
+    "confidence": 0.595,
     "correlation_type": "ip_reuse"
   },
   {
-    "edge_id": "92cde6d6-12c0-4c6b-936f-2a6397a6b768",
+    "edge_id": "a1c3dc08-de5f-4575-8a09-8132a1a6237b",
     "network_event_id": "bed13f04-ced9-433b-9467-36f6aa452e23",
     "txid": "tx_normal_11_cd4ad93c",
-    "confidence": 0.7,
+    "confidence": 0.595,
     "correlation_type": "ip_reuse"
   },
   {
-    "edge_id": "d31d387e-c069-4955-957b-4a0910845776",
+    "edge_id": "f86fb65e-7342-4dda-b79e-24dbc006eec7",
     "network_event_id": "d86ffe23-1f56-4f45-ac06-b1f94995edfc",
     "txid": "tx_normal_12_3c3d39b6",
-    "confidence": 0.7,
+    "confidence": 0.595,
     "correlation_type": "ip_reuse"
   },
   {
-    "edge_id": "010290cc-a098-4851-8fce-dcb5db576dff",
+    "edge_id": "22335cea-3223-4aa2-97a0-a1fe59fbd914",
     "network_event_id": "e8882c56-7342-4fbd-82ca-82d33288a665",
     "txid": "tx_normal_13_b2f93086",
-    "confidence": 0.7,
+    "confidence": 0.595,
     "correlation_type": "ip_reuse"
   },
   {
-    "edge_id": "413168c5-f868-4d8c-b908-51b6f900946a",
+    "edge_id": "877e61b2-42bd-4b2e-baf8-622ccb187ffb",
     "network_event_id": "7a4e4495-3a3f-488c-bfd8-d261052ed60f",
     "txid": "tx_normal_14_642ab19a",
-    "confidence": 0.7,
+    "confidence": 0.595,
     "correlation_type": "ip_reuse"
   },
   {
-    "edge_id": "538542a1-8733-403b-9fa0-5d1d3d5bab5e",
+    "edge_id": "aafd1b9a-3db3-4f84-a496-3cd3edfc9336",
     "network_event_id": "4b75c824-c3e1-434c-893c-ceb5fdbbc3cf",
     "txid": "tx_normal_15_89c8a730",
-    "confidence": 0.7,
+    "confidence": 0.595,
     "correlation_type": "ip_reuse"
   },
   {
-    "edge_id": "280140b3-8ec1-44fc-8b4a-e13bbf84e36a",
+    "edge_id": "7c96443e-5f64-48eb-b602-f22f3c0d6eb4",
     "network_event_id": "32b1a7ec-189f-4611-8a11-2cf5ecf3d6c6",
     "txid": "tx_normal_16_cff2ff12",
-    "confidence": 0.7,
+    "confidence": 0.595,
     "correlation_type": "ip_reuse"
   },
   {
-    "edge_id": "731ae080-c688-4fce-936e-3d9f40b7081b",
+    "edge_id": "e5c07b00-7579-4ea7-a5c0-bd8664d1ed7d",
     "network_event_id": "246ba7a0-ddb2-4f76-a5d4-b854cd92bb6a",
     "txid": "tx_normal_17_d1a11f52",
-    "confidence": 0.7,
+    "confidence": 0.595,
     "correlation_type": "ip_reuse"
   }
 ]

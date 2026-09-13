@@ -7,12 +7,21 @@ Detects classic cryptocurrency laundering topologies:
    originating from and going to distinct addresses.
 """
 from dataclasses import dataclass, field
+from datetime import datetime, timezone
 from typing import List, Dict, Set, Optional, Union, Any, Tuple
 from collections import defaultdict
 import networkx as nx
 import numpy as np
 
 from sih26146.shared.schemas.records import BlockchainTxn
+
+
+def parse_iso8601(ts: str) -> datetime:
+    """Parses ISO8601 string to UTC datetime."""
+    dt = datetime.fromisoformat(ts.replace("Z", "+00:00"))
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    return dt
 
 
 @dataclass
@@ -41,26 +50,32 @@ def detect_coinjoin_transactions(
         unique_inputs = set(tx.input_addresses)
         unique_outputs = set(tx.output_addresses)
 
-        # Criteria: multiple distinct inputs and outputs
+        # Criteria: multiple distinct inputs and outputs with roughly equal denominations on both sides
         if len(unique_inputs) >= min_inputs and len(unique_outputs) >= min_outputs:
+            in_amts = np.array(tx.input_amounts, dtype=float)
             out_amts = np.array(tx.output_amounts, dtype=float)
-            if len(out_amts) > 0 and np.mean(out_amts) > 0:
-                cv = np.std(out_amts) / np.mean(out_amts)
-                if cv <= max_cv:
+            if len(in_amts) > 0 and len(out_amts) > 0 and np.mean(in_amts) > 0 and np.mean(out_amts) > 0:
+                cv_in = float(np.std(in_amts) / np.mean(in_amts))
+                cv_out = float(np.std(out_amts) / np.mean(out_amts))
+                if cv_in <= max_cv and cv_out <= max_cv:
+                    cv_avg = (cv_in + cv_out) / 2.0
                     results[tx.txid] = PatternResult(
                         txid=tx.txid,
                         pattern_type="coinjoin_mixing",
                         flags=[
                             "coinjoin_mixing_structure",
+                            f"equal_denomination_inputs_{len(unique_inputs)}",
                             f"equal_denomination_outputs_{len(unique_outputs)}",
-                            f"multi_party_inputs_{len(unique_inputs)}"
+                            f"multi_party_participants_{len(unique_inputs)}"
                         ],
-                        confidence=round(max(0.70, 1.0 - cv), 3),
+                        confidence=round(max(0.70, 1.0 - cv_avg), 3),
                         details={
                             "input_count": len(unique_inputs),
                             "output_count": len(unique_outputs),
+                            "mean_input_btc": float(np.mean(in_amts)),
                             "mean_output_btc": float(np.mean(out_amts)),
-                            "coefficient_of_variation": float(cv)
+                            "cv_inputs": float(cv_in),
+                            "cv_outputs": float(cv_out)
                         }
                     )
 
@@ -122,19 +137,30 @@ def detect_peeling_chains(
         hop_info = is_peel_hop(tx)
         if hop_info is not None:
             current_chain = [tx.txid]
+            curr_tx = tx
             fwd_addr = hop_info[0]
 
             while True:
                 next_candidates = tx_by_input.get(fwd_addr, [])
+                curr_time = parse_iso8601(curr_tx.timestamp)
+
+                # Filter to unused candidates occurring strictly AFTER current hop
+                valid_candidates = [
+                    cand for cand in next_candidates
+                    if cand.txid not in current_chain and parse_iso8601(cand.timestamp) > curr_time
+                ]
+                # Sort chronologically ascending to pick the immediate chronological next hop
+                valid_candidates.sort(key=lambda cand: parse_iso8601(cand.timestamp))
+
                 found_next = False
-                for next_tx in next_candidates:
-                    if next_tx.txid not in current_chain:
-                        next_hop_info = is_peel_hop(next_tx)
-                        if next_hop_info is not None:
-                            current_chain.append(next_tx.txid)
-                            fwd_addr = next_hop_info[0]
-                            found_next = True
-                            break
+                for next_tx in valid_candidates:
+                    next_hop_info = is_peel_hop(next_tx)
+                    if next_hop_info is not None:
+                        current_chain.append(next_tx.txid)
+                        curr_tx = next_tx
+                        fwd_addr = next_hop_info[0]
+                        found_next = True
+                        break
                 if not found_next:
                     break
 

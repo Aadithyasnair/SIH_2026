@@ -133,11 +133,10 @@ def propagate_risk_hop_decay(
     if not valid_seeds:
         return risk_scores
 
-    # Breadth-first / shortest path hop decay
+    # Directed breadth-first shortest path hop decay (outward propagation)
     for seed in valid_seeds:
-        # Compute shortest path distances in directed and undirected projection
-        undirected_proj = flow_graph.to_undirected()
-        lengths = nx.single_source_shortest_path_length(undirected_proj, seed, cutoff=max_hops)
+        # Traverse directed graph along fund transfers (co-inputs are already bidirectional)
+        lengths = nx.single_source_shortest_path_length(flow_graph, seed, cutoff=max_hops)
         for target, hops in lengths.items():
             if hops == 0:
                 hop_risk = 1.0

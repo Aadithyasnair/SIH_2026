@@ -139,8 +139,9 @@
     "pattern_type": "coinjoin_mixing",
     "flags": [
       "coinjoin_mixing_structure",
+      "equal_denomination_inputs_5",
       "equal_denomination_outputs_5",
-      "multi_party_inputs_5"
+      "multi_party_participants_5"
     ],
     "propagated_risk_score": 0.0
   },

@@ -30,8 +30,8 @@ except ImportError:
 
 def validate_file(file_path: Path, model_cls):
     if not file_path.exists():
-        print(f"[SKIP] {file_path.name} not found.")
-        return True
+        print(f"[FAIL] Required file {file_path.name} not found.")
+        return False
 
     with open(file_path, "r", encoding="utf-8") as f:
         records = json.load(f)

@@ -31,7 +31,7 @@ All final confidence scores are strictly clamped to the range [0.0, 1.0].
 import uuid
 from datetime import datetime, timezone
 from collections import defaultdict
-from typing import List, Dict, Union, Any, Tuple
+from typing import List, Dict, Set, Union, Any, Tuple
 
 from sih26146.shared.schemas.records import NetworkEvent, BlockchainTxn, CorrelationEdge
 
@@ -107,15 +107,20 @@ def correlate_network_and_blockchain(
     for sess_id in event_to_session.values():
         session_sizes[sess_id] += 1
 
-    # Preliminary pass: detect candidate pairs within time window to gauge IP reuse
-    ip_candidate_counts = defaultdict(int)
+    # Pass 1: Build real IP-to-wallet co-occurrence and multi-wallet association mapping
+    # For every event/transaction pair within the time window, associate src_ip with tx wallet addresses
+    ip_wallets: Dict[str, Set[str]] = defaultdict(set)
+    ip_wallet_pair_counts: Dict[Tuple[str, str], int] = defaultdict(int)
+
     for ev in typed_events:
         ev_dt = event_times[ev.event_id]
         for tx in typed_txns:
             tx_dt = txn_times[tx.txid]
             delta = abs((ev_dt - tx_dt).total_seconds())
             if delta <= time_window_seconds:
-                ip_candidate_counts[ev.src_ip] += 1
+                for w in tx.input_addresses:
+                    ip_wallets[ev.src_ip].add(w)
+                    ip_wallet_pair_counts[(ev.src_ip, w)] += 1
 
     correlation_edges: List[CorrelationEdge] = []
 
@@ -132,10 +137,22 @@ def correlate_network_and_blockchain(
                 # 1. Time proximity score
                 time_score = max(0.0, 1.0 - (delta_t / time_window_seconds))
 
-                # 2. IP reuse score
-                occurrences = ip_candidate_counts[ev.src_ip]
-                # If IP appears repeatedly in candidate window, evidence is strengthened
-                reuse_score = min(1.0, 0.4 + 0.15 * min(occurrences, 4))
+                # 2. Real IP-to-wallet reuse score
+                # - Check if this IP is associated with multiple distinct wallets (IP reuse)
+                # - Check how frequently this specific (IP, wallet) pair co-occurs
+                unique_wallets_for_ip = len(ip_wallets[ev.src_ip])
+                max_cooccurrence_freq = max(
+                    [ip_wallet_pair_counts.get((ev.src_ip, w), 0) for w in tx.input_addresses],
+                    default=0
+                )
+
+                # Base score for valid temporal match
+                base_reuse = 0.30
+                # If the same IP touches multiple distinct wallets across transactions (IP reuse)
+                reuse_bonus = 0.35 if unique_wallets_for_ip >= 2 else 0.0
+                # If this specific IP-wallet pair co-occurs repeatedly
+                cooccurrence_bonus = min(0.35, 0.15 * max(0, max_cooccurrence_freq - 1))
+                reuse_score = min(1.0, base_reuse + reuse_bonus + cooccurrence_bonus)
 
                 # 3. Session continuity score
                 session_score = 1.0 if is_multi_packet_session else 0.5
@@ -149,11 +166,13 @@ def correlate_network_and_blockchain(
                 confidence = max(0.0, min(1.0, round(raw_confidence, 4)))
 
                 if confidence >= min_confidence:
-                    corr_type = "time_window"
-                    if delta_t <= 5.0 and is_multi_packet_session:
-                        corr_type = "session_burst"
-                    elif occurrences > 2:
+                    # Label based on the dominant evidence signal
+                    if unique_wallets_for_ip >= 2:
                         corr_type = "ip_reuse"
+                    elif delta_t <= 5.0 and is_multi_packet_session:
+                        corr_type = "session_burst"
+                    else:
+                        corr_type = "time_window"
 
                     edge = CorrelationEdge(
                         edge_id=str(uuid.uuid4()),

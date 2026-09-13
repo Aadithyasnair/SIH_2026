@@ -74,3 +74,55 @@ def test_coinjoin_mixing_detection():
     assert res.pattern_type == "coinjoin_mixing"
     assert any("coinjoin" in f for f in res.flags)
     assert res.confidence >= 0.70
+
+
+def test_coinjoin_rejects_unequal_inputs_with_equal_outputs():
+    """Verify that transactions with unequal inputs but equal outputs are NOT flagged as CoinJoin."""
+    unequal_in_tx = BlockchainTxn(
+        txid="tx_unequal_inputs",
+        timestamp="2026-03-10T14:15:00Z",
+        input_addresses=["addr_in_1", "addr_in_2", "addr_in_3", "addr_in_4"],
+        output_addresses=["addr_out_1", "addr_out_2", "addr_out_3", "addr_out_4"],
+        input_amounts=[5.0, 0.1, 0.2, 0.05],  # Highly unequal inputs
+        output_amounts=[1.3, 1.3, 1.3, 1.3],   # Equal outputs
+        fee=0.001,
+        script_type="P2WPKH"
+    )
+
+    G = build_graph([], [unequal_in_tx])
+    patterns = detect_patterns(G, [unequal_in_tx])
+    assert patterns["tx_unequal_inputs"].pattern_type == "none"
+
+
+def test_peeling_chain_enforces_chronological_order():
+    """Verify that an out-of-order or reverse-timestamp transaction is not chained as a later hop."""
+    # Hop 0: at 12:10:00
+    tx_0 = BlockchainTxn(
+        txid="tx_hop_0",
+        timestamp="2026-03-10T12:10:00Z",
+        input_addresses=["addr_fwd_0"],
+        output_addresses=["addr_fwd_1", "addr_peel_0"],
+        input_amounts=[10.0],
+        output_amounts=[9.5, 0.5],
+        fee=0.001,
+        script_type="P2PKH"
+    )
+    # Hop 1: earlier timestamp 12:00:00 (occurred BEFORE hop 0!)
+    tx_1_past = BlockchainTxn(
+        txid="tx_hop_1_past",
+        timestamp="2026-03-10T12:00:00Z",
+        input_addresses=["addr_fwd_1"],
+        output_addresses=["addr_fwd_2", "addr_peel_1"],
+        input_amounts=[9.5],
+        output_amounts=[9.0, 0.5],
+        fee=0.001,
+        script_type="P2PKH"
+    )
+
+    all_txs = [tx_0, tx_1_past]
+    G = build_graph([], all_txs)
+    patterns = detect_patterns(G, all_txs)
+
+    # Neither should form a >=3 hop peeling chain
+    assert patterns["tx_hop_0"].pattern_type == "none"
+    assert patterns["tx_hop_1_past"].pattern_type == "none"

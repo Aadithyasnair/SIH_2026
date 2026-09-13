@@ -96,6 +96,46 @@ def test_ip_reuse_detection():
 
     edges = correlate_network_and_blockchain(events, txns, time_window_seconds=30.0)
     assert len(edges) >= 3
-    # At least one should carry ip_reuse or session_burst tag
+    # Same IP 198.51.100.99 broadcast transactions for addr_0, addr_1, addr_2 -> ip_reuse must be flagged
     corr_types = [e.correlation_type for e in edges]
-    assert any(t in ("ip_reuse", "session_burst") for t in corr_types)
+    assert "ip_reuse" in corr_types
+
+
+def test_ip_reuse_not_flagged_for_single_wallet():
+    """Verify that an IP repeatedly broadcasting for the SAME single wallet is not mislabeled as multi-wallet reuse."""
+    events = [
+        NetworkEvent(
+            event_id=f"ev_single_{i}",
+            timestamp=f"2026-03-10T12:00:0{i*5}Z",
+            src_ip="198.51.100.50",
+            dst_ip="83.136.255.40",
+            src_port=50100 + i,
+            dst_port=8333,
+            protocol="TCP",
+            packet_size=400,
+            src_geo_country="US",
+            src_asn="AS15169",
+            dst_geo_country="DE",
+            dst_asn="AS24940"
+        )
+        for i in range(3)
+    ]
+    # All transactions belong to the same wallet: addr_single_user
+    txns = [
+        BlockchainTxn(
+            txid=f"tx_single_{i}",
+            timestamp=f"2026-03-10T12:00:0{i*5 + 1}Z",
+            input_addresses=["addr_single_user"],
+            output_addresses=["addr_merchant"],
+            input_amounts=[1.0],
+            output_amounts=[0.99],
+            fee=0.01,
+            script_type="P2PKH"
+        )
+        for i in range(3)
+    ]
+
+    edges = correlate_network_and_blockchain(events, txns, time_window_seconds=10.0)
+    # Because only one wallet is associated with this IP, it must not be labeled as ip_reuse
+    corr_types = [e.correlation_type for e in edges]
+    assert "ip_reuse" not in corr_types
