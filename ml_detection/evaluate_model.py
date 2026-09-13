@@ -27,6 +27,7 @@ from ml_detection.data_loader import (
     load_labels,
 )
 from ml_detection.predict import score_transactions
+from ml_detection.feature_engineering import FEATURE_COLUMNS
 
 
 def _metrics_at_threshold(
@@ -88,9 +89,13 @@ def evaluate_model(
     pred_by_txid = {p["txid"]: p for p in predictions}
 
     # 3. Load ground truth labels (strictly for evaluation comparison)
+    if not labels_path.exists():
+        raise FileNotFoundError(f"Ground-truth labels not found: {labels_path}")
     labels_data = load_labels(labels_path)
-    anomalous_records = labels_data.get("anomalous_transactions", [])
-    anomalous_txids = {rec["txid"] for rec in anomalous_records if "txid" in rec}
+    if not isinstance(labels_data, dict) or "anomalous_transactions" not in labels_data:
+        raise ValueError(f"Invalid labels file: {labels_path}")
+    anomalous_records = labels_data["anomalous_transactions"]
+    anomalous_txids = {rec["txid"] for rec in anomalous_records if isinstance(rec, dict) and "txid" in rec}
 
     # 4. Build arrays
     y_true: List[int] = []
@@ -190,6 +195,7 @@ def _generate_markdown_report(
 
 | Metric | Value |
 |---|---|
+| **Evaluation Mode** | **Reference Benchmark / Training-Set Diagnostics** |
 | **Total Evaluated Transactions** | {m['total_samples']} |
 | **Ground-Truth Anomalies** | {m['total_anomalies_ground_truth']} |
 | **Ground-Truth Normals** | {m['total_normals_ground_truth']} |
@@ -234,22 +240,26 @@ than normal ones.
 Normalization: robust winsorized percentile calibration `clip((-score_samples(x) - s_min) / (s_max - s_min), 0, 1)`.  
 Higher score → more anomalous.
 
-### 2. Feedforward Autoencoder (Secondary — Neural Reconstruction Error)
-PyTorch `nn.Module` architecture: `input_dim → 32 → 16 → 8 → 16 → 32 → input_dim`  
-Trained 150 epochs, Adam optimizer (lr=0.003, weight_decay=1e-5), MSE reconstruction loss, batch size 64.  
-Principle: the network learns a compressed representation of normal transactions. Anomalous 
-transactions reconstruct poorly, producing higher per-sample MSE.  
-Normalization: robust winsorized percentile calibration `clip((mse(x) - err_min) / (err_max - err_min), 0, 1)`.
+### 2. Feedforward Autoencoder (Neural Reconstruction Anomaly Detection)
+PyTorch feedforward architecture: `Input({len(FEATURE_COLUMNS)}) → Dense(20, LeakyReLU) → Dense(12, LeakyReLU) → Latent(8) → Dense(12, LeakyReLU) → Dense(20, LeakyReLU) → Output({len(FEATURE_COLUMNS)})`.  
+Trained exclusively with MSE loss via Adam optimizer (`lr=0.003`).  
+Principle: the network learns a compact representation of normal Bitcoin transactions. 
+Outliers (unusual amounts, atypical graph degrees, multi-party mixing) fail to reconstruct accurately.  
+Anomaly signal: per-sample MSE reconstruction error `mean((x - x_rec)^2, axis=1)`.  
+Normalization: calibrated min-max scaling to `[0, 1]`.
 
-### 3. Ensemble Combination
-$$\\text{{anomaly\\_score}} = 0.70 \\cdot \\text{{IF\\_score}} + 0.30 \\cdot \\text{{AE\\_score}} \\in [0, 1]$$
-
-Weighted combination assigns primary weight (70%) to the Isolation Forest detector per the PS 
-specification and secondary weight (30%) to neural reconstruction error. Configurable in `train_model.py`.
+### 3. Combined Anomaly Score
+```text
+anomaly_score = alpha * IF_score + (1 - alpha) * AE_score    (alpha = 0.55)
+```
+- Both signals are strictly normalized to `[0.0, 1.0]` before linear combination.
+- `alpha = 0.55` weights the Isolation Forest slightly higher as the primary partition-based 
+  detector while leveraging the Autoencoder's continuous manifold reconstruction error.
+- Combined score satisfies `0.0 <= anomaly_score <= 1.0` for any transaction.
 
 ---
 
-## Feature Set (30 features across 7 groups)
+## Feature Set ({len(FEATURE_COLUMNS)} features across 7 groups)
 
 | Group | Features | PS Field Coverage |
 |---|---|---|
@@ -280,10 +290,10 @@ specification and secondary weight (30%) to neural reconstruction error. Configu
 
 ---
 
-## Honest Limitations
+## Honest Limitations & Evaluation Context
 
-- **Dataset size:** Sample data contains only 24 transactions (5 anomalous, 19 normal). 
-  Perfect metrics (P=R=F1=1.0) on this tiny set are expected and should not be over-interpreted.
+- **Evaluation Dataset & Mode:** Evaluated on {m['total_samples']} transactions ({m['total_anomalies_ground_truth']} anomalous, {m['total_normals_ground_truth']} normal).
+  This report represents training-set / benchmark diagnostics on the reference dataset. While useful to verify model convergence and anomaly separation, out-of-sample held-out evaluation is recommended for final operational deployment.
 - **Checkpoint 2 obligation:** When Module A/B deliver real pipeline output, this module 
   must retrain and re-evaluate. The re-generated report replaces this one.
 - **Scores are calibrated to training distribution:** inference-time scores are compared to 

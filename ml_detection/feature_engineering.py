@@ -6,7 +6,8 @@ and pattern features from transaction and pipeline data.
 Strictly unsupervised: NO ground-truth labels are ever accessed or used here.
 """
 from datetime import datetime, timezone
-from typing import Dict, List, Any, Optional, Tuple, Set
+from typing import Dict, List, Any, Optional, Tuple, Set, Union
+import bisect
 import numpy as np
 import pandas as pd
 import networkx as nx
@@ -45,31 +46,31 @@ FEATURE_COLUMNS = [
     "hour_of_day",
     "is_night_hour",
     "tx_burst_1h_count",
-    # 3. Graph topological features
+    # 3. Graph Topology features (derived from Module B entity graph)
     "max_addr_degree",
     "mean_addr_degree",
     "max_addr_betweenness",
-    # 4. Cluster signals
+    # 4. Cluster signals (Module B entity clustering)
     "in_cluster",
     "cluster_avg_risk",
     "cluster_member_count",
-    # 5. Network & Geographic signals
+    # 5. Network Geography & ASN diversity
     "src_country_count",
     "src_asn_count",
     "is_cross_border",
-    # 6. Module B pattern & propagation signals
+    # 6. Module B Pattern & Propagation signals
     "pattern_type_code",
     "flag_count",
     "propagated_risk_score",
     "script_type_code",
-    # 7. Port-based network signals (PS minimum field: src_port, dst_port)
+    # 7. Port-based signals
     "dst_port_is_standard_bitcoin",
     "dst_port_is_tor_proxy",
 ]
 
 
 def _parse_timestamp(ts: Any) -> Optional[datetime]:
-    """Safely parse ISO8601 timestamp string or datetime object."""
+    """Parse ISO8601 timestamp safely."""
     if isinstance(ts, datetime):
         return ts
     if isinstance(ts, str):
@@ -93,7 +94,7 @@ def compute_wallet_amount_histories(
         out_amounts = tx.get("output_amounts") or [0.0]
         total_out = float(sum(out_amounts))
         for addr in in_addrs:
-            wallet_amounts.setdefault(addr, []).append(total_out)
+            wallet_amounts.setdefault(str(addr), []).append(total_out)
 
     history: Dict[str, Tuple[float, float]] = {}
     for addr, amounts in wallet_amounts.items():
@@ -104,37 +105,94 @@ def compute_wallet_amount_histories(
     return history
 
 
+def compute_leave_one_out_wallet_histories(
+    transactions: List[Dict[str, Any]],
+) -> Dict[str, Dict[str, Tuple[float, float]]]:
+    """
+    For in-sample training feature extraction, compute leave-one-out wallet amount
+    history for each transaction to avoid trivial self-reference.
+    Returns: dict mapping txid -> {wallet_address: (mean_excluding_tx, std_excluding_tx)}
+    """
+    wallet_amounts: Dict[str, List[float]] = {}
+    for tx in transactions:
+        in_addrs = tx.get("input_addresses") or []
+        out_amounts = tx.get("output_amounts") or [0.0]
+        total_out = float(sum(out_amounts))
+        for addr in in_addrs:
+            wallet_amounts.setdefault(str(addr), []).append(total_out)
+
+    tx_wallet_histories: Dict[str, Dict[str, Tuple[float, float]]] = {}
+    for tx in transactions:
+        txid = str(tx.get("txid", ""))
+        in_addrs = tx.get("input_addresses") or []
+        out_amounts = tx.get("output_amounts") or [0.0]
+        total_out = float(sum(out_amounts))
+        tx_hist: Dict[str, Tuple[float, float]] = {}
+        for addr in in_addrs:
+            addr_str = str(addr)
+            amts = wallet_amounts.get(addr_str, [])
+            if len(amts) <= 1:
+                tx_hist[addr_str] = (total_out, 0.0)
+            else:
+                m = len(amts) - 1
+                rem_sum = sum(amts) - total_out
+                rem_mean = rem_sum / m
+                rem_sq_sum = sum((x - rem_mean) ** 2 for x in amts) - ((total_out - rem_mean) ** 2)
+                rem_std = float(np.sqrt(max(0.0, rem_sq_sum / m)))
+                tx_hist[addr_str] = (rem_mean, rem_std)
+        tx_wallet_histories[txid] = tx_hist
+
+    return tx_wallet_histories
+
+
 def compute_address_bursts(
     transactions: List[Dict[str, Any]],
     window_seconds: float = 3600.0,
 ) -> Dict[str, int]:
     """
     Compute max transaction count within window_seconds per transaction
-    based on participating input addresses.
+    based on participating input addresses using per-address sorted windows.
+    O(n log n) complexity instead of O(n^2).
     """
-    # Parse timestamps and sort
-    parsed_txs: List[Tuple[datetime, str, Set[str]]] = []
+    if not transactions:
+        return {}
+
+    addr_events: Dict[str, List[Tuple[float, str]]] = {}
+    parsed: List[Tuple[float, str, List[str]]] = []
+
     for tx in transactions:
-        ts = _parse_timestamp(tx.get("timestamp"))
-        if ts is None:
-            ts = datetime.fromtimestamp(0, tz=timezone.utc)
-        txid = tx.get("txid", "")
-        in_addrs = set(tx.get("input_addresses") or [])
-        parsed_txs.append((ts, txid, in_addrs))
+        ts_obj = _parse_timestamp(tx.get("timestamp"))
+        ts_float = ts_obj.timestamp() if ts_obj is not None else 0.0
+        txid = str(tx.get("txid", ""))
+        in_addrs = [str(a) for a in (tx.get("input_addresses") or [])]
+        parsed.append((ts_float, txid, in_addrs))
+        for a in in_addrs:
+            addr_events.setdefault(a, []).append((ts_float, txid))
+
+    # Sort each address's events by timestamp
+    for a in addr_events:
+        addr_events[a].sort(key=lambda item: item[0])
 
     burst_counts: Dict[str, int] = {}
-    n = len(parsed_txs)
-    for i in range(n):
-        ts_i, txid_i, addrs_i = parsed_txs[i]
-        count = 1
-        for j in range(n):
-            if i == j:
-                continue
-            ts_j, _, addrs_j = parsed_txs[j]
-            diff = abs((ts_i - ts_j).total_seconds())
-            if diff <= window_seconds and (addrs_i & addrs_j):
-                count += 1
-        burst_counts[txid_i] = count
+    for ts_float, txid, in_addrs in parsed:
+        if not in_addrs:
+            burst_counts[txid] = 1
+            continue
+
+        co_txids: Set[str] = set()
+        for a in in_addrs:
+            events = addr_events[a]
+            t_low = ts_float - window_seconds
+            t_high = ts_float + window_seconds
+
+            idx_start = bisect.bisect_left(events, (t_low, ""))
+            idx_end = bisect.bisect_right(events, (t_high, "\uffff"))
+
+            for k in range(idx_start, idx_end):
+                co_txids.add(events[k][1])
+
+        co_txids.add(txid)
+        burst_counts[txid] = len(co_txids)
 
     return burst_counts
 
@@ -274,7 +332,15 @@ def extract_features_for_txn(
 
     src_country_cnt = float(len(src_countries))
     src_asn_cnt = float(len(src_asns))
-    is_cross_border = 1.0 if src_country_cnt > 1.0 else 0.0
+    is_cross_border = 1.0 if (
+        src_country_cnt > 1.0
+        or any(
+            ev.get("src_geo_country")
+            and ev.get("dst_geo_country")
+            and ev["src_geo_country"] != ev["dst_geo_country"]
+            for ev in associated_events
+        )
+    ) else 0.0
 
     # 7. Port-based network signals (PS minimum fields: src_port, dst_port)
     # Bitcoin P2P standard ports: 8333 (mainnet), 18333 (testnet), 18444 (regtest)
@@ -286,11 +352,10 @@ def extract_features_for_txn(
     dst_port_is_tor = 0.0
     for ev in associated_events:
         dp = ev.get("dst_port")
-        sp = ev.get("src_port")
         if isinstance(dp, int):
-            if dp in BITCOIN_PORTS or (isinstance(sp, int) and sp in BITCOIN_PORTS):
+            if dp in BITCOIN_PORTS:
                 dst_port_is_bitcoin = 1.0
-            if dp in TOR_PORTS or (isinstance(sp, int) and sp in TOR_PORTS):
+            if dp in TOR_PORTS:
                 dst_port_is_tor = 1.0
 
     # 6. Module B pattern & propagation signals
@@ -346,10 +411,23 @@ def engineer_features(
     correlation_edges: Optional[List[Dict[str, Any]]] = None,
     clusters: Optional[List[Dict[str, Any]]] = None,
     graph: Optional[nx.Graph] = None,
+    wallet_histories: Optional[Dict[str, Tuple[float, float]]] = None,
+    is_training: bool = False,
 ) -> pd.DataFrame:
     """
     Extract full feature DataFrame for a list of transactions.
     Index will be txid.
+
+    Args:
+        transactions: List of transaction dicts
+        network_events: Optional correlated network events
+        correlation_edges: Optional correlation edges
+        clusters: Optional entity clusters
+        graph: Optional entity network graph
+        wallet_histories: Optional pre-computed/fitted wallet amount histories.
+                          If provided, used directly (e.g. for stable inference).
+        is_training: If True and wallet_histories is None, uses leave-one-out
+                     wallet history per transaction to prevent self-reference bias.
     """
     from ml_detection.data_loader import build_txid_to_network_events
 
@@ -358,7 +436,16 @@ def engineer_features(
     clusters = clusters or []
 
     txid_events_map = build_txid_to_network_events(correlation_edges, network_events)
-    wallet_histories = compute_wallet_amount_histories(transactions)
+
+    if wallet_histories is not None:
+        get_tx_wh = lambda tx: wallet_histories
+    elif is_training:
+        loo_histories = compute_leave_one_out_wallet_histories(transactions)
+        get_tx_wh = lambda tx: loo_histories.get(str(tx.get("txid", "")), {})
+    else:
+        batch_wh = compute_wallet_amount_histories(transactions)
+        get_tx_wh = lambda tx: batch_wh
+
     burst_counts = compute_address_bursts(transactions)
     deg_cent, bet_cent = compute_graph_metrics(graph)
     cluster_lookup = build_cluster_lookup(clusters)
@@ -374,7 +461,7 @@ def engineer_features(
 
         feat = extract_features_for_txn(
             tx=tx,
-            wallet_histories=wallet_histories,
+            wallet_histories=get_tx_wh(tx),
             burst_count=burst,
             deg_cent=deg_cent,
             bet_cent=bet_cent,
@@ -395,12 +482,14 @@ def engineer_features(
 def clean_features(
     df: pd.DataFrame,
     expected_cols: Optional[List[str]] = None,
-) -> Tuple[pd.DataFrame, List[str]]:
+    impute_medians: Optional[Dict[str, float]] = None,
+    return_medians: bool = False,
+) -> Union[Tuple[pd.DataFrame, List[str]], Tuple[pd.DataFrame, List[str], Dict[str, float]]]:
     """
     Clean and validate feature DataFrame.
-    - Fills NaN/inf with column medians or zeros.
+    - Fills NaN/inf with fitted medians (if provided) or column medians.
     - Enforces expected column set and order.
-    Returns: (cleaned_df, feature_column_names)
+    Returns: (cleaned_df, feature_column_names) or (cleaned_df, feature_column_names, fitted_medians)
     """
     cols = expected_cols if expected_cols is not None else FEATURE_COLUMNS
     cleaned = df.copy()
@@ -414,13 +503,19 @@ def clean_features(
     # Replace inf and -inf with NaN
     cleaned = cleaned.replace([np.inf, -np.inf], np.nan)
 
-    # Fill NaN with median, or 0.0 if all values are NaN
+    # Fill NaN with fitted or computed median
+    fitted_medians: Dict[str, float] = {}
     for c in cols:
-        median_val = cleaned[c].median()
-        if pd.isna(median_val):
-            median_val = 0.0
-        cleaned[c] = cleaned[c].fillna(median_val)
+        if impute_medians is not None and c in impute_medians:
+            m_val = float(impute_medians[c])
+        else:
+            median_val = cleaned[c].median()
+            m_val = 0.0 if pd.isna(median_val) else float(median_val)
+        fitted_medians[c] = m_val
+        cleaned[c] = cleaned[c].fillna(m_val)
 
     # Cast to float64
     cleaned = cleaned.astype(np.float64)
+    if return_medians:
+        return cleaned, list(cols), fitted_medians
     return cleaned, list(cols)

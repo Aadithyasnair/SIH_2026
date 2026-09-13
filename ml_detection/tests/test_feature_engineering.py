@@ -78,3 +78,65 @@ def test_robust_to_missing_fields():
     assert feat["total_output_btc"] == 0.0
     assert feat["pattern_type_code"] == 0.0
     assert feat["propagated_risk_score"] == 0.0
+
+
+def test_compute_address_bursts_sorted_window():
+    from ml_detection.feature_engineering import compute_address_bursts
+
+    txs = [
+        {"txid": "tx1", "timestamp": "2026-03-10T12:00:00+00:00", "input_addresses": ["addrA"]},
+        {"txid": "tx2", "timestamp": "2026-03-10T12:15:00+00:00", "input_addresses": ["addrA", "addrB"]},
+        {"txid": "tx3", "timestamp": "2026-03-10T12:30:00+00:00", "input_addresses": ["addrB"]},
+        {"txid": "tx4", "timestamp": "2026-03-10T15:00:00+00:00", "input_addresses": ["addrA"]},  # >1h away
+    ]
+    bursts = compute_address_bursts(txs, window_seconds=3600.0)
+    # tx1 overlaps with tx2 (shares addrA) within 1h: count = 2
+    assert bursts["tx1"] == 2
+    # tx2 overlaps with tx1 (addrA) and tx3 (addrB): count = 3
+    assert bursts["tx2"] == 3
+    # tx3 overlaps with tx2 (addrB): count = 2
+    assert bursts["tx3"] == 2
+    # tx4 is >1h away: count = 1
+    assert bursts["tx4"] == 1
+
+
+def test_cross_border_single_event_us_to_de(sample_txn):
+    ev = {
+        "event_id": "ev_test_1",
+        "src_ip": "1.2.3.4",
+        "src_geo_country": "US",
+        "dst_geo_country": "DE",
+        "src_asn": "AS123",
+        "dst_port": 8333,
+    }
+    feat = extract_features_for_txn(sample_txn, associated_events=[ev])
+    assert feat["is_cross_border"] == 1.0
+
+
+def test_dst_port_signals_only_destination_port(sample_txn):
+    # Only src_port is 8333, dst_port is 443 -> should NOT trigger dst_port_is_standard_bitcoin
+    ev_src_only = {
+        "event_id": "ev_src",
+        "src_port": 8333,
+        "dst_port": 443,
+    }
+    feat1 = extract_features_for_txn(sample_txn, associated_events=[ev_src_only])
+    assert feat1["dst_port_is_standard_bitcoin"] == 0.0
+    assert feat1["dst_port_is_tor_proxy"] == 0.0
+
+    # dst_port is 8333 -> should trigger dst_port_is_standard_bitcoin
+    ev_dst = {
+        "event_id": "ev_dst",
+        "src_port": 54321,
+        "dst_port": 8333,
+    }
+    feat2 = extract_features_for_txn(sample_txn, associated_events=[ev_dst])
+    assert feat2["dst_port_is_standard_bitcoin"] == 1.0
+
+
+def test_clean_features_with_fitted_medians():
+    df = pd.DataFrame({"total_input_btc": [np.nan]}, index=["tx_test"])
+    fitted = {"total_input_btc": 42.5}
+    cleaned, cols = clean_features(df, expected_cols=["total_input_btc"], impute_medians=fitted)
+    assert cleaned.loc["tx_test", "total_input_btc"] == 42.5
+

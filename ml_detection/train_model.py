@@ -29,6 +29,7 @@ from ml_detection.data_loader import (
 from ml_detection.feature_engineering import (
     engineer_features,
     clean_features,
+    compute_wallet_amount_histories,
     FEATURE_COLUMNS,
 )
 from ml_detection.models_components import (
@@ -76,8 +77,12 @@ def train_pipeline(
         correlation_edges=edges,
         clusters=clusters,
         graph=graph,
+        is_training=True,
     )
-    cleaned_df, feature_cols = clean_features(raw_df, FEATURE_COLUMNS)
+    cleaned_df, feature_cols, impute_medians = clean_features(
+        raw_df, FEATURE_COLUMNS, return_medians=True
+    )
+    wallet_histories = compute_wallet_amount_histories(txns)
     print(f"      Extracted {len(feature_cols)} features for {len(cleaned_df)} transactions.")
 
     print("[3/7] Standardizing features...")
@@ -137,6 +142,10 @@ def train_pipeline(
     }
     joblib.dump(calibration, models_dir / "calibration.joblib")
 
+    # 5. Imputation medians and Wallet amount histories
+    joblib.dump(impute_medians, models_dir / "impute_medians.joblib")
+    joblib.dump(wallet_histories, models_dir / "wallet_histories.joblib")
+
     print("\n[SUCCESS] Model training complete and artifacts saved.")
     print("Training Summary:")
     print(f"  Total samples: {len(X_scaled)}")
@@ -149,6 +158,8 @@ def train_pipeline(
         "if_model": if_model,
         "ae_model": ae_model,
         "calibration": calibration,
+        "impute_medians": impute_medians,
+        "wallet_histories": wallet_histories,
         "combined_scores": combined_scores,
         "txids": list(cleaned_df.index),
     }

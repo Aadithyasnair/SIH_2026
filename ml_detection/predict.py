@@ -81,12 +81,20 @@ def load_model_artifacts(models_dir: Optional[Union[str, Path]] = None) -> Dict[
     ae_model.load_state_dict(ae_checkpoint["state_dict"])
     ae_model.eval()
 
+    impute_medians_path = m_dir / "impute_medians.joblib"
+    impute_medians = joblib.load(impute_medians_path) if impute_medians_path.exists() else None
+
+    wallet_histories_path = m_dir / "wallet_histories.joblib"
+    wallet_histories = joblib.load(wallet_histories_path) if wallet_histories_path.exists() else None
+
     artifacts = {
         "scaler": scaler,
         "feature_cols": feature_cols,
         "if_model": if_model,
         "ae_model": ae_model,
         "calibration": calibration,
+        "impute_medians": impute_medians,
+        "wallet_histories": wallet_histories,
     }
     _CACHED_ARTIFACTS[cache_key] = artifacts
     return artifacts
@@ -113,6 +121,7 @@ def score_transactions(
                       - 'correlation_edges': List[Dict]
                       - 'clusters': List[Dict]
                       - 'graph': nx.Graph
+                      - 'wallet_histories': Dict[str, Tuple[float, float]]
                       If omitted, sensible default values are used.
         models_dir: Optional path to directory containing trained model artifacts.
 
@@ -143,18 +152,25 @@ def score_transactions(
     correlation_edges = ctx.get("correlation_edges")
     clusters = ctx.get("clusters")
     graph = ctx.get("graph")
+    wallet_histories = ctx.get("wallet_histories") or artifacts.get("wallet_histories")
 
-    # 1. Feature Engineering
+    # 1. Feature Engineering with persisted wallet history
     features_df = engineer_features(
         transactions=transactions,
         network_events=network_events,
         correlation_edges=correlation_edges,
         clusters=clusters,
         graph=graph,
+        wallet_histories=wallet_histories,
+        is_training=False,
     )
 
-    # 2. Cleaning & column alignment
-    cleaned_df, _ = clean_features(features_df, feature_cols)
+    # 2. Cleaning & column alignment with fitted medians
+    cleaned_df, _ = clean_features(
+        features_df,
+        feature_cols,
+        impute_medians=artifacts.get("impute_medians"),
+    )
 
     # 3. Scaling using saved scaler (never refit on inference data)
     X_scaled = scaler.transform(cleaned_df.values)

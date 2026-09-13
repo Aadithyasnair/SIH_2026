@@ -87,3 +87,60 @@ def test_autoencoder_state_dict_save_load(synthetic_features):
             out_loaded = loaded_model(x)
 
         assert torch.allclose(out_orig, out_loaded)
+
+
+def test_train_pipeline_save_and_load(tmp_path):
+    """
+    End-to-end test verifying train_pipeline saves all expected artifacts
+    and load_model_artifacts successfully loads them for inference.
+    """
+    from ml_detection.train_model import train_pipeline
+    from ml_detection.predict import load_model_artifacts, score_transactions, clear_artifact_cache
+    from ml_detection.data_loader import load_blockchain_txns
+
+    data_dir = Path("sih26146/shared/sample_data")
+    txns = load_blockchain_txns(data_dir)
+
+    clear_artifact_cache()
+    # Fast training run in temporary directory
+    train_result = train_pipeline(
+        data_dir=data_dir,
+        models_dir=tmp_path,
+        contamination=0.1,
+        latent_dim=4,
+        ae_epochs=2,
+        batch_size=128,
+        random_state=42,
+    )
+
+    # Check all required artifact files exist
+    expected_artifacts = [
+        "scaler.joblib",
+        "feature_cols.joblib",
+        "isolation_forest.joblib",
+        "autoencoder.pt",
+        "calibration.joblib",
+        "impute_medians.joblib",
+        "wallet_histories.joblib",
+    ]
+    for art in expected_artifacts:
+        art_path = tmp_path / art
+        assert art_path.exists(), f"Missing artifact {art} in {tmp_path}"
+        assert art_path.stat().st_size > 0
+
+    # Test load_model_artifacts
+    artifacts = load_model_artifacts(models_dir=tmp_path)
+    assert artifacts["scaler"] is not None
+    assert len(artifacts["feature_cols"]) > 15
+    assert artifacts["if_model"] is not None
+    assert artifacts["ae_model"] is not None
+    assert "s_min" in artifacts["calibration"]
+    assert isinstance(artifacts["impute_medians"], dict)
+    assert isinstance(artifacts["wallet_histories"], dict)
+
+    # Test scoring with loaded artifacts
+    preds = score_transactions(transactions=txns[:5], models_dir=tmp_path)
+    assert len(preds) == 5
+    for p in preds:
+        assert 0.0 <= p["anomaly_score"] <= 1.0
+

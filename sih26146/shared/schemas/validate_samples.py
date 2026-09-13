@@ -30,8 +30,8 @@ except ImportError:
 
 def validate_file(file_path: Path, model_cls):
     if not file_path.exists():
-        print(f"[SKIP] {file_path.name} not found.")
-        return True
+        print(f"[FAIL] {file_path.name} not found.")
+        return False
 
     with open(file_path, "r", encoding="utf-8") as f:
         records = json.load(f)
@@ -42,10 +42,13 @@ def validate_file(file_path: Path, model_cls):
 
     valid_count = 0
     for idx, rec in enumerate(records):
+        if not isinstance(rec, dict):
+            print(f"[ERROR] {file_path.name} Record #{idx} is not a dictionary.")
+            return False
         try:
             model_cls(**rec)
             valid_count += 1
-        except ValidationError as e:
+        except (ValidationError, TypeError) as e:
             print(f"[ERROR] {file_path.name} Record #{idx} validation failed:\n{e}")
             return False
 

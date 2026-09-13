@@ -39,18 +39,36 @@ def unseen_txns():
     ]
 
 
+@pytest.fixture
+def trained_models_dir(tmp_path_factory):
+    default_models = Path("ml_detection/models")
+    required = ["isolation_forest.joblib", "autoencoder.pt", "scaler.joblib", "calibration.joblib", "wallet_histories.joblib"]
+    if all((default_models / f).exists() for f in required):
+        return default_models
+
+    # Clean checkout: train models into a temporary directory so test never skips
+    tmp_models = tmp_path_factory.mktemp("models")
+    from ml_detection.train_model import train_pipeline
+    train_pipeline(
+        data_dir=Path("sih26146/shared/sample_data"),
+        models_dir=tmp_models,
+        contamination=0.1,
+        latent_dim=4,
+        ae_epochs=2,
+        batch_size=128,
+        random_state=42,
+    )
+    return tmp_models
+
+
 def test_score_transactions_empty():
     res = score_transactions([])
     assert res == []
 
 
-def test_score_transactions_unseen(unseen_txns):
+def test_score_transactions_unseen(unseen_txns, trained_models_dir):
     clear_artifact_cache()
-    models_dir = Path("ml_detection/models")
-    if not (models_dir / "isolation_forest.joblib").exists():
-        pytest.skip("Models not yet trained, skipping prediction test.")
-
-    results = score_transactions(unseen_txns, models_dir=models_dir)
+    results = score_transactions(unseen_txns, models_dir=trained_models_dir)
     assert len(results) == 2
 
     for r in results:
@@ -70,3 +88,22 @@ def test_score_transactions_unseen(unseen_txns):
     norm_score = results[0]["anomaly_score"]
     anom_score = results[1]["anomaly_score"]
     assert anom_score > norm_score
+
+
+def test_score_single_txn_consistent_with_batch(unseen_txns, trained_models_dir):
+    """Verify single transaction scored alone produces consistent feature & score as in batch."""
+    import numpy as np
+
+    clear_artifact_cache()
+    res_alone = score_transactions([unseen_txns[0]], models_dir=trained_models_dir)
+    clear_artifact_cache()
+    res_batch = score_transactions(unseen_txns, models_dir=trained_models_dir)
+
+    score_alone = res_alone[0]["anomaly_score"]
+    score_batch = res_batch[0]["anomaly_score"]
+    assert np.isclose(score_alone, score_batch, atol=1e-4)
+
+    dev_alone = res_alone[0]["features"]["amount_deviation_from_wallet_mean"]
+    dev_batch = res_batch[0]["features"]["amount_deviation_from_wallet_mean"]
+    assert np.isclose(dev_alone, dev_batch, atol=1e-4)
+

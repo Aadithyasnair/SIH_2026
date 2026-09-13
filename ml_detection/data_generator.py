@@ -39,8 +39,18 @@ from sih26146.shared.schemas.records import (
 class BitcoinDatasetGenerator:
     def __init__(self, seed: int = 42):
         self.seed = seed
+        self.rng = random.Random(seed)
         random.seed(seed)
         self.base_time = datetime(2026, 1, 15, 8, 0, 0, tzinfo=timezone.utc)
+
+    def _hex_id(self, length: int = 8) -> str:
+        """Deterministic hex string generated from seeded RNG."""
+        val = self.rng.getrandbits(length * 4)
+        return f"{val:0{length}x}"
+
+    def _uuid_str(self) -> str:
+        """Deterministic UUID string generated from seeded RNG."""
+        return str(uuid.UUID(int=self.rng.getrandbits(128), version=4))
 
         # Country & ASN distribution (top Bitcoin node jurisdictions)
         self.geo_asn_profiles = [
@@ -90,13 +100,13 @@ class BitcoinDatasetGenerator:
         for i in range(num_wallets):
             st = random.choices(self.script_types, weights=self.script_weights)[0]
             if st == "P2WPKH":
-                addr = f"bc1q{uuid.uuid4().hex[:28]}"
+                addr = f"bc1q{self._hex_id(28)}"
             elif st == "P2TR":
-                addr = f"bc1p{uuid.uuid4().hex[:28]}"
+                addr = f"bc1p{self._hex_id(28)}"
             elif st == "P2SH":
-                addr = f"3{uuid.uuid4().hex[:26]}"
+                addr = f"3{self._hex_id(26)}"
             else:
-                addr = f"1{uuid.uuid4().hex[:26]}"
+                addr = f"1{self._hex_id(26)}"
 
             self.wallets.append(addr)
             self.wallet_ips[addr] = self._random_ip()
@@ -121,11 +131,11 @@ class BitcoinDatasetGenerator:
 
         # 15 Seed illicit wallets for propagation and peel roots
         self.seed_illicit_wallets = [
-            f"1DarknetMarketVendor_{i}_{uuid.uuid4().hex[:8]}" for i in range(5)
+            f"1DarknetMarketVendor_{i}_{self._hex_id(8)}" for i in range(5)
         ] + [
-            f"1RansomwarePayment_{i}_{uuid.uuid4().hex[:8]}" for i in range(5)
+            f"1RansomwarePayment_{i}_{self._hex_id(8)}" for i in range(5)
         ] + [
-            f"1LaunderingHub_{i}_{uuid.uuid4().hex[:8]}" for i in range(5)
+            f"1LaunderingHub_{i}_{self._hex_id(8)}" for i in range(5)
         ]
 
         for s_addr in self.seed_illicit_wallets:
@@ -169,7 +179,7 @@ class BitcoinDatasetGenerator:
             dst_port: int = 8333,
             is_tor: bool = False,
         ) -> Dict[str, Any]:
-            eid = f"net_{uuid.uuid4().hex[:12]}"
+            eid = f"net_{self._hex_id(12)}"
             s_country, s_asn = self._sample_geo_asn()
             d_country, d_asn = self._sample_geo_asn()
             if is_tor:
@@ -180,7 +190,7 @@ class BitcoinDatasetGenerator:
             else:
                 d_port = dst_port
                 protocol = "TCP"
-
+ 
             ev = {
                 "event_id": eid,
                 "timestamp": t.isoformat(),
@@ -209,15 +219,15 @@ class BitcoinDatasetGenerator:
 
             for hop in range(peeling_hops):
                 peel_chain_wallets.add(current_addr)
-                next_hop_addr = f"1PeelHop_{c_idx}_{hop+1}_{uuid.uuid4().hex[:6]}"
-                peel_spend_addr = f"1MerchantSpend_{c_idx}_{hop}_{uuid.uuid4().hex[:6]}"
+                next_hop_addr = f"1PeelHop_{c_idx}_{hop+1}_{self._hex_id(6)}"
+                peel_spend_addr = f"1MerchantSpend_{c_idx}_{hop}_{self._hex_id(6)}"
                 self.wallet_profiles[next_hop_addr] = {"script_type": "P2PKH", "base_amount": 5.0, "volatility": 0.2}
                 self.wallet_profiles[peel_spend_addr] = {"script_type": "P2PKH", "base_amount": 0.5, "volatility": 0.1}
 
                 peel_amt = round(random.uniform(0.1, 0.45), 4)
                 fwd_amt = round(max(0.005, current_amt - peel_amt - 0.0002), 4)
                 tx_time = chain_time + timedelta(minutes=hop * 12 + random.randint(1, 4))
-                txid = f"tx_peel_chain_c{c_idx}_hop{hop}_{uuid.uuid4().hex[:8]}"
+                txid = f"tx_peel_chain_c{c_idx}_hop{hop}_{self._hex_id(8)}"
 
                 txn_dict = {
                     "txid": txid,
@@ -251,7 +261,7 @@ class BitcoinDatasetGenerator:
                     ev = create_network_event(tx_time + timedelta(seconds=e_i * 2), src_ip=ip, dst_port=8333)
                     network_events.append(ev)
                     correlation_edges.append({
-                        "edge_id": f"edge_{uuid.uuid4().hex[:12]}",
+                        "edge_id": f"edge_{self._hex_id(12)}",
                         "network_event_id": ev["event_id"],
                         "txid": txid,
                         "confidence": round(0.85 - e_i * 0.05, 3),
@@ -268,8 +278,8 @@ class BitcoinDatasetGenerator:
         for cj_idx in range(num_coinjoin_txns):
             cj_time = self.base_time + timedelta(days=cj_idx % 45, hours=random.randint(1, 23))
             num_parties = random.randint(6, 12)
-            in_addrs = [f"1CJ_In_{cj_idx}_{p}_{uuid.uuid4().hex[:6]}" for p in range(num_parties)]
-            out_addrs = [f"bc1qCJ_Out_{cj_idx}_{p}_{uuid.uuid4().hex[:6]}" for p in range(num_parties)]
+            in_addrs = [f"1CJ_In_{cj_idx}_{p}_{self._hex_id(6)}" for p in range(num_parties)]
+            out_addrs = [f"bc1qCJ_Out_{cj_idx}_{p}_{self._hex_id(6)}" for p in range(num_parties)]
             for a in in_addrs + out_addrs:
                 coinjoin_wallets.add(a)
 
@@ -277,7 +287,7 @@ class BitcoinDatasetGenerator:
             fee_per_party = 0.0001
             out_val = round(denomination - fee_per_party, 4)
 
-            txid = f"tx_coinjoin_mixing_{cj_idx}_{uuid.uuid4().hex[:8]}"
+            txid = f"tx_coinjoin_mixing_{cj_idx}_{self._hex_id(8)}"
             txn_dict = {
                 "txid": txid,
                 "timestamp": cj_time.isoformat(),
@@ -307,7 +317,7 @@ class BitcoinDatasetGenerator:
                 ev = create_network_event(cj_time + timedelta(seconds=p), src_ip=self._random_ip(), dst_port=8333)
                 network_events.append(ev)
                 correlation_edges.append({
-                    "edge_id": f"edge_{uuid.uuid4().hex[:12]}",
+                    "edge_id": f"edge_{self._hex_id(12)}",
                     "network_event_id": ev["event_id"],
                     "txid": txid,
                     "confidence": 0.90,
@@ -319,7 +329,7 @@ class BitcoinDatasetGenerator:
         # -------------------------------------------------------------
         # 16 hubs x 5 rapid txns each in a tight 30-min window
         for hub_idx in range(16):
-            hub_addr = f"1RapidLayerHub_{hub_idx}_{uuid.uuid4().hex[:6]}"
+            hub_addr = f"1RapidLayerHub_{hub_idx}_{self._hex_id(6)}"
             burst_time = self.base_time + timedelta(days=hub_idx * 2, hours=random.randint(2, 22))
             hub_ip = self._random_ip()
 
@@ -327,7 +337,7 @@ class BitcoinDatasetGenerator:
                 t_b = burst_time + timedelta(minutes=b_i * 4 + random.randint(1, 2))
                 out_a = random.choice(self.wallets)
                 amt = round(random.uniform(3.0, 15.0), 4)
-                txid = f"tx_burst_layering_h{hub_idx}_n{b_i}_{uuid.uuid4().hex[:8]}"
+                txid = f"tx_burst_layering_h{hub_idx}_n{b_i}_{self._hex_id(8)}"
 
                 txn_dict = {
                     "txid": txid,
@@ -356,7 +366,7 @@ class BitcoinDatasetGenerator:
                 ev = create_network_event(t_b, src_ip=hub_ip, dst_port=8333)
                 network_events.append(ev)
                 correlation_edges.append({
-                    "edge_id": f"edge_{uuid.uuid4().hex[:12]}",
+                    "edge_id": f"edge_{self._hex_id(12)}",
                     "network_event_id": ev["event_id"],
                     "txid": txid,
                     "confidence": 0.88,
@@ -373,7 +383,7 @@ class BitcoinDatasetGenerator:
             whale_amt = round(normal_base * random.uniform(15.0, 45.0), 4)
             recipients = random.sample(self.wallets, k=random.randint(2, 4))
             splits = [round(whale_amt / len(recipients), 4) for _ in recipients]
-            txid = f"tx_whale_spike_{w_idx}_{uuid.uuid4().hex[:8]}"
+            txid = f"tx_whale_spike_{w_idx}_{self._hex_id(8)}"
 
             txn_dict = {
                 "txid": txid,
@@ -402,7 +412,7 @@ class BitcoinDatasetGenerator:
             ev = create_network_event(w_time, src_ip=self.wallet_ips[sender], dst_port=8333)
             network_events.append(ev)
             correlation_edges.append({
-                "edge_id": f"edge_{uuid.uuid4().hex[:12]}",
+                "edge_id": f"edge_{self._hex_id(12)}",
                 "network_event_id": ev["event_id"],
                 "txid": txid,
                 "confidence": 0.92,
@@ -417,7 +427,7 @@ class BitcoinDatasetGenerator:
             sender = random.choice(self.wallets)
             receiver = random.choice(self.wallets)
             amt = round(random.uniform(1.0, 10.0), 4)
-            txid = f"tx_tor_proxied_{tor_idx}_{uuid.uuid4().hex[:8]}"
+            txid = f"tx_tor_proxied_{tor_idx}_{self._hex_id(8)}"
 
             txn_dict = {
                 "txid": txid,
@@ -447,7 +457,7 @@ class BitcoinDatasetGenerator:
                 ev = create_network_event(t_time + timedelta(seconds=e_k * 3), src_ip=self._random_ip(), is_tor=True)
                 network_events.append(ev)
                 correlation_edges.append({
-                    "edge_id": f"edge_{uuid.uuid4().hex[:12]}",
+                    "edge_id": f"edge_{self._hex_id(12)}",
                     "network_event_id": ev["event_id"],
                     "txid": txid,
                     "confidence": 0.85,
@@ -496,7 +506,7 @@ class BitcoinDatasetGenerator:
             else:
                 out_amts = [round(net_out / out_cnt, 4) for _ in range(out_cnt)]
 
-            txid = f"tx_norm_{n_idx}_{uuid.uuid4().hex[:8]}"
+            txid = f"tx_norm_{n_idx}_{self._hex_id(8)}"
             st = self.wallet_profiles[in_addrs[0]]["script_type"]
 
             txn_dict = {
@@ -523,7 +533,7 @@ class BitcoinDatasetGenerator:
                 ev = create_network_event(t_norm + timedelta(seconds=ev_i), src_ip=sender_ip, dst_port=8333)
                 network_events.append(ev)
                 correlation_edges.append({
-                    "edge_id": f"edge_{uuid.uuid4().hex[:12]}",
+                    "edge_id": f"edge_{self._hex_id(12)}",
                     "network_event_id": ev["event_id"],
                     "txid": txid,
                     "confidence": round(random.uniform(0.75, 0.95), 3),
@@ -538,7 +548,7 @@ class BitcoinDatasetGenerator:
         # 15 High-risk clusters (mixing & peel operations)
         for i in range(15):
             members = random.sample(list(peel_chain_wallets.union(coinjoin_wallets)), k=min(12, max(4, len(peel_chain_wallets)//2)))
-            cid = f"cluster_high_risk_{i}_{uuid.uuid4().hex[:6]}"
+            cid = f"cluster_high_risk_{i}_{self._hex_id(6)}"
             clusters.append({
                 "cluster_id": cid,
                 "label": f"Suspicious Entity Group {i+1} (Mixing / Peeling)",
@@ -552,7 +562,7 @@ class BitcoinDatasetGenerator:
         # 20 Medium-risk clusters
         for i in range(20):
             members = random.sample(self.wallets[300:700], k=random.randint(5, 15))
-            cid = f"cluster_med_risk_{i}_{uuid.uuid4().hex[:6]}"
+            cid = f"cluster_med_risk_{i}_{self._hex_id(6)}"
             clusters.append({
                 "cluster_id": cid,
                 "label": f"Merchant / Payment Processor Cluster {i+1}",
@@ -566,7 +576,7 @@ class BitcoinDatasetGenerator:
         # 25 Low-risk / Normal clusters
         for i in range(25):
             members = random.sample(self.wallets[700:], k=random.randint(3, 8))
-            cid = f"cluster_normal_{i}_{uuid.uuid4().hex[:6]}"
+            cid = f"cluster_normal_{i}_{self._hex_id(6)}"
             clusters.append({
                 "cluster_id": cid,
                 "label": f"Standard Co-Spend Entity {i+1}",
@@ -592,10 +602,17 @@ class BitcoinDatasetGenerator:
                 G.add_node(out_a, node_type="address")
                 G.add_edge(txid, out_a, relation="output")
 
-        # Add IP nodes from network events
+        # Add IP nodes and connect them to correlated transactions
+        event_to_txids: Dict[str, Set[str]] = {}
+        for edge in correlation_edges:
+            event_to_txids.setdefault(edge["network_event_id"], set()).add(edge["txid"])
+
         for ev in network_events[:1000]:  # Link top events to keep graphml concise and fast
             ip = ev["src_ip"]
             G.add_node(ip, node_type="ip", geo_country=ev["src_geo_country"], asn=ev["src_asn"])
+            for txid in event_to_txids.get(ev["event_id"], set()):
+                if G.has_node(txid):
+                    G.add_edge(ip, txid, relation="network_observation")
 
         labels_data = {
             "seed_illicit_wallets": self.seed_illicit_wallets,

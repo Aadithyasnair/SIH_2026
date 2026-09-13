@@ -70,8 +70,8 @@ def load_entity_graph(sample_dir: Path) -> Optional[nx.Graph]:
     if graph_path.exists():
         try:
             return nx.read_graphml(graph_path)
-        except Exception:
-            return None
+        except Exception as e:
+            raise ValueError(f"Failed to parse entity graph at {graph_path}: {e}") from e
     return None
 
 
@@ -82,7 +82,7 @@ def load_labels(labels_path: Path) -> Dict[str, Any]:
     never as model features or during unsupervised training.
     """
     if not labels_path.exists():
-        return {}
+        raise FileNotFoundError(f"Labels file not found: {labels_path}")
     with open(labels_path, "r", encoding="utf-8") as f:
         return json.load(f)
 
