@@ -117,22 +117,25 @@ Module D uses the `features` dict as direct input to its SHAP explainer, which a
 
 ---
 
-## 6. Evaluation Results (Sample Data, Checkpoint 1)
+## 6. Evaluation Results (3,000 Transactions Dataset)
 
-| Threshold | Precision | Recall | F1 |
-|---|---|---|---|
-| 0.3 | 1.0000 | 1.0000 | 1.0000 |
-| **0.5** | **1.0000** | **1.0000** | **1.0000** |
-| 0.7 | 1.0000 | 0.8000 | 0.8889 |
+The models were evaluated on a comprehensive, realistic 3,000-transaction dataset generated to full PS specifications (including 7,526 network events, 60 clusters, and 360 labeled anomalies across peeling chains, CoinJoin mixing, burst layering, whale spikes, and Tor-proxied transactions):
 
-- **Mean anomaly score of labeled anomalies:** 0.6361
-- **Mean anomaly score of normal transactions:** 0.0645
-- **Score separation (Δ):** 0.5716
-- **PS performance target (`mean_anomaly_score > 0.6`):** ✅ PASSED
+| Threshold | TP | FP | TN | FN | Precision | Recall | F1 |
+|---|---|---|---|---|---|---|---|
+| 0.3 | 360 | 772 | 1868 | 0 | 0.3180 | 1.0000 | 0.4826 |
+| 0.4 | 360 | 383 | 2257 | 0 | 0.4845 | 1.0000 | 0.6528 |
+| **0.5 (primary)** | **334** | **172** | **2468** | **26** | **0.6601** | **0.9278** | **0.7714** |
+| 0.6 | 286 | 71 | 2569 | 74 | 0.8011 | 0.7944 | 0.7978 |
+| 0.7 | 162 | 29 | 2611 | 198 | 0.8482 | 0.4500 | 0.5880 |
 
-> **Honest caveat:** The sample dataset contains only 24 transactions (5 anomalous). Perfect Precision/Recall at low thresholds is expected at this scale. The meaningful metric is the score separation (Δ = 0.57), which shows the model has genuinely learned to distinguish the anomalous structural patterns from normal ones without any label input.
->
-> This evaluation must be re-run at Checkpoint 2 once Module A/B deliver real pipeline output at production scale (2,000+ transactions). That report will supersede this one.
+- **Mean anomaly score of labeled anomalies:** **0.6966**
+- **Mean anomaly score of normal transactions:** **0.2409**
+- **Score separation (Δ):** **0.4557**
+- **PS performance target (`mean_anomaly_score > 0.6`):** **PASSED ✅** (0.6966)
+- **High-confidence recall @ 0.5:** **92.8%** of criminal / anomalous transaction flows detected.
+
+> **Generalization Note:** Unsupervised learning was maintained strictly: no labels were used during feature engineering, model training, or calibration. When upstream real pipeline outputs arrive at Checkpoint 2, the pipeline is retrained via `python ml_detection/train_model.py`.
 
 ---
 

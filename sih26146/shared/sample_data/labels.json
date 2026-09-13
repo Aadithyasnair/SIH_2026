@@ -1,32 +1,1821 @@
 {
   "seed_illicit_wallets": [
-    "1PeelSeedIllicitAddr0xyz"
+    "1DarknetMarketVendor_0_ee0aac95",
+    "1DarknetMarketVendor_1_cae44a21",
+    "1DarknetMarketVendor_2_8c8826c5",
+    "1DarknetMarketVendor_3_0e9ce39a",
+    "1DarknetMarketVendor_4_0dcaf457",
+    "1RansomwarePayment_0_58be4356",
+    "1RansomwarePayment_1_6eaa5905",
+    "1RansomwarePayment_2_739378c9",
+    "1RansomwarePayment_3_309143a7",
+    "1RansomwarePayment_4_068e0d50",
+    "1LaunderingHub_0_04a22496",
+    "1LaunderingHub_1_7082b998",
+    "1LaunderingHub_2_65b53e91",
+    "1LaunderingHub_3_808a0ec9",
+    "1LaunderingHub_4_e0b23d09"
   ],
   "anomalous_transactions": [
     {
-      "txid": "tx_peel_chain_hop_0_4349209e",
+      "txid": "tx_peel_chain_c0_hop0_20381244",
       "pattern_type": "peeling_chain",
-      "reason": "Hop 0 of peeling chain from seed illicit wallet"
+      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
     },
     {
-      "txid": "tx_peel_chain_hop_1_a675af44",
+      "txid": "tx_peel_chain_c0_hop1_8a121aa0",
       "pattern_type": "peeling_chain",
-      "reason": "Hop 1 of peeling chain"
+      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
     },
     {
-      "txid": "tx_peel_chain_hop_2_547f4c56",
+      "txid": "tx_peel_chain_c0_hop2_c40897de",
       "pattern_type": "peeling_chain",
-      "reason": "Hop 2 of peeling chain"
+      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
     },
     {
-      "txid": "tx_peel_chain_hop_3_4c1b09b1",
+      "txid": "tx_peel_chain_c0_hop3_f0aa5d86",
       "pattern_type": "peeling_chain",
-      "reason": "Hop 3 of peeling chain"
+      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
     },
     {
-      "txid": "tx_coinjoin_mixing_42622f42",
+      "txid": "tx_peel_chain_c0_hop4_b1f27e09",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c1_hop0_d0f55acb",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c1_hop1_ebff7c59",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c1_hop2_459dabeb",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c1_hop3_92410b7e",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c1_hop4_cc7e59cd",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c2_hop0_931989e0",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c2_hop1_8b434a22",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c2_hop2_b83ce4c0",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c2_hop3_e1a74d68",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c2_hop4_d083c55f",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c3_hop0_a304ce9f",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c3_hop1_6d02cd2b",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c3_hop2_8093f728",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c3_hop3_2f1b1153",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c3_hop4_e96782ce",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c4_hop0_edd40185",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c4_hop1_baf25092",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c4_hop2_c17f3d56",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c4_hop3_c202dc7b",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c4_hop4_92ca6046",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c5_hop0_7c24b35f",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c5_hop1_006a6f75",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c5_hop2_9fb7eedb",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c5_hop3_e53c59d5",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c5_hop4_58dfa12c",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c6_hop0_147f7f11",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c6_hop1_413d35aa",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c6_hop2_0438f351",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c6_hop3_098bd4be",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c6_hop4_3065e58e",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c7_hop0_ced9930c",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c7_hop1_e8efc7eb",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c7_hop2_25575d5d",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c7_hop3_45559423",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c7_hop4_3b518d39",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c8_hop0_08356c27",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c8_hop1_68224ab9",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c8_hop2_4522346d",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c8_hop3_1e8a2353",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c8_hop4_60ab3ab9",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c9_hop0_ede57469",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c9_hop1_057ddc97",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c9_hop2_79c04eb3",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c9_hop3_ab9f7339",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c9_hop4_51bd84da",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c10_hop0_d3c3e0f9",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
+    },
+    {
+      "txid": "tx_peel_chain_c10_hop1_61294c7a",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
+    },
+    {
+      "txid": "tx_peel_chain_c10_hop2_c6227ddf",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
+    },
+    {
+      "txid": "tx_peel_chain_c10_hop3_1b09c1e9",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
+    },
+    {
+      "txid": "tx_peel_chain_c10_hop4_1abd3a1e",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
+    },
+    {
+      "txid": "tx_peel_chain_c11_hop0_c863fcab",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
+    },
+    {
+      "txid": "tx_peel_chain_c11_hop1_b7f71a47",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
+    },
+    {
+      "txid": "tx_peel_chain_c11_hop2_ca287dc8",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
+    },
+    {
+      "txid": "tx_peel_chain_c11_hop3_754ecc2d",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
+    },
+    {
+      "txid": "tx_peel_chain_c11_hop4_94bd38af",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
+    },
+    {
+      "txid": "tx_peel_chain_c12_hop0_867a3203",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
+    },
+    {
+      "txid": "tx_peel_chain_c12_hop1_b1ece0f4",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
+    },
+    {
+      "txid": "tx_peel_chain_c12_hop2_c2a2287d",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
+    },
+    {
+      "txid": "tx_peel_chain_c12_hop3_ba21cbd8",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
+    },
+    {
+      "txid": "tx_peel_chain_c12_hop4_c11f4e67",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
+    },
+    {
+      "txid": "tx_peel_chain_c13_hop0_ede892f8",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
+    },
+    {
+      "txid": "tx_peel_chain_c13_hop1_ef51c3cf",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
+    },
+    {
+      "txid": "tx_peel_chain_c13_hop2_19f4feda",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
+    },
+    {
+      "txid": "tx_peel_chain_c13_hop3_1ea62f8e",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
+    },
+    {
+      "txid": "tx_peel_chain_c13_hop4_1f55eaa9",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
+    },
+    {
+      "txid": "tx_peel_chain_c14_hop0_4921b457",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
+    },
+    {
+      "txid": "tx_peel_chain_c14_hop1_df59d29c",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
+    },
+    {
+      "txid": "tx_peel_chain_c14_hop2_ade85cd8",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
+    },
+    {
+      "txid": "tx_peel_chain_c14_hop3_f2aca5d2",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
+    },
+    {
+      "txid": "tx_peel_chain_c14_hop4_8f302dea",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
+    },
+    {
+      "txid": "tx_peel_chain_c15_hop0_77071f29",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c15_hop1_7cf05737",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c15_hop2_f632ccb6",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c15_hop3_46bd7487",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c15_hop4_d31bd156",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c16_hop0_bb1bf8df",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c16_hop1_be54838e",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c16_hop2_32737f13",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c16_hop3_4d87efc4",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c16_hop4_2a4b4e57",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c17_hop0_581a9dbf",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c17_hop1_24f99d14",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c17_hop2_dd067277",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c17_hop3_1e51316c",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c17_hop4_8fa8ca66",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c18_hop0_e2b83b34",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c18_hop1_97d6953d",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c18_hop2_7e395e8e",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c18_hop3_b53a2adc",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c18_hop4_664b4600",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c19_hop0_5353e0fe",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c19_hop1_e326b3a5",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c19_hop2_60d037df",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c19_hop3_44a3bdec",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c19_hop4_041dad6c",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
+    },
+    {
+      "txid": "tx_peel_chain_c20_hop0_e4263c0e",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c20_hop1_2bee8d8a",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c20_hop2_ed65c3e4",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c20_hop3_cc6df350",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c20_hop4_c43c6b50",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c21_hop0_2fa33db2",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c21_hop1_4a496704",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c21_hop2_a2441158",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c21_hop3_f5c6d9c5",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c21_hop4_01192847",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c22_hop0_1de58914",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c22_hop1_6c86ab76",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c22_hop2_8ab2b287",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c22_hop3_61613f94",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c22_hop4_01f322c5",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c23_hop0_0efb3056",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c23_hop1_ff945281",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c23_hop2_a5fc56c0",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c23_hop3_196962f9",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_peel_chain_c23_hop4_653c5225",
+      "pattern_type": "peeling_chain",
+      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
+    },
+    {
+      "txid": "tx_coinjoin_mixing_0_ac7e6c2f",
       "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction"
+      "reason": "Equal-value multi-party CoinJoin transaction (8 inputs/outputs of 0.25 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_1_29ed3808",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (8 inputs/outputs of 0.25 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_2_5e029e0a",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (8 inputs/outputs of 0.1 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_3_5abd0ca0",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (9 inputs/outputs of 1.0 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_4_de49c690",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (6 inputs/outputs of 0.25 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_5_d149a9b1",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (9 inputs/outputs of 0.25 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_6_226f45c7",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (6 inputs/outputs of 0.1 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_7_a27b61e1",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (12 inputs/outputs of 1.0 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_8_410e440e",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (10 inputs/outputs of 2.0 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_9_5565d566",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (7 inputs/outputs of 0.25 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_10_1e53be1b",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (10 inputs/outputs of 2.0 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_11_4daa87ad",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (11 inputs/outputs of 1.0 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_12_f8330a49",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (12 inputs/outputs of 1.0 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_13_b04ce1e7",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (9 inputs/outputs of 0.5 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_14_3ec177cb",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (12 inputs/outputs of 0.1 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_15_4f9c05f3",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (6 inputs/outputs of 0.25 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_16_772a2d55",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (10 inputs/outputs of 0.5 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_17_b372fc0e",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (8 inputs/outputs of 1.0 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_18_bbb3cf02",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (8 inputs/outputs of 1.0 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_19_bd690c4a",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (11 inputs/outputs of 0.25 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_20_80d2f05f",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (9 inputs/outputs of 0.5 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_21_ab492d9a",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (8 inputs/outputs of 2.0 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_22_d8dcf1e7",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (11 inputs/outputs of 0.5 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_23_6275c444",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (6 inputs/outputs of 2.0 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_24_ea1d5001",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (6 inputs/outputs of 0.5 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_25_eab72d17",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (6 inputs/outputs of 0.25 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_26_15ed70c6",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (8 inputs/outputs of 0.1 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_27_c06f478c",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (9 inputs/outputs of 1.0 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_28_ac96280d",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (10 inputs/outputs of 0.5 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_29_73a1d230",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (11 inputs/outputs of 0.25 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_30_a3fce8ad",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (8 inputs/outputs of 0.1 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_31_372fb837",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (9 inputs/outputs of 2.0 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_32_aeb450c8",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (6 inputs/outputs of 0.1 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_33_23c61bc7",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (6 inputs/outputs of 0.25 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_34_87995d77",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (11 inputs/outputs of 0.5 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_35_3a79028f",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (10 inputs/outputs of 0.5 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_36_a704de69",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (10 inputs/outputs of 0.5 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_37_e85b3fbf",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (7 inputs/outputs of 2.0 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_38_17f4bca1",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (8 inputs/outputs of 2.0 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_39_5b808d87",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (10 inputs/outputs of 2.0 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_40_1d730f77",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (7 inputs/outputs of 0.1 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_41_fa26540f",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (9 inputs/outputs of 0.1 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_42_e37ac0d9",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (11 inputs/outputs of 1.0 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_43_e083610c",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (8 inputs/outputs of 1.0 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_44_39a82dca",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (11 inputs/outputs of 0.25 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_45_cc936138",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (11 inputs/outputs of 1.0 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_46_ff8b2721",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (11 inputs/outputs of 1.0 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_47_c7b04602",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (11 inputs/outputs of 0.25 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_48_52c884f1",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (12 inputs/outputs of 1.0 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_49_f02d810c",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (12 inputs/outputs of 1.0 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_50_2371e006",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (9 inputs/outputs of 2.0 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_51_260b4daf",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (6 inputs/outputs of 0.25 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_52_f27b4706",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (12 inputs/outputs of 0.25 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_53_d60c5e06",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (11 inputs/outputs of 2.0 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_54_c961dc68",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (11 inputs/outputs of 2.0 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_55_3a2be411",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (8 inputs/outputs of 1.0 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_56_2e5ca04e",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (7 inputs/outputs of 0.5 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_57_48073ea4",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (8 inputs/outputs of 0.5 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_58_18f41483",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (11 inputs/outputs of 0.1 BTC)"
+    },
+    {
+      "txid": "tx_coinjoin_mixing_59_08416217",
+      "pattern_type": "coinjoin_mixing",
+      "reason": "Equal-value multi-party CoinJoin transaction (11 inputs/outputs of 2.0 BTC)"
+    },
+    {
+      "txid": "tx_burst_layering_h0_n0_ba785b6f",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 1/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h0_n1_e8ec049b",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 2/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h0_n2_f1f7beb3",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 3/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h0_n3_fc1fd332",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 4/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h0_n4_0bfc0228",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 5/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h1_n0_ab983b61",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 1/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h1_n1_3467280c",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 2/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h1_n2_5a525c45",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 3/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h1_n3_9c5a14eb",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 4/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h1_n4_be5836a1",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 5/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h2_n0_e3ace794",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 1/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h2_n1_12eb10fb",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 2/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h2_n2_309e5db2",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 3/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h2_n3_413ecebc",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 4/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h2_n4_5be15fae",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 5/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h3_n0_198d28fe",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 1/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h3_n1_0ff23c5f",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 2/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h3_n2_5b59c21e",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 3/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h3_n3_3dd91122",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 4/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h3_n4_003df93a",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 5/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h4_n0_8ecc0da0",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 1/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h4_n1_30d1956a",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 2/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h4_n2_6040f992",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 3/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h4_n3_34d26160",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 4/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h4_n4_0a3f05ba",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 5/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h5_n0_3fa03785",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 1/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h5_n1_8b5c6a0b",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 2/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h5_n2_bdb2cbc3",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 3/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h5_n3_41b5705d",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 4/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h5_n4_f3c16820",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 5/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h6_n0_ea91edf9",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 1/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h6_n1_e0744b25",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 2/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h6_n2_c1164aa9",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 3/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h6_n3_5c276539",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 4/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h6_n4_dc76e8b3",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 5/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h7_n0_8fce9eb6",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 1/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h7_n1_77eaec83",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 2/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h7_n2_442ddc23",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 3/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h7_n3_b5f34eb6",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 4/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h7_n4_57a546e5",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 5/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h8_n0_30cefd3c",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 1/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h8_n1_56cba694",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 2/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h8_n2_201bd5ea",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 3/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h8_n3_e5396f2c",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 4/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h8_n4_bbd847a0",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 5/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h9_n0_1aa09e50",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 1/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h9_n1_0a06f712",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 2/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h9_n2_1c320f12",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 3/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h9_n3_70aa5dcf",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 4/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h9_n4_3980967a",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 5/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h10_n0_39913a27",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 1/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h10_n1_4f6ad383",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 2/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h10_n2_d5c0a1a5",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 3/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h10_n3_8cc9171f",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 4/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h10_n4_6f66fd0f",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 5/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h11_n0_fdd276d7",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 1/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h11_n1_69d2d282",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 2/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h11_n2_d468dd44",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 3/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h11_n3_0310f96d",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 4/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h11_n4_a047cc3e",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 5/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h12_n0_e12fa4a9",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 1/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h12_n1_3209d94a",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 2/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h12_n2_ec50d76c",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 3/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h12_n3_ecfd39c4",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 4/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h12_n4_42368be7",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 5/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h13_n0_e12cd549",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 1/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h13_n1_9b61b8ad",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 2/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h13_n2_59309b9a",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 3/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h13_n3_16a2517a",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 4/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h13_n4_2d2cf42f",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 5/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h14_n0_63a70342",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 1/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h14_n1_75f58323",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 2/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h14_n2_afc88913",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 3/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h14_n3_63082a7d",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 4/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h14_n4_7ea7a4df",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 5/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h15_n0_f738f990",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 1/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h15_n1_ab5f5e4e",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 2/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h15_n2_c7619554",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 3/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h15_n3_12c6f262",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 4/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_burst_layering_h15_n4_87fc9bf8",
+      "pattern_type": "rapid_layering",
+      "reason": "High-frequency burst hop 5/5 from hub 1RapidLayerHub within 30 minutes"
+    },
+    {
+      "txid": "tx_whale_spike_0_66dbed4b",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 28.6636 BTC is >20x historical mean for sender bc1q180c8fa9"
+    },
+    {
+      "txid": "tx_whale_spike_1_e121ad7e",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 44.5052 BTC is >20x historical mean for sender bc1qc99081a3"
+    },
+    {
+      "txid": "tx_whale_spike_2_3ddc6ed0",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 107.9306 BTC is >20x historical mean for sender 1ff5a6fe3867"
+    },
+    {
+      "txid": "tx_whale_spike_3_6bb8ad7c",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 10.7144 BTC is >20x historical mean for sender bc1pb2bee741"
+    },
+    {
+      "txid": "tx_whale_spike_4_4a419461",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 39.1853 BTC is >20x historical mean for sender bc1qe04be954"
+    },
+    {
+      "txid": "tx_whale_spike_5_513ef43f",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 422.2065 BTC is >20x historical mean for sender bc1qa1223313"
+    },
+    {
+      "txid": "tx_whale_spike_6_d74704a8",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 10.238 BTC is >20x historical mean for sender 1567ea5df2c5"
+    },
+    {
+      "txid": "tx_whale_spike_7_bf97a4d4",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 7.5349 BTC is >20x historical mean for sender 353857f0c8e6"
+    },
+    {
+      "txid": "tx_whale_spike_8_bffb868b",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 62.0763 BTC is >20x historical mean for sender 188f2a5985da"
+    },
+    {
+      "txid": "tx_whale_spike_9_93e0f4d0",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 40.2214 BTC is >20x historical mean for sender bc1qcd84291c"
+    },
+    {
+      "txid": "tx_whale_spike_10_874c117f",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 7.5231 BTC is >20x historical mean for sender bc1qebcc1be7"
+    },
+    {
+      "txid": "tx_whale_spike_11_17ddf15a",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 10.8918 BTC is >20x historical mean for sender 1751bc0fd076"
+    },
+    {
+      "txid": "tx_whale_spike_12_850fd809",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 13.5953 BTC is >20x historical mean for sender bc1q3f46c970"
+    },
+    {
+      "txid": "tx_whale_spike_13_8225c10b",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 7.314 BTC is >20x historical mean for sender 1567ea5df2c5"
+    },
+    {
+      "txid": "tx_whale_spike_14_b17e98a9",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 7.628 BTC is >20x historical mean for sender bc1q5992e120"
+    },
+    {
+      "txid": "tx_whale_spike_15_1285cb9d",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 30.7115 BTC is >20x historical mean for sender 1ad54fdf1dd9"
+    },
+    {
+      "txid": "tx_whale_spike_16_7bb52f93",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 7.3147 BTC is >20x historical mean for sender bc1qf4d31233"
+    },
+    {
+      "txid": "tx_whale_spike_17_6606c5f6",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 14.1633 BTC is >20x historical mean for sender 1d849dc09f10"
+    },
+    {
+      "txid": "tx_whale_spike_18_a0969047",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 18.897 BTC is >20x historical mean for sender 1392f1e56655"
+    },
+    {
+      "txid": "tx_whale_spike_19_5e46a587",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 4.8165 BTC is >20x historical mean for sender bc1q1e99551a"
+    },
+    {
+      "txid": "tx_whale_spike_20_fe42183a",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 21.4183 BTC is >20x historical mean for sender bc1q12b0b6a9"
+    },
+    {
+      "txid": "tx_whale_spike_21_779ce3a6",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 25.8824 BTC is >20x historical mean for sender 1294848c736f"
+    },
+    {
+      "txid": "tx_whale_spike_22_cd66bae2",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 151.3597 BTC is >20x historical mean for sender bc1q14550de0"
+    },
+    {
+      "txid": "tx_whale_spike_23_2a7eb2c1",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 49.0961 BTC is >20x historical mean for sender 1e273997a9c9"
+    },
+    {
+      "txid": "tx_whale_spike_24_20a28861",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 543.0384 BTC is >20x historical mean for sender bc1qca6f723f"
+    },
+    {
+      "txid": "tx_whale_spike_25_18502876",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 42.5719 BTC is >20x historical mean for sender bc1q7ac19cda"
+    },
+    {
+      "txid": "tx_whale_spike_26_43d677ba",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 3.4618 BTC is >20x historical mean for sender 3a1c30e10dfc"
+    },
+    {
+      "txid": "tx_whale_spike_27_e287ea2d",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 7.2653 BTC is >20x historical mean for sender 1123c9a12220"
+    },
+    {
+      "txid": "tx_whale_spike_28_cbfa8012",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 248.8323 BTC is >20x historical mean for sender 1a76ad803b96"
+    },
+    {
+      "txid": "tx_whale_spike_29_70f76ed8",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 610.8787 BTC is >20x historical mean for sender 11aabb132535"
+    },
+    {
+      "txid": "tx_whale_spike_30_4b846195",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 3.3001 BTC is >20x historical mean for sender bc1q95697d3e"
+    },
+    {
+      "txid": "tx_whale_spike_31_7083bde3",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 24.5785 BTC is >20x historical mean for sender 13fb80dc8076"
+    },
+    {
+      "txid": "tx_whale_spike_32_c1be3821",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 0.5445 BTC is >20x historical mean for sender bc1q338ab97b"
+    },
+    {
+      "txid": "tx_whale_spike_33_0718c17e",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 4.3529 BTC is >20x historical mean for sender bc1qfb57fdb3"
+    },
+    {
+      "txid": "tx_whale_spike_34_3967da88",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 329.3777 BTC is >20x historical mean for sender bc1q8ec7a8ee"
+    },
+    {
+      "txid": "tx_whale_spike_35_d6ad0042",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 15.7081 BTC is >20x historical mean for sender bc1q40d0afa9"
+    },
+    {
+      "txid": "tx_whale_spike_36_abe7f30a",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 188.5301 BTC is >20x historical mean for sender 1a76ad803b96"
+    },
+    {
+      "txid": "tx_whale_spike_37_0911618e",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 16.8469 BTC is >20x historical mean for sender 17e4290e4fcf"
+    },
+    {
+      "txid": "tx_whale_spike_38_16e36a70",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 7.2089 BTC is >20x historical mean for sender 19835cde2c1a"
+    },
+    {
+      "txid": "tx_whale_spike_39_15158ebd",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 29.6423 BTC is >20x historical mean for sender 174a567164ac"
+    },
+    {
+      "txid": "tx_whale_spike_40_f5ad852e",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 18.9309 BTC is >20x historical mean for sender bc1q89b96b91"
+    },
+    {
+      "txid": "tx_whale_spike_41_8e396a72",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 28.3105 BTC is >20x historical mean for sender 38da3bc662aa"
+    },
+    {
+      "txid": "tx_whale_spike_42_b2cbb812",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 34.7115 BTC is >20x historical mean for sender 34c3da83a456"
+    },
+    {
+      "txid": "tx_whale_spike_43_eac18ef4",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 46.8176 BTC is >20x historical mean for sender bc1qc99081a3"
+    },
+    {
+      "txid": "tx_whale_spike_44_eb11b0ec",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 1.609 BTC is >20x historical mean for sender 19faa9cc3145"
+    },
+    {
+      "txid": "tx_whale_spike_45_c5295b10",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 10.4084 BTC is >20x historical mean for sender bc1qfe3a6a97"
+    },
+    {
+      "txid": "tx_whale_spike_46_5112d8a5",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 46.6525 BTC is >20x historical mean for sender 30d6ec83750c"
+    },
+    {
+      "txid": "tx_whale_spike_47_38dd46c8",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 11.2802 BTC is >20x historical mean for sender bc1qa341c798"
+    },
+    {
+      "txid": "tx_whale_spike_48_034e865a",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 633.4922 BTC is >20x historical mean for sender 36afe4039141"
+    },
+    {
+      "txid": "tx_whale_spike_49_11ab95d2",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 25.4265 BTC is >20x historical mean for sender 12dbeed37483"
+    },
+    {
+      "txid": "tx_whale_spike_50_06053373",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 372.8777 BTC is >20x historical mean for sender 127b7cdd113d"
+    },
+    {
+      "txid": "tx_whale_spike_51_00d9d65e",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 43.5679 BTC is >20x historical mean for sender bc1qa3c51970"
+    },
+    {
+      "txid": "tx_whale_spike_52_37263d90",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 36.9413 BTC is >20x historical mean for sender bc1q76afad2d"
+    },
+    {
+      "txid": "tx_whale_spike_53_2d9cb2c2",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 6.8872 BTC is >20x historical mean for sender 39ba6f8e13cd"
+    },
+    {
+      "txid": "tx_whale_spike_54_e91dc8a1",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 1578.8206 BTC is >20x historical mean for sender bc1q17436174"
+    },
+    {
+      "txid": "tx_whale_spike_55_1908ec47",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 14.9676 BTC is >20x historical mean for sender bc1qab77a781"
+    },
+    {
+      "txid": "tx_whale_spike_56_d1fbfa46",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 3997.4084 BTC is >20x historical mean for sender 11276ec41b55"
+    },
+    {
+      "txid": "tx_whale_spike_57_e088e122",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 28.2139 BTC is >20x historical mean for sender 17c00e3c5bba"
+    },
+    {
+      "txid": "tx_whale_spike_58_39043ecd",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 52.3043 BTC is >20x historical mean for sender 3f6831e4da72"
+    },
+    {
+      "txid": "tx_whale_spike_59_45706b66",
+      "pattern_type": "whale_spike",
+      "reason": "Amount 31.875 BTC is >20x historical mean for sender bc1qc54311d3"
+    },
+    {
+      "txid": "tx_tor_proxied_0_487e03e8",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (13:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_1_1bef8c4b",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (11:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_2_68ca89e1",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (10:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_3_5ffd702c",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (10:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_4_a28ad403",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (10:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_5_2c922bfc",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (11:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_6_ae3bfb55",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (10:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_7_d5868460",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (09:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_8_660cabf9",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (08:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_9_de8ee4c8",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (09:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_10_4574353d",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (09:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_11_b2e83aa3",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (08:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_12_539c2dfd",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (11:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_13_d7025421",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (10:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_14_8007e509",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (08:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_15_ea8e9ef4",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (13:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_16_2ef4f595",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (12:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_17_6727d2b8",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (13:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_18_9aae1b08",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (10:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_19_2b523fc0",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (13:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_20_fda427e4",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (09:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_21_dc184a73",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (11:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_22_71820943",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (13:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_23_070534ac",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (13:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_24_2a832581",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (13:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_25_b04c461f",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (10:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_26_bb69bd40",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (13:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_27_1bcb4fc5",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (11:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_28_7218625a",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (08:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_29_85e2cda3",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (08:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_30_d5f0c379",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (13:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_31_5962d889",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (09:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_32_4d9be01b",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (12:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_33_61161e75",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (09:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_34_4295e2e8",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (12:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_35_eff3f828",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (09:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_36_b9022019",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (12:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_37_58211e09",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (11:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_38_9d88e2fb",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (12:00 UTC)"
+    },
+    {
+      "txid": "tx_tor_proxied_39_aff17919",
+      "pattern_type": "tor_obscuration",
+      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (09:00 UTC)"
     }
   ]
 }

@@ -76,7 +76,7 @@ def load_model_artifacts(models_dir: Optional[Union[str, Path]] = None) -> Dict[
     # Load PyTorch Autoencoder
     ae_checkpoint = torch.load(ae_path, map_location=torch.device("cpu"), weights_only=False)
     input_dim = ae_checkpoint.get("input_dim", len(feature_cols))
-    latent_dim = ae_checkpoint.get("latent_dim", 4)
+    latent_dim = ae_checkpoint.get("latent_dim", 8)
     ae_model = Autoencoder(input_dim=input_dim, latent_dim=latent_dim)
     ae_model.load_state_dict(ae_checkpoint["state_dict"])
     ae_model.eval()

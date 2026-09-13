@@ -1,309 +1,1111 @@
 [
   {
-    "cluster_id": "cluster_96a23db2e00d",
-    "label": "Multi-Wallet Entity",
+    "cluster_id": "cluster_high_risk_0_278004",
+    "label": "Suspicious Entity Group 1 (Mixing / Peeling)",
     "member_addresses": [
-      "1MerchantSpendAddr0abc",
-      "1MerchantSpendAddr1abc",
-      "1PeelSeedIllicitAddr0xyz",
-      "1PeelSeedIllicitAddr1xyz"
+      "1CJ_In_18_1_37d766",
+      "bc1qCJ_Out_36_4_633208",
+      "1CJ_In_7_7_7e833a",
+      "1CJ_In_55_7_bc768c",
+      "bc1qCJ_Out_18_5_4552fb",
+      "bc1qCJ_Out_12_9_d69885",
+      "bc1qCJ_Out_12_0_bda202",
+      "bc1qCJ_Out_6_5_a780d1",
+      "bc1qCJ_Out_26_6_3f23df",
+      "1CJ_In_10_8_f871f8",
+      "1CJ_In_20_3_f225a4",
+      "1CJ_In_26_0_d9887e"
+    ],
+    "member_count": 12,
+    "avg_risk_score": 0.919,
+    "description": "Group of 12 addresses repeatedly co-participating in multi-hop layering and unlinked mixing chains.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_high_risk_1_30cdc4",
+    "label": "Suspicious Entity Group 2 (Mixing / Peeling)",
+    "member_addresses": [
+      "1CJ_In_44_9_2ba8ff",
+      "1CJ_In_17_0_909a95",
+      "bc1qCJ_Out_32_3_103859",
+      "bc1qCJ_Out_31_3_f188bd",
+      "bc1qCJ_Out_41_5_d27d48",
+      "1CJ_In_58_8_9fdd77",
+      "bc1qCJ_Out_54_3_e3a076",
+      "bc1qCJ_Out_54_6_13adf6",
+      "bc1qCJ_Out_57_7_9f232e",
+      "1CJ_In_4_2_c99cd3",
+      "bc1qCJ_Out_30_7_fab2c4",
+      "bc1qCJ_Out_10_4_b9c04d"
+    ],
+    "member_count": 12,
+    "avg_risk_score": 0.874,
+    "description": "Group of 12 addresses repeatedly co-participating in multi-hop layering and unlinked mixing chains.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_high_risk_2_92966d",
+    "label": "Suspicious Entity Group 3 (Mixing / Peeling)",
+    "member_addresses": [
+      "1CJ_In_4_4_952d84",
+      "1PeelHop_10_4_a03d7a",
+      "1PeelHop_17_1_b816e6",
+      "1CJ_In_48_3_ca5133",
+      "1CJ_In_50_1_b14c67",
+      "bc1qCJ_Out_42_6_b94dbc",
+      "bc1qCJ_Out_11_5_77fcec",
+      "bc1qCJ_Out_45_0_f6132b",
+      "bc1qCJ_Out_3_1_1a2c37",
+      "bc1qCJ_Out_41_8_9052d8",
+      "bc1qCJ_Out_41_6_a620a1",
+      "1CJ_In_45_7_c2e3ee"
+    ],
+    "member_count": 12,
+    "avg_risk_score": 0.826,
+    "description": "Group of 12 addresses repeatedly co-participating in multi-hop layering and unlinked mixing chains.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_high_risk_3_5730fd",
+    "label": "Suspicious Entity Group 4 (Mixing / Peeling)",
+    "member_addresses": [
+      "bc1qCJ_Out_9_2_44411a",
+      "1CJ_In_27_4_a02531",
+      "1CJ_In_58_4_60665e",
+      "1CJ_In_1_6_e7b28f",
+      "bc1qCJ_Out_46_4_162157",
+      "bc1qCJ_Out_13_8_ddfcb0",
+      "bc1qCJ_Out_28_9_8f6761",
+      "bc1qCJ_Out_23_1_8c8856",
+      "bc1qCJ_Out_58_0_271207",
+      "1CJ_In_27_8_1f18bc",
+      "bc1qCJ_Out_22_1_eebe4c",
+      "bc1qCJ_Out_59_1_95bca4"
+    ],
+    "member_count": 12,
+    "avg_risk_score": 0.781,
+    "description": "Group of 12 addresses repeatedly co-participating in multi-hop layering and unlinked mixing chains.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_high_risk_4_e0113f",
+    "label": "Suspicious Entity Group 5 (Mixing / Peeling)",
+    "member_addresses": [
+      "1CJ_In_41_5_d0fd38",
+      "bc1qCJ_Out_26_3_45be3c",
+      "bc1qCJ_Out_42_4_0dad50",
+      "bc1qCJ_Out_21_5_07efe4",
+      "bc1qCJ_Out_19_7_fecc67",
+      "bc1qCJ_Out_27_0_1f8eae",
+      "1CJ_In_22_4_af52f9",
+      "1CJ_In_12_6_d4ea9d",
+      "bc1qCJ_Out_18_7_a0d6fe",
+      "bc1qCJ_Out_22_4_753a06",
+      "1CJ_In_52_2_eb0e1c",
+      "bc1qCJ_Out_59_0_41a75a"
+    ],
+    "member_count": 12,
+    "avg_risk_score": 0.838,
+    "description": "Group of 12 addresses repeatedly co-participating in multi-hop layering and unlinked mixing chains.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_high_risk_5_88a12e",
+    "label": "Suspicious Entity Group 6 (Mixing / Peeling)",
+    "member_addresses": [
+      "1CJ_In_49_7_f73c97",
+      "bc1qCJ_Out_49_2_8856ca",
+      "1CJ_In_26_7_ab3596",
+      "bc1qCJ_Out_11_6_b16b0e",
+      "bc1qCJ_Out_49_4_089e96",
+      "bc1qCJ_Out_59_3_5c1ac8",
+      "bc1qCJ_Out_35_5_224508",
+      "1CJ_In_57_1_4077b1",
+      "1CJ_In_10_1_89d80e",
+      "1CJ_In_21_4_98c68c",
+      "1PeelHop_2_1_904838",
+      "1CJ_In_11_8_297159"
+    ],
+    "member_count": 12,
+    "avg_risk_score": 0.809,
+    "description": "Group of 12 addresses repeatedly co-participating in multi-hop layering and unlinked mixing chains.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_high_risk_6_1b60d9",
+    "label": "Suspicious Entity Group 7 (Mixing / Peeling)",
+    "member_addresses": [
+      "1CJ_In_54_3_881f01",
+      "bc1qCJ_Out_58_8_047076",
+      "bc1qCJ_Out_39_7_709fb0",
+      "bc1qCJ_Out_12_6_782b2d",
+      "bc1qCJ_Out_23_3_2393f7",
+      "1CJ_In_57_4_45d7a7",
+      "bc1qCJ_Out_43_4_152bdc",
+      "bc1qCJ_Out_24_2_ec56fe",
+      "1CJ_In_51_4_a81161",
+      "bc1qCJ_Out_34_9_8c7572",
+      "1CJ_In_28_8_f4e7ac",
+      "bc1qCJ_Out_47_10_bf077d"
+    ],
+    "member_count": 12,
+    "avg_risk_score": 0.954,
+    "description": "Group of 12 addresses repeatedly co-participating in multi-hop layering and unlinked mixing chains.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_high_risk_7_303316",
+    "label": "Suspicious Entity Group 8 (Mixing / Peeling)",
+    "member_addresses": [
+      "1CJ_In_56_0_cc5879",
+      "1CJ_In_18_7_29534e",
+      "1CJ_In_49_2_deb857",
+      "bc1qCJ_Out_57_2_7862d7",
+      "1CJ_In_44_4_b05596",
+      "bc1qCJ_Out_14_6_85da25",
+      "1CJ_In_34_4_8b7429",
+      "bc1qCJ_Out_28_7_2d6f5a",
+      "1CJ_In_48_10_78a7a8",
+      "1RansomwarePayment_3_309143a7",
+      "bc1qCJ_Out_23_1_8c8856",
+      "1CJ_In_49_7_f73c97"
+    ],
+    "member_count": 12,
+    "avg_risk_score": 0.917,
+    "description": "Group of 12 addresses repeatedly co-participating in multi-hop layering and unlinked mixing chains.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_high_risk_8_411d8f",
+    "label": "Suspicious Entity Group 9 (Mixing / Peeling)",
+    "member_addresses": [
+      "bc1qCJ_Out_54_4_203125",
+      "bc1qCJ_Out_16_6_5c104f",
+      "bc1qCJ_Out_16_9_ce41b0",
+      "1CJ_In_52_3_0adcbf",
+      "1CJ_In_39_7_097e73",
+      "bc1qCJ_Out_29_8_377641",
+      "bc1qCJ_Out_2_3_8d996c",
+      "1PeelHop_15_4_c12c92",
+      "1PeelHop_20_3_65427a",
+      "1CJ_In_33_2_a4531e",
+      "1CJ_In_28_1_2ffaa1",
+      "bc1qCJ_Out_49_0_fd9760"
+    ],
+    "member_count": 12,
+    "avg_risk_score": 0.839,
+    "description": "Group of 12 addresses repeatedly co-participating in multi-hop layering and unlinked mixing chains.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_high_risk_9_0f3c23",
+    "label": "Suspicious Entity Group 10 (Mixing / Peeling)",
+    "member_addresses": [
+      "1CJ_In_15_3_c60860",
+      "bc1qCJ_Out_4_4_fe68a0",
+      "bc1qCJ_Out_55_0_d5a7df",
+      "bc1qCJ_Out_1_5_c8de1a",
+      "1CJ_In_8_4_7a55ea",
+      "bc1qCJ_Out_46_7_3c8a29",
+      "bc1qCJ_Out_44_1_d8889d",
+      "1PeelHop_18_2_e95d42",
+      "1CJ_In_9_2_56a295",
+      "1PeelHop_23_4_cd00b9",
+      "bc1qCJ_Out_25_1_70ebc9",
+      "1CJ_In_57_3_35e7de"
+    ],
+    "member_count": 12,
+    "avg_risk_score": 0.864,
+    "description": "Group of 12 addresses repeatedly co-participating in multi-hop layering and unlinked mixing chains.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_high_risk_10_75dae1",
+    "label": "Suspicious Entity Group 11 (Mixing / Peeling)",
+    "member_addresses": [
+      "1CJ_In_13_1_9ed03f",
+      "1CJ_In_54_2_d4c7a1",
+      "bc1qCJ_Out_44_1_d8889d",
+      "bc1qCJ_Out_15_3_9df3f5",
+      "bc1qCJ_Out_1_2_670729",
+      "1CJ_In_19_8_91a9eb",
+      "1CJ_In_33_5_f6d6c2",
+      "bc1qCJ_Out_58_4_079088",
+      "bc1qCJ_Out_8_9_a19c19",
+      "bc1qCJ_Out_43_6_83f86b",
+      "1CJ_In_44_3_ae2c4f",
+      "1CJ_In_55_5_957543"
+    ],
+    "member_count": 12,
+    "avg_risk_score": 0.925,
+    "description": "Group of 12 addresses repeatedly co-participating in multi-hop layering and unlinked mixing chains.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_high_risk_11_3af4e9",
+    "label": "Suspicious Entity Group 12 (Mixing / Peeling)",
+    "member_addresses": [
+      "bc1qCJ_Out_26_5_5cd37c",
+      "bc1qCJ_Out_14_7_c4e7ee",
+      "bc1qCJ_Out_38_4_918ecc",
+      "bc1qCJ_Out_38_5_ea3df4",
+      "1CJ_In_35_2_6072a3",
+      "bc1qCJ_Out_45_8_2a1ffc",
+      "1CJ_In_12_3_349baf",
+      "bc1qCJ_Out_22_3_42547d",
+      "1CJ_In_10_6_0c8023",
+      "bc1qCJ_Out_47_6_3f2a86",
+      "1PeelHop_6_4_43a867",
+      "bc1qCJ_Out_49_1_19f1a0"
+    ],
+    "member_count": 12,
+    "avg_risk_score": 0.873,
+    "description": "Group of 12 addresses repeatedly co-participating in multi-hop layering and unlinked mixing chains.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_high_risk_12_f7212e",
+    "label": "Suspicious Entity Group 13 (Mixing / Peeling)",
+    "member_addresses": [
+      "1CJ_In_33_5_f6d6c2",
+      "bc1qCJ_Out_7_0_4527f8",
+      "1CJ_In_59_3_3c457a",
+      "bc1qCJ_Out_32_0_e06e64",
+      "bc1qCJ_Out_44_5_b73708",
+      "bc1qCJ_Out_37_0_082762",
+      "1PeelHop_1_3_f9638c",
+      "1CJ_In_45_3_025081",
+      "1CJ_In_52_7_e2a4a7",
+      "1CJ_In_31_5_ef3685",
+      "bc1qCJ_Out_29_3_b46d45",
+      "bc1qCJ_Out_30_3_175b1d"
+    ],
+    "member_count": 12,
+    "avg_risk_score": 0.914,
+    "description": "Group of 12 addresses repeatedly co-participating in multi-hop layering and unlinked mixing chains.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_high_risk_13_43ee6a",
+    "label": "Suspicious Entity Group 14 (Mixing / Peeling)",
+    "member_addresses": [
+      "bc1qCJ_Out_45_10_c18316",
+      "bc1qCJ_Out_47_3_260679",
+      "bc1qCJ_Out_30_5_045b44",
+      "1CJ_In_5_2_1b385d",
+      "1CJ_In_19_4_ab38aa",
+      "1CJ_In_22_9_6a4936",
+      "bc1qCJ_Out_51_2_91bf2c",
+      "bc1qCJ_Out_2_6_af48a7",
+      "bc1qCJ_Out_41_8_9052d8",
+      "bc1qCJ_Out_13_6_41be98",
+      "1PeelHop_7_2_0f15ce",
+      "1CJ_In_11_10_2c2aca"
+    ],
+    "member_count": 12,
+    "avg_risk_score": 0.91,
+    "description": "Group of 12 addresses repeatedly co-participating in multi-hop layering and unlinked mixing chains.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_high_risk_14_4ffb79",
+    "label": "Suspicious Entity Group 15 (Mixing / Peeling)",
+    "member_addresses": [
+      "1PeelHop_23_3_e24858",
+      "1CJ_In_9_4_446077",
+      "bc1qCJ_Out_33_0_d3e850",
+      "1CJ_In_39_7_097e73",
+      "bc1qCJ_Out_42_6_b94dbc",
+      "1CJ_In_3_4_486772",
+      "1PeelHop_20_4_7faf82",
+      "1CJ_In_36_0_327a9a",
+      "1CJ_In_31_2_33e4e9",
+      "bc1qCJ_Out_52_9_cd4d22",
+      "bc1qCJ_Out_35_4_0d30a0",
+      "1CJ_In_22_1_07a190"
+    ],
+    "member_count": 12,
+    "avg_risk_score": 0.924,
+    "description": "Group of 12 addresses repeatedly co-participating in multi-hop layering and unlinked mixing chains.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_med_risk_0_51a710",
+    "label": "Merchant / Payment Processor Cluster 1",
+    "member_addresses": [
+      "bc1p4fc742591539496890adf2931d9c",
+      "bc1q4616ad8fba0f476296b61cf5e178",
+      "bc1qa85f4f78e1bc4a7785d354c40b05",
+      "bc1q60c370aaf495407aa620d5ee443c",
+      "199abcadbdbaa43cfb5d91c0c0a",
+      "349c7c2a50f314e6f9ccb324d50",
+      "bc1q46f6c66a44ba4710abdbfc5e4b00",
+      "bc1q9a2514c285d74a43b33afdec0a9c",
+      "15ea14fee4f5c4ac9aadbc8cbcd"
+    ],
+    "member_count": 9,
+    "avg_risk_score": 0.429,
+    "description": "Commercial wallet cluster with co-spent inputs across business settlements.",
+    "clustering_method": "common_input_ownership"
+  },
+  {
+    "cluster_id": "cluster_med_risk_1_0785db",
+    "label": "Merchant / Payment Processor Cluster 2",
+    "member_addresses": [
+      "18102b8fc1bc8478a9862ce71e3",
+      "bc1qc8d4241bfc394bc887f0f99d3c04",
+      "bc1qbe5bb01ff5c8425e9d6e799c1127",
+      "bc1q682486bf13904b049eb96d60177c",
+      "bc1q95c97a011fec432397803487b252",
+      "bc1q8994eb667d5e481382fa998c8214",
+      "bc1qd21980c7529e462b87d44eef8aaf",
+      "bc1qadb43bb4aa164b1582599602afb4",
+      "bc1qac20cdf6644d403798561b673b1c"
+    ],
+    "member_count": 9,
+    "avg_risk_score": 0.525,
+    "description": "Commercial wallet cluster with co-spent inputs across business settlements.",
+    "clustering_method": "common_input_ownership"
+  },
+  {
+    "cluster_id": "cluster_med_risk_2_eee05b",
+    "label": "Merchant / Payment Processor Cluster 3",
+    "member_addresses": [
+      "bc1p2f3bbdf2e4014e70bdc22eab5506",
+      "149bb670d4fa147128c3aa16f32",
+      "365156156b9ba4ae796e8991b61",
+      "bc1q383afd39b4db4eaba6fdd7cc5829",
+      "1ceb51f5a16344d718faefe2e80",
+      "bc1q0d4f18b9ce43435d8a400059ed0d",
+      "18d6bc4b0a68c48cabd17b8bda1",
+      "bc1q824875357c3f495991a3cca0e7f4",
+      "bc1qf18836543598484a8192dfb6cf85",
+      "142e91e94e79847359d0f4d4bbf",
+      "1cf20ff9621274a4fb6d9201d2f",
+      "bc1p195c42a27e8c49ccb278b57b661f",
+      "bc1q7c359be55adf4c19819bd8179fdb"
+    ],
+    "member_count": 13,
+    "avg_risk_score": 0.53,
+    "description": "Commercial wallet cluster with co-spent inputs across business settlements.",
+    "clustering_method": "common_input_ownership"
+  },
+  {
+    "cluster_id": "cluster_med_risk_3_4c015f",
+    "label": "Merchant / Payment Processor Cluster 4",
+    "member_addresses": [
+      "bc1p91011ebaf0324c609d4dde0fe074",
+      "bc1q377fc64cd4394c0bb7c3f2f50b74",
+      "bc1q0a5b1589330542b5b21fe0da1a2f",
+      "bc1p4fc742591539496890adf2931d9c",
+      "bc1qb10ef2e8e49f47b9a723bcb5d545",
+      "1b2cc716eaf1640a8ba0e6eb9a9",
+      "3e93585c8b34147d585642b016b",
+      "168cb24b89b6d4a7aa8c5334d5f",
+      "10d6732c3b34a4f14a127ab2011",
+      "30d3cd419021d4da59922bd2a32",
+      "bc1q5eb03788ee1449618474d330976c"
+    ],
+    "member_count": 11,
+    "avg_risk_score": 0.479,
+    "description": "Commercial wallet cluster with co-spent inputs across business settlements.",
+    "clustering_method": "common_input_ownership"
+  },
+  {
+    "cluster_id": "cluster_med_risk_4_c01848",
+    "label": "Merchant / Payment Processor Cluster 5",
+    "member_addresses": [
+      "bc1qe3a6229703ff42febc77f6bf6caf",
+      "bc1q6647a339aaf648e9b8f1d9377abe",
+      "bc1qfb0acd93a22d4b08bacc6e662caf",
+      "bc1q64a9ddd9bcf746c1be7ed925551c",
+      "bc1pc0054ec22b9e415db53f52418cdf",
+      "bc1q7fd70d50799c468c8f540e6d43f3",
+      "1074e161f69b54eba8352b23d81",
+      "bc1q4b20782945d34016b8b7c9eca492",
+      "bc1qd160e4313ac24cb9832ca19b0007"
+    ],
+    "member_count": 9,
+    "avg_risk_score": 0.478,
+    "description": "Commercial wallet cluster with co-spent inputs across business settlements.",
+    "clustering_method": "common_input_ownership"
+  },
+  {
+    "cluster_id": "cluster_med_risk_5_f3813c",
+    "label": "Merchant / Payment Processor Cluster 6",
+    "member_addresses": [
+      "bc1q60d55532b63245f381f4e940d6d0",
+      "1ae68591bc5814735921569539b",
+      "bc1q4979cef8dfda4612aa70cc7ed361",
+      "10421a7c3c06d48a7be9465072e",
+      "bc1q4d22943f96e14a4ba78af7370491",
+      "330b10030063f4f54a3abeddafe",
+      "bc1qb66755286e8b4c6497f2e9c95a04"
+    ],
+    "member_count": 7,
+    "avg_risk_score": 0.602,
+    "description": "Commercial wallet cluster with co-spent inputs across business settlements.",
+    "clustering_method": "common_input_ownership"
+  },
+  {
+    "cluster_id": "cluster_med_risk_6_e447af",
+    "label": "Merchant / Payment Processor Cluster 7",
+    "member_addresses": [
+      "bc1q971554ecb49a44abb177ad229e79",
+      "bc1q80dd9482b20d4b8781b37abf0429",
+      "bc1p4fc742591539496890adf2931d9c",
+      "bc1qf563a1949eaa498fbb5dbea653ac",
+      "bc1q667b92caada64effaae56b54929e"
+    ],
+    "member_count": 5,
+    "avg_risk_score": 0.558,
+    "description": "Commercial wallet cluster with co-spent inputs across business settlements.",
+    "clustering_method": "common_input_ownership"
+  },
+  {
+    "cluster_id": "cluster_med_risk_7_4391ac",
+    "label": "Merchant / Payment Processor Cluster 8",
+    "member_addresses": [
+      "bc1q5eb03788ee1449618474d330976c",
+      "13fc27ee1e38146e881e97456d0",
+      "bc1q179d7c56b8184ff88d34acc27d59",
+      "bc1q20ba9b3291eb41f4bdf2d9a5fcb0",
+      "30d3cd419021d4da59922bd2a32",
+      "bc1q067e30cfb7134dbbacb6bd4f8627",
+      "bc1q18e7cc8a732040a4b21551a497ba",
+      "bc1pc605a38b4ba8465481f77d94fe3b",
+      "bc1q372a588ee8eb41019ccb100bbf52",
+      "bc1q57a633249e434842874a29300dc9",
+      "bc1q667b92caada64effaae56b54929e",
+      "3f99b33a3fbd7424b9af7dcb755"
+    ],
+    "member_count": 12,
+    "avg_risk_score": 0.639,
+    "description": "Commercial wallet cluster with co-spent inputs across business settlements.",
+    "clustering_method": "common_input_ownership"
+  },
+  {
+    "cluster_id": "cluster_med_risk_8_06855d",
+    "label": "Merchant / Payment Processor Cluster 9",
+    "member_addresses": [
+      "1aedc6837dec643aabe23f3a2d7",
+      "1119fb25e3361466f83b54eb832",
+      "bc1q9b457d8b9b2a4270bee131843631",
+      "bc1qe0d260cea7844b9bbcbfbbf99b93",
+      "bc1q98db05f2a5d34d6c8d42441916d3"
+    ],
+    "member_count": 5,
+    "avg_risk_score": 0.594,
+    "description": "Commercial wallet cluster with co-spent inputs across business settlements.",
+    "clustering_method": "common_input_ownership"
+  },
+  {
+    "cluster_id": "cluster_med_risk_9_b9b39a",
+    "label": "Merchant / Payment Processor Cluster 10",
+    "member_addresses": [
+      "bc1qae771d5d6d1e459695e51c8c6ab1",
+      "3eb763e8eb5f04ff3bf6803aa55",
+      "bc1pc605a38b4ba8465481f77d94fe3b",
+      "bc1qa50e9ba6c835411eaac46c5a94a1",
+      "15efe057f85e545a7bc9e3e92d9",
+      "1a7df58ace3e24050a2d99bedf8",
+      "37639e132edfb4276b1beed1939",
+      "bc1qcbd49ed8704345f08c3b9dbf81eb",
+      "bc1q18e7cc8a732040a4b21551a497ba",
+      "1cf20ff9621274a4fb6d9201d2f",
+      "39e9b5386a5a347d58a9f0bcc86",
+      "39607e71a576a4db0b5b3433d9c",
+      "bc1q0f1bae4df58a4a6f86bd3eba1c56",
+      "30a848edac5fc46ed9196e241a7",
+      "3e86b09c16068440ab0f069417c"
+    ],
+    "member_count": 15,
+    "avg_risk_score": 0.579,
+    "description": "Commercial wallet cluster with co-spent inputs across business settlements.",
+    "clustering_method": "common_input_ownership"
+  },
+  {
+    "cluster_id": "cluster_med_risk_10_00280a",
+    "label": "Merchant / Payment Processor Cluster 11",
+    "member_addresses": [
+      "181a8855c1c554d69ac186dec86",
+      "bc1q144b3046e1e045d7a14e0f4fe4cd",
+      "31609348254074d6ca1e37174f3",
+      "bc1qb06df0b369b94bda9645eb89c631",
+      "bc1qf67da1391dcc4c5f99c6dce3ea63",
+      "bc1q2de8f4d7b9254df8aeab957f5ff8",
+      "37f4ebcc08ca24beebf43c68f9e",
+      "bc1q1e4bea6b50f74d8da45d5d9f4b53"
+    ],
+    "member_count": 8,
+    "avg_risk_score": 0.42,
+    "description": "Commercial wallet cluster with co-spent inputs across business settlements.",
+    "clustering_method": "common_input_ownership"
+  },
+  {
+    "cluster_id": "cluster_med_risk_11_def336",
+    "label": "Merchant / Payment Processor Cluster 12",
+    "member_addresses": [
+      "3b5fcd676cd51444289a211297c",
+      "bc1qf67da1391dcc4c5f99c6dce3ea63",
+      "10bf97d31dc9147578f7c2772f4",
+      "bc1qb14d964a1b31412baf9d9028fbce",
+      "1ef179a4232854907a1c3b44020",
+      "bc1qdd479471d0464738a3054e95a57f",
+      "bc1q43c6698f9932449e9b55146f8bab",
+      "bc1q530b065ff48d4d069df4c26a9af7",
+      "1f414f67029494919b174c27e3b",
+      "1183a413812e545f5a888fcc77a",
+      "bc1q113aac11dcc643a98aa2645a5c98"
+    ],
+    "member_count": 11,
+    "avg_risk_score": 0.612,
+    "description": "Commercial wallet cluster with co-spent inputs across business settlements.",
+    "clustering_method": "common_input_ownership"
+  },
+  {
+    "cluster_id": "cluster_med_risk_12_d626a8",
+    "label": "Merchant / Payment Processor Cluster 13",
+    "member_addresses": [
+      "1430c16d2990f491eb4f5cb58e2",
+      "bc1p1b7412fd764944ffb2f1c573446a",
+      "125eebb046d404af1b5af80374c",
+      "bc1q179d7c56b8184ff88d34acc27d59",
+      "bc1q98db05f2a5d34d6c8d42441916d3",
+      "1bdf71c4a7e424cf1b4449d160b",
+      "14d1a479f6e2c4f4a944075a167",
+      "bc1q3e80e2052d9e4d2091db45f4e4b9",
+      "18b2a931cc5f2467a8ad2743f41",
+      "1188d2993bdaf4f12b945960162",
+      "386f0c1a67f41427783db6d3e0a",
+      "bc1q824875357c3f495991a3cca0e7f4",
+      "bc1qa9ec788e618944f08870b7b2e711",
+      "17acd0f335a92479dbf721057e6"
+    ],
+    "member_count": 14,
+    "avg_risk_score": 0.487,
+    "description": "Commercial wallet cluster with co-spent inputs across business settlements.",
+    "clustering_method": "common_input_ownership"
+  },
+  {
+    "cluster_id": "cluster_med_risk_13_8ab5de",
+    "label": "Merchant / Payment Processor Cluster 14",
+    "member_addresses": [
+      "105de80445cc3478a8418bb03aa",
+      "bc1qa85f4f78e1bc4a7785d354c40b05",
+      "bc1qd90f41384bfb4147abe8aa5054a3",
+      "1430c16d2990f491eb4f5cb58e2",
+      "bc1q69f9294ad78f487e9b970197a1ee"
+    ],
+    "member_count": 5,
+    "avg_risk_score": 0.604,
+    "description": "Commercial wallet cluster with co-spent inputs across business settlements.",
+    "clustering_method": "common_input_ownership"
+  },
+  {
+    "cluster_id": "cluster_med_risk_14_4ad64f",
+    "label": "Merchant / Payment Processor Cluster 15",
+    "member_addresses": [
+      "bc1q161b64e1961d4808997e3bd092a6",
+      "bc1pa1cf97906f3a48b7a00712b08192",
+      "bc1qdfbf00056a86423fa5b4b64b454f",
+      "bc1q2c60177fe8e64a5b8f3badbc0d65",
+      "bc1q06e33c5c4a8b4786ae14245e99d7",
+      "127499768cae54f6ab167dca8cb",
+      "396a5a638fef040739031caf92e",
+      "13f2512c176944198809fa84f56",
+      "3e93585c8b34147d585642b016b"
+    ],
+    "member_count": 9,
+    "avg_risk_score": 0.402,
+    "description": "Commercial wallet cluster with co-spent inputs across business settlements.",
+    "clustering_method": "common_input_ownership"
+  },
+  {
+    "cluster_id": "cluster_med_risk_15_78be1a",
+    "label": "Merchant / Payment Processor Cluster 16",
+    "member_addresses": [
+      "181a8855c1c554d69ac186dec86",
+      "1bdf71c4a7e424cf1b4449d160b",
+      "bc1q269fb3d8c4d348cf9cea083e0b6b",
+      "362d086dd47a8417484b0c49d72",
+      "149a6af00d82645b6911279b84e",
+      "bc1q667b92caada64effaae56b54929e"
+    ],
+    "member_count": 6,
+    "avg_risk_score": 0.466,
+    "description": "Commercial wallet cluster with co-spent inputs across business settlements.",
+    "clustering_method": "common_input_ownership"
+  },
+  {
+    "cluster_id": "cluster_med_risk_16_321e57",
+    "label": "Merchant / Payment Processor Cluster 17",
+    "member_addresses": [
+      "bc1q17f4858bc47945f2b61c409b6173",
+      "1e9af9cf0c52d40579c834a2470",
+      "bc1q031909f32c904cecaf1dc96cb3a2",
+      "bc1p9844ea00c9b048138e290fde19c9",
+      "bc1q667b92caada64effaae56b54929e",
+      "bc1q161b64e1961d4808997e3bd092a6",
+      "395b5e1607fb3486b9a42783417",
+      "bc1q3b3e7327d7274a5e84530fc0ed0f",
+      "bc1q60d55532b63245f381f4e940d6d0",
+      "3a21e8969a6474fe381020b4825",
+      "3e01ff52a97084d32bd8cc90f4a",
+      "377a16cfdfcde401b932ddfc785",
+      "36914798a93924856bdf3d80ac7",
+      "1ef179a4232854907a1c3b44020",
+      "3fe2fade1ae1247db889199f75b"
+    ],
+    "member_count": 15,
+    "avg_risk_score": 0.432,
+    "description": "Commercial wallet cluster with co-spent inputs across business settlements.",
+    "clustering_method": "common_input_ownership"
+  },
+  {
+    "cluster_id": "cluster_med_risk_17_530399",
+    "label": "Merchant / Payment Processor Cluster 18",
+    "member_addresses": [
+      "bc1qc3ade461be934175bf1dc17c9387",
+      "bc1q377fc64cd4394c0bb7c3f2f50b74",
+      "18d6bc4b0a68c48cabd17b8bda1",
+      "1e4683803b8994eb2aa253a8f47",
+      "396a5a638fef040739031caf92e",
+      "bc1q2599e51943924e6eb5e6b98c3ea0",
+      "bc1q2f3e092117694d099068c722d27b",
+      "bc1q3828d96a43584241905477d241ba"
+    ],
+    "member_count": 8,
+    "avg_risk_score": 0.5,
+    "description": "Commercial wallet cluster with co-spent inputs across business settlements.",
+    "clustering_method": "common_input_ownership"
+  },
+  {
+    "cluster_id": "cluster_med_risk_18_0245d0",
+    "label": "Merchant / Payment Processor Cluster 19",
+    "member_addresses": [
+      "bc1p9844ea00c9b048138e290fde19c9",
+      "bc1qa25039aca2f949cfbeb9bff5673b",
+      "3068a161b86c2412794888879ae",
+      "3914dc08ac59a4c5eba7b373000",
+      "bc1qeb370b0bb2044fc392482914f478",
+      "3792d8251312f498d87f7597768",
+      "389bfa2dc3801473d8593e71ca5",
+      "382cdd20f54bc4ece86ad031b82",
+      "bc1qd21980c7529e462b87d44eef8aaf",
+      "bc1qb66755286e8b4c6497f2e9c95a04",
+      "bc1pea011f73dd404395899bd59a1b90",
+      "34dc4d0e0a4e046378af6bc786d",
+      "3f99b33a3fbd7424b9af7dcb755"
+    ],
+    "member_count": 13,
+    "avg_risk_score": 0.455,
+    "description": "Commercial wallet cluster with co-spent inputs across business settlements.",
+    "clustering_method": "common_input_ownership"
+  },
+  {
+    "cluster_id": "cluster_med_risk_19_d80ffe",
+    "label": "Merchant / Payment Processor Cluster 20",
+    "member_addresses": [
+      "169e8a1a68e19478ebd886f8a4e",
+      "100fb032f28464e04807a54a639",
+      "bc1qb192af862a3a46b79ae3511cf090",
+      "105c80e55ef9f4dd3aa40e4ee1c",
+      "140a3104d5645424e9e61a17990",
+      "3068a161b86c2412794888879ae"
+    ],
+    "member_count": 6,
+    "avg_risk_score": 0.635,
+    "description": "Commercial wallet cluster with co-spent inputs across business settlements.",
+    "clustering_method": "common_input_ownership"
+  },
+  {
+    "cluster_id": "cluster_normal_0_fe54fd",
+    "label": "Standard Co-Spend Entity 1",
+    "member_addresses": [
+      "39320562e2497445f8db3af74b0",
+      "1db10c02bdd50402581358f821f",
+      "bc1qde2a2268f5984375a67fad14f120"
+    ],
+    "member_count": 3,
+    "avg_risk_score": 0.205,
+    "description": "Standard user or small institution co-spending multiple UTXOs.",
+    "clustering_method": "common_input_ownership"
+  },
+  {
+    "cluster_id": "cluster_normal_1_3713f1",
+    "label": "Standard Co-Spend Entity 2",
+    "member_addresses": [
+      "bc1qcebd3c7c70544bf5ada3f5831a8b",
+      "bc1q1f5a6be985204a81b759cb57e9a6",
+      "189ad174594054cfaaeff90a61e",
+      "bc1q07f7e41337b8470786aaa8c48578"
     ],
     "member_count": 4,
-    "avg_risk_score": 0.55,
-    "description": "4 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 2 interacting transactions.",
-    "clustering_method": "common_input_ownership+node2vec_embedding"
+    "avg_risk_score": 0.037,
+    "description": "Standard user or small institution co-spending multiple UTXOs.",
+    "clustering_method": "common_input_ownership"
   },
   {
-    "cluster_id": "cluster_638157ddf706",
-    "label": "Associated Wallet Group",
+    "cluster_id": "cluster_normal_2_fc7b85",
+    "label": "Standard Co-Spend Entity 3",
     "member_addresses": [
-      "1MerchantSpendAddr2abc",
-      "1PeelSeedIllicitAddr2xyz"
+      "1c7a5125b61994f87a7f8f435d6",
+      "bc1q2d66130a7f574a9e82f40a4129ef",
+      "bc1q955854def1cc4ca6a707e4e58cad",
+      "355c8adfbd52e49c08a0b5ee37a",
+      "bc1qc84915569abf475d8a210a329166",
+      "bc1q1cfb62269ceb4d6fb24ec0c77367"
     ],
-    "member_count": 2,
-    "avg_risk_score": 0.32,
-    "description": "2 addresses linked via transaction adjacency and common flow patterns accounting for 18.5 BTC in volume.",
-    "clustering_method": "common_input_ownership+node2vec_embedding"
+    "member_count": 6,
+    "avg_risk_score": 0.059,
+    "description": "Standard user or small institution co-spending multiple UTXOs.",
+    "clustering_method": "common_input_ownership"
   },
   {
-    "cluster_id": "cluster_5b91b43852ac",
-    "label": "Multi-Wallet Entity",
+    "cluster_id": "cluster_normal_3_3d2602",
+    "label": "Standard Co-Spend Entity 4",
     "member_addresses": [
-      "1MerchantSpendAddr3abc",
-      "1PeelSeedIllicitAddr3xyz",
-      "1PeelSeedIllicitAddr4xyz"
+      "bc1q2aa31483aec3455c853bb657463a",
+      "bc1q83cd4c09623945c5b454f48a467e",
+      "bc1qe4b7794a7e444d9094b65fefb30b",
+      "1783fd9da0dbe4edabff8cc4508",
+      "1d43433a70a7b4dd2a66d76ebf6"
     ],
-    "member_count": 3,
-    "avg_risk_score": 0.27,
-    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 2 interacting transactions.",
-    "clustering_method": "common_input_ownership+node2vec_embedding"
+    "member_count": 5,
+    "avg_risk_score": 0.053,
+    "description": "Standard user or small institution co-spending multiple UTXOs.",
+    "clustering_method": "common_input_ownership"
   },
   {
-    "cluster_id": "cluster_342cd9d8a38a",
-    "label": "Consolidation Vault Entity",
+    "cluster_id": "cluster_normal_4_4064cd",
+    "label": "Standard Co-Spend Entity 5",
     "member_addresses": [
-      "1CoinJoinIn_0_1d443a",
-      "1CoinJoinIn_1_ff960e",
-      "1CoinJoinIn_2_67e377",
-      "1CoinJoinIn_3_5c27e4",
-      "1CoinJoinIn_4_bf23f9",
-      "1CoinJoinOut_0_168179",
-      "1CoinJoinOut_1_096fb9",
-      "1CoinJoinOut_2_cbe8e5",
-      "1CoinJoinOut_3_69f2c3",
-      "1CoinJoinOut_4_768542"
-    ],
-    "member_count": 10,
-    "avg_risk_score": 0.0,
-    "description": "10 addresses regularly co-spent in multi-input transactions consolidating 5.0 BTC. Strong common-input-ownership signals confirm these addresses are controlled by a single entity.",
-    "clustering_method": "common_input_ownership+node2vec_embedding"
-  },
-  {
-    "cluster_id": "cluster_48df6c7685f3",
-    "label": "Consolidation Vault Entity",
-    "member_addresses": [
-      "1ConsolidatedVaultAddr123",
-      "1EntityCluster_0_bcc0d8",
-      "1EntityCluster_1_690385",
-      "1EntityCluster_2_20cf61"
+      "bc1qabde5d05d03d435bb102f4921117",
+      "bc1q6128896731074ad6b5cd53760b8c",
+      "1893231f43dc64b449e026634c9",
+      "39fc01d6c872c49639b45d65f29"
     ],
     "member_count": 4,
-    "avg_risk_score": 0.0,
-    "description": "4 addresses regularly co-spent in multi-input transactions consolidating 7.0 BTC. Strong common-input-ownership signals confirm these addresses are controlled by a single entity.",
-    "clustering_method": "common_input_ownership+node2vec_embedding"
+    "avg_risk_score": 0.126,
+    "description": "Standard user or small institution co-spending multiple UTXOs.",
+    "clustering_method": "common_input_ownership"
   },
   {
-    "cluster_id": "cluster_e2838e603eb1",
-    "label": "Multi-Wallet Entity",
+    "cluster_id": "cluster_normal_5_f56db1",
+    "label": "Standard Co-Spend Entity 6",
     "member_addresses": [
-      "1ChangeOut_6_2de893",
-      "1NormalUserIn_6_a0766c",
-      "1NormalUserOut_6_f43527"
+      "1a07cb3c042cc4def9c0ba338c8",
+      "15006afd0dcb54ec0b1f6201fb1",
+      "38b13bf8a0aa54b7dbff5a390b2",
+      "1c13d300510714739a33f28066b",
+      "1b7bf5b91175540e8bd6537a299",
+      "bc1qe55bd8d258ac4bea94d56019f2db",
+      "bc1q5bafc58807c7467fb681f063b6fb",
+      "19e9d4016c7ed4e8097d0118590"
     ],
-    "member_count": 3,
-    "avg_risk_score": 0.0,
-    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
-    "clustering_method": "common_input_ownership+node2vec_embedding"
+    "member_count": 8,
+    "avg_risk_score": 0.205,
+    "description": "Standard user or small institution co-spending multiple UTXOs.",
+    "clustering_method": "common_input_ownership"
   },
   {
-    "cluster_id": "cluster_4fb961b01fe2",
-    "label": "Multi-Wallet Entity",
+    "cluster_id": "cluster_normal_6_a9c672",
+    "label": "Standard Co-Spend Entity 7",
     "member_addresses": [
-      "1ChangeOut_4_30ee25",
-      "1NormalUserIn_4_03d807",
-      "1NormalUserOut_4_cb9f35"
+      "bc1q436d14b863e844a994d1cf806971",
+      "bc1q769d733130674e6abb31a544b4b9",
+      "bc1qb5894f92a2d64c7ea691439db958"
     ],
     "member_count": 3,
-    "avg_risk_score": 0.0,
-    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
-    "clustering_method": "common_input_ownership+node2vec_embedding"
+    "avg_risk_score": 0.049,
+    "description": "Standard user or small institution co-spending multiple UTXOs.",
+    "clustering_method": "common_input_ownership"
   },
   {
-    "cluster_id": "cluster_ef87a462e7ab",
-    "label": "Multi-Wallet Entity",
+    "cluster_id": "cluster_normal_7_b4f477",
+    "label": "Standard Co-Spend Entity 8",
     "member_addresses": [
-      "1ChangeOut_3_b416e0",
-      "1NormalUserIn_3_c20e81",
-      "1NormalUserOut_3_e8942b"
+      "bc1q383ae8613662463ab80183dd6bec",
+      "1612b187b840041ac9fd75a397e",
+      "bc1q5299d6b1b12a4282b11b7a267d95",
+      "1c13d300510714739a33f28066b"
     ],
-    "member_count": 3,
-    "avg_risk_score": 0.0,
-    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
-    "clustering_method": "common_input_ownership+node2vec_embedding"
+    "member_count": 4,
+    "avg_risk_score": 0.071,
+    "description": "Standard user or small institution co-spending multiple UTXOs.",
+    "clustering_method": "common_input_ownership"
   },
   {
-    "cluster_id": "cluster_76c86804a7bc",
-    "label": "Multi-Wallet Entity",
+    "cluster_id": "cluster_normal_8_95b4a7",
+    "label": "Standard Co-Spend Entity 9",
     "member_addresses": [
-      "1ChangeOut_2_4cddf8",
-      "1NormalUserIn_2_7bfcac",
-      "1NormalUserOut_2_497c0d"
+      "3cb9250cb69ef4e4ba622d26b48",
+      "190065935c499415ca5842b5a15",
+      "159cfb160277b430487ca34c171",
+      "1ef166eb9bf4a45e8a565d544f3",
+      "1f5813feafaf6421996258a2d6d",
+      "bc1q3fec8cdbcd6e4e9ba9f32a3fb1c5"
     ],
-    "member_count": 3,
-    "avg_risk_score": 0.0,
-    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
-    "clustering_method": "common_input_ownership+node2vec_embedding"
+    "member_count": 6,
+    "avg_risk_score": 0.065,
+    "description": "Standard user or small institution co-spending multiple UTXOs.",
+    "clustering_method": "common_input_ownership"
   },
   {
-    "cluster_id": "cluster_10854d7668d9",
-    "label": "Multi-Wallet Entity",
+    "cluster_id": "cluster_normal_9_2aceb2",
+    "label": "Standard Co-Spend Entity 10",
     "member_addresses": [
-      "1ChangeOut_9_3488f8",
-      "1NormalUserIn_9_b00ff1",
-      "1NormalUserOut_9_74d191"
+      "bc1q955854def1cc4ca6a707e4e58cad",
+      "bc1q51b44d80ff274c9c89a0232197e8",
+      "bc1q1cfb62269ceb4d6fb24ec0c77367",
+      "bc1qb6629be9dfdb490db73014a386bc",
+      "1a07cb3c042cc4def9c0ba338c8",
+      "1b5a546d6a3b74599af8cae8c4b",
+      "bc1qe55bd8d258ac4bea94d56019f2db"
     ],
-    "member_count": 3,
-    "avg_risk_score": 0.0,
-    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
-    "clustering_method": "common_input_ownership+node2vec_embedding"
+    "member_count": 7,
+    "avg_risk_score": 0.118,
+    "description": "Standard user or small institution co-spending multiple UTXOs.",
+    "clustering_method": "common_input_ownership"
   },
   {
-    "cluster_id": "cluster_dc43dc5e470d",
-    "label": "Multi-Wallet Entity",
+    "cluster_id": "cluster_normal_10_bf95a5",
+    "label": "Standard Co-Spend Entity 11",
     "member_addresses": [
-      "1ChangeOut_1_d655e3",
-      "1NormalUserIn_1_17371f",
-      "1NormalUserOut_1_073cd6"
+      "bc1q82159b1ace114d8097d3046e32ec",
+      "1ae94d2112030479ba621bc9805",
+      "bc1q21ced006ce084dd1b19dbfcbc199",
+      "3281cb630f9df4681a98d2026b3",
+      "bc1p2a7e191741084a1bb71a454310f3",
+      "18a52242a312542a8b7a38c0b72",
+      "3a541e62f14b445f086d6601219"
     ],
-    "member_count": 3,
-    "avg_risk_score": 0.0,
-    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
-    "clustering_method": "common_input_ownership+node2vec_embedding"
+    "member_count": 7,
+    "avg_risk_score": 0.222,
+    "description": "Standard user or small institution co-spending multiple UTXOs.",
+    "clustering_method": "common_input_ownership"
   },
   {
-    "cluster_id": "cluster_fcbacb68324e",
-    "label": "Multi-Wallet Entity",
+    "cluster_id": "cluster_normal_11_f80c49",
+    "label": "Standard Co-Spend Entity 12",
     "member_addresses": [
-      "1ChangeOut_13_af5ecf",
-      "1NormalUserIn_13_528cc3",
-      "1NormalUserOut_13_8c9d8b"
+      "1b7bf5b91175540e8bd6537a299",
+      "10a33793175774e9381d4f6ea2a",
+      "3281cb630f9df4681a98d2026b3",
+      "1ae94d2112030479ba621bc9805"
     ],
-    "member_count": 3,
-    "avg_risk_score": 0.0,
-    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
-    "clustering_method": "common_input_ownership+node2vec_embedding"
+    "member_count": 4,
+    "avg_risk_score": 0.229,
+    "description": "Standard user or small institution co-spending multiple UTXOs.",
+    "clustering_method": "common_input_ownership"
   },
   {
-    "cluster_id": "cluster_14aa966a2810",
-    "label": "Multi-Wallet Entity",
+    "cluster_id": "cluster_normal_12_0b53e2",
+    "label": "Standard Co-Spend Entity 13",
     "member_addresses": [
-      "1ChangeOut_11_275259",
-      "1NormalUserIn_11_588e3d",
-      "1NormalUserOut_11_7345d6"
+      "39320562e2497445f8db3af74b0",
+      "bc1q378cffd5a620498eae3e6a4e11c0",
+      "1c2c0c30dcc3b41148832761119",
+      "34b2e31fe333a48f493bc0456f9",
+      "10cfad3c2137e4a70b475ed9213",
+      "bc1q4a47903ad80b4d908e62d6da6eaa",
+      "bc1q354067fad734480eb2547fdc1f71",
+      "bc1q584682eb1a9542959df76a848386"
     ],
-    "member_count": 3,
-    "avg_risk_score": 0.0,
-    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
-    "clustering_method": "common_input_ownership+node2vec_embedding"
+    "member_count": 8,
+    "avg_risk_score": 0.23,
+    "description": "Standard user or small institution co-spending multiple UTXOs.",
+    "clustering_method": "common_input_ownership"
   },
   {
-    "cluster_id": "cluster_c891f40bf00f",
-    "label": "Multi-Wallet Entity",
+    "cluster_id": "cluster_normal_13_8ae301",
+    "label": "Standard Co-Spend Entity 14",
     "member_addresses": [
-      "1ChangeOut_5_938b0b",
-      "1NormalUserIn_5_1f371c",
-      "1NormalUserOut_5_857f0b"
+      "bc1qb5720ec3e7cf4cae827fd71d0d22",
+      "bc1q4b5d6e001a1d4097843e32225eab",
+      "bc1q354067fad734480eb2547fdc1f71",
+      "1e854bbd3e83e4d9890b08b7441"
     ],
-    "member_count": 3,
-    "avg_risk_score": 0.0,
-    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
-    "clustering_method": "common_input_ownership+node2vec_embedding"
+    "member_count": 4,
+    "avg_risk_score": 0.137,
+    "description": "Standard user or small institution co-spending multiple UTXOs.",
+    "clustering_method": "common_input_ownership"
   },
   {
-    "cluster_id": "cluster_e7a34eebb8d2",
-    "label": "Multi-Wallet Entity",
+    "cluster_id": "cluster_normal_14_ae7ab9",
+    "label": "Standard Co-Spend Entity 15",
     "member_addresses": [
-      "1ChangeOut_7_eb016d",
-      "1NormalUserIn_7_f81122",
-      "1NormalUserOut_7_170713"
+      "bc1q383ae8613662463ab80183dd6bec",
+      "bc1qb1e22f1c4e52427ab59fa7df9ebd",
+      "bc1q91560b0fc5f249b29a0e9314df4f",
+      "13c6a64cdac4a47bdbbf2ad38bb",
+      "308873b397e184f2ea67c8295d4",
+      "bc1q8d33a7b5583e420ca675722abbb0",
+      "bc1p627700fa1e48426c84e63e884557"
     ],
-    "member_count": 3,
-    "avg_risk_score": 0.0,
-    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
-    "clustering_method": "common_input_ownership+node2vec_embedding"
+    "member_count": 7,
+    "avg_risk_score": 0.077,
+    "description": "Standard user or small institution co-spending multiple UTXOs.",
+    "clustering_method": "common_input_ownership"
   },
   {
-    "cluster_id": "cluster_59156d2a458a",
-    "label": "Multi-Wallet Entity",
+    "cluster_id": "cluster_normal_15_ecb96f",
+    "label": "Standard Co-Spend Entity 16",
     "member_addresses": [
-      "1ChangeOut_0_5b4465",
-      "1NormalUserIn_0_3a7e5b",
-      "1NormalUserOut_0_50b527"
+      "bc1q99a62e6c79d5464aacda4e6eb2ae",
+      "bc1q1d13723ec5044fed9f9f99eabe75",
+      "bc1qc2819c6c139741f9b8ba5dc316bd",
+      "bc1qa9fafeebb0f14ac48b6e68ff3b1b",
+      "bc1q3a318893da4c43dabd4b0319f157",
+      "340cbcb3cfc014f7ab38bb965f3",
+      "bc1q769d733130674e6abb31a544b4b9"
     ],
-    "member_count": 3,
-    "avg_risk_score": 0.0,
-    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
-    "clustering_method": "common_input_ownership+node2vec_embedding"
+    "member_count": 7,
+    "avg_risk_score": 0.049,
+    "description": "Standard user or small institution co-spending multiple UTXOs.",
+    "clustering_method": "common_input_ownership"
   },
   {
-    "cluster_id": "cluster_1c855e9ba70e",
-    "label": "Multi-Wallet Entity",
+    "cluster_id": "cluster_normal_16_32dec4",
+    "label": "Standard Co-Spend Entity 17",
     "member_addresses": [
-      "1ChangeOut_17_af32a8",
-      "1NormalUserIn_17_12a9c6",
-      "1NormalUserOut_17_9f69a5"
+      "bc1q123595c13bba4d56a71fc9e531ce",
+      "bc1q3ed69275ea1a4952834695472ac7",
+      "bc1qc0d4d16c56d44abdb0eaf8aa76a9",
+      "bc1qb5894f92a2d64c7ea691439db958",
+      "bc1qc99201dc5fdb48d6afa0de979977",
+      "1c8c0f4c3190a434ba8d9d5f142",
+      "bc1q9f4e321f5d914ba7beb947d74c19"
     ],
-    "member_count": 3,
-    "avg_risk_score": 0.0,
-    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
-    "clustering_method": "common_input_ownership+node2vec_embedding"
+    "member_count": 7,
+    "avg_risk_score": 0.221,
+    "description": "Standard user or small institution co-spending multiple UTXOs.",
+    "clustering_method": "common_input_ownership"
   },
   {
-    "cluster_id": "cluster_e5a26cc84885",
-    "label": "Multi-Wallet Entity",
+    "cluster_id": "cluster_normal_17_b0afd7",
+    "label": "Standard Co-Spend Entity 18",
     "member_addresses": [
-      "1ChangeOut_10_0af49c",
-      "1NormalUserIn_10_3def90",
-      "1NormalUserOut_10_7b1890"
+      "19eae11000d73470a980ef86f5f",
+      "1d55ab0176f1f4e7ea3cd2d3ec7",
+      "15006afd0dcb54ec0b1f6201fb1",
+      "bc1q6eb17ba2e56e42c186ab14c78577",
+      "bc1qf293324192a04de8ae63a9374cb7",
+      "39fc01d6c872c49639b45d65f29"
     ],
-    "member_count": 3,
-    "avg_risk_score": 0.0,
-    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
-    "clustering_method": "common_input_ownership+node2vec_embedding"
+    "member_count": 6,
+    "avg_risk_score": 0.076,
+    "description": "Standard user or small institution co-spending multiple UTXOs.",
+    "clustering_method": "common_input_ownership"
   },
   {
-    "cluster_id": "cluster_b40d3d6984ff",
-    "label": "Multi-Wallet Entity",
+    "cluster_id": "cluster_normal_18_c55849",
+    "label": "Standard Co-Spend Entity 19",
     "member_addresses": [
-      "1ChangeOut_16_5fbb5b",
-      "1NormalUserIn_16_3be653",
-      "1NormalUserOut_16_4f4f97"
+      "bc1qde2a2268f5984375a67fad14f120",
+      "bc1q4b5d6e001a1d4097843e32225eab",
+      "bc1q6128896731074ad6b5cd53760b8c",
+      "bc1qeac768daf5ef4d889a9f09f66fe2",
+      "bc1q0d9c14899d6644ac81b243866c73",
+      "bc1q867dd76a0fb44421816d1691627d"
     ],
-    "member_count": 3,
-    "avg_risk_score": 0.0,
-    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
-    "clustering_method": "common_input_ownership+node2vec_embedding"
+    "member_count": 6,
+    "avg_risk_score": 0.034,
+    "description": "Standard user or small institution co-spending multiple UTXOs.",
+    "clustering_method": "common_input_ownership"
   },
   {
-    "cluster_id": "cluster_3620873eb044",
-    "label": "Multi-Wallet Entity",
+    "cluster_id": "cluster_normal_19_1cff7b",
+    "label": "Standard Co-Spend Entity 20",
     "member_addresses": [
-      "1ChangeOut_15_5465b7",
-      "1NormalUserIn_15_f479d3",
-      "1NormalUserOut_15_7299a4"
+      "1abe7d780bf3b447686203f4a33",
+      "bc1q123595c13bba4d56a71fc9e531ce",
+      "19aed51edeb5145d4b8361b5cc2",
+      "3a8e5a419790d4a51ba7f8683e2",
+      "3053287f39f764ae4816b511ba2",
+      "33b58fbdd44b147fdaf068a87ba",
+      "355c8adfbd52e49c08a0b5ee37a"
     ],
-    "member_count": 3,
-    "avg_risk_score": 0.0,
-    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
-    "clustering_method": "common_input_ownership+node2vec_embedding"
+    "member_count": 7,
+    "avg_risk_score": 0.183,
+    "description": "Standard user or small institution co-spending multiple UTXOs.",
+    "clustering_method": "common_input_ownership"
   },
   {
-    "cluster_id": "cluster_513ac0c53505",
-    "label": "Multi-Wallet Entity",
+    "cluster_id": "cluster_normal_20_1db1da",
+    "label": "Standard Co-Spend Entity 21",
     "member_addresses": [
-      "1ChangeOut_8_25d319",
-      "1NormalUserIn_8_9fdc99",
-      "1NormalUserOut_8_79f595"
+      "189ad174594054cfaaeff90a61e",
+      "1b49a0b53a8b14e7babf6a5311a",
+      "bc1q4b5d6e001a1d4097843e32225eab"
     ],
     "member_count": 3,
-    "avg_risk_score": 0.0,
-    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
-    "clustering_method": "common_input_ownership+node2vec_embedding"
+    "avg_risk_score": 0.206,
+    "description": "Standard user or small institution co-spending multiple UTXOs.",
+    "clustering_method": "common_input_ownership"
   },
   {
-    "cluster_id": "cluster_2e9a4c8c0604",
-    "label": "Multi-Wallet Entity",
+    "cluster_id": "cluster_normal_21_034aa3",
+    "label": "Standard Co-Spend Entity 22",
     "member_addresses": [
-      "1ChangeOut_12_acba6d",
-      "1NormalUserIn_12_4ebceb",
-      "1NormalUserOut_12_576bd1"
+      "123861b5a36784668919344491b",
+      "bc1q0b18144a23214d07a9b97e376bd7",
+      "1433c4cc071054a788d26ed84bc"
     ],
     "member_count": 3,
-    "avg_risk_score": 0.0,
-    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
-    "clustering_method": "common_input_ownership+node2vec_embedding"
+    "avg_risk_score": 0.056,
+    "description": "Standard user or small institution co-spending multiple UTXOs.",
+    "clustering_method": "common_input_ownership"
   },
   {
-    "cluster_id": "cluster_8888cef1bf5f",
-    "label": "Multi-Wallet Entity",
+    "cluster_id": "cluster_normal_22_323d59",
+    "label": "Standard Co-Spend Entity 23",
     "member_addresses": [
-      "1ChangeOut_14_46ce56",
-      "1NormalUserIn_14_5f73cb",
-      "1NormalUserOut_14_d4a075"
+      "bc1qbbacf357a3cb434f9708be01acab",
+      "3ba0a57179c47475b9bce936e4b",
+      "bc1q4a47903ad80b4d908e62d6da6eaa",
+      "112b24d4330314c4fab4e72adbb",
+      "35e405135dae846d090e3054c93",
+      "bc1qd1915edac4744627b05d9ced25ac"
     ],
-    "member_count": 3,
-    "avg_risk_score": 0.0,
-    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
-    "clustering_method": "common_input_ownership+node2vec_embedding"
+    "member_count": 6,
+    "avg_risk_score": 0.072,
+    "description": "Standard user or small institution co-spending multiple UTXOs.",
+    "clustering_method": "common_input_ownership"
+  },
+  {
+    "cluster_id": "cluster_normal_23_7f5d5d",
+    "label": "Standard Co-Spend Entity 24",
+    "member_addresses": [
+      "bc1q436d14b863e844a994d1cf806971",
+      "bc1q4b063bc387194e9aa7425488ebe0",
+      "bc1q04a1b8fec95a459e8341784e34ce",
+      "bc1q82e432c2b16e44ad991ca4dedb90",
+      "bc1qd2a9b365619a4cd985048a5b8c9f",
+      "1415ff30618f24cdfa79eb9c3c5"
+    ],
+    "member_count": 6,
+    "avg_risk_score": 0.237,
+    "description": "Standard user or small institution co-spending multiple UTXOs.",
+    "clustering_method": "common_input_ownership"
+  },
+  {
+    "cluster_id": "cluster_normal_24_62138b",
+    "label": "Standard Co-Spend Entity 25",
+    "member_addresses": [
+      "bc1q7f0af2db83114db59977cda3d768",
+      "bc1qa5f09a780f444a4893180e104ca8",
+      "bc1q2bbd0fcdff7f4a928b569ddca9db",
+      "bc1qfe3cd560233847d09a8dc9b9b894",
+      "bc1q378cffd5a620498eae3e6a4e11c0",
+      "bc1q63ac8dba8ce9478ba73fd586f716",
+      "bc1q6ff8541ad1404dbf9de81c5afeb9",
+      "17b8e480c3d7847c3a7954b94ee"
+    ],
+    "member_count": 8,
+    "avg_risk_score": 0.139,
+    "description": "Standard user or small institution co-spending multiple UTXOs.",
+    "clustering_method": "common_input_ownership"
   }
 ]

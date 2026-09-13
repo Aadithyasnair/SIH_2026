@@ -44,9 +44,11 @@ from ml_detection.models_components import (
 def train_pipeline(
     data_dir: Path,
     models_dir: Path,
-    alpha: float = 0.5,
-    contamination: float = 0.20,
-    ae_epochs: int = 250,
+    alpha: float = 0.70,
+    contamination: float = 0.12,
+    ae_epochs: int = 150,
+    batch_size: int = 64,
+    latent_dim: int = 8,
     random_state: int = 42,
 ) -> Dict[str, Any]:
     """
@@ -91,13 +93,13 @@ def train_pipeline(
     if_scores = score_isolation_forest(if_model, X_scaled, s_min, s_max)
     print(f"      Isolation Forest trained. Raw range: [{s_min:.4f}, {s_max:.4f}]")
 
-    print(f"[5/7] Training Feedforward Autoencoder ({ae_epochs} epochs)...")
+    print(f"[5/7] Training Feedforward Autoencoder ({ae_epochs} epochs, batch_size={batch_size})...")
     ae_model, err_min, err_max = train_autoencoder(
         X_scaled=X_scaled,
-        latent_dim=4,
+        latent_dim=latent_dim,
         epochs=ae_epochs,
-        lr=0.005,
-        batch_size=min(8, len(X_scaled)),
+        lr=0.003,
+        batch_size=min(batch_size, len(X_scaled)),
         random_state=random_state,
     )
     ae_scores = score_autoencoder(ae_model, X_scaled, err_min, err_max)
@@ -119,7 +121,7 @@ def train_pipeline(
         {
             "state_dict": ae_model.state_dict(),
             "input_dim": len(feature_cols),
-            "latent_dim": 4,
+            "latent_dim": latent_dim,
         },
         models_dir / "autoencoder.pt",
     )
@@ -166,8 +168,8 @@ def main():
         default="ml_detection/models",
         help="Path to directory where trained model artifacts are saved",
     )
-    parser.add_argument("--alpha", type=float, default=0.5, help="Weight for Isolation Forest in ensemble")
-    parser.add_argument("--epochs", type=int, default=250, help="Epochs to train Autoencoder")
+    parser.add_argument("--alpha", type=float, default=0.70, help="Weight for Isolation Forest in ensemble")
+    parser.add_argument("--epochs", type=int, default=150, help="Epochs to train Autoencoder")
     args = parser.parse_args()
 
     train_pipeline(

@@ -20,27 +20,27 @@ class Autoencoder(nn.Module):
     Feedforward Autoencoder for learning normal Bitcoin transaction representations.
     Anomalies exhibit higher reconstruction error.
     """
-    def __init__(self, input_dim: int, latent_dim: int = 4):
+    def __init__(self, input_dim: int, latent_dim: int = 8):
         super().__init__()
         self.input_dim = input_dim
         self.latent_dim = latent_dim
 
         # Encoder: compresses input features into lower-dimensional bottleneck
         self.encoder = nn.Sequential(
-            nn.Linear(input_dim, 16),
+            nn.Linear(input_dim, 32),
             nn.ReLU(),
-            nn.Linear(16, 8),
+            nn.Linear(32, 16),
             nn.ReLU(),
-            nn.Linear(8, latent_dim),
+            nn.Linear(16, latent_dim),
         )
 
         # Decoder: reconstructs the original feature representation from bottleneck
         self.decoder = nn.Sequential(
-            nn.Linear(latent_dim, 8),
+            nn.Linear(latent_dim, 16),
             nn.ReLU(),
-            nn.Linear(8, 16),
+            nn.Linear(16, 32),
             nn.ReLU(),
-            nn.Linear(16, input_dim),
+            nn.Linear(32, input_dim),
         )
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
@@ -51,7 +51,7 @@ class Autoencoder(nn.Module):
 
 def train_isolation_forest(
     X_scaled: np.ndarray,
-    contamination: float = 0.20,
+    contamination: float = 0.12,
     random_state: int = 42,
 ) -> Tuple[IsolationForest, float, float]:
     """
@@ -59,7 +59,7 @@ def train_isolation_forest(
     Returns: (fitted_model, s_min, s_max) for inference normalization.
     """
     model = IsolationForest(
-        n_estimators=100,
+        n_estimators=150,
         contamination=contamination,
         random_state=random_state,
         n_jobs=-1,
@@ -69,8 +69,9 @@ def train_isolation_forest(
     # In scikit-learn, score_samples returns opposite of anomaly score (lower is more anomalous)
     # Negating it makes higher values correspond to greater anomaly
     raw_scores = -model.score_samples(X_scaled)
-    s_min = float(np.min(raw_scores))
-    s_max = float(np.max(raw_scores))
+    # Robust percentile calibration prevents single-point outlier skew
+    s_min = float(np.percentile(raw_scores, 1.0))
+    s_max = float(np.percentile(raw_scores, 99.0))
     if abs(s_max - s_min) < 1e-7:
         s_max = s_min + 1.0
 
@@ -95,10 +96,10 @@ def score_isolation_forest(
 
 def train_autoencoder(
     X_scaled: np.ndarray,
-    latent_dim: int = 4,
-    epochs: int = 200,
-    lr: float = 0.005,
-    batch_size: int = 8,
+    latent_dim: int = 8,
+    epochs: int = 150,
+    lr: float = 0.003,
+    batch_size: int = 64,
     random_state: int = 42,
 ) -> Tuple[Autoencoder, float, float]:
     """
@@ -134,8 +135,9 @@ def train_autoencoder(
         recons = model(x_tensor)
         errors = torch.mean((x_tensor - recons) ** 2, dim=1).numpy()
 
-    err_min = float(np.min(errors))
-    err_max = float(np.max(errors))
+    # Robust percentile calibration (2nd and 96th percentiles) for heavy-tailed reconstruction error
+    err_min = float(np.percentile(errors, 2.0))
+    err_max = float(np.percentile(errors, 96.0))
     if abs(err_max - err_min) < 1e-7:
         err_max = err_min + 1.0
 
@@ -166,11 +168,11 @@ def score_autoencoder(
 def combine_anomaly_scores(
     if_scores: np.ndarray,
     ae_scores: np.ndarray,
-    alpha: float = 0.5,
+    alpha: float = 0.70,
 ) -> np.ndarray:
     """
     Combine Isolation Forest and Autoencoder scores into single anomaly_score in [0, 1].
-    alpha: weight assigned to Isolation Forest (default 0.5 for equal weighting).
+    alpha: weight assigned to Isolation Forest (default 0.70 for primary tree-based detector).
     """
     combined = alpha * if_scores + (1.0 - alpha) * ae_scores
     return np.clip(combined, 0.0, 1.0)

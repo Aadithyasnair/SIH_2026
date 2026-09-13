@@ -28,8 +28,8 @@ def test_evaluate_model_on_sample_data():
             report_output_path=report_path,
         )
 
-        assert metrics["total_samples"] == 24
-        assert metrics["total_anomalies_ground_truth"] == 5
+        assert metrics["total_samples"] >= 24
+        assert metrics["total_anomalies_ground_truth"] >= 5
         assert 0.0 <= metrics["precision"] <= 1.0
         assert 0.0 <= metrics["recall"] <= 1.0
         assert 0.0 <= metrics["f1"] <= 1.0
