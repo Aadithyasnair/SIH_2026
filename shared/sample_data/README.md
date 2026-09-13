@@ -1,6 +1,6 @@
 # Shared Sample Data & Test Harness
 
-This directory contains schema-compliant test datasets conforming to the official SIH26146 data contracts defined in `sih26146/shared/schemas/records.py`.
+This directory contains schema-compliant test datasets conforming to the official SIH26146 data contracts defined in `shared/schemas/records.py`.
 
 ### Contents
 - `network_events.json`: Initial P2P network metadata records with IP, port, timing, and GeoIP attributes.

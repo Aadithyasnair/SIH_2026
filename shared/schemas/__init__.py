@@ -1,4 +1,4 @@
-# sih26146 shared schemas
+# shared schemas
 from .records import NetworkEvent, BlockchainTxn, CorrelationEdge, Cluster, Alert
 
 __all__ = [

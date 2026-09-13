@@ -10,7 +10,7 @@ Produces a comprehensive, PS-compliant dataset for SIH26146:
   CoinJoin mixing, rapid multi-hop layering, whale spikes, Tor-proxied flows)
 - entity_graph.graphml (NetworkX entity graph linking IPs, wallets, and transactions)
 
-Strict schema validation against sih26146.shared.schemas.records is performed before saving.
+Strict schema validation against shared.schemas.records is performed before saving.
 """
 
 import json
