@@ -1,0 +1,309 @@
+[
+  {
+    "cluster_id": "cluster_96a23db2e00d",
+    "label": "Multi-Wallet Entity",
+    "member_addresses": [
+      "1MerchantSpendAddr0abc",
+      "1MerchantSpendAddr1abc",
+      "1PeelSeedIllicitAddr0xyz",
+      "1PeelSeedIllicitAddr1xyz"
+    ],
+    "member_count": 4,
+    "avg_risk_score": 0.55,
+    "description": "4 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 2 interacting transactions.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_638157ddf706",
+    "label": "Associated Wallet Group",
+    "member_addresses": [
+      "1MerchantSpendAddr2abc",
+      "1PeelSeedIllicitAddr2xyz"
+    ],
+    "member_count": 2,
+    "avg_risk_score": 0.32,
+    "description": "2 addresses linked via transaction adjacency and common flow patterns accounting for 18.5 BTC in volume.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_5b91b43852ac",
+    "label": "Multi-Wallet Entity",
+    "member_addresses": [
+      "1MerchantSpendAddr3abc",
+      "1PeelSeedIllicitAddr3xyz",
+      "1PeelSeedIllicitAddr4xyz"
+    ],
+    "member_count": 3,
+    "avg_risk_score": 0.27,
+    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 2 interacting transactions.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_342cd9d8a38a",
+    "label": "Consolidation Vault Entity",
+    "member_addresses": [
+      "1CoinJoinIn_0_1d443a",
+      "1CoinJoinIn_1_ff960e",
+      "1CoinJoinIn_2_67e377",
+      "1CoinJoinIn_3_5c27e4",
+      "1CoinJoinIn_4_bf23f9",
+      "1CoinJoinOut_0_168179",
+      "1CoinJoinOut_1_096fb9",
+      "1CoinJoinOut_2_cbe8e5",
+      "1CoinJoinOut_3_69f2c3",
+      "1CoinJoinOut_4_768542"
+    ],
+    "member_count": 10,
+    "avg_risk_score": 0.0,
+    "description": "10 addresses regularly co-spent in multi-input transactions consolidating 5.0 BTC. Strong common-input-ownership signals confirm these addresses are controlled by a single entity.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_48df6c7685f3",
+    "label": "Consolidation Vault Entity",
+    "member_addresses": [
+      "1ConsolidatedVaultAddr123",
+      "1EntityCluster_0_bcc0d8",
+      "1EntityCluster_1_690385",
+      "1EntityCluster_2_20cf61"
+    ],
+    "member_count": 4,
+    "avg_risk_score": 0.0,
+    "description": "4 addresses regularly co-spent in multi-input transactions consolidating 7.0 BTC. Strong common-input-ownership signals confirm these addresses are controlled by a single entity.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_e2838e603eb1",
+    "label": "Multi-Wallet Entity",
+    "member_addresses": [
+      "1ChangeOut_6_2de893",
+      "1NormalUserIn_6_a0766c",
+      "1NormalUserOut_6_f43527"
+    ],
+    "member_count": 3,
+    "avg_risk_score": 0.0,
+    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_4fb961b01fe2",
+    "label": "Multi-Wallet Entity",
+    "member_addresses": [
+      "1ChangeOut_4_30ee25",
+      "1NormalUserIn_4_03d807",
+      "1NormalUserOut_4_cb9f35"
+    ],
+    "member_count": 3,
+    "avg_risk_score": 0.0,
+    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_ef87a462e7ab",
+    "label": "Multi-Wallet Entity",
+    "member_addresses": [
+      "1ChangeOut_3_b416e0",
+      "1NormalUserIn_3_c20e81",
+      "1NormalUserOut_3_e8942b"
+    ],
+    "member_count": 3,
+    "avg_risk_score": 0.0,
+    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_76c86804a7bc",
+    "label": "Multi-Wallet Entity",
+    "member_addresses": [
+      "1ChangeOut_2_4cddf8",
+      "1NormalUserIn_2_7bfcac",
+      "1NormalUserOut_2_497c0d"
+    ],
+    "member_count": 3,
+    "avg_risk_score": 0.0,
+    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_10854d7668d9",
+    "label": "Multi-Wallet Entity",
+    "member_addresses": [
+      "1ChangeOut_9_3488f8",
+      "1NormalUserIn_9_b00ff1",
+      "1NormalUserOut_9_74d191"
+    ],
+    "member_count": 3,
+    "avg_risk_score": 0.0,
+    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_dc43dc5e470d",
+    "label": "Multi-Wallet Entity",
+    "member_addresses": [
+      "1ChangeOut_1_d655e3",
+      "1NormalUserIn_1_17371f",
+      "1NormalUserOut_1_073cd6"
+    ],
+    "member_count": 3,
+    "avg_risk_score": 0.0,
+    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_fcbacb68324e",
+    "label": "Multi-Wallet Entity",
+    "member_addresses": [
+      "1ChangeOut_13_af5ecf",
+      "1NormalUserIn_13_528cc3",
+      "1NormalUserOut_13_8c9d8b"
+    ],
+    "member_count": 3,
+    "avg_risk_score": 0.0,
+    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_14aa966a2810",
+    "label": "Multi-Wallet Entity",
+    "member_addresses": [
+      "1ChangeOut_11_275259",
+      "1NormalUserIn_11_588e3d",
+      "1NormalUserOut_11_7345d6"
+    ],
+    "member_count": 3,
+    "avg_risk_score": 0.0,
+    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_c891f40bf00f",
+    "label": "Multi-Wallet Entity",
+    "member_addresses": [
+      "1ChangeOut_5_938b0b",
+      "1NormalUserIn_5_1f371c",
+      "1NormalUserOut_5_857f0b"
+    ],
+    "member_count": 3,
+    "avg_risk_score": 0.0,
+    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_e7a34eebb8d2",
+    "label": "Multi-Wallet Entity",
+    "member_addresses": [
+      "1ChangeOut_7_eb016d",
+      "1NormalUserIn_7_f81122",
+      "1NormalUserOut_7_170713"
+    ],
+    "member_count": 3,
+    "avg_risk_score": 0.0,
+    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_59156d2a458a",
+    "label": "Multi-Wallet Entity",
+    "member_addresses": [
+      "1ChangeOut_0_5b4465",
+      "1NormalUserIn_0_3a7e5b",
+      "1NormalUserOut_0_50b527"
+    ],
+    "member_count": 3,
+    "avg_risk_score": 0.0,
+    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_1c855e9ba70e",
+    "label": "Multi-Wallet Entity",
+    "member_addresses": [
+      "1ChangeOut_17_af32a8",
+      "1NormalUserIn_17_12a9c6",
+      "1NormalUserOut_17_9f69a5"
+    ],
+    "member_count": 3,
+    "avg_risk_score": 0.0,
+    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_e5a26cc84885",
+    "label": "Multi-Wallet Entity",
+    "member_addresses": [
+      "1ChangeOut_10_0af49c",
+      "1NormalUserIn_10_3def90",
+      "1NormalUserOut_10_7b1890"
+    ],
+    "member_count": 3,
+    "avg_risk_score": 0.0,
+    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_b40d3d6984ff",
+    "label": "Multi-Wallet Entity",
+    "member_addresses": [
+      "1ChangeOut_16_5fbb5b",
+      "1NormalUserIn_16_3be653",
+      "1NormalUserOut_16_4f4f97"
+    ],
+    "member_count": 3,
+    "avg_risk_score": 0.0,
+    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_3620873eb044",
+    "label": "Multi-Wallet Entity",
+    "member_addresses": [
+      "1ChangeOut_15_5465b7",
+      "1NormalUserIn_15_f479d3",
+      "1NormalUserOut_15_7299a4"
+    ],
+    "member_count": 3,
+    "avg_risk_score": 0.0,
+    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_513ac0c53505",
+    "label": "Multi-Wallet Entity",
+    "member_addresses": [
+      "1ChangeOut_8_25d319",
+      "1NormalUserIn_8_9fdc99",
+      "1NormalUserOut_8_79f595"
+    ],
+    "member_count": 3,
+    "avg_risk_score": 0.0,
+    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_2e9a4c8c0604",
+    "label": "Multi-Wallet Entity",
+    "member_addresses": [
+      "1ChangeOut_12_acba6d",
+      "1NormalUserIn_12_4ebceb",
+      "1NormalUserOut_12_576bd1"
+    ],
+    "member_count": 3,
+    "avg_risk_score": 0.0,
+    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_8888cef1bf5f",
+    "label": "Multi-Wallet Entity",
+    "member_addresses": [
+      "1ChangeOut_14_46ce56",
+      "1NormalUserIn_14_5f73cb",
+      "1NormalUserOut_14_d4a075"
+    ],
+    "member_count": 3,
+    "avg_risk_score": 0.0,
+    "description": "3 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 1 interacting transactions.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  }
+]
