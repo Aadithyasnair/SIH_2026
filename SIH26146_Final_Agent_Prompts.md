@@ -92,7 +92,7 @@ renames or adds fields in their own module's output.
 DAILY SYNC: 10 min async — what finished, what's blocked, any contract questions.
 
 REPO STRUCTURE (create this exact layout before anyone starts):
-/sih26146
+/SIH_2026
   /ingestion          <- Madhumitha
   /correlation        <- Sufiyan
   /ml_detection       <- Aadithya
