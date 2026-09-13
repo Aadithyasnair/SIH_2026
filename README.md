@@ -95,7 +95,7 @@ Network Data + Blockchain Data
 ## Repo Structure
 
 ```
-/sih26146
+/SIH_2026
   /ingestion          Madhumitha — data ingestion & preprocessing
   /correlation        Sufiyan — correlation, entity clustering, pattern detection, risk propagation
   /ml_detection        Aadithya — AI/ML detection
