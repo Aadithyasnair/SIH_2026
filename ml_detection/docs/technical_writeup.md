@@ -70,27 +70,27 @@ Ground-truth labels are sparse in real investigations and unavailable at inferen
 
 **Why chosen:** Linear time complexity, no distributional assumptions, naturally handles high-dimensional transaction feature spaces, well-established in financial fraud detection literature.
 
-**Configuration:** `n_estimators=100`, `contamination=0.20` (≈ label rate in sample data), `random_state=42`.
+**Configuration:** `n_estimators=150`, `contamination=0.12` (matching the 12% anomaly rate in dataset), `random_state=42`.
 
 **Normalization:** `if_score = clip((-score_samples(x) − s_min) / (s_max − s_min), 0, 1)`  
-where `s_min`, `s_max` are computed on training data and persisted as calibration artifacts.
+where `s_min`, `s_max` are computed via robust 1st and 99th percentile calibration on training data and persisted as calibration artifacts.
 
 ### 4.3 Model 2: Feedforward Autoencoder (Secondary — Reconstruction Error)
 
-**Architecture:** `input_dim → 16 → ReLU → 8 → ReLU → 4 (bottleneck) → 8 → ReLU → 16 → ReLU → input_dim`
+**Architecture:** `input_dim → 32 → ReLU → 16 → ReLU → 8 (bottleneck) → 16 → ReLU → 32 → ReLU → input_dim`
 
-**Training:** 250 epochs, Adam optimizer (lr=0.005, weight_decay=1e-5), MSE reconstruction loss, batch size 8. Trained unsupervised on the full feature matrix.
+**Training:** 150 epochs, Adam optimizer (lr=0.003, weight_decay=1e-5), MSE reconstruction loss, batch size 64. Trained unsupervised on the full feature matrix.
 
 **Why chosen:** The bottleneck forces the network to learn a compressed representation of normal transaction patterns. Anomalous transactions that deviate structurally from this representation reconstruct poorly, producing higher per-sample MSE. This captures non-linear interaction patterns that tree methods may miss.
 
 **Normalization:** `ae_score = clip((mse_per_sample(x) − err_min) / (err_max − err_min), 0, 1)`  
-where `err_min`, `err_max` are computed on training data and persisted.
+where `err_min`, `err_max` are computed via robust 2nd and 96th percentile winsorized calibration on training data and persisted.
 
 ### 4.4 Ensemble Combination
 
-$$\text{anomaly\_score} = 0.5 \cdot \text{IF\_score} + 0.5 \cdot \text{AE\_score}$$
+$$\text{anomaly\_score} = 0.70 \cdot \text{IF\_score} + 0.30 \cdot \text{AE\_score}$$
 
-**Rationale for equal weighting:** Both models operate on the same standardized feature space. Without prior evidence that one signal dominates, equal weighting is the principled baseline. The `alpha` parameter is configurable and documented for re-tuning at Checkpoint 2 against real data.
+**Rationale for weighted combination:** Isolation Forest is designated as the primary unsupervised detector per the problem statement specification. Giving 70% weight to Isolation Forest and 30% to neural reconstruction error produces a well-calibrated ensemble where statistical tree partitioning and neural manifold learning reinforce each other. The `alpha` parameter is configurable in `train_model.py`.
 
 ---
 

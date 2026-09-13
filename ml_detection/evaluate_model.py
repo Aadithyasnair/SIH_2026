@@ -228,24 +228,24 @@ rule-based scorer. Rules (Module B pattern signals) only appear as input *featur
 models, never as the primary detection mechanism.
 
 ### 1. Isolation Forest (Primary — Tree-Based Unsupervised Detection)
-scikit-learn `IsolationForest(n_estimators=100, contamination=0.20)`.  
+scikit-learn `IsolationForest(n_estimators=150, contamination=0.12)`.  
 Principle: anomalous samples are statistically easier to isolate in a random tree partition 
 than normal ones.  
-Normalization: `if_score = clip((-score_samples(x) - s_min) / (s_max - s_min), 0, 1)`  
+Normalization: robust winsorized percentile calibration `clip((-score_samples(x) - s_min) / (s_max - s_min), 0, 1)`.  
 Higher score → more anomalous.
 
 ### 2. Feedforward Autoencoder (Secondary — Neural Reconstruction Error)
-PyTorch `nn.Module` architecture: `input_dim → 16 → 8 → 4 → 8 → 16 → input_dim`  
-Trained 250 epochs, Adam optimizer (lr=0.005, weight_decay=1e-5), MSE reconstruction loss.  
+PyTorch `nn.Module` architecture: `input_dim → 32 → 16 → 8 → 16 → 32 → input_dim`  
+Trained 150 epochs, Adam optimizer (lr=0.003, weight_decay=1e-5), MSE reconstruction loss, batch size 64.  
 Principle: the network learns a compressed representation of normal transactions. Anomalous 
 transactions reconstruct poorly, producing higher per-sample MSE.  
-Normalization: `ae_score = clip((mse(x) - err_min) / (err_max - err_min), 0, 1)`
+Normalization: robust winsorized percentile calibration `clip((mse(x) - err_min) / (err_max - err_min), 0, 1)`.
 
 ### 3. Ensemble Combination
-$$\\text{{anomaly\\_score}} = 0.5 \\cdot \\text{{IF\\_score}} + 0.5 \\cdot \\text{{AE\\_score}} \\in [0, 1]$$
+$$\\text{{anomaly\\_score}} = 0.70 \\cdot \\text{{IF\\_score}} + 0.30 \\cdot \\text{{AE\\_score}} \\in [0, 1]$$
 
-Equal weighting chosen because both models operate on the same standardized feature space and 
-no prior evidence favors one signal. The `alpha` parameter is configurable in `train_model.py`.
+Weighted combination assigns primary weight (70%) to the Isolation Forest detector per the PS 
+specification and secondary weight (30%) to neural reconstruction error. Configurable in `train_model.py`.
 
 ---
 
