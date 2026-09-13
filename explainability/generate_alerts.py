@@ -12,24 +12,33 @@ import sys
 import json
 import datetime
 from pathlib import Path
+from typing import List, Dict, Any
 
 # Add repository root to Python path
-REPO_ROOT = Path(__file__).resolve().parent.parent.parent
+REPO_ROOT = Path(__file__).resolve().parent.parent
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
-from typing import List, Dict, Any
+try:
+    from shared.schemas.records import Alert
+except ImportError:
+    from sih26146.shared.schemas.records import Alert
 
-from sih26146.shared.schemas.records import Alert
-from sih26146.explainability.risk_ranker import calculate_risk_score, rank_alerts
-from sih26146.explainability.reason_generator import generate_explanation
-from sih26146.explainability.geo_summary_generator import generate_geo_summary
-from sih26146.explainability.shap_explainer import get_top_contributors
+try:
+    from explainability.risk_ranker import calculate_risk_score, rank_alerts
+    from explainability.reason_generator import generate_explanation
+    from explainability.geo_summary_generator import generate_geo_summary
+    from explainability.shap_explainer import get_top_contributors
+except ImportError:
+    from sih26146.explainability.risk_ranker import calculate_risk_score, rank_alerts
+    from sih26146.explainability.reason_generator import generate_explanation
+    from sih26146.explainability.geo_summary_generator import generate_geo_summary
+    from sih26146.explainability.shap_explainer import get_top_contributors
 
 
 def process_upstream_data_to_alerts(
     input_records: List[Dict[str, Any]],
-    model_path: str = "sih26146/ml_detection/models/anomaly_model.joblib",
+    model_path: str = "ml_detection/models/anomaly_model.joblib",
 ) -> List[Dict[str, Any]]:
     """
     Transforms upstream records into final ranked, explainable Alert records.
@@ -106,7 +115,7 @@ def process_upstream_data_to_alerts(
 
 
 def generate_alerts_json(
-    input_file: str = "sih26146/shared/sample_data/anomaly_scores.json",
+    input_file: str = "shared/sample_data/anomaly_scores.json",
     output_file: str = "alerts.json",
 ):
     """
@@ -202,17 +211,23 @@ def generate_alerts_json(
 
     alerts = process_upstream_data_to_alerts(records)
     
-    # Save alerts.json at root and inside explainability directory
+    # Save alerts.json at root, explainability/, and shared/sample_data/
     root_output = Path(output_file)
-    module_output = Path("sih26146/explainability/alerts.json")
+    explainability_output = Path("explainability/alerts.json")
+    sample_output = Path("shared/sample_data/alerts.json")
     
     with open(root_output, "w", encoding="utf-8") as f:
         json.dump(alerts, f, indent=2)
-        
-    with open(module_output, "w", encoding="utf-8") as f:
+
+    os.makedirs("explainability", exist_ok=True)
+    with open(explainability_output, "w", encoding="utf-8") as f:
+        json.dump(alerts, f, indent=2)
+
+    os.makedirs("shared/sample_data", exist_ok=True)
+    with open(sample_output, "w", encoding="utf-8") as f:
         json.dump(alerts, f, indent=2)
         
-    print(f"Successfully generated {len(alerts)} alerts into {root_output} and {module_output}")
+    print(f"Successfully generated {len(alerts)} alerts into {root_output}, {explainability_output}, and {sample_output}")
     return alerts
 
 if __name__ == "__main__":
