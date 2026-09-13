@@ -1,0 +1,95 @@
+[
+  {
+    "alert_id": "952d7d55-a8d4-48bf-b9d4-463d9e03c067",
+    "txid": "b6f123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+    "involved_addresses": [
+      "1PeelAddr1xxxx",
+      "1PeelAddr2xxxx"
+    ],
+    "risk_score": 1.0,
+    "anomaly_score": 0.88,
+    "propagated_risk_score": 0.75,
+    "pattern_type": "peeling_chain",
+    "cluster_id": "cluster-peel-01",
+    "flags": [
+      "peeling_chain_detected",
+      "suspicious_layering"
+    ],
+    "explanation": "Funds were passed through a chain of 5 wallets, each time forwarding most of the amount (95%) and keeping a small remainder (5%) \u2014 a pattern typical of layering to obscure the money trail. This wallet is 2 hops away from a wallet already confirmed illicit, and received funds that trace back to it. Specifically, this wallet executed an unusually high volume of transactions in a short period; one transfer was over 3x larger than this wallet's typical amount; and activity associated with this account originated from multiple countries simultaneously.",
+    "timestamp": "2026-09-14T00:00:00Z",
+    "geo_summary": "Funds traced through IPs in 3 countries within 40 minutes"
+  },
+  {
+    "alert_id": "7f88938c-6c46-414e-9ca8-cddc786d9a82",
+    "txid": "c7f987654321fedcba987654321fedcba987654321fedcba987654321fedcba",
+    "involved_addresses": [
+      "1MixerIn1xxxx",
+      "1MixerIn2xxxx",
+      "1MixerOut1xxxx"
+    ],
+    "risk_score": 0.9015,
+    "anomaly_score": 0.92,
+    "propagated_risk_score": 0.3,
+    "pattern_type": "coinjoin_mixing",
+    "cluster_id": "cluster-mix-04",
+    "flags": [
+      "coinjoin_mixing_detected",
+      "equal_amount_distribution"
+    ],
+    "explanation": "This transaction combined funds from 12 different wallets in equal amounts, consistent with a mixing service designed to break the link between sender and receiver. Specifically, most of the funds were immediately passed along while leaving only a small remainder, and this wallet sits at the center of an unusually large number of transaction connections.",
+    "timestamp": "2026-09-14T00:05:00Z",
+    "geo_summary": "Funds traced between Panama and Switzerland within 15 minutes"
+  },
+  {
+    "alert_id": "84207cf3-8e6a-43c9-8a53-d6579762d469",
+    "txid": "d8a112233445566778899aabbccddeeff112233445566778899aabbccddeeff",
+    "involved_addresses": [
+      "1Hop2RiskAddrxxxx"
+    ],
+    "risk_score": 0.7045,
+    "anomaly_score": 0.65,
+    "propagated_risk_score": 0.82,
+    "pattern_type": "none",
+    "cluster_id": "cluster-hop-09",
+    "flags": [
+      "propagated_illicit_link"
+    ],
+    "explanation": "This wallet is 2 hops away from a wallet already confirmed illicit, and received funds that trace back to it. Specifically, a rapid sequence of consecutive transfers was executed within minutes, and funds received by this wallet trace back directly to known illicit activity.",
+    "timestamp": "2026-09-14T00:10:00Z",
+    "geo_summary": "Funds traced between Cyprus and Russian Federation within 25 minutes"
+  },
+  {
+    "alert_id": "2204ca4f-507f-481b-a80b-fbb98d84875d",
+    "txid": "e9b2233445566778899aabbccddeeff00112233445566778899aabbccddeeff",
+    "involved_addresses": [
+      "1HighValAddrxxxx"
+    ],
+    "risk_score": 0.623,
+    "anomaly_score": 0.79,
+    "propagated_risk_score": 0.15,
+    "pattern_type": "none",
+    "cluster_id": null,
+    "flags": [
+      "high_value_burst"
+    ],
+    "explanation": "Specifically, this wallet executed an unusually high volume of transactions in a short period, and one transfer was over 3x larger than this wallet's typical amount.",
+    "timestamp": "2026-09-14T00:15:00Z",
+    "geo_summary": "Transaction activity localized to Germany"
+  },
+  {
+    "alert_id": "137bcce6-4874-4355-aa7e-7671a5aebfe9",
+    "txid": "f0c33445566778899aabbccddeeff00112233445566778899aabbccddeeff11",
+    "involved_addresses": [
+      "1NormalUserAddrxxxx"
+    ],
+    "risk_score": 0.209,
+    "anomaly_score": 0.12,
+    "propagated_risk_score": 0.05,
+    "pattern_type": "none",
+    "cluster_id": null,
+    "flags": [],
+    "explanation": "Specifically, one transfer was over 3x larger than this wallet's typical amount.",
+    "timestamp": "2026-09-14T00:20:00Z",
+    "geo_summary": "Transaction activity localized to United States"
+  }
+]
