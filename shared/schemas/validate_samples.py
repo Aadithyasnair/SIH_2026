@@ -3,11 +3,16 @@ import json
 import sys
 from pathlib import Path
 
-# Add repo root to path
-REPO_ROOT = Path(__file__).resolve().parent.parent.parent.parent
-sys.path.insert(0, str(REPO_ROOT))
+# Add repo root to sys.path
+REPO_ROOT = Path(__file__).resolve().parent.parent.parent
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 
-from sih26146.shared.schemas.records import Alert, Cluster, NetworkEvent, BlockchainTxn
+try:
+    from shared.schemas.records import Alert, Cluster, NetworkEvent, BlockchainTxn
+except ImportError:
+    from sih26146.shared.schemas.records import Alert, Cluster, NetworkEvent, BlockchainTxn
+
 
 def validate_file(file_path, model_cls):
     if not os.path.exists(file_path):
@@ -32,10 +37,11 @@ def validate_file(file_path, model_cls):
     print(f"Successfully validated {validated_count} records in {file_path}")
     return True
 
+
 def main():
-    sample_dir = REPO_ROOT / "sih26146" / "shared" / "sample_data"
     alerts_json = REPO_ROOT / "alerts.json"
-    explainability_alerts = REPO_ROOT / "sih26146" / "explainability" / "alerts.json"
+    explainability_alerts = REPO_ROOT / "explainability" / "alerts.json"
+    sample_alerts = REPO_ROOT / "shared" / "sample_data" / "alerts.json"
     
     all_valid = True
     
@@ -43,8 +49,6 @@ def main():
         all_valid = validate_file(alerts_json, Alert) and all_valid
     if explainability_alerts.exists():
         all_valid = validate_file(explainability_alerts, Alert) and all_valid
-        
-    sample_alerts = sample_dir / "alerts.json"
     if sample_alerts.exists():
         all_valid = validate_file(sample_alerts, Alert) and all_valid
 
@@ -54,6 +58,7 @@ def main():
     else:
         print("Schema validation failed.")
         sys.exit(1)
+
 
 if __name__ == "__main__":
     main()

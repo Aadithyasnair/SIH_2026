@@ -1,9 +1,19 @@
 import pytest
 import datetime
-from sih26146.shared.schemas.records import Alert
-from sih26146.explainability.risk_ranker import calculate_risk_score
-from sih26146.explainability.reason_generator import generate_explanation
-from sih26146.explainability.geo_summary_generator import generate_geo_summary
+
+try:
+    from shared.schemas.records import Alert
+except ImportError:
+    from sih26146.shared.schemas.records import Alert
+
+try:
+    from explainability.risk_ranker import calculate_risk_score
+    from explainability.reason_generator import generate_explanation
+    from explainability.geo_summary_generator import generate_geo_summary
+except ImportError:
+    from sih26146.explainability.risk_ranker import calculate_risk_score
+    from sih26146.explainability.reason_generator import generate_explanation
+    from sih26146.explainability.geo_summary_generator import generate_geo_summary
 
 
 def test_alert_pydantic_schema_validation():

@@ -1,11 +1,21 @@
 import pytest
-from sih26146.explainability.reason_generator import (
-    generate_explanation,
-    generate_peeling_chain_explanation,
-    generate_coinjoin_explanation,
-    generate_propagated_risk_explanation,
-    BANNED_JARGON,
-)
+
+try:
+    from explainability.reason_generator import (
+        generate_explanation,
+        generate_peeling_chain_explanation,
+        generate_coinjoin_explanation,
+        generate_propagated_risk_explanation,
+        BANNED_JARGON,
+    )
+except ImportError:
+    from sih26146.explainability.reason_generator import (
+        generate_explanation,
+        generate_peeling_chain_explanation,
+        generate_coinjoin_explanation,
+        generate_propagated_risk_explanation,
+        BANNED_JARGON,
+    )
 
 
 def test_explanation_non_empty():

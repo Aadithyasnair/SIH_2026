@@ -1,5 +1,9 @@
 import pytest
-from sih26146.explainability.risk_ranker import calculate_risk_score, rank_alerts
+
+try:
+    from explainability.risk_ranker import calculate_risk_score, rank_alerts
+except ImportError:
+    from sih26146.explainability.risk_ranker import calculate_risk_score, rank_alerts
 
 
 def test_risk_score_range():

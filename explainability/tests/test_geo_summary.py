@@ -1,5 +1,9 @@
 import pytest
-from sih26146.explainability.geo_summary_generator import generate_geo_summary
+
+try:
+    from explainability.geo_summary_generator import generate_geo_summary
+except ImportError:
+    from sih26146.explainability.geo_summary_generator import generate_geo_summary
 
 
 def test_geo_summary_single_country():
