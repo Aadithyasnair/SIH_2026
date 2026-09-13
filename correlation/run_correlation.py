@@ -8,16 +8,16 @@ import argparse
 from pathlib import Path
 from typing import Dict, Any, List
 
-root_dir = Path(__file__).resolve().parents[2]
+root_dir = Path(__file__).resolve().parents[1]
 if str(root_dir) not in sys.path:
     sys.path.insert(0, str(root_dir))
 
-from sih26146.shared.schemas.records import NetworkEvent, BlockchainTxn, CorrelationEdge, Cluster
-from sih26146.correlation.graph_builder import build_graph, add_correlation_edges, export_graphml
-from sih26146.correlation.correlation_rules import correlate_network_and_blockchain
-from sih26146.correlation.pattern_detection import detect_patterns
-from sih26146.correlation.risk_propagation import propagate_risk
-from sih26146.correlation.entity_clustering import cluster_entities
+from shared.schemas.records import NetworkEvent, BlockchainTxn, CorrelationEdge, Cluster
+from correlation.graph_builder import build_graph, add_correlation_edges, export_graphml
+from correlation.correlation_rules import correlate_network_and_blockchain
+from correlation.pattern_detection import detect_patterns
+from correlation.risk_propagation import propagate_risk
+from correlation.entity_clustering import cluster_entities
 
 
 def run_pipeline(

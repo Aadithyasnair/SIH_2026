@@ -10,7 +10,7 @@ from pathlib import Path
 from pydantic import ValidationError
 
 try:
-    from sih26146.shared.schemas.records import (
+    from shared.schemas.records import (
         NetworkEvent,
         BlockchainTxn,
         CorrelationEdge,
@@ -19,8 +19,8 @@ try:
     )
 except ImportError:
     # Allow running directly from file location
-    sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
-    from sih26146.shared.schemas.records import (
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+    from shared.schemas.records import (
         NetworkEvent,
         BlockchainTxn,
         CorrelationEdge,

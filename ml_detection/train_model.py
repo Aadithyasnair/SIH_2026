@@ -170,7 +170,7 @@ def main():
     parser.add_argument(
         "--data-dir",
         type=str,
-        default="sih26146/shared/sample_data",
+        default="shared/sample_data",
         help="Path to directory with shared pipeline data",
     )
     parser.add_argument(

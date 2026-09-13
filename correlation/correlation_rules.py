@@ -33,7 +33,7 @@ from datetime import datetime, timezone
 from collections import defaultdict
 from typing import List, Dict, Set, Union, Any, Tuple
 
-from sih26146.shared.schemas.records import NetworkEvent, BlockchainTxn, CorrelationEdge
+from shared.schemas.records import NetworkEvent, BlockchainTxn, CorrelationEdge
 
 
 def parse_iso8601(ts: str) -> datetime:

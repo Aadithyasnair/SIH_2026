@@ -7,7 +7,7 @@ from typing import Dict, List, Any, Optional
 import json
 import networkx as nx
 
-from sih26146.shared.schemas.records import (
+from shared.schemas.records import (
     NetworkEvent,
     BlockchainTxn,
     CorrelationEdge,

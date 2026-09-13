@@ -304,8 +304,8 @@ anomaly_score = alpha * IF_score + (1 - alpha) * AE_score    (alpha = 0.55)
 
 def main():
     parser = argparse.ArgumentParser(description="Evaluate Module C Model against Ground Truth Labels")
-    parser.add_argument("--data-dir", type=str, default="sih26146/shared/sample_data")
-    parser.add_argument("--labels-path", type=str, default="sih26146/shared/sample_data/labels.json")
+    parser.add_argument("--data-dir", type=str, default="shared/sample_data")
+    parser.add_argument("--labels-path", type=str, default="shared/sample_data/labels.json")
     parser.add_argument("--models-dir", type=str, default="ml_detection/models")
     parser.add_argument(
         "--thresholds",

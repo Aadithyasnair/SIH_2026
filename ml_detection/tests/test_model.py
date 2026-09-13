@@ -98,7 +98,7 @@ def test_train_pipeline_save_and_load(tmp_path):
     from ml_detection.predict import load_model_artifacts, score_transactions, clear_artifact_cache
     from ml_detection.data_loader import load_blockchain_txns
 
-    data_dir = Path("sih26146/shared/sample_data")
+    data_dir = Path("shared/sample_data")
     txns = load_blockchain_txns(data_dir)
 
     clear_artifact_cache()

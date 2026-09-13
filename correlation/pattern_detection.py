@@ -13,7 +13,7 @@ from collections import defaultdict
 import networkx as nx
 import numpy as np
 
-from sih26146.shared.schemas.records import BlockchainTxn
+from shared.schemas.records import BlockchainTxn
 
 
 def parse_iso8601(ts: str) -> datetime:

@@ -11,7 +11,7 @@ from collections import defaultdict
 import networkx as nx
 import numpy as np
 
-from sih26146.shared.schemas.records import Cluster, BlockchainTxn
+from shared.schemas.records import Cluster, BlockchainTxn
 
 # Optional node2vec / hdbscan imports with robust fallbacks
 try:

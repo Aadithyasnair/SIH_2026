@@ -1,8 +1,8 @@
 import pytest
 import networkx as nx
-from sih26146.shared.schemas.records import BlockchainTxn
-from sih26146.correlation.graph_builder import build_graph
-from sih26146.correlation.entity_clustering import cluster_entities, get_cluster_for_address
+from shared.schemas.records import BlockchainTxn
+from correlation.graph_builder import build_graph
+from correlation.entity_clustering import cluster_entities, get_cluster_for_address
 
 
 def test_dual_signal_clustering_and_embeddings_catch_hidden_relationship():

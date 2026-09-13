@@ -14,7 +14,7 @@ Edges:
 from typing import List, Union, Dict, Any
 import networkx as nx
 
-from sih26146.shared.schemas.records import NetworkEvent, BlockchainTxn, CorrelationEdge
+from shared.schemas.records import NetworkEvent, BlockchainTxn, CorrelationEdge
 
 
 def build_graph(

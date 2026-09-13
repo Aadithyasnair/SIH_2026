@@ -28,7 +28,7 @@ root_dir = Path(__file__).resolve().parents[1]
 if str(root_dir) not in sys.path:
     sys.path.insert(0, str(root_dir))
 
-from sih26146.shared.schemas.records import (
+from shared.schemas.records import (
     NetworkEvent,
     BlockchainTxn,
     CorrelationEdge,
@@ -687,7 +687,7 @@ class BitcoinDatasetGenerator:
 def main():
     import argparse
     parser = argparse.ArgumentParser(description="Generate large realistic PS-compliant Bitcoin dataset for SIH26146")
-    parser.add_argument("--output", type=str, default="sih26146/shared/sample_data", help="Output directory")
+    parser.add_argument("--output", type=str, default="shared/sample_data", help="Output directory")
     parser.add_argument("--seed", type=int, default=42, help="Random seed for reproducibility")
     args = parser.parse_args()
 

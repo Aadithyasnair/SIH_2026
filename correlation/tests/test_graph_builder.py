@@ -1,7 +1,7 @@
 import pytest
 import networkx as nx
-from sih26146.shared.schemas.records import NetworkEvent, BlockchainTxn, CorrelationEdge
-from sih26146.correlation.graph_builder import build_graph, add_correlation_edges
+from shared.schemas.records import NetworkEvent, BlockchainTxn, CorrelationEdge
+from correlation.graph_builder import build_graph, add_correlation_edges
 
 
 def test_same_txn_edges_link_multi_address_txns():

@@ -21,7 +21,7 @@ def trained_models_dir(tmp_path_factory):
     tmp_models = tmp_path_factory.mktemp("models")
     from ml_detection.train_model import train_pipeline
     train_pipeline(
-        data_dir=Path("sih26146/shared/sample_data"),
+        data_dir=Path("shared/sample_data"),
         models_dir=tmp_models,
         contamination=0.1,
         latent_dim=4,
@@ -33,7 +33,7 @@ def trained_models_dir(tmp_path_factory):
 
 
 def test_evaluate_model_on_sample_data(trained_models_dir):
-    data_dir = Path("sih26146/shared/sample_data")
+    data_dir = Path("shared/sample_data")
     labels_path = data_dir / "labels.json"
 
     with tempfile.TemporaryDirectory() as tmpdir:
@@ -61,7 +61,7 @@ def test_evaluate_model_on_sample_data(trained_models_dir):
 
 
 def test_evaluate_model_missing_labels_fails(trained_models_dir, tmp_path):
-    data_dir = Path("sih26146/shared/sample_data")
+    data_dir = Path("shared/sample_data")
     non_existent = tmp_path / "non_existent_labels.json"
 
     with pytest.raises(FileNotFoundError):
@@ -73,7 +73,7 @@ def test_evaluate_model_missing_labels_fails(trained_models_dir, tmp_path):
 
 
 def test_evaluate_model_invalid_labels_fails(trained_models_dir, tmp_path):
-    data_dir = Path("sih26146/shared/sample_data")
+    data_dir = Path("shared/sample_data")
     bad_labels_file = tmp_path / "bad_labels.json"
     bad_labels_file.write_text(json.dumps({"invalid_key": []}), encoding="utf-8")
 

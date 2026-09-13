@@ -1,7 +1,7 @@
 import pytest
-from sih26146.shared.schemas.records import BlockchainTxn
-from sih26146.correlation.graph_builder import build_graph
-from sih26146.correlation.risk_propagation import propagate_risk
+from shared.schemas.records import BlockchainTxn
+from correlation.graph_builder import build_graph
+from correlation.risk_propagation import propagate_risk
 
 
 def test_risk_propagation_decay_across_hops():

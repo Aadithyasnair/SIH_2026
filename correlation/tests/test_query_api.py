@@ -1,7 +1,7 @@
 import pytest
-from sih26146.shared.schemas.records import BlockchainTxn, Cluster
-from sih26146.correlation.graph_builder import build_graph
-from sih26146.correlation.query_api import get_subgraph, get_clusters, get_cluster_by_id
+from shared.schemas.records import BlockchainTxn, Cluster
+from correlation.graph_builder import build_graph
+from correlation.query_api import get_subgraph, get_clusters, get_cluster_by_id
 
 
 def test_subgraph_query_structure_and_depth():

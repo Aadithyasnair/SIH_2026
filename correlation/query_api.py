@@ -6,7 +6,7 @@ from typing import List, Dict, Any, Optional
 from collections import deque
 import networkx as nx
 
-from sih26146.shared.schemas.records import Cluster
+from shared.schemas.records import Cluster
 
 
 def get_subgraph(

@@ -1,1 +1,2 @@
-# sih26146 shared package
+﻿"""Compatibility shim redirecting to root shared package."""
+import shared

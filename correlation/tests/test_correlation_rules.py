@@ -1,6 +1,6 @@
 import pytest
-from sih26146.shared.schemas.records import NetworkEvent, BlockchainTxn
-from sih26146.correlation.correlation_rules import correlate_network_and_blockchain
+from shared.schemas.records import NetworkEvent, BlockchainTxn
+from correlation.correlation_rules import correlate_network_and_blockchain
 
 
 def test_correlation_time_window_and_confidence_bounds():

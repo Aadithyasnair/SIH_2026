@@ -50,7 +50,7 @@ def trained_models_dir(tmp_path_factory):
     tmp_models = tmp_path_factory.mktemp("models")
     from ml_detection.train_model import train_pipeline
     train_pipeline(
-        data_dir=Path("sih26146/shared/sample_data"),
+        data_dir=Path("shared/sample_data"),
         models_dir=tmp_models,
         contamination=0.1,
         latent_dim=4,
