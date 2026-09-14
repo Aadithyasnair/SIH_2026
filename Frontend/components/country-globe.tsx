@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
-import { Alert, getRisk } from "@/lib/data";
+import { Alert, getRisk, isDarknetOrTor } from "@/lib/data";
 import { NetworkEvent } from "@/lib/api";
 
 export const countryCoordinates: Record<string, { lat: number; lng: number; name: string }> = {
@@ -268,6 +268,9 @@ export function CountryGlobe({
   const liveGroupRef =
     useRef<THREE.Group | null>(null);
 
+  const alertGroupRef =
+    useRef<THREE.Group | null>(null);
+
   live.current =
     playing;
 
@@ -340,6 +343,12 @@ export function CountryGlobe({
      */
     globe.rotation.y =
       -0.38;
+
+    const alertGroup =
+      new THREE.Group();
+    globe.add(alertGroup);
+    alertGroupRef.current =
+      alertGroup;
 
     const liveGroup =
       new THREE.Group();
@@ -522,84 +531,6 @@ export function CountryGlobe({
     );
 
     /* =================================================
-       ALERT CONNECTIONS
-       ================================================= */
-
-    alerts
-      .slice(0, 10)
-      .forEach(
-        (alert, index) => {
-          // Extract real countries involved from the alert's geo_summary
-          const countriesInAlert = extractCountriesFromText(alert.geo_summary || "");
-
-          let fromCoord = locations[index % locations.length];
-          let toCoord = locations[(index + 3) % locations.length];
-
-          if (countriesInAlert.length >= 2) {
-            fromCoord = countriesInAlert[0];
-            toCoord = countriesInAlert[1];
-          } else if (countriesInAlert.length === 1) {
-            fromCoord = countriesInAlert[0];
-            toCoord = locations[(index + 4) % locations.length];
-          }
-
-          const from =
-            pointOnGlobe(
-              fromCoord.lat,
-              fromCoord.lng,
-              1.035
-            );
-
-          const to =
-            pointOnGlobe(
-              toCoord.lat,
-              toCoord.lng,
-              1.035
-            );
-
-          const middle =
-            from
-              .clone()
-              .add(to)
-              .multiplyScalar(0.5)
-              .normalize()
-              .multiplyScalar(1.48);
-
-          const curve =
-            new THREE.QuadraticBezierCurve3(
-              from,
-              middle,
-              to
-            );
-
-          const color =
-            getRisk(
-              alert.risk_score
-            ).key === "high"
-              ? "#ff5267"
-              : "#ffc14d";
-
-          const tube =
-            new THREE.Mesh(
-              new THREE.TubeGeometry(
-                curve,
-                30,
-                index === 0 ? 0.013 : 0.009,
-                6,
-                false
-              ),
-              new THREE.MeshBasicMaterial({
-                color,
-                transparent: true,
-                opacity: 0.92,
-              })
-            );
-
-          globe.add(tube);
-        }
-      );
-
-    /* =================================================
        RESIZE
        ================================================= */
 
@@ -778,6 +709,65 @@ export function CountryGlobe({
 
       element.replaceChildren();
     };
+  }, []);
+
+  /* =================================================
+     DYNAMIC ALERT CONNECTIONS (UPDATED WITHOUT RELOADING GLOBE)
+     ================================================= */
+  useEffect(() => {
+    const alertGroup = alertGroupRef.current;
+    if (!alertGroup) return;
+
+    // Clear previous alert batch
+    while (alertGroup.children.length > 0) {
+      const child = alertGroup.children[0] as THREE.Mesh;
+      if (child.geometry) child.geometry.dispose();
+      if (child.material) {
+        if (Array.isArray(child.material)) {
+          child.material.forEach(m => m.dispose());
+        } else {
+          child.material.dispose();
+        }
+      }
+      alertGroup.remove(child);
+    }
+
+    if (!alerts || alerts.length === 0) return;
+
+    alerts.slice(0, 10).forEach((alert, index) => {
+      // Extract real countries involved from the alert's geo_summary
+      const countriesInAlert = extractCountriesFromText(alert.geo_summary || "");
+
+      let fromCoord = locations[index % locations.length];
+      let toCoord = locations[(index + 3) % locations.length];
+
+      if (countriesInAlert.length >= 2) {
+        fromCoord = countriesInAlert[0];
+        toCoord = countriesInAlert[1];
+      } else if (countriesInAlert.length === 1) {
+        fromCoord = countriesInAlert[0];
+        toCoord = locations[(index + 4) % locations.length];
+      }
+
+      const from = pointOnGlobe(fromCoord.lat, fromCoord.lng, 1.035);
+      const to = pointOnGlobe(toCoord.lat, toCoord.lng, 1.035);
+      const middle = from.clone().add(to).multiplyScalar(0.5).normalize().multiplyScalar(1.48);
+
+      const curve = new THREE.QuadraticBezierCurve3(from, middle, to);
+      const isTor = isDarknetOrTor(alert);
+      const color = isTor ? "#c084fc" : getRisk(alert.risk_score).key === "high" ? "#ff5267" : "#ffc14d";
+
+      const tube = new THREE.Mesh(
+        new THREE.TubeGeometry(curve, 30, isTor ? 0.015 : index === 0 ? 0.013 : 0.009, 6, false),
+        new THREE.MeshBasicMaterial({
+          color,
+          transparent: true,
+          opacity: isTor ? 0.98 : 0.92,
+        })
+      );
+
+      alertGroup.add(tube);
+    });
   }, [alerts]);
 
   /* =================================================
@@ -813,11 +803,12 @@ export function CountryGlobe({
       const middle = from.clone().add(to).multiplyScalar(0.5).normalize().multiplyScalar(1.52);
 
       const curve = new THREE.QuadraticBezierCurve3(from, middle, to);
+      const isTor = isDarknetOrTor(event);
       const isAnomalous = event.event_id.includes("rapid") || event.event_id.includes("smurf");
-      const color = isAnomalous ? "#ff5267" : "#00f0ff";
+      const color = isTor ? "#c084fc" : isAnomalous ? "#ff5267" : "#00f0ff";
 
       const tube = new THREE.Mesh(
-        new THREE.TubeGeometry(curve, 32, isAnomalous ? 0.012 : 0.007, 6, false),
+        new THREE.TubeGeometry(curve, 32, isTor ? 0.015 : isAnomalous ? 0.012 : 0.007, 6, false),
         new THREE.MeshBasicMaterial({
           color,
           transparent: true,

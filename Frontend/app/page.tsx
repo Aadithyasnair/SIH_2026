@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
-import { Alert, Cluster, getRisk } from "@/lib/data";
+import { Alert, Cluster, getRisk, getRiskColor, isDarknetOrTor } from "@/lib/data";
 import {
   getAlerts,
   getClusters,
@@ -12,6 +12,7 @@ import {
   NetworkEvent,
 } from "@/lib/api";
 import { CountryGlobe, countryCoordinates } from "@/components/country-globe";
+import { ClusterWebGraph } from "@/components/cluster-web-graph";
 
 const glossary: Record<string, string> = {
   TXID: "The unique 64-character identifier of a Bitcoin transaction.",
@@ -26,15 +27,6 @@ const glossary: Record<string, string> = {
   "Confidence Score": "Statistical certainty metric associated with network event to transaction correlation."
 };
 
-const countryNames = [
-  "Afghanistan","Albania","Algeria","Argentina","Australia","Austria","Bangladesh","Belgium",
-  "Brazil","Canada","Chile","China","Colombia","Cyprus","Czechia","Denmark","Egypt","Finland",
-  "France","Germany","Ghana","Greece","India","Indonesia","Iran","Iraq","Ireland","Israel",
-  "Italy","Japan","Kenya","Mexico","Netherlands","Nigeria","Norway","Pakistan","Panama",
-  "Poland","Portugal","Russian Federation","Saudi Arabia","Singapore","South Africa","South Korea",
-  "Spain","Sweden","Switzerland","Thailand","Turkey","Ukraine","United Arab Emirates","United Kingdom",
-  "United States","Vietnam"
-];
 
 function formatTimeAgo(dateString: string): string {
   if (!dateString) return "just now";
@@ -52,7 +44,44 @@ function formatTimeAgo(dateString: string): string {
 
 function RiskPill({ value }: { value: number }) {
   const r = getRisk(value);
-  return <span className={`pill ${r.key}`}>● {r.label}</span>;
+  const color = getRiskColor(value);
+  return (
+    <span
+      className={`pill ${r.key}`}
+      style={{
+        color,
+        borderColor: `${color}88`,
+        background: `${color}18`,
+      }}
+    >
+      ● {r.label} ({(value * 100).toFixed(0)}%)
+    </span>
+  );
+}
+
+function RiskBadge({ value }: { value: number }) {
+  const r = getRisk(value);
+  const label = value > 0.7 ? "High" : value >= 0.4 ? "Medium" : "Low";
+  return (
+    <span
+      className={`risk-badge ${r.key}`}
+      style={{
+        color: r.color,
+        borderColor: `${r.color}99`,
+        background: `${r.color}20`,
+        fontWeight: 700,
+        fontSize: "11px",
+        padding: "3px 9px",
+        borderRadius: "8px",
+        border: `1px solid ${r.color}99`,
+        display: "inline-flex",
+        alignItems: "center",
+        gap: "4px",
+      }}
+    >
+      ● {label}
+    </span>
+  );
 }
 
 function Kpi({ label, value, hint }: { label: string; value: number; hint: string }) {
@@ -68,15 +97,42 @@ function Kpi({ label, value, hint }: { label: string; value: number; hint: strin
 
 function AlertPanel({ alert, close }: { alert: Alert; close: () => void }) {
   const risk = Math.round(alert.risk_score * 100);
+  const color = getRiskColor(alert.risk_score);
+  const isTor = isDarknetOrTor(alert);
   return (
     <aside className="detail glass">
       <button onClick={close} aria-label="Close">×</button>
-      <div className="risk-ring" style={{ "--score": `${risk * 3.6}deg` } as React.CSSProperties}>
-        <b>{risk}</b>
+      <div
+        className="risk-ring"
+        style={{
+          "--score": `${risk * 3.6}deg`,
+          "--risk-color": color,
+        } as React.CSSProperties}
+      >
+        <b style={{ color }}>{risk}</b>
         <small>Risk score</small>
       </div>
-      <RiskPill value={alert.risk_score} />
-      <h2>{alert.pattern_type === "coinjoin_mixing" ? "Possible Mixing Service" : alert.pattern_type === "peeling_chain" ? "Peeling Chain Pattern" : "Suspicious transaction"}</h2>
+      <div style={{ display: "flex", gap: "6px", alignItems: "center", marginBottom: "8px", flexWrap: "wrap" }}>
+        <RiskPill value={alert.risk_score} />
+        {isTor ? (
+          <span style={{ fontSize: "10px", fontWeight: 700, padding: "3px 8px", borderRadius: "6px", background: "rgba(192, 132, 252, 0.2)", border: "1px solid #c084fc", color: "#e9d5ff" }}>
+            🧅 Tor / Darknet Overlay
+          </span>
+        ) : (
+          <span style={{ fontSize: "10px", fontWeight: 600, padding: "3px 8px", borderRadius: "6px", background: "rgba(0, 240, 255, 0.1)", border: "1px solid rgba(0, 240, 255, 0.3)", color: "var(--cyan)" }}>
+            🌐 Clearnet P2P Route
+          </span>
+        )}
+      </div>
+      <h2>
+        {alert.pattern_type === "coinjoin_mixing"
+          ? "Possible Mixing Service"
+          : alert.pattern_type === "peeling_chain"
+          ? "Peeling Chain Pattern"
+          : isTor
+          ? "Tor Anonymized Transaction"
+          : "Suspicious transaction"}
+      </h2>
       <p>{alert.explanation}</p>
       <h4>Flags</h4>
       <div className="tags">
@@ -87,6 +143,7 @@ function AlertPanel({ alert, close }: { alert: Alert; close: () => void }) {
         <summary>Technical details</summary>
         <p>
           <b>TXID:</b> {alert.txid}<br />
+          <b>Network Transport:</b> {isTor ? "Tor Onion Proxy (Port 9050 / Anonymized P2P)" : "Clearnet TCP (Port 8333 / Clearnet P2P)"}<br />
           <b>Addresses:</b> {alert.involved_addresses.join(", ")}<br />
           <b>Anomaly score:</b> {alert.anomaly_score}<br />
           <b>Propagated risk:</b> {alert.propagated_risk_score}<br />
@@ -104,16 +161,16 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [query, setQuery] = useState("");
   const [minRisk, setMinRisk] = useState(0.4);
+  const [torOnly, setTorOnly] = useState(false);
   const [selected, setSelected] = useState<Alert | null>(null);
-  const [expanded, setExpanded] = useState<string | null>(null);
+  const [selectedCluster, setSelectedCluster] = useState<Cluster | null>(null);
+  const [clusterLimit, setClusterLimit] = useState(15);
   const [activeAddress, setActiveAddress] = useState<string | null>(null);
   const [graphData, setGraphData] = useState<{ nodes: any[]; edges: any[] } | null>(null);
   const [graphLoading, setGraphLoading] = useState(false);
   const [live, setLive] = useState(true);
   const [speed, setSpeed] = useState(1);
-  const [showGuide, setShowGuide] = useState(true);
   const [isBackendOnline, setIsBackendOnline] = useState(true);
-
   // Live Simulation state
   const [simMode, setSimMode] = useState(false);
   const [simEvents, setSimEvents] = useState<NetworkEvent[]>([]);
@@ -122,6 +179,9 @@ export default function Dashboard() {
   const [liveArcs, setLiveArcs] = useState<NetworkEvent[]>([]);
   const [simPktCount, setSimPktCount] = useState(0);
   const [simByteRate, setSimByteRate] = useState(0);
+  const [simAlerts, setSimAlerts] = useState<Alert[]>([]);
+  const [alertPage, setAlertPage] = useState(1);
+  const ALERTS_PER_PAGE = 10;
 
   // Pipeline execution job state
   const [ingestJob, setIngestJob] = useState<{ id: string; progress: number; stage: string } | null>(null);
@@ -159,11 +219,71 @@ export default function Dashboard() {
       setSimIndex(prev => {
         const next = (prev + BATCH_SIZE) % simEvents.length;
         const batch = simEvents.slice(prev, prev + BATCH_SIZE);
-        setSimTicker(t => [...batch, ...t].slice(0, 8));
-        setLiveArcs(batch);
-        setSimPktCount(c => c + batch.length);
-        const bytes = batch.reduce((sum, e) => sum + (e.packet_size || 0), 0);
+
+        // Periodically inject authentic Tor exit relay traffic into live sim (every 4 ticks)
+        const isTorTick = (next / BATCH_SIZE) % 4 === 0;
+        const effectiveBatch = [...batch];
+        if (isTorTick) {
+          const torExitCountries = ["DE", "NL", "CH", "SE", "RO", "US"];
+          const exitCountry = torExitCountries[Math.floor(Math.random() * torExitCountries.length)];
+          const torEvent: NetworkEvent = {
+            event_id: `tor_relay_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`,
+            timestamp: new Date().toISOString(),
+            src_ip: `185.220.${Math.floor(Math.random() * 50 + 100)}.${Math.floor(Math.random() * 250 + 2)}`,
+            dst_ip: `199.14.${Math.floor(Math.random() * 50 + 200)}.${Math.floor(Math.random() * 250 + 2)}`,
+            src_port: 9050,
+            dst_port: 8333,
+            protocol: "TCP",
+            packet_size: Math.floor(Math.random() * 400 + 512),
+            src_geo_country: exitCountry,
+            src_asn: "AS-TOR-ROUTER",
+            dst_geo_country: "US",
+            dst_asn: "AS15169",
+          };
+          effectiveBatch.unshift(torEvent);
+        }
+
+        setSimTicker(t => [...effectiveBatch, ...t].slice(0, 8));
+        setLiveArcs(effectiveBatch);
+        setSimPktCount(c => c + effectiveBatch.length);
+        const bytes = effectiveBatch.reduce((sum, e) => sum + (e.packet_size || 0), 0);
         setSimByteRate(bytes);
+
+        // Turn anomalous network burst / smurf / tor events into real-time alerts
+        const anomBatch = effectiveBatch.filter(e => e.event_id.includes("rapid") || e.event_id.includes("smurf") || e.event_id.includes("tor_relay"));
+        if (anomBatch.length > 0) {
+          const generatedAlerts: Alert[] = anomBatch.map(e => {
+            const isTor = e.event_id.includes("tor_relay") || isDarknetOrTor(e);
+            const isRapid = e.event_id.includes("rapid");
+            const risk = isTor ? 0.94 : isRapid ? 0.88 : 0.76;
+            return {
+              alert_id: `live_${e.event_id}`,
+              txid: `net_${e.event_id.slice(-16)}`,
+              involved_addresses: [`node:${e.src_ip}:${e.src_port}`, `peer:${e.dst_ip}:${e.dst_port}`],
+              risk_score: risk,
+              anomaly_score: isTor ? 0.96 : isRapid ? 0.94 : 0.82,
+              propagated_risk_score: isTor ? 0.89 : 0.65,
+              pattern_type: isTor ? "darknet_vendor_flow" : isRapid ? "sybil_burst" : "smurf_flood",
+              cluster_id: isTor ? "cluster_darknet_hydra" : null,
+              flags: isTor
+                ? ["tor_exit_relay", "onion_route_detected", "darknet_market_proceeds"]
+                : isRapid
+                ? ["rapid_ip_burst", "high_freq_syn"]
+                : ["smurf_amplification", "peer_flood"],
+              explanation: isTor
+                ? `Live Tor Onion exit relay packet observed from ${e.src_ip} (port 9050, AS-TOR) broadcasting to peer node in ${e.dst_geo_country}.`
+                : isRapid
+                ? `Live peer ${e.src_ip} in ${e.src_geo_country} triggered rapid IP burst to node ${e.dst_ip} (port ${e.dst_port}).`
+                : `Live smurf attack flow observed between ${e.src_geo_country} and ${e.dst_geo_country} (${e.packet_size} bytes).`,
+              timestamp: new Date().toISOString(),
+              geo_summary: isTor
+                ? `🧅 Tor Onion Route ${e.src_geo_country} → ${e.dst_geo_country}`
+                : `Live P2P route ${e.src_geo_country} → ${e.dst_geo_country}`,
+            };
+          });
+          setSimAlerts(prevA => [...generatedAlerts, ...prevA].slice(0, 50));
+        }
+
         return next;
       });
     }, intervalMs);
@@ -220,14 +340,6 @@ export default function Dashboard() {
       .finally(() => setLoading(false));
   }, []);
 
-  const filtered = useMemo(
-    () =>
-      alerts
-        .filter(a => `${a.txid} ${a.explanation} ${a.geo_summary} ${a.flags.join(" ")}`.toLowerCase().includes(query.toLowerCase()))
-        .filter(a => a.risk_score >= minRisk),
-    [alerts, query, minRisk]
-  );
-
   const sortedClusters = useMemo(() => {
     return [...clusters].sort((a, b) => {
       if (b.avg_risk_score !== a.avg_risk_score) {
@@ -236,6 +348,39 @@ export default function Dashboard() {
       return b.member_count - a.member_count;
     });
   }, [clusters]);
+
+  const visibleClusters = useMemo(() => {
+    return sortedClusters.slice(0, clusterLimit);
+  }, [sortedClusters, clusterLimit]);
+
+  // Combine base alerts with dynamic live simulation alerts
+  const activeAlerts = useMemo(() => {
+    if (simMode && simAlerts.length > 0) {
+      return [...simAlerts, ...alerts];
+    }
+    return alerts;
+  }, [simMode, simAlerts, alerts]);
+
+  const filtered = useMemo(
+    () =>
+      activeAlerts
+        .filter(a => `${a.txid} ${a.explanation} ${a.geo_summary} ${a.flags.join(" ")}`.toLowerCase().includes(query.toLowerCase()))
+        .filter(a => a.risk_score >= minRisk)
+        .filter(a => !torOnly || isDarknetOrTor(a)),
+    [activeAlerts, query, minRisk, torOnly]
+  );
+
+  // Reset page to 1 whenever query, minRisk, or torOnly changes
+  useEffect(() => {
+    setAlertPage(1);
+  }, [query, minRisk, simMode, torOnly]);
+
+  const totalPages = Math.max(1, Math.ceil(filtered.length / ALERTS_PER_PAGE));
+  const paginatedAlerts = useMemo(() => {
+    const start = (alertPage - 1) * ALERTS_PER_PAGE;
+    return filtered.slice(start, start + ALERTS_PER_PAGE);
+  }, [filtered, alertPage, ALERTS_PER_PAGE]);
+
 
   const countries = useMemo(() => {
     const set = new Set<string>();
@@ -273,8 +418,6 @@ export default function Dashboard() {
         >
           {simMode ? "⚡ Live Sim ON" : "📊 Batch Mode"}
         </button>
-        <button className="icon">◔</button>
-        <button className="icon">☾</button>
       </header>
 
       {!isBackendOnline && (
@@ -283,18 +426,6 @@ export default function Dashboard() {
         </div>
       )}
 
-      <section className="country-strip" aria-label="Countries covered">
-        <b>COUNTRIES MONITORED</b>
-        <div>{countryNames.map(c => <span key={c}>{c}</span>)}</div>
-      </section>
-
-      {showGuide && (
-        <aside className="guide glass">
-          <button onClick={() => setShowGuide(false)}>Got it</button>
-          <b>How to read this dashboard</b>
-          <span>Start with the risk-labelled alerts, drag the globe to inspect routes, then open an alert or cluster for the evidence.</span>
-        </aside>
-      )}
 
       <section className="kpis">
         {simMode ? (
@@ -344,16 +475,27 @@ export default function Dashboard() {
               <p style={{ fontSize: "11px", color: "var(--muted)", margin: "0 0 8px" }}>Replaying live peer metadata from observer nodes.</p>
               <div className="ticker-scroll">
                 {simTicker.map(e => {
+                  const isTor = e.event_id.includes("tor_relay") || isDarknetOrTor(e);
                   const isAnom = e.event_id.includes("rapid") || e.event_id.includes("smurf");
                   return (
-                    <div key={e.event_id} className={`tick-row ${isAnom ? "high" : "low"}`}>
-                      <span className="tick-flag">{e.src_geo_country} → {e.dst_geo_country}</span>
+                    <div key={e.event_id} className={`tick-row ${isTor ? "tor" : isAnom ? "high" : "low"}`}>
+                      <span className="tick-flag">
+                        {isTor ? "🧅 " : ""}{e.src_geo_country} → {e.dst_geo_country}
+                      </span>
                       <span className="tick-detail" title={`${e.src_ip} -> ${e.dst_ip}`}>
                         {e.src_ip} → {e.dst_ip}
                       </span>
                       <span className="tick-badge">{e.protocol}:{e.dst_port}</span>
                       <span className="tick-size">{e.packet_size}B</span>
-                      {isAnom && <span className="pill high" style={{ padding: "1px 5px", fontSize: "9px" }}>⚠ Sybil/Burst</span>}
+                      {isTor ? (
+                        <span className="pill tor" style={{ padding: "1px 6px", fontSize: "9px", fontWeight: 700 }}>
+                          🧅 Tor Relay
+                        </span>
+                      ) : isAnom ? (
+                        <span className="pill high" style={{ padding: "1px 5px", fontSize: "9px" }}>
+                          ⚠ Sybil/Burst
+                        </span>
+                      ) : null}
                     </div>
                   );
                 })}
@@ -383,21 +525,80 @@ export default function Dashboard() {
               <h2>Recent Alerts</h2>
               <p>Plain-language findings; open a row for technical evidence.</p>
             </div>
-            <label>Minimum risk <input type="range" min="0" max="1" step="0.1" value={minRisk} onChange={e => setMinRisk(+e.target.value)} /></label>
+            <div style={{ display: "flex", gap: "10px", alignItems: "center", flexWrap: "wrap" }}>
+              <button
+                className={`mode-toggle ${torOnly ? "active" : ""}`}
+                style={{
+                  padding: "4px 10px",
+                  fontSize: "11px",
+                  borderColor: torOnly ? "#c084fc" : undefined,
+                  background: torOnly ? "rgba(168, 85, 247, 0.25)" : undefined,
+                  color: torOnly ? "#e9d5ff" : undefined,
+                }}
+                onClick={() => setTorOnly(!torOnly)}
+                title="Filter transactions broadcasted via Tor exit nodes or Darknet markets"
+              >
+                🧅 Tor / Darknet {torOnly ? "ON" : "Filter"}
+              </button>
+              <label>Minimum risk <input type="range" min="0" max="1" step="0.1" value={minRisk} onChange={e => setMinRisk(+e.target.value)} /></label>
+            </div>
           </div>
           <div className="table">
             <div className="thead"><span>TXID</span><span>Summary</span><span>Risk</span><span>Time</span></div>
-            {loading ? (
-              <div className="skeleton" />
-            ) : (
-              filtered.map(a => (
-                <button className={`row ${getRisk(a.risk_score).key}`} onClick={() => setSelected(a)} key={a.alert_id}>
-                  <span>{a.txid.slice(0, 8)}…{a.txid.slice(-4)}</span>
-                  <span>{a.explanation.slice(0, 86)}…</span>
-                  <RiskPill value={a.risk_score} />
-                  <time>{new Date(a.timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</time>
-                </button>
-              ))
+            <div className="table-scroll">
+              {loading ? (
+                <div className="skeleton" />
+              ) : paginatedAlerts.length === 0 ? (
+                <div style={{ padding: "20px", textAlign: "center", color: "var(--muted)", fontSize: "12px" }}>
+                  No alerts matching the current search / risk criteria.
+                </div>
+              ) : (
+                paginatedAlerts.map(a => {
+                  const isTor = isDarknetOrTor(a);
+                  return (
+                    <button className={`row ${getRisk(a.risk_score).key}`} onClick={() => setSelected(a)} key={a.alert_id}>
+                      <span>{a.txid.slice(0, 8)}…{a.txid.slice(-4)}</span>
+                      <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                        {isTor && (
+                          <span style={{ fontSize: "9px", padding: "1px 5px", borderRadius: "4px", background: "rgba(168, 85, 247, 0.2)", border: "1px solid #c084fc", color: "#e9d5ff", fontWeight: 700, whiteSpace: "nowrap" }}>
+                            🧅 Tor
+                          </span>
+                        )}
+                        <span>{a.explanation.slice(0, isTor ? 72 : 86)}…</span>
+                      </span>
+                      <RiskPill value={a.risk_score} />
+                      <time>{new Date(a.timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</time>
+                    </button>
+                  );
+                })
+              )}
+            </div>
+
+            {filtered.length > 0 && (
+              <div className="pagination-bar">
+                <span>
+                  Showing <b>{(alertPage - 1) * ALERTS_PER_PAGE + 1}</b>–<b>{Math.min(alertPage * ALERTS_PER_PAGE, filtered.length)}</b> of <b>{filtered.length}</b> alerts
+                </span>
+                <div style={{ display: "flex", gap: "6px" }}>
+                  <button
+                    className="pagination-btn"
+                    onClick={() => setAlertPage(p => Math.max(1, p - 1))}
+                    disabled={alertPage === 1}
+                  >
+                    ◀ Prev
+                  </button>
+                  <span style={{ padding: "4px 8px", background: "rgba(11,33,76,0.6)", borderRadius: "6px" }}>
+                    Page {alertPage} / {totalPages}
+                  </span>
+                  <button
+                    className="pagination-btn"
+                    onClick={() => setAlertPage(p => Math.min(totalPages, p + 1))}
+                    disabled={alertPage >= totalPages}
+                  >
+                    Next ▶
+                  </button>
+                </div>
+              </div>
             )}
           </div>
         </article>
@@ -406,121 +607,171 @@ export default function Dashboard() {
           <div className="section-title">
             <div>
               <h2>Cluster / Link Analysis</h2>
-              <p>Entities identified via common input heuristics & graph embeddings.</p>
+              <p>Clustered entity analysis, transaction heuristics, and member wallet graph exploration.</p>
             </div>
-            <span style={{ fontSize: "11px", color: "var(--cyan)" }}>{clusters.length} clusters tracked</span>
+            <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+              <span className="live" style={{ fontSize: "10px", padding: "4px 8px" }}>
+                {selectedCluster ? "⚡ Single-Cluster Web" : "📊 Entity Directory"}
+              </span>
+              <span style={{ fontSize: "11px", color: "var(--cyan)" }}>
+                {clusters.length} clusters tracked
+              </span>
+            </div>
           </div>
 
-          <div className="cluster-stage">
-            {sortedClusters.slice(0, 8).map((c) => {
-              const risk = getRisk(c.avg_risk_score);
-              const isSelected = expanded === c.cluster_id;
-              return (
-                <button
-                  key={c.cluster_id}
-                  onClick={() => {
-                    if (isSelected) {
-                      setExpanded(null);
+          {!selectedCluster ? (
+            /* DEFAULT VIEW: Sorted Grid of Cluster Cards - NO Web Graph */
+            <>
+              <div className="cluster-grid">
+                {visibleClusters.map((c) => {
+                  const isTor = isDarknetOrTor({ label: c.label, description: c.description });
+                  const r = getRisk(c.avg_risk_score);
+                  return (
+                    <div
+                      key={c.cluster_id}
+                      className={`cluster-summary-card ${isTor ? "tor" : r.key}`}
+                      onClick={() => {
+                        setSelectedCluster(c);
+                        if (c.member_addresses && c.member_addresses.length > 0) {
+                          handleInspectAddress(c.member_addresses[0]);
+                        }
+                      }}
+                      role="button"
+                      tabIndex={0}
+                    >
+                      <div className="card-header">
+                        <div style={{ display: "flex", gap: "6px", alignItems: "center" }}>
+                          <RiskBadge value={c.avg_risk_score} />
+                          {isTor && (
+                            <span style={{ fontSize: "9px", padding: "2px 6px", borderRadius: "4px", background: "rgba(168, 85, 247, 0.25)", border: "1px solid #c084fc", color: "#f3e8ff", fontWeight: 700 }}>
+                              🧅 Tor / Darknet
+                            </span>
+                          )}
+                        </div>
+                        <span className="member-count-badge">
+                          {c.member_count.toLocaleString()} member {c.member_count === 1 ? "address" : "addresses"}
+                        </span>
+                      </div>
+
+                      <h3 className="card-label">
+                        {isTor ? "🧅 " : ""}{c.label}
+                      </h3>
+
+                      <p className="card-description">{c.description}</p>
+
+                      <div className="card-footer">
+                        <span className="method-tag" style={isTor ? { color: "#d8b4fe", background: "rgba(168, 85, 247, 0.15)" } : undefined}>
+                          {c.clustering_method.replace(/_/g, " ")}
+                        </span>
+                        <span className="open-link" style={isTor ? { color: "#d8b4fe" } : undefined}>
+                          Explore Graph ➔
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {sortedClusters.length > 15 && (
+                <div style={{ display: "flex", justifyContent: "center", marginTop: "14px", marginBottom: "6px" }}>
+                  {clusterLimit < sortedClusters.length ? (
+                    <button
+                      className="show-more-btn"
+                      onClick={() => setClusterLimit(prev => Math.min(prev + 15, sortedClusters.length))}
+                    >
+                      Show More Clusters ({sortedClusters.length - clusterLimit} remaining) ▼
+                    </button>
+                  ) : (
+                    <button
+                      className="show-more-btn"
+                      onClick={() => setClusterLimit(15)}
+                    >
+                      Show Less ▲
+                    </button>
+                  )}
+                </div>
+              )}
+            </>
+          ) : (
+            /* SINGLE-CLUSTER DETAIL VIEW: Web Graph Scoped Strictly to Selected Entity */
+            <div className="single-cluster-detail">
+              <div className="detail-nav-bar">
+                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                  <button
+                    className="back-btn"
+                    onClick={() => {
+                      setSelectedCluster(null);
                       setActiveAddress(null);
                       setGraphData(null);
-                    } else {
-                      setExpanded(c.cluster_id);
-                      if (c.member_addresses && c.member_addresses.length > 0) {
-                        handleInspectAddress(c.member_addresses[0]);
-                      }
-                    }
-                  }}
-                  className={`cluster ${isSelected ? "selected" : ""} ${c.avg_risk_score > 0.7 ? "hot" : ""}`}
-                  style={{
-                    borderColor: risk.key === "high" ? "#ff5267" : risk.key === "medium" ? "#ffbe3d" : "#4be99a",
-                    minWidth: "140px",
-                  }}
-                >
-                  <RiskPill value={c.avg_risk_score} />
-                  <b>{c.label}</b>
-                  <small>{c.member_count.toLocaleString()} addresses</small>
-                </button>
-              );
-            })}
-          </div>
+                    }}
+                  >
+                    ◀ Back to All Clusters
+                  </button>
+                  <span className="cluster-id-badge">{selectedCluster.cluster_id}</span>
+                </div>
+                <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+                  <RiskBadge value={selectedCluster.avg_risk_score} />
+                  <span className="info-chip">
+                    {selectedCluster.member_count.toLocaleString()} Addresses
+                  </span>
+                </div>
+              </div>
 
-          <div className="legend">
-            <b>Legend</b>
-            <span>● High risk (&gt;0.7)</span>
-            <span>● Medium risk (0.4-0.7)</span>
-            <span>● Low risk (&lt;0.4)</span>
-            <span>Click entity to inspect subgraph & members</span>
-          </div>
+              <div style={{ marginBottom: "12px" }}>
+                <h3 style={{ margin: "0 0 4px", fontSize: "16px", color: "#fff" }}>
+                  {selectedCluster.label}
+                </h3>
+                <p className="detail-prominent-desc">
+                  {selectedCluster.description}
+                </p>
+              </div>
 
-          {expanded && (
-            <div className="cluster-detail">
-              {(() => {
-                const c = clusters.find(x => x.cluster_id === expanded);
-                if (!c) return null;
-                return (
-                  <>
+              {/* Interactive Force-Directed Network Web Centerpiece - ONLY IN DETAIL VIEW */}
+              <ClusterWebGraph
+                cluster={selectedCluster}
+                subgraphData={graphData}
+                activeAddress={activeAddress}
+                onSelectAddress={(addr) => handleInspectAddress(addr)}
+              />
+
+              {/* Cluster Intelligence Dossier underneath */}
+              <div className="cluster-detail" style={{ marginTop: "12px" }}>
+                <div className="cluster-members">
+                  <h4>Member Addresses ({selectedCluster.member_count.toLocaleString()} total, showing top {Math.min(16, selectedCluster.member_addresses?.length || 0)}):</h4>
+                  <div className="cluster-addr-list">
+                    {(selectedCluster.member_addresses || []).slice(0, 16).map((addr) => (
+                      <button
+                        key={addr}
+                        className={`addr-tag ${activeAddress === addr ? "active" : ""}`}
+                        onClick={() => handleInspectAddress(addr)}
+                        title="Click to focus node & query Neo4j subgraph"
+                      >
+                        {addr.slice(0, 8)}…{addr.slice(-6)}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {activeAddress && (
+                  <div className="cluster-graph-preview">
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                      <h3>{c.label} <small style={{ color: "var(--muted)", fontSize: "11px" }}>({c.cluster_id})</small></h3>
-                      <RiskPill value={c.avg_risk_score} />
+                      <h5 style={{ margin: 0, fontSize: "11px", color: "#7ee787" }}>
+                        Ego Subgraph Analysis: <code style={{ color: "#fff" }}>{activeAddress}</code>
+                      </h5>
+                      {graphLoading && <span style={{ fontSize: "10px", color: "var(--cyan)" }}>Querying Neo4j…</span>}
                     </div>
-                    <p>{c.description}</p>
-                    
-                    <details>
-                      <summary>Clustering Heuristic & Method</summary>
-                      <p style={{ marginTop: "4px", fontFamily: "monospace", fontSize: "10px", color: "var(--cyan)" }}>
-                        {c.clustering_method}
-                      </p>
-                    </details>
-
-                    <div className="cluster-members">
-                      <h4>Member Addresses ({c.member_count.toLocaleString()} total, showing top {Math.min(12, c.member_addresses?.length || 0)}):</h4>
-                      <div className="cluster-addr-list">
-                        {(c.member_addresses || []).slice(0, 12).map((addr) => (
-                          <button
-                            key={addr}
-                            className={`addr-tag ${activeAddress === addr ? "active" : ""}`}
-                            onClick={() => handleInspectAddress(addr)}
-                            title="Click to query ego subgraph from Neo4j/GraphML"
-                          >
-                            {addr.slice(0, 8)}…{addr.slice(-6)}
-                          </button>
-                        ))}
+                    {graphData ? (
+                      <div className="graph-stats" style={{ marginTop: "6px" }}>
+                        <span>● Verified Nodes: <b>{graphData.nodes.length}</b></span>
+                        <span>● Verified Edges: <b>{graphData.edges.length}</b></span>
+                        <span>● Component Status: <b>Connected</b></span>
                       </div>
-                    </div>
-
-                    {activeAddress && (
-                      <div className="cluster-graph-preview">
-                        <h5>Ego Subgraph Analysis: <code style={{ color: "#fff" }}>{activeAddress}</code></h5>
-                        {graphLoading ? (
-                          <span style={{ fontSize: "10px", color: "var(--muted)" }}>Querying topological link graph…</span>
-                        ) : graphData ? (
-                          <>
-                            <div className="graph-stats">
-                              <span>● Nodes: <b>{graphData.nodes.length}</b></span>
-                              <span>● Edges: <b>{graphData.edges.length}</b></span>
-                              <span>● Status: <b>Connected Component Verified</b></span>
-                            </div>
-                            {graphData.nodes.length > 0 && (
-                              <div className="graph-nodes">
-                                {graphData.nodes.slice(0, 8).map((n: any) => (
-                                  <span key={n.id} className="node-pill" title={n.id}>
-                                    {n.type || "node"}: {n.id.length > 16 ? `${n.id.slice(0, 6)}…${n.id.slice(-4)}` : n.id}
-                                  </span>
-                                ))}
-                                {graphData.nodes.length > 8 && (
-                                  <span className="node-pill">+{graphData.nodes.length - 8} more</span>
-                                )}
-                              </div>
-                            )}
-                          </>
-                        ) : (
-                          <span style={{ fontSize: "10px", color: "var(--muted)" }}>No external graph neighbors found for this address.</span>
-                        )}
-                      </div>
-                    )}
-                  </>
-                );
-              })()}
+                    ) : !graphLoading ? (
+                      <span style={{ fontSize: "10px", color: "var(--muted)" }}>No external multi-hop neighbors found for this address.</span>
+                    ) : null}
+                  </div>
+                )}
+              </div>
             </div>
           )}
 
