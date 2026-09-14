@@ -13,21 +13,8 @@ from pathlib import Path
 from typing import Any, Dict, List, Tuple
 
 from ingestion.data_validator import DataValidator
+from ingestion.geo_enrichment import get_geo_enricher
 from shared.schemas.records import NetworkEvent, BlockchainTxn
-
-# Preset realistic GeoIP & ASN data pools
-GEO_ASN_POOLS = [
-    ("US", "AS15169", "Google LLC"),
-    ("US", "AS7018", "AT&T Services"),
-    ("DE", "AS24940", "Hetzner Online GmbH"),
-    ("NL", "AS60781", "Leaseweb Netherlands B.V."),
-    ("SE", "AS8473", "Bahnhof AB"),
-    ("CH", "AS51167", "Contabo GmbH"),
-    ("JP", "AS2514", "NTT Communications"),
-    ("GB", "AS5607", "Sky UK Limited"),
-    ("SG", "AS45102", "Alibaba US Technology"),
-    ("RO", "AS9009", "M247 Europe SRL"),
-]
 
 SCRIPT_TYPES = ["P2PKH", "P2SH", "P2WPKH", "P2TR"]
 
@@ -74,6 +61,8 @@ class SyntheticDataGenerator:
                 "anomaly_ratio": self.anomaly_ratio,
                 "inject_anomalies": inject_anomalies,
             },
+            "anomalous_transactions": [],
+            "seed_illicit_wallets": [],
             "anomalous_txids": {},
             "anomalous_events": {},
             "anomalous_addresses": {},
@@ -163,6 +152,11 @@ class SyntheticDataGenerator:
 
                 self.labels["anomalous_txids"][txid] = "rapid_ip_burst"
                 self.labels["anomalous_events"][event_id] = "rapid_ip_burst"
+                self.labels["anomalous_transactions"].append({
+                    "txid": txid,
+                    "pattern_type": "rapid_ip_burst",
+                    "scenario_id": scenario_id,
+                })
 
             for w in scenario_wallets:
                 self.labels["anomalous_addresses"][w] = "rapid_ip_burst"
@@ -229,6 +223,11 @@ class SyntheticDataGenerator:
 
                 self.labels["anomalous_txids"][txid] = "smurfing_consolidation"
                 self.labels["anomalous_events"][event_id] = "smurfing_consolidation"
+                self.labels["anomalous_transactions"].append({
+                    "txid": txid,
+                    "pattern_type": "smurfing_consolidation",
+                    "scenario_id": scenario_id,
+                })
 
             # Rapid single large outgoing consolidation transfer
             out_txid = f"tx_smurf_out_{i}_{uuid.uuid4().hex[:6]}"
@@ -267,6 +266,13 @@ class SyntheticDataGenerator:
 
             self.labels["anomalous_txids"][out_txid] = "smurfing_consolidation"
             self.labels["anomalous_events"][out_event_id] = "smurfing_consolidation"
+            self.labels["anomalous_transactions"].append({
+                "txid": out_txid,
+                "pattern_type": "smurfing_consolidation",
+                "scenario_id": scenario_id,
+                "seed_wallet": final_dest,
+            })
+            self.labels["seed_illicit_wallets"].append(final_dest)
             self.labels["anomalous_addresses"][collector_wallet] = "smurfing_consolidation"
             self.labels["anomalous_addresses"][final_dest] = "smurfing_consolidation"
 
@@ -334,6 +340,15 @@ class SyntheticDataGenerator:
 
                 self.labels["anomalous_txids"][txid] = "peeling_chain"
                 self.labels["anomalous_events"][event_id] = "peeling_chain"
+                self.labels["anomalous_transactions"].append({
+                    "txid": txid,
+                    "pattern_type": "peeling_chain",
+                    "scenario_id": scenario_id,
+                    "hop": hop,
+                    "seed_wallet": current_wallet if hop == 0 else scenario_wallets[0],
+                })
+                if hop == 0:
+                    self.labels["seed_illicit_wallets"].append(current_wallet)
 
                 current_wallet = next_peel_wallet
                 current_amt = forward_amt
@@ -393,6 +408,12 @@ class SyntheticDataGenerator:
 
             self.labels["anomalous_txids"][txid] = "coinjoin_mixing"
             self.labels["anomalous_events"][event_id] = "coinjoin_mixing"
+            self.labels["anomalous_transactions"].append({
+                "txid": txid,
+                "pattern_type": "coinjoin_mixing",
+                "scenario_id": scenario_id,
+            })
+            self.labels["seed_illicit_wallets"].extend(inputs[:2])
             for w in inputs + outputs:
                 self.labels["anomalous_addresses"][w] = "coinjoin_mixing"
 
@@ -442,27 +463,30 @@ class SyntheticDataGenerator:
         remaining = self.network_count - len(self.network_events)
         base_time = self.start_time
 
+        enricher = get_geo_enricher()
         for i in range(max(0, remaining)):
             t = base_time + timedelta(seconds=random.randint(0, 86400 * 3))
             t_str = t.isoformat()
             event_id = f"net_norm_{uuid.uuid4().hex[:12]}"
 
-            src_geo = random.choice(GEO_ASN_POOLS)
-            dst_geo = random.choice(GEO_ASN_POOLS)
+            s_ip = generate_ip()
+            d_ip = generate_ip()
+            src_geo = enricher.lookup(s_ip)
+            dst_geo = enricher.lookup(d_ip)
 
             self.network_events.append({
                 "event_id": event_id,
                 "timestamp": t_str,
-                "src_ip": generate_ip(),
-                "dst_ip": generate_ip(),
+                "src_ip": s_ip,
+                "dst_ip": d_ip,
                 "src_port": random.randint(32768, 61000),
                 "dst_port": 8333,
                 "protocol": "TCP",
                 "packet_size": random.randint(200, 3500),
-                "src_geo_country": src_geo[0],
-                "src_asn": src_geo[1],
-                "dst_geo_country": dst_geo[0],
-                "dst_asn": dst_geo[1],
+                "src_geo_country": src_geo["country_code"],
+                "src_asn": src_geo["asn"],
+                "dst_geo_country": dst_geo["country_code"],
+                "dst_asn": dst_geo["asn"],
             })
 
 

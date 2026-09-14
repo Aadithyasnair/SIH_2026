@@ -2189,5 +2189,907 @@
         "1CoinJoinOut_13_4pBQ9nNPJS7v1sHEnb7B8p4fGYCnAR7ntD"
       ]
     }
+  ],
+  "anomalous_transactions": [
+    {
+      "txid": "tx_rapid_ip_burst_0_0_bf9a6d",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_0_1_d4e6f5",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_0_2_073ca8",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_0_3_a770a1",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_0_4_083670",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_0_5_1bdf6b",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_1_0_8015ff",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_1_1_321707",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_1_2_bf2e4d",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_1_3_aae2e3",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_1_4_0b9210",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_1_5_5b357b",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_2_0_77ed52",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_2_1_c080f0",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_2_2_2145cb",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_2_3_6a8369",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_2_4_c4ecd4",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_2_5_fa7d9a",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_3_0_779b6e",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_3_1_f45a87",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_3_2_0b2638",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_3_3_ada6b7",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_3_4_3b4650",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_3_5_2fdada",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_4_0_0c59d0",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_4_1_70b60a",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_4_2_c5364a",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_4_3_8066b6",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_4_4_0960fd",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_4_5_e5e64b",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_5_0_094891",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_5_1_f014eb",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_5_2_847aee",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_5_3_3934ce",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_5_4_a7d791",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_5_5_d8bcd8",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_6_0_3d4ec5",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_6_1_0d5d91",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_6_2_adcc48",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_6_3_6a4005",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_6_4_0eac0e",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_rapid_ip_burst_6_5_6ec2c5",
+      "pattern_type": "rapid_ip_burst"
+    },
+    {
+      "txid": "tx_smurf_in_0_0_75f0ba",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_0_1_4025dd",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_0_2_bd1acf",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_0_3_e30c7c",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_0_4_cad4ec",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_0_5_7b2437",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_0_6_cce81c",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_0_7_8f915e",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_0_8_08cc2c",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_0_9_602840",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_out_0_5a4e8c",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_1_0_c7bdde",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_1_1_d8c4ac",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_1_2_31847b",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_1_3_526bd0",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_1_4_6ad442",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_1_5_d7ff8d",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_1_6_b8b218",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_1_7_0d2343",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_1_8_6615ef",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_1_9_cfddba",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_out_1_89f120",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_2_0_2721c3",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_2_1_8c1acc",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_2_2_59d13d",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_2_3_f8892b",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_2_4_192931",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_2_5_9893b0",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_2_6_311ff1",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_2_7_b40b41",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_2_8_760c35",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_2_9_89781f",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_out_2_685b52",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_3_0_4738a4",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_3_1_bea423",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_3_2_754f44",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_3_3_0fe59b",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_3_4_ed97a7",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_3_5_f9583e",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_3_6_eec862",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_3_7_aac20a",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_3_8_bbd1b1",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_3_9_9f5aa9",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_out_3_55b549",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_4_0_6bc824",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_4_1_a2766e",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_4_2_9f1a03",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_4_3_36424f",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_4_4_ab7a56",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_4_5_4b4a6b",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_4_6_826209",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_4_7_f55914",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_4_8_cff4ee",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_4_9_149535",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_out_4_309cf1",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_5_0_8f588e",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_5_1_33ba0d",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_5_2_f280a7",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_5_3_e2bd36",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_5_4_74a2f1",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_5_5_f75dea",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_5_6_5c51a0",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_5_7_010b11",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_5_8_8d6957",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_5_9_157ed7",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_out_5_871899",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_6_0_f31b7b",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_6_1_1d99a4",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_6_2_6b1cd3",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_6_3_0ff189",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_6_4_0dad48",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_6_5_5b41c3",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_6_6_aaddd6",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_6_7_c4cc0a",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_6_8_7a0a8f",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_6_9_72ebf2",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_out_6_eeccbb",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_7_0_f4d548",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_7_1_f3af27",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_7_2_c7a6fd",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_7_3_3337f4",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_7_4_411053",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_7_5_3e16b8",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_7_6_45d90c",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_7_7_7a23f4",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_7_8_631f37",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_7_9_faca9d",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_out_7_38b63b",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_8_0_4b9336",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_8_1_2afd67",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_8_2_f5b4b4",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_8_3_eb0f40",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_8_4_52a4d2",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_8_5_765191",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_8_6_7e3360",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_8_7_54fa09",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_8_8_1f3b04",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_in_8_9_a17d20",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_smurf_out_8_a57a1c",
+      "pattern_type": "smurfing_consolidation"
+    },
+    {
+      "txid": "tx_peel_chain_c0_hop0_4095ae",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c0_hop1_038578",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c0_hop2_c8737f",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c0_hop3_b88c41",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c0_hop4_2fcd50",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c1_hop0_d3d141",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c1_hop1_cfc8ae",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c1_hop2_83240e",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c1_hop3_7921d3",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c1_hop4_4dd751",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c2_hop0_0b7880",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c2_hop1_cf5ffd",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c2_hop2_f5d773",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c2_hop3_9a4e0c",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c2_hop4_9984b4",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c3_hop0_b09e43",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c3_hop1_de109e",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c3_hop2_9167cc",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c3_hop3_a2a152",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c3_hop4_b021b7",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c4_hop0_b5fdfb",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c4_hop1_aa9995",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c4_hop2_2fcedd",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c4_hop3_b44247",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c4_hop4_0a100f",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c5_hop0_79e58a",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c5_hop1_bd0886",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c5_hop2_55a8ae",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c5_hop3_e047d6",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c5_hop4_015ab8",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c6_hop0_14dd0a",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c6_hop1_24d49d",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c6_hop2_3845d5",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c6_hop3_5e05c8",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c6_hop4_adef31",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c7_hop0_f609d5",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c7_hop1_42e3ae",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c7_hop2_749b6c",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c7_hop3_4c8984",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c7_hop4_37119e",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c8_hop0_9420a3",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c8_hop1_8e38f6",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c8_hop2_7c68a2",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c8_hop3_a22e07",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c8_hop4_f7c43a",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c9_hop0_6a94c4",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c9_hop1_9e4061",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c9_hop2_e310ff",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c9_hop3_3d653c",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c9_hop4_ae01d1",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c10_hop0_ec5ddc",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c10_hop1_eec4fb",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c10_hop2_76f443",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c10_hop3_427da6",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c10_hop4_04e7fd",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c11_hop0_afab87",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c11_hop1_bbceba",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c11_hop2_a1cfbc",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c11_hop3_4071c4",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c11_hop4_ed7391",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c12_hop0_ae6ece",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c12_hop1_c15ed7",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c12_hop2_2ad0fd",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c12_hop3_27e19e",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c12_hop4_bcb819",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c13_hop0_c04422",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c13_hop1_5cdeb9",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c13_hop2_595a99",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c13_hop3_dd35a9",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_peel_chain_c13_hop4_9456ca",
+      "pattern_type": "peeling_chain"
+    },
+    {
+      "txid": "tx_coinjoin_mix_0_bae68f",
+      "pattern_type": "coinjoin_mixing"
+    },
+    {
+      "txid": "tx_coinjoin_mix_1_b4e52b",
+      "pattern_type": "coinjoin_mixing"
+    },
+    {
+      "txid": "tx_coinjoin_mix_2_67457a",
+      "pattern_type": "coinjoin_mixing"
+    },
+    {
+      "txid": "tx_coinjoin_mix_3_3c2343",
+      "pattern_type": "coinjoin_mixing"
+    },
+    {
+      "txid": "tx_coinjoin_mix_4_a2ec58",
+      "pattern_type": "coinjoin_mixing"
+    },
+    {
+      "txid": "tx_coinjoin_mix_5_c8b7ee",
+      "pattern_type": "coinjoin_mixing"
+    },
+    {
+      "txid": "tx_coinjoin_mix_6_d25f33",
+      "pattern_type": "coinjoin_mixing"
+    },
+    {
+      "txid": "tx_coinjoin_mix_7_351856",
+      "pattern_type": "coinjoin_mixing"
+    },
+    {
+      "txid": "tx_coinjoin_mix_8_54d31d",
+      "pattern_type": "coinjoin_mixing"
+    },
+    {
+      "txid": "tx_coinjoin_mix_9_00b504",
+      "pattern_type": "coinjoin_mixing"
+    },
+    {
+      "txid": "tx_coinjoin_mix_10_086f08",
+      "pattern_type": "coinjoin_mixing"
+    },
+    {
+      "txid": "tx_coinjoin_mix_11_0ce35a",
+      "pattern_type": "coinjoin_mixing"
+    },
+    {
+      "txid": "tx_coinjoin_mix_12_e29c02",
+      "pattern_type": "coinjoin_mixing"
+    },
+    {
+      "txid": "tx_coinjoin_mix_13_43c1c1",
+      "pattern_type": "coinjoin_mixing"
+    }
   ]
 }

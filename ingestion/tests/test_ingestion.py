@@ -150,3 +150,109 @@ def test_synthetic_generator_full_count():
     assert "smurfing_consolidation" in labels["anomalous_txids"].values()
     assert "peeling_chain" in labels["anomalous_txids"].values()
     assert "coinjoin_mixing" in labels["anomalous_txids"].values()
+
+
+def test_xml_blockchain_parser(tmp_path):
+    xml_content = """<?xml version="1.0" encoding="UTF-8"?>
+<transactions>
+    <transaction>
+        <txid>tx_xml_001</txid>
+        <timestamp>2026-01-15T08:37:00+00:00</timestamp>
+        <wallet_from>1XmlSender123</wallet_from>
+        <wallet_to>1XmlReceiver456</wallet_to>
+        <amount_btc>2.75</amount_btc>
+        <fee>0.0002</fee>
+        <script_type>P2PKH</script_type>
+    </transaction>
+    <transaction>
+        <txid>tx_xml_002</txid>
+        <timestamp>2026-01-15T08:38:00+00:00</timestamp>
+        <input_addresses>
+            <address>1XmlInA</address>
+            <address>1XmlInB</address>
+        </input_addresses>
+        <output_addresses>
+            <address>1XmlOutA</address>
+        </output_addresses>
+        <input_amounts>
+            <amount>1.5</amount>
+            <amount>1.5</amount>
+        </input_amounts>
+        <output_amounts>
+            <amount>2.999</amount>
+        </output_amounts>
+        <fee>0.001</fee>
+        <script_type>P2WPKH</script_type>
+    </transaction>
+</transactions>
+"""
+    xml_file = tmp_path / "test_txns.xml"
+    xml_file.write_text(xml_content, encoding="utf-8")
+
+    validator = DataValidator()
+    # Test file parsing
+    txns = parse_blockchain_txns(xml_file, validator=validator)
+    assert len(txns) == 2
+    assert txns[0].txid == "tx_xml_001"
+    assert txns[0].wallet_from == "1XmlSender123"
+    assert txns[0].amount_btc == 2.75
+    assert txns[1].txid == "tx_xml_002"
+    assert txns[1].script_type == "P2WPKH"
+    assert len(txns[1].input_addresses) == 2
+
+    # Test direct XML string parsing
+    txns_str = parse_blockchain_txns(xml_content, validator=validator)
+    assert len(txns_str) == 2
+    assert txns_str[0].txid == "tx_xml_001"
+
+
+def test_xml_network_parser(tmp_path):
+    xml_content = """<?xml version="1.0" encoding="UTF-8"?>
+<events>
+    <event>
+        <event_id>net_xml_001</event_id>
+        <timestamp>2026-01-15T08:37:00+00:00</timestamp>
+        <src_ip>192.168.1.10</src_ip>
+        <dst_ip>192.168.1.20</dst_ip>
+        <port>8333</port>
+        <protocol>TCP</protocol>
+        <packet_size>512</packet_size>
+        <src_geo_country>DE</src_geo_country>
+        <src_asn>AS24940</src_asn>
+        <dst_geo_country>US</dst_geo_country>
+        <dst_asn>AS15169</dst_asn>
+    </event>
+</events>
+"""
+    xml_file = tmp_path / "test_events.xml"
+    xml_file.write_text(xml_content, encoding="utf-8")
+
+    validator = DataValidator()
+    events = parse_network_events(xml_file, validator=validator)
+    assert len(events) == 1
+    assert events[0].event_id == "net_xml_001"
+    assert events[0].src_geo_country == "DE"
+    assert events[0].dst_geo_country == "US"
+
+
+def test_geo_enricher_offline():
+    from ingestion.geo_enrichment import get_geo_enricher
+    enricher = get_geo_enricher()
+
+    # Subnet test for Tor exit / known range
+    res1 = enricher.lookup("185.220.101.5")
+    assert res1["country_code"] == "RO"
+    assert res1["asn"] == "AS9009"
+
+    # Subnet test for local German range
+    res2 = enricher.lookup("192.168.1.1")
+    assert res2["country_code"] == "DE"
+    assert res2["asn"] == "AS24940"
+
+    # Arbitrary public IP determinism test
+    res3 = enricher.lookup("8.8.8.8")
+    assert len(res3["country_code"]) == 2
+    assert res3["asn"].startswith("AS")
+    assert len(res3["country_name"]) > 0
+
+

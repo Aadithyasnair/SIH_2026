@@ -31,18 +31,29 @@ def parse_network_events(
 
     raw_records: List[Dict[str, Any]] = []
 
-    if isinstance(data, (Path, str)):
-        path_obj = Path(data) if isinstance(data, str) and (data.endswith(".json") or data.endswith(".csv") or "/" in data or "\\" in data) else None
-        
-        if path_obj and path_obj.exists():
+    if isinstance(data, Path):
+        path_obj = data
+    elif isinstance(data, str) and (data.endswith(".json") or data.endswith(".csv") or data.endswith(".xml") or "/" in data or "\\" in data):
+        path_obj = Path(data)
+    else:
+        path_obj = None
+
+    if path_obj is not None:
+        if path_obj.exists():
             content = path_obj.read_text(encoding="utf-8").strip()
             if path_obj.suffix.lower() == ".csv":
                 raw_records = _parse_csv_string(content)
+            elif path_obj.suffix.lower() == ".xml":
+                from ingestion.xml_parser import parse_xml_to_dicts
+                raw_records = parse_xml_to_dicts(path_obj)
             else:
                 raw_records = json.loads(content)
         elif isinstance(data, str):
             content = data.strip()
-            if content.startswith("[") or content.startswith("{"):
+            if content.startswith("<"):
+                from ingestion.xml_parser import parse_xml_to_dicts
+                raw_records = parse_xml_to_dicts(content)
+            elif content.startswith("[") or content.startswith("{"):
                 loaded = json.loads(content)
                 raw_records = loaded if isinstance(loaded, list) else [loaded]
             else:
