@@ -92,13 +92,25 @@ def load_alerts_from_json():
         for raw in raw_alerts:
             a = Alert(**raw)  # validates against the shared schema — fails loudly if wrong
             conn.execute(
-                text("""INSERT OR REPLACE INTO alerts
+                text("""INSERT INTO alerts
                    (alert_id, txid, involved_addresses, risk_score, anomaly_score,
                     propagated_risk_score, pattern_type, cluster_id, flags, explanation,
                     timestamp, geo_summary)
                    VALUES (:alert_id,:txid,:involved_addresses,:risk_score,:anomaly_score,
                     :propagated_risk_score,:pattern_type,:cluster_id,:flags,:explanation,
-                    :timestamp,:geo_summary)"""),
+                    :timestamp,:geo_summary)
+                   ON CONFLICT (alert_id) DO UPDATE SET
+                    txid = EXCLUDED.txid,
+                    involved_addresses = EXCLUDED.involved_addresses,
+                    risk_score = EXCLUDED.risk_score,
+                    anomaly_score = EXCLUDED.anomaly_score,
+                    propagated_risk_score = EXCLUDED.propagated_risk_score,
+                    pattern_type = EXCLUDED.pattern_type,
+                    cluster_id = EXCLUDED.cluster_id,
+                    flags = EXCLUDED.flags,
+                    explanation = EXCLUDED.explanation,
+                    timestamp = EXCLUDED.timestamp,
+                    geo_summary = EXCLUDED.geo_summary"""),
                 {
                     "alert_id": a.alert_id, "txid": a.txid,
                     "involved_addresses": json.dumps(a.involved_addresses),
@@ -124,11 +136,18 @@ def load_clusters_from_json():
         for raw in raw_clusters:
             c = Cluster(**raw)
             conn.execute(
-                text("""INSERT OR REPLACE INTO clusters
+                text("""INSERT INTO clusters
                    (cluster_id, label, member_addresses, member_count, avg_risk_score,
                     description, clustering_method)
                    VALUES (:cluster_id,:label,:member_addresses,:member_count,:avg_risk_score,
-                    :description,:clustering_method)"""),
+                    :description,:clustering_method)
+                   ON CONFLICT (cluster_id) DO UPDATE SET
+                    label = EXCLUDED.label,
+                    member_addresses = EXCLUDED.member_addresses,
+                    member_count = EXCLUDED.member_count,
+                    avg_risk_score = EXCLUDED.avg_risk_score,
+                    description = EXCLUDED.description,
+                    clustering_method = EXCLUDED.clustering_method"""),
                 {
                     "cluster_id": c.cluster_id, "label": c.label,
                     "member_addresses": json.dumps(c.member_addresses),
@@ -137,6 +156,20 @@ def load_clusters_from_json():
                 },
             )
             count += 1
+        # Synchronize avg_risk_score from associated alerts if alerts exist
+        conn.execute(
+            text("""
+                UPDATE clusters
+                SET avg_risk_score = (
+                    SELECT COALESCE(AVG(alerts.risk_score), clusters.avg_risk_score)
+                    FROM alerts
+                    WHERE alerts.cluster_id = clusters.cluster_id
+                )
+                WHERE EXISTS (
+                    SELECT 1 FROM alerts WHERE alerts.cluster_id = clusters.cluster_id
+                )
+            """)
+        )
         conn.commit()
     return count
 
@@ -227,10 +260,13 @@ def get_graph_endpoint(node_id: str, depth: int = 2):
         {"id": n, "type": sub.nodes[n].get("type", "unknown"), "label": sub.nodes[n].get("label", n)}
         for n in sub.nodes
     ]
-    edges = [
-        {"source": u, "target": v, "confidence": sub.edges[u, v].get("confidence", 0.0)}
-        for u, v in sub.edges
-    ]
+    edges = []
+    for edge in sub.edges:
+        u = edge[0]
+        v = edge[1]
+        edge_data = sub.get_edge_data(*edge) or {}
+        confidence = float(edge_data.get("confidence", 0.0))
+        edges.append({"source": u, "target": v, "confidence": confidence})
     return {"nodes": nodes, "edges": edges}
 
 
@@ -249,17 +285,47 @@ def live_feed(speed: float = 1.0, from_ts: str = None, to_ts: str = None):
     return {"events": events, "speed": speed}
 
 
+from fastapi import BackgroundTasks
+from backend.pipeline import run_full_pipeline
+
+
+def _execute_pipeline_job(job_id: str):
+    try:
+        def update_progress(progress: float, stage: str):
+            if job_id in JOBS:
+                JOBS[job_id]["progress"] = progress
+                JOBS[job_id]["stage"] = stage
+
+        result = run_full_pipeline(progress_callback=update_progress)
+        n_alerts = load_alerts_from_json()
+        n_clusters = load_clusters_from_json()
+        global _GRAPH_CACHE
+        _GRAPH_CACHE = None  # refresh graph cache
+        JOBS[job_id].update({
+            "status": "completed",
+            "progress": 1.0,
+            "stage": "Pipeline completed successfully",
+            "alerts_loaded": n_alerts,
+            "clusters_loaded": n_clusters,
+        })
+    except Exception as e:
+        JOBS[job_id].update({
+            "status": "failed",
+            "error": str(e),
+            "stage": f"Error: {e}",
+        })
+
+
 @app.post("/api/ingest")
-def trigger_ingest():
+def trigger_ingest(background_tasks: BackgroundTasks):
     job_id = str(uuid.uuid4())
-    # 2-day version: reload sample_data (assume the real pipeline already ran offline).
-    # Replace with an actual subprocess/import chain (ingestion -> correlation ->
-    # ml_detection -> explainability) once time allows.
-    n_alerts = load_alerts_from_json()
-    n_clusters = load_clusters_from_json()
-    JOBS[job_id] = {"status": "completed", "progress": 1.0,
-                    "alerts_loaded": n_alerts, "clusters_loaded": n_clusters}
-    return {"job_id": job_id}
+    JOBS[job_id] = {
+        "status": "running",
+        "progress": 0.0,
+        "stage": "Initializing pipeline execution...",
+    }
+    background_tasks.add_task(_execute_pipeline_job, job_id)
+    return {"job_id": job_id, "status": "running"}
 
 
 @app.get("/api/jobs/{job_id}")

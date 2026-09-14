@@ -123,114 +123,29 @@ def generate_alerts_json(
     """
     Reads upstream input json and produces ranked alerts.json.
     """
-    records = []
-    if os.path.exists(input_file):
-        with open(input_file, "r", encoding="utf-8") as f:
-            records = json.load(f)
-    else:
-        # Generate sample representative upstream records if file doesn't exist yet
-        records = [
-            {
-                "alert_id": "952d7d55-a8d4-48bf-b9d4-463d9e03c067",
-                "txid": "b6f123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
-                "involved_addresses": ["1PeelAddr1xxxx", "1PeelAddr2xxxx"],
-                "anomaly_score": 0.88,
-                "propagated_risk_score": 0.75,
-                "correlation_confidence": 0.92,
-                "cluster_risk_signal": 0.80,
-                "pattern_type": "peeling_chain",
-                "cluster_id": "cluster-peel-01",
-                "flags": ["peeling_chain_detected", "suspicious_layering"],
-                "timestamp": "2026-09-14T00:00:00Z",
-                "hop_count": 5,
-                "countries": ["Germany", "Netherlands", "United States"],
-                "time_window_minutes": 40.0,
-                "features": {"amount_zscore": 3.4, "txn_frequency": 12.0, "geo_diversity": 3.0},
-            },
-            {
-                "alert_id": "7f88938c-6c46-414e-9ca8-cddc786d9a82",
-                "txid": "c7f987654321fedcba987654321fedcba987654321fedcba987654321fedcba",
-                "involved_addresses": ["1MixerIn1xxxx", "1MixerIn2xxxx", "1MixerOut1xxxx"],
-                "anomaly_score": 0.92,
-                "propagated_risk_score": 0.30,
-                "correlation_confidence": 0.85,
-                "cluster_risk_signal": 0.90,
-                "pattern_type": "coinjoin_mixing",
-                "cluster_id": "cluster-mix-04",
-                "flags": ["coinjoin_mixing_detected", "equal_amount_distribution"],
-                "timestamp": "2026-09-14T00:05:00Z",
-                "wallet_count": 12,
-                "countries": ["Panama", "Switzerland"],
-                "time_window_minutes": 15.0,
-                "features": {"small_remainder_ratio": 0.95, "degree_centrality": 0.82},
-            },
-            {
-                "alert_id": "84207cf3-8e6a-43c9-8a53-d6579762d469",
-                "txid": "d8a112233445566778899aabbccddeeff112233445566778899aabbccddeeff",
-                "involved_addresses": ["1Hop2RiskAddrxxxx"],
-                "anomaly_score": 0.65,
-                "propagated_risk_score": 0.82,
-                "correlation_confidence": 0.78,
-                "cluster_risk_signal": 0.60,
-                "pattern_type": "none",
-                "cluster_id": "cluster-hop-09",
-                "flags": ["propagated_illicit_link"],
-                "timestamp": "2026-09-14T00:10:00Z",
-                "hop_distance": 2,
-                "source_label": "a ransomware seed wallet",
-                "countries": ["Russian Federation", "Cyprus"],
-                "time_window_minutes": 25.0,
-                "features": {"propagated_risk": 0.82, "burst_count": 5.0},
-            },
-            {
-                "alert_id": "2204ca4f-507f-481b-a80b-fbb98d84875d",
-                "txid": "e9b2233445566778899aabbccddeeff00112233445566778899aabbccddeeff",
-                "involved_addresses": ["1HighValAddrxxxx"],
-                "anomaly_score": 0.79,
-                "propagated_risk_score": 0.15,
-                "correlation_confidence": 0.90,
-                "cluster_risk_signal": 0.30,
-                "pattern_type": "none",
-                "cluster_id": None,
-                "flags": ["high_value_burst"],
-                "timestamp": "2026-09-14T00:15:00Z",
-                "countries": ["Germany"],
-                "time_window_minutes": 5.0,
-                "features": {"amount_zscore": 4.1, "txn_frequency": 15.0},
-            },
-            {
-                "alert_id": "137bcce6-4874-4355-aa7e-7671a5aebfe9",
-                "txid": "f0c33445566778899aabbccddeeff00112233445566778899aabbccddeeff11",
-                "involved_addresses": ["1NormalUserAddrxxxx"],
-                "anomaly_score": 0.12,
-                "propagated_risk_score": 0.05,
-                "correlation_confidence": 0.95,
-                "cluster_risk_signal": 0.0,
-                "pattern_type": "none",
-                "cluster_id": None,
-                "flags": [],
-                "timestamp": "2026-09-14T00:20:00Z",
-                "countries": ["United States"],
-                "time_window_minutes": 2.0,
-                "features": {"amount_zscore": 0.1},
-            },
-        ]
+    in_path = REPO_ROOT / input_file if not Path(input_file).is_absolute() else Path(input_file)
+    if not in_path.exists():
+        raise FileNotFoundError(f"Required upstream file {in_path} not found. Please run ML pipeline first.")
+
+    with open(in_path, "r", encoding="utf-8") as f:
+        records = json.load(f)
+    print(f"Loaded {len(records)} real upstream records from {in_path}")
 
     alerts = process_upstream_data_to_alerts(records)
     
     # Save alerts.json at root, explainability/, and shared/sample_data/
-    root_output = Path(output_file)
-    explainability_output = Path("explainability/alerts.json")
-    sample_output = Path("shared/sample_data/alerts.json")
+    root_output = REPO_ROOT / output_file if not Path(output_file).is_absolute() else Path(output_file)
+    explainability_output = REPO_ROOT / "explainability" / "alerts.json"
+    sample_output = REPO_ROOT / "shared" / "sample_data" / "alerts.json"
     
     with open(root_output, "w", encoding="utf-8") as f:
         json.dump(alerts, f, indent=2)
 
-    os.makedirs("explainability", exist_ok=True)
+    os.makedirs(explainability_output.parent, exist_ok=True)
     with open(explainability_output, "w", encoding="utf-8") as f:
         json.dump(alerts, f, indent=2)
 
-    os.makedirs("shared/sample_data", exist_ok=True)
+    os.makedirs(sample_output.parent, exist_ok=True)
     with open(sample_output, "w", encoding="utf-8") as f:
         json.dump(alerts, f, indent=2)
         

@@ -34,3 +34,19 @@ def test_module_b_clusters():
 
 def test_module_d_alerts():
     _validate("alerts.json", Alert)
+
+
+def test_alerts_cluster_id_consistency():
+    """Confirm cluster_id references in Alert records correspond to real Cluster records."""
+    alerts_path = os.path.join(SAMPLE_DATA, "alerts.json")
+    clusters_path = os.path.join(SAMPLE_DATA, "clusters.json")
+    with open(alerts_path) as f:
+        alerts = json.load(f)
+    with open(clusters_path) as f:
+        clusters = json.load(f)
+
+    valid_cluster_ids = {c["cluster_id"] for c in clusters}
+    for a in alerts:
+        cid = a.get("cluster_id")
+        if cid is not None:
+            assert cid in valid_cluster_ids, f"Alert {a.get('alert_id')} references orphaned cluster_id '{cid}'"

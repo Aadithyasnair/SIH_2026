@@ -3,21 +3,99 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { Alert, getRisk } from "@/lib/data";
+import { NetworkEvent } from "@/lib/api";
+
+export const countryCoordinates: Record<string, { lat: number; lng: number; name: string }> = {
+  US: { lat: 37.09, lng: -95.71, name: "United States" },
+  USA: { lat: 37.09, lng: -95.71, name: "United States" },
+  "United States": { lat: 37.09, lng: -95.71, name: "United States" },
+  DE: { lat: 51.16, lng: 10.45, name: "Germany" },
+  Germany: { lat: 51.16, lng: 10.45, name: "Germany" },
+  NL: { lat: 52.13, lng: 5.29, name: "Netherlands" },
+  Netherlands: { lat: 52.13, lng: 5.29, name: "Netherlands" },
+  SE: { lat: 60.12, lng: 18.64, name: "Sweden" },
+  Sweden: { lat: 60.12, lng: 18.64, name: "Sweden" },
+  CH: { lat: 46.81, lng: 8.22, name: "Switzerland" },
+  Switzerland: { lat: 46.81, lng: 8.22, name: "Switzerland" },
+  JP: { lat: 36.20, lng: 138.25, name: "Japan" },
+  Japan: { lat: 36.20, lng: 138.25, name: "Japan" },
+  GB: { lat: 55.37, lng: -3.43, name: "United Kingdom" },
+  UK: { lat: 55.37, lng: -3.43, name: "United Kingdom" },
+  "United Kingdom": { lat: 55.37, lng: -3.43, name: "United Kingdom" },
+  SG: { lat: 1.35, lng: 103.81, name: "Singapore" },
+  Singapore: { lat: 1.35, lng: 103.81, name: "Singapore" },
+  RO: { lat: 45.94, lng: 24.96, name: "Romania" },
+  Romania: { lat: 45.94, lng: 24.96, name: "Romania" },
+  NG: { lat: 9.08, lng: 8.67, name: "Nigeria" },
+  Nigeria: { lat: 9.08, lng: 8.67, name: "Nigeria" },
+  PA: { lat: 8.53, lng: -80.78, name: "Panama" },
+  Panama: { lat: 8.53, lng: -80.78, name: "Panama" },
+  CY: { lat: 35.12, lng: 33.42, name: "Cyprus" },
+  Cyprus: { lat: 35.12, lng: 33.42, name: "Cyprus" },
+  RU: { lat: 61.52, lng: 105.31, name: "Russia" },
+  Russia: { lat: 61.52, lng: 105.31, name: "Russia" },
+  "Russian Federation": { lat: 61.52, lng: 105.31, name: "Russian Federation" },
+  IN: { lat: 20.59, lng: 78.96, name: "India" },
+  India: { lat: 20.59, lng: 78.96, name: "India" },
+  CA: { lat: 56.13, lng: -106.34, name: "Canada" },
+  Canada: { lat: 56.13, lng: -106.34, name: "Canada" },
+  BR: { lat: -14.23, lng: -51.92, name: "Brazil" },
+  Brazil: { lat: -14.23, lng: -51.92, name: "Brazil" },
+  FR: { lat: 46.22, lng: 2.21, name: "France" },
+  France: { lat: 46.22, lng: 2.21, name: "France" },
+  CN: { lat: 35.86, lng: 104.19, name: "China" },
+  China: { lat: 35.86, lng: 104.19, name: "China" },
+  AU: { lat: -25.27, lng: 133.77, name: "Australia" },
+  Australia: { lat: -25.27, lng: 133.77, name: "Australia" },
+};
 
 const locations = [
-  { name: "USA", lat: 39, lng: -98 },
-  { name: "Canada", lat: 56, lng: -106 },
-  { name: "Germany", lat: 51, lng: 10 },
-  { name: "Nigeria", lat: 9, lng: 8 },
-  { name: "Singapore", lat: 1, lng: 104 },
-  { name: "Panama", lat: 9, lng: -80 },
-  { name: "Switzerland", lat: 47, lng: 8 },
-  { name: "Cyprus", lat: 35, lng: 33 },
-  { name: "Russia", lat: 61, lng: 90 },
-  { name: "India", lat: 20, lng: 78 },
-  { name: "Japan", lat: 36, lng: 138 },
-  { name: "Brazil", lat: -14, lng: -51 },
+  { name: "USA", lat: 37.09, lng: -95.71 },
+  { name: "Canada", lat: 56.13, lng: -106.34 },
+  { name: "Germany", lat: 51.16, lng: 10.45 },
+  { name: "Netherlands", lat: 52.13, lng: 5.29 },
+  { name: "Nigeria", lat: 9.08, lng: 8.67 },
+  { name: "Singapore", lat: 1.35, lng: 103.81 },
+  { name: "Panama", lat: 8.53, lng: -80.78 },
+  { name: "Switzerland", lat: 46.81, lng: 8.22 },
+  { name: "Cyprus", lat: 35.12, lng: 33.42 },
+  { name: "Russia", lat: 61.52, lng: 105.31 },
+  { name: "India", lat: 20.59, lng: 78.96 },
+  { name: "Japan", lat: 36.20, lng: 138.25 },
+  { name: "Brazil", lat: -14.23, lng: -51.92 },
+  { name: "Sweden", lat: 60.12, lng: 18.64 },
+  { name: "Romania", lat: 45.94, lng: 24.96 },
+  { name: "United Kingdom", lat: 55.37, lng: -3.43 },
 ];
+
+export function extractCountriesFromText(text: string): { lat: number; lng: number; name: string }[] {
+  if (!text) return [];
+  const found: { lat: number; lng: number; name: string }[] = [];
+  const checked = new Set<string>();
+
+  // Check country names / keys against text
+  for (const [key, coords] of Object.entries(countryCoordinates)) {
+    if (key.length < 3) continue; // skip 2-letter codes for broad text regex to prevent false positives
+    const regex = new RegExp(`\\b${key}\\b`, "i");
+    if (regex.test(text) && !checked.has(coords.name)) {
+      checked.add(coords.name);
+      found.push(coords);
+    }
+  }
+
+  // Check 2-letter codes if prefixed or delimited (e.g., US, DE, NL)
+  for (const [key, coords] of Object.entries(countryCoordinates)) {
+    if (key.length === 2) {
+      const codeRegex = new RegExp(`\\b${key}\\b`);
+      if (codeRegex.test(text) && !checked.has(coords.name)) {
+        checked.add(coords.name);
+        found.push(coords);
+      }
+    }
+  }
+
+  return found;
+}
 
 /*
  * Your Earth texture is shifted approximately
@@ -171,10 +249,12 @@ export function CountryGlobe({
   alerts,
   playing,
   speed,
+  liveEvents = [],
 }: {
   alerts: Alert[];
   playing: boolean;
   speed: number;
+  liveEvents?: NetworkEvent[];
 }) {
   const host =
     useRef<HTMLDivElement>(null);
@@ -184,6 +264,9 @@ export function CountryGlobe({
 
   const rate =
     useRef(speed);
+
+  const liveGroupRef =
+    useRef<THREE.Group | null>(null);
 
   live.current =
     playing;
@@ -257,6 +340,12 @@ export function CountryGlobe({
      */
     globe.rotation.y =
       -0.38;
+
+    const liveGroup =
+      new THREE.Group();
+    globe.add(liveGroup);
+    liveGroupRef.current =
+      liveGroup;
 
     scene.add(globe);
 
@@ -437,21 +526,34 @@ export function CountryGlobe({
        ================================================= */
 
     alerts
-      .slice(0, 3)
+      .slice(0, 10)
       .forEach(
         (alert, index) => {
+          // Extract real countries involved from the alert's geo_summary
+          const countriesInAlert = extractCountriesFromText(alert.geo_summary || "");
+
+          let fromCoord = locations[index % locations.length];
+          let toCoord = locations[(index + 3) % locations.length];
+
+          if (countriesInAlert.length >= 2) {
+            fromCoord = countriesInAlert[0];
+            toCoord = countriesInAlert[1];
+          } else if (countriesInAlert.length === 1) {
+            fromCoord = countriesInAlert[0];
+            toCoord = locations[(index + 4) % locations.length];
+          }
 
           const from =
             pointOnGlobe(
-              locations[index].lat,
-              locations[index].lng,
+              fromCoord.lat,
+              fromCoord.lng,
               1.035
             );
 
           const to =
             pointOnGlobe(
-              locations[index + 3].lat,
-              locations[index + 3].lng,
+              toCoord.lat,
+              toCoord.lng,
               1.035
             );
 
@@ -481,26 +583,15 @@ export function CountryGlobe({
             new THREE.Mesh(
               new THREE.TubeGeometry(
                 curve,
-
                 30,
-
-                index === 0
-                  ? 0.013
-                  : 0.009,
-
+                index === 0 ? 0.013 : 0.009,
                 6,
-
                 false
               ),
-
               new THREE.MeshBasicMaterial({
                 color,
-
-                transparent:
-                  true,
-
-                opacity:
-                  0.92,
+                transparent: true,
+                opacity: 0.92,
               })
             );
 
@@ -688,6 +779,54 @@ export function CountryGlobe({
       element.replaceChildren();
     };
   }, [alerts]);
+
+  /* =================================================
+     DYNAMIC LIVE SIMULATION ARCS
+     ================================================= */
+  useEffect(() => {
+    const liveGroup = liveGroupRef.current;
+    if (!liveGroup) return;
+
+    // Clear previous live batch
+    while (liveGroup.children.length > 0) {
+      const child = liveGroup.children[0] as THREE.Mesh;
+      if (child.geometry) child.geometry.dispose();
+      if (child.material) {
+        if (Array.isArray(child.material)) {
+          child.material.forEach(m => m.dispose());
+        } else {
+          child.material.dispose();
+        }
+      }
+      liveGroup.remove(child);
+    }
+
+    if (!liveEvents || liveEvents.length === 0) return;
+
+    liveEvents.forEach((event, idx) => {
+      const srcCoord = countryCoordinates[event.src_geo_country];
+      const dstCoord = countryCoordinates[event.dst_geo_country];
+      if (!srcCoord || !dstCoord) return;
+
+      const from = pointOnGlobe(srcCoord.lat, srcCoord.lng, 1.04);
+      const to = pointOnGlobe(dstCoord.lat, dstCoord.lng, 1.04);
+      const middle = from.clone().add(to).multiplyScalar(0.5).normalize().multiplyScalar(1.52);
+
+      const curve = new THREE.QuadraticBezierCurve3(from, middle, to);
+      const isAnomalous = event.event_id.includes("rapid") || event.event_id.includes("smurf");
+      const color = isAnomalous ? "#ff5267" : "#00f0ff";
+
+      const tube = new THREE.Mesh(
+        new THREE.TubeGeometry(curve, 32, isAnomalous ? 0.012 : 0.007, 6, false),
+        new THREE.MeshBasicMaterial({
+          color,
+          transparent: true,
+          opacity: 0.95,
+        })
+      );
+      liveGroup.add(tube);
+    });
+  }, [liveEvents]);
 
   return (
     <div className="globe-wrap">
