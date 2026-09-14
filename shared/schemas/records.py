@@ -3,8 +3,8 @@ Shared Data Contracts for SIH26146
 Official Pydantic v2 models matching NTRO Problem Statement fields exactly.
 """
 import uuid
-from typing import List, Optional
-from pydantic import BaseModel, Field
+from typing import List, Optional, Any, Dict
+from pydantic import BaseModel, Field, model_validator
 
 
 class NetworkEvent(BaseModel):
@@ -12,14 +12,28 @@ class NetworkEvent(BaseModel):
     timestamp: str = Field(..., description="ISO8601 UTC timestamp")
     src_ip: str
     dst_ip: str
-    src_port: int
-    dst_port: int
-    protocol: str = Field(..., description="TCP, UDP, etc.")
-    packet_size: int
-    src_geo_country: str = Field(..., description="ISO 2-letter country code or name")
-    src_asn: str = Field(..., description="Autonomous System Number, e.g. AS13335")
-    dst_geo_country: str
-    dst_asn: str
+    src_port: int = Field(default=50000)
+    dst_port: int = Field(default=8333)
+    protocol: str = Field(default="TCP", description="TCP, UDP, etc.")
+    packet_size: int = Field(default=1024)
+    src_geo_country: str = Field(default="US", description="ISO 2-letter country code or name")
+    src_asn: str = Field(default="AS0000", description="Autonomous System Number, e.g. AS13335")
+    dst_geo_country: str = Field(default="US")
+    dst_asn: str = Field(default="AS0000")
+
+    @model_validator(mode='before')
+    @classmethod
+    def populate_defaults_or_aliases(cls, data: Any) -> Any:
+        if isinstance(data, dict):
+            if "port" in data and "dst_port" not in data:
+                data["dst_port"] = data["port"]
+            if "port" in data and "src_port" not in data:
+                data["src_port"] = 50000
+        return data
+
+    @property
+    def port(self) -> int:
+        return self.dst_port
 
 
 class BlockchainTxn(BaseModel):
@@ -29,8 +43,34 @@ class BlockchainTxn(BaseModel):
     output_addresses: List[str] = Field(..., description="List of destination output addresses")
     input_amounts: List[float] = Field(..., description="List of amounts corresponding to inputs in BTC")
     output_amounts: List[float] = Field(..., description="List of amounts corresponding to outputs in BTC")
-    fee: float = Field(..., description="Transaction fee in BTC")
-    script_type: str = Field(..., description="P2PKH, P2SH, P2WPKH, P2TR, etc.")
+    fee: float = Field(default=0.0001, description="Transaction fee in BTC")
+    script_type: str = Field(default="P2PKH", description="P2PKH, P2SH, P2WPKH, P2TR, etc.")
+
+    @model_validator(mode='before')
+    @classmethod
+    def populate_from_single_wallet(cls, data: Any) -> Any:
+        if isinstance(data, dict):
+            if "wallet_from" in data and "input_addresses" not in data:
+                data["input_addresses"] = [data["wallet_from"]]
+            if "wallet_to" in data and "output_addresses" not in data:
+                data["output_addresses"] = [data["wallet_to"]]
+            if "amount_btc" in data and "input_amounts" not in data:
+                data["input_amounts"] = [float(data["amount_btc"])]
+            if "amount_btc" in data and "output_amounts" not in data:
+                data["output_amounts"] = [float(data["amount_btc"])]
+        return data
+
+    @property
+    def wallet_from(self) -> str:
+        return self.input_addresses[0] if self.input_addresses else ""
+
+    @property
+    def wallet_to(self) -> str:
+        return self.output_addresses[0] if self.output_addresses else ""
+
+    @property
+    def amount_btc(self) -> float:
+        return sum(self.output_amounts) if self.output_amounts else 0.0
 
 
 class CorrelationEdge(BaseModel):

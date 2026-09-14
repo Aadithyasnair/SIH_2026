@@ -1,1821 +1,2193 @@
 {
-  "seed_illicit_wallets": [
-    "1DarknetMarketVendor_0_ee0aac95",
-    "1DarknetMarketVendor_1_cae44a21",
-    "1DarknetMarketVendor_2_8c8826c5",
-    "1DarknetMarketVendor_3_0e9ce39a",
-    "1DarknetMarketVendor_4_0dcaf457",
-    "1RansomwarePayment_0_58be4356",
-    "1RansomwarePayment_1_6eaa5905",
-    "1RansomwarePayment_2_739378c9",
-    "1RansomwarePayment_3_309143a7",
-    "1RansomwarePayment_4_068e0d50",
-    "1LaunderingHub_0_04a22496",
-    "1LaunderingHub_1_7082b998",
-    "1LaunderingHub_2_65b53e91",
-    "1LaunderingHub_3_808a0ec9",
-    "1LaunderingHub_4_e0b23d09"
-  ],
-  "anomalous_transactions": [
-    {
-      "txid": "tx_peel_chain_c0_hop0_20381244",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c0_hop1_8a121aa0",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c0_hop2_c40897de",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c0_hop3_f0aa5d86",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c0_hop4_b1f27e09",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c1_hop0_d0f55acb",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c1_hop1_ebff7c59",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c1_hop2_459dabeb",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c1_hop3_92410b7e",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c1_hop4_cc7e59cd",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c2_hop0_931989e0",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c2_hop1_8b434a22",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c2_hop2_b83ce4c0",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c2_hop3_e1a74d68",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c2_hop4_d083c55f",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c3_hop0_a304ce9f",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c3_hop1_6d02cd2b",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c3_hop2_8093f728",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c3_hop3_2f1b1153",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c3_hop4_e96782ce",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c4_hop0_edd40185",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c4_hop1_baf25092",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c4_hop2_c17f3d56",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c4_hop3_c202dc7b",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c4_hop4_92ca6046",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c5_hop0_7c24b35f",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c5_hop1_006a6f75",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c5_hop2_9fb7eedb",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c5_hop3_e53c59d5",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c5_hop4_58dfa12c",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c6_hop0_147f7f11",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c6_hop1_413d35aa",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c6_hop2_0438f351",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c6_hop3_098bd4be",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c6_hop4_3065e58e",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c7_hop0_ced9930c",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c7_hop1_e8efc7eb",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c7_hop2_25575d5d",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c7_hop3_45559423",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c7_hop4_3b518d39",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c8_hop0_08356c27",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c8_hop1_68224ab9",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c8_hop2_4522346d",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c8_hop3_1e8a2353",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c8_hop4_60ab3ab9",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c9_hop0_ede57469",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c9_hop1_057ddc97",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c9_hop2_79c04eb3",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c9_hop3_ab9f7339",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c9_hop4_51bd84da",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c10_hop0_d3c3e0f9",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
-    },
-    {
-      "txid": "tx_peel_chain_c10_hop1_61294c7a",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
-    },
-    {
-      "txid": "tx_peel_chain_c10_hop2_c6227ddf",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
-    },
-    {
-      "txid": "tx_peel_chain_c10_hop3_1b09c1e9",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
-    },
-    {
-      "txid": "tx_peel_chain_c10_hop4_1abd3a1e",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
-    },
-    {
-      "txid": "tx_peel_chain_c11_hop0_c863fcab",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
-    },
-    {
-      "txid": "tx_peel_chain_c11_hop1_b7f71a47",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
-    },
-    {
-      "txid": "tx_peel_chain_c11_hop2_ca287dc8",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
-    },
-    {
-      "txid": "tx_peel_chain_c11_hop3_754ecc2d",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
-    },
-    {
-      "txid": "tx_peel_chain_c11_hop4_94bd38af",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
-    },
-    {
-      "txid": "tx_peel_chain_c12_hop0_867a3203",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
-    },
-    {
-      "txid": "tx_peel_chain_c12_hop1_b1ece0f4",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
-    },
-    {
-      "txid": "tx_peel_chain_c12_hop2_c2a2287d",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
-    },
-    {
-      "txid": "tx_peel_chain_c12_hop3_ba21cbd8",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
-    },
-    {
-      "txid": "tx_peel_chain_c12_hop4_c11f4e67",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
-    },
-    {
-      "txid": "tx_peel_chain_c13_hop0_ede892f8",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
-    },
-    {
-      "txid": "tx_peel_chain_c13_hop1_ef51c3cf",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
-    },
-    {
-      "txid": "tx_peel_chain_c13_hop2_19f4feda",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
-    },
-    {
-      "txid": "tx_peel_chain_c13_hop3_1ea62f8e",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
-    },
-    {
-      "txid": "tx_peel_chain_c13_hop4_1f55eaa9",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
-    },
-    {
-      "txid": "tx_peel_chain_c14_hop0_4921b457",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
-    },
-    {
-      "txid": "tx_peel_chain_c14_hop1_df59d29c",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
-    },
-    {
-      "txid": "tx_peel_chain_c14_hop2_ade85cd8",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
-    },
-    {
-      "txid": "tx_peel_chain_c14_hop3_f2aca5d2",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
-    },
-    {
-      "txid": "tx_peel_chain_c14_hop4_8f302dea",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1LaunderingHub..."
-    },
-    {
-      "txid": "tx_peel_chain_c15_hop0_77071f29",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c15_hop1_7cf05737",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c15_hop2_f632ccb6",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c15_hop3_46bd7487",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c15_hop4_d31bd156",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c16_hop0_bb1bf8df",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c16_hop1_be54838e",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c16_hop2_32737f13",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c16_hop3_4d87efc4",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c16_hop4_2a4b4e57",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c17_hop0_581a9dbf",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c17_hop1_24f99d14",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c17_hop2_dd067277",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c17_hop3_1e51316c",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c17_hop4_8fa8ca66",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c18_hop0_e2b83b34",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c18_hop1_97d6953d",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c18_hop2_7e395e8e",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c18_hop3_b53a2adc",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c18_hop4_664b4600",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c19_hop0_5353e0fe",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c19_hop1_e326b3a5",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c19_hop2_60d037df",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c19_hop3_44a3bdec",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c19_hop4_041dad6c",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1DarknetMarket..."
-    },
-    {
-      "txid": "tx_peel_chain_c20_hop0_e4263c0e",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c20_hop1_2bee8d8a",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c20_hop2_ed65c3e4",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c20_hop3_cc6df350",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c20_hop4_c43c6b50",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c21_hop0_2fa33db2",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c21_hop1_4a496704",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c21_hop2_a2441158",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c21_hop3_f5c6d9c5",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c21_hop4_01192847",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c22_hop0_1de58914",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c22_hop1_6c86ab76",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c22_hop2_8ab2b287",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c22_hop3_61613f94",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c22_hop4_01f322c5",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c23_hop0_0efb3056",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 0 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c23_hop1_ff945281",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 1 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c23_hop2_a5fc56c0",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 2 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c23_hop3_196962f9",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 3 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_peel_chain_c23_hop4_653c5225",
-      "pattern_type": "peeling_chain",
-      "reason": "Hop 4 of peeling chain originated from seed illicit wallet 1RansomwarePay..."
-    },
-    {
-      "txid": "tx_coinjoin_mixing_0_ac7e6c2f",
+  "metadata": {
+    "generated_at": "2026-09-14T06:17:51.474681+00:00",
+    "total_network_events": 5000,
+    "total_blockchain_txns": 2000,
+    "anomaly_ratio": 0.07,
+    "inject_anomalies": true
+  },
+  "anomalous_txids": {
+    "tx_rapid_ip_burst_0_0_bf9a6d": "rapid_ip_burst",
+    "tx_rapid_ip_burst_0_1_d4e6f5": "rapid_ip_burst",
+    "tx_rapid_ip_burst_0_2_073ca8": "rapid_ip_burst",
+    "tx_rapid_ip_burst_0_3_a770a1": "rapid_ip_burst",
+    "tx_rapid_ip_burst_0_4_083670": "rapid_ip_burst",
+    "tx_rapid_ip_burst_0_5_1bdf6b": "rapid_ip_burst",
+    "tx_rapid_ip_burst_1_0_8015ff": "rapid_ip_burst",
+    "tx_rapid_ip_burst_1_1_321707": "rapid_ip_burst",
+    "tx_rapid_ip_burst_1_2_bf2e4d": "rapid_ip_burst",
+    "tx_rapid_ip_burst_1_3_aae2e3": "rapid_ip_burst",
+    "tx_rapid_ip_burst_1_4_0b9210": "rapid_ip_burst",
+    "tx_rapid_ip_burst_1_5_5b357b": "rapid_ip_burst",
+    "tx_rapid_ip_burst_2_0_77ed52": "rapid_ip_burst",
+    "tx_rapid_ip_burst_2_1_c080f0": "rapid_ip_burst",
+    "tx_rapid_ip_burst_2_2_2145cb": "rapid_ip_burst",
+    "tx_rapid_ip_burst_2_3_6a8369": "rapid_ip_burst",
+    "tx_rapid_ip_burst_2_4_c4ecd4": "rapid_ip_burst",
+    "tx_rapid_ip_burst_2_5_fa7d9a": "rapid_ip_burst",
+    "tx_rapid_ip_burst_3_0_779b6e": "rapid_ip_burst",
+    "tx_rapid_ip_burst_3_1_f45a87": "rapid_ip_burst",
+    "tx_rapid_ip_burst_3_2_0b2638": "rapid_ip_burst",
+    "tx_rapid_ip_burst_3_3_ada6b7": "rapid_ip_burst",
+    "tx_rapid_ip_burst_3_4_3b4650": "rapid_ip_burst",
+    "tx_rapid_ip_burst_3_5_2fdada": "rapid_ip_burst",
+    "tx_rapid_ip_burst_4_0_0c59d0": "rapid_ip_burst",
+    "tx_rapid_ip_burst_4_1_70b60a": "rapid_ip_burst",
+    "tx_rapid_ip_burst_4_2_c5364a": "rapid_ip_burst",
+    "tx_rapid_ip_burst_4_3_8066b6": "rapid_ip_burst",
+    "tx_rapid_ip_burst_4_4_0960fd": "rapid_ip_burst",
+    "tx_rapid_ip_burst_4_5_e5e64b": "rapid_ip_burst",
+    "tx_rapid_ip_burst_5_0_094891": "rapid_ip_burst",
+    "tx_rapid_ip_burst_5_1_f014eb": "rapid_ip_burst",
+    "tx_rapid_ip_burst_5_2_847aee": "rapid_ip_burst",
+    "tx_rapid_ip_burst_5_3_3934ce": "rapid_ip_burst",
+    "tx_rapid_ip_burst_5_4_a7d791": "rapid_ip_burst",
+    "tx_rapid_ip_burst_5_5_d8bcd8": "rapid_ip_burst",
+    "tx_rapid_ip_burst_6_0_3d4ec5": "rapid_ip_burst",
+    "tx_rapid_ip_burst_6_1_0d5d91": "rapid_ip_burst",
+    "tx_rapid_ip_burst_6_2_adcc48": "rapid_ip_burst",
+    "tx_rapid_ip_burst_6_3_6a4005": "rapid_ip_burst",
+    "tx_rapid_ip_burst_6_4_0eac0e": "rapid_ip_burst",
+    "tx_rapid_ip_burst_6_5_6ec2c5": "rapid_ip_burst",
+    "tx_smurf_in_0_0_75f0ba": "smurfing_consolidation",
+    "tx_smurf_in_0_1_4025dd": "smurfing_consolidation",
+    "tx_smurf_in_0_2_bd1acf": "smurfing_consolidation",
+    "tx_smurf_in_0_3_e30c7c": "smurfing_consolidation",
+    "tx_smurf_in_0_4_cad4ec": "smurfing_consolidation",
+    "tx_smurf_in_0_5_7b2437": "smurfing_consolidation",
+    "tx_smurf_in_0_6_cce81c": "smurfing_consolidation",
+    "tx_smurf_in_0_7_8f915e": "smurfing_consolidation",
+    "tx_smurf_in_0_8_08cc2c": "smurfing_consolidation",
+    "tx_smurf_in_0_9_602840": "smurfing_consolidation",
+    "tx_smurf_out_0_5a4e8c": "smurfing_consolidation",
+    "tx_smurf_in_1_0_c7bdde": "smurfing_consolidation",
+    "tx_smurf_in_1_1_d8c4ac": "smurfing_consolidation",
+    "tx_smurf_in_1_2_31847b": "smurfing_consolidation",
+    "tx_smurf_in_1_3_526bd0": "smurfing_consolidation",
+    "tx_smurf_in_1_4_6ad442": "smurfing_consolidation",
+    "tx_smurf_in_1_5_d7ff8d": "smurfing_consolidation",
+    "tx_smurf_in_1_6_b8b218": "smurfing_consolidation",
+    "tx_smurf_in_1_7_0d2343": "smurfing_consolidation",
+    "tx_smurf_in_1_8_6615ef": "smurfing_consolidation",
+    "tx_smurf_in_1_9_cfddba": "smurfing_consolidation",
+    "tx_smurf_out_1_89f120": "smurfing_consolidation",
+    "tx_smurf_in_2_0_2721c3": "smurfing_consolidation",
+    "tx_smurf_in_2_1_8c1acc": "smurfing_consolidation",
+    "tx_smurf_in_2_2_59d13d": "smurfing_consolidation",
+    "tx_smurf_in_2_3_f8892b": "smurfing_consolidation",
+    "tx_smurf_in_2_4_192931": "smurfing_consolidation",
+    "tx_smurf_in_2_5_9893b0": "smurfing_consolidation",
+    "tx_smurf_in_2_6_311ff1": "smurfing_consolidation",
+    "tx_smurf_in_2_7_b40b41": "smurfing_consolidation",
+    "tx_smurf_in_2_8_760c35": "smurfing_consolidation",
+    "tx_smurf_in_2_9_89781f": "smurfing_consolidation",
+    "tx_smurf_out_2_685b52": "smurfing_consolidation",
+    "tx_smurf_in_3_0_4738a4": "smurfing_consolidation",
+    "tx_smurf_in_3_1_bea423": "smurfing_consolidation",
+    "tx_smurf_in_3_2_754f44": "smurfing_consolidation",
+    "tx_smurf_in_3_3_0fe59b": "smurfing_consolidation",
+    "tx_smurf_in_3_4_ed97a7": "smurfing_consolidation",
+    "tx_smurf_in_3_5_f9583e": "smurfing_consolidation",
+    "tx_smurf_in_3_6_eec862": "smurfing_consolidation",
+    "tx_smurf_in_3_7_aac20a": "smurfing_consolidation",
+    "tx_smurf_in_3_8_bbd1b1": "smurfing_consolidation",
+    "tx_smurf_in_3_9_9f5aa9": "smurfing_consolidation",
+    "tx_smurf_out_3_55b549": "smurfing_consolidation",
+    "tx_smurf_in_4_0_6bc824": "smurfing_consolidation",
+    "tx_smurf_in_4_1_a2766e": "smurfing_consolidation",
+    "tx_smurf_in_4_2_9f1a03": "smurfing_consolidation",
+    "tx_smurf_in_4_3_36424f": "smurfing_consolidation",
+    "tx_smurf_in_4_4_ab7a56": "smurfing_consolidation",
+    "tx_smurf_in_4_5_4b4a6b": "smurfing_consolidation",
+    "tx_smurf_in_4_6_826209": "smurfing_consolidation",
+    "tx_smurf_in_4_7_f55914": "smurfing_consolidation",
+    "tx_smurf_in_4_8_cff4ee": "smurfing_consolidation",
+    "tx_smurf_in_4_9_149535": "smurfing_consolidation",
+    "tx_smurf_out_4_309cf1": "smurfing_consolidation",
+    "tx_smurf_in_5_0_8f588e": "smurfing_consolidation",
+    "tx_smurf_in_5_1_33ba0d": "smurfing_consolidation",
+    "tx_smurf_in_5_2_f280a7": "smurfing_consolidation",
+    "tx_smurf_in_5_3_e2bd36": "smurfing_consolidation",
+    "tx_smurf_in_5_4_74a2f1": "smurfing_consolidation",
+    "tx_smurf_in_5_5_f75dea": "smurfing_consolidation",
+    "tx_smurf_in_5_6_5c51a0": "smurfing_consolidation",
+    "tx_smurf_in_5_7_010b11": "smurfing_consolidation",
+    "tx_smurf_in_5_8_8d6957": "smurfing_consolidation",
+    "tx_smurf_in_5_9_157ed7": "smurfing_consolidation",
+    "tx_smurf_out_5_871899": "smurfing_consolidation",
+    "tx_smurf_in_6_0_f31b7b": "smurfing_consolidation",
+    "tx_smurf_in_6_1_1d99a4": "smurfing_consolidation",
+    "tx_smurf_in_6_2_6b1cd3": "smurfing_consolidation",
+    "tx_smurf_in_6_3_0ff189": "smurfing_consolidation",
+    "tx_smurf_in_6_4_0dad48": "smurfing_consolidation",
+    "tx_smurf_in_6_5_5b41c3": "smurfing_consolidation",
+    "tx_smurf_in_6_6_aaddd6": "smurfing_consolidation",
+    "tx_smurf_in_6_7_c4cc0a": "smurfing_consolidation",
+    "tx_smurf_in_6_8_7a0a8f": "smurfing_consolidation",
+    "tx_smurf_in_6_9_72ebf2": "smurfing_consolidation",
+    "tx_smurf_out_6_eeccbb": "smurfing_consolidation",
+    "tx_smurf_in_7_0_f4d548": "smurfing_consolidation",
+    "tx_smurf_in_7_1_f3af27": "smurfing_consolidation",
+    "tx_smurf_in_7_2_c7a6fd": "smurfing_consolidation",
+    "tx_smurf_in_7_3_3337f4": "smurfing_consolidation",
+    "tx_smurf_in_7_4_411053": "smurfing_consolidation",
+    "tx_smurf_in_7_5_3e16b8": "smurfing_consolidation",
+    "tx_smurf_in_7_6_45d90c": "smurfing_consolidation",
+    "tx_smurf_in_7_7_7a23f4": "smurfing_consolidation",
+    "tx_smurf_in_7_8_631f37": "smurfing_consolidation",
+    "tx_smurf_in_7_9_faca9d": "smurfing_consolidation",
+    "tx_smurf_out_7_38b63b": "smurfing_consolidation",
+    "tx_smurf_in_8_0_4b9336": "smurfing_consolidation",
+    "tx_smurf_in_8_1_2afd67": "smurfing_consolidation",
+    "tx_smurf_in_8_2_f5b4b4": "smurfing_consolidation",
+    "tx_smurf_in_8_3_eb0f40": "smurfing_consolidation",
+    "tx_smurf_in_8_4_52a4d2": "smurfing_consolidation",
+    "tx_smurf_in_8_5_765191": "smurfing_consolidation",
+    "tx_smurf_in_8_6_7e3360": "smurfing_consolidation",
+    "tx_smurf_in_8_7_54fa09": "smurfing_consolidation",
+    "tx_smurf_in_8_8_1f3b04": "smurfing_consolidation",
+    "tx_smurf_in_8_9_a17d20": "smurfing_consolidation",
+    "tx_smurf_out_8_a57a1c": "smurfing_consolidation",
+    "tx_peel_chain_c0_hop0_4095ae": "peeling_chain",
+    "tx_peel_chain_c0_hop1_038578": "peeling_chain",
+    "tx_peel_chain_c0_hop2_c8737f": "peeling_chain",
+    "tx_peel_chain_c0_hop3_b88c41": "peeling_chain",
+    "tx_peel_chain_c0_hop4_2fcd50": "peeling_chain",
+    "tx_peel_chain_c1_hop0_d3d141": "peeling_chain",
+    "tx_peel_chain_c1_hop1_cfc8ae": "peeling_chain",
+    "tx_peel_chain_c1_hop2_83240e": "peeling_chain",
+    "tx_peel_chain_c1_hop3_7921d3": "peeling_chain",
+    "tx_peel_chain_c1_hop4_4dd751": "peeling_chain",
+    "tx_peel_chain_c2_hop0_0b7880": "peeling_chain",
+    "tx_peel_chain_c2_hop1_cf5ffd": "peeling_chain",
+    "tx_peel_chain_c2_hop2_f5d773": "peeling_chain",
+    "tx_peel_chain_c2_hop3_9a4e0c": "peeling_chain",
+    "tx_peel_chain_c2_hop4_9984b4": "peeling_chain",
+    "tx_peel_chain_c3_hop0_b09e43": "peeling_chain",
+    "tx_peel_chain_c3_hop1_de109e": "peeling_chain",
+    "tx_peel_chain_c3_hop2_9167cc": "peeling_chain",
+    "tx_peel_chain_c3_hop3_a2a152": "peeling_chain",
+    "tx_peel_chain_c3_hop4_b021b7": "peeling_chain",
+    "tx_peel_chain_c4_hop0_b5fdfb": "peeling_chain",
+    "tx_peel_chain_c4_hop1_aa9995": "peeling_chain",
+    "tx_peel_chain_c4_hop2_2fcedd": "peeling_chain",
+    "tx_peel_chain_c4_hop3_b44247": "peeling_chain",
+    "tx_peel_chain_c4_hop4_0a100f": "peeling_chain",
+    "tx_peel_chain_c5_hop0_79e58a": "peeling_chain",
+    "tx_peel_chain_c5_hop1_bd0886": "peeling_chain",
+    "tx_peel_chain_c5_hop2_55a8ae": "peeling_chain",
+    "tx_peel_chain_c5_hop3_e047d6": "peeling_chain",
+    "tx_peel_chain_c5_hop4_015ab8": "peeling_chain",
+    "tx_peel_chain_c6_hop0_14dd0a": "peeling_chain",
+    "tx_peel_chain_c6_hop1_24d49d": "peeling_chain",
+    "tx_peel_chain_c6_hop2_3845d5": "peeling_chain",
+    "tx_peel_chain_c6_hop3_5e05c8": "peeling_chain",
+    "tx_peel_chain_c6_hop4_adef31": "peeling_chain",
+    "tx_peel_chain_c7_hop0_f609d5": "peeling_chain",
+    "tx_peel_chain_c7_hop1_42e3ae": "peeling_chain",
+    "tx_peel_chain_c7_hop2_749b6c": "peeling_chain",
+    "tx_peel_chain_c7_hop3_4c8984": "peeling_chain",
+    "tx_peel_chain_c7_hop4_37119e": "peeling_chain",
+    "tx_peel_chain_c8_hop0_9420a3": "peeling_chain",
+    "tx_peel_chain_c8_hop1_8e38f6": "peeling_chain",
+    "tx_peel_chain_c8_hop2_7c68a2": "peeling_chain",
+    "tx_peel_chain_c8_hop3_a22e07": "peeling_chain",
+    "tx_peel_chain_c8_hop4_f7c43a": "peeling_chain",
+    "tx_peel_chain_c9_hop0_6a94c4": "peeling_chain",
+    "tx_peel_chain_c9_hop1_9e4061": "peeling_chain",
+    "tx_peel_chain_c9_hop2_e310ff": "peeling_chain",
+    "tx_peel_chain_c9_hop3_3d653c": "peeling_chain",
+    "tx_peel_chain_c9_hop4_ae01d1": "peeling_chain",
+    "tx_peel_chain_c10_hop0_ec5ddc": "peeling_chain",
+    "tx_peel_chain_c10_hop1_eec4fb": "peeling_chain",
+    "tx_peel_chain_c10_hop2_76f443": "peeling_chain",
+    "tx_peel_chain_c10_hop3_427da6": "peeling_chain",
+    "tx_peel_chain_c10_hop4_04e7fd": "peeling_chain",
+    "tx_peel_chain_c11_hop0_afab87": "peeling_chain",
+    "tx_peel_chain_c11_hop1_bbceba": "peeling_chain",
+    "tx_peel_chain_c11_hop2_a1cfbc": "peeling_chain",
+    "tx_peel_chain_c11_hop3_4071c4": "peeling_chain",
+    "tx_peel_chain_c11_hop4_ed7391": "peeling_chain",
+    "tx_peel_chain_c12_hop0_ae6ece": "peeling_chain",
+    "tx_peel_chain_c12_hop1_c15ed7": "peeling_chain",
+    "tx_peel_chain_c12_hop2_2ad0fd": "peeling_chain",
+    "tx_peel_chain_c12_hop3_27e19e": "peeling_chain",
+    "tx_peel_chain_c12_hop4_bcb819": "peeling_chain",
+    "tx_peel_chain_c13_hop0_c04422": "peeling_chain",
+    "tx_peel_chain_c13_hop1_5cdeb9": "peeling_chain",
+    "tx_peel_chain_c13_hop2_595a99": "peeling_chain",
+    "tx_peel_chain_c13_hop3_dd35a9": "peeling_chain",
+    "tx_peel_chain_c13_hop4_9456ca": "peeling_chain",
+    "tx_coinjoin_mix_0_bae68f": "coinjoin_mixing",
+    "tx_coinjoin_mix_1_b4e52b": "coinjoin_mixing",
+    "tx_coinjoin_mix_2_67457a": "coinjoin_mixing",
+    "tx_coinjoin_mix_3_3c2343": "coinjoin_mixing",
+    "tx_coinjoin_mix_4_a2ec58": "coinjoin_mixing",
+    "tx_coinjoin_mix_5_c8b7ee": "coinjoin_mixing",
+    "tx_coinjoin_mix_6_d25f33": "coinjoin_mixing",
+    "tx_coinjoin_mix_7_351856": "coinjoin_mixing",
+    "tx_coinjoin_mix_8_54d31d": "coinjoin_mixing",
+    "tx_coinjoin_mix_9_00b504": "coinjoin_mixing",
+    "tx_coinjoin_mix_10_086f08": "coinjoin_mixing",
+    "tx_coinjoin_mix_11_0ce35a": "coinjoin_mixing",
+    "tx_coinjoin_mix_12_e29c02": "coinjoin_mixing",
+    "tx_coinjoin_mix_13_43c1c1": "coinjoin_mixing"
+  },
+  "anomalous_events": {
+    "net_rapid_ip_burst_0_0_49341d": "rapid_ip_burst",
+    "net_rapid_ip_burst_0_1_bcb625": "rapid_ip_burst",
+    "net_rapid_ip_burst_0_2_86ed58": "rapid_ip_burst",
+    "net_rapid_ip_burst_0_3_07b417": "rapid_ip_burst",
+    "net_rapid_ip_burst_0_4_7c1008": "rapid_ip_burst",
+    "net_rapid_ip_burst_0_5_60e91a": "rapid_ip_burst",
+    "net_rapid_ip_burst_1_0_f86ebf": "rapid_ip_burst",
+    "net_rapid_ip_burst_1_1_a168d6": "rapid_ip_burst",
+    "net_rapid_ip_burst_1_2_13bdd5": "rapid_ip_burst",
+    "net_rapid_ip_burst_1_3_78b41a": "rapid_ip_burst",
+    "net_rapid_ip_burst_1_4_8a0550": "rapid_ip_burst",
+    "net_rapid_ip_burst_1_5_eed2b6": "rapid_ip_burst",
+    "net_rapid_ip_burst_2_0_4ecae9": "rapid_ip_burst",
+    "net_rapid_ip_burst_2_1_3519c4": "rapid_ip_burst",
+    "net_rapid_ip_burst_2_2_e102a6": "rapid_ip_burst",
+    "net_rapid_ip_burst_2_3_72a864": "rapid_ip_burst",
+    "net_rapid_ip_burst_2_4_c18473": "rapid_ip_burst",
+    "net_rapid_ip_burst_2_5_32c5c5": "rapid_ip_burst",
+    "net_rapid_ip_burst_3_0_b258f4": "rapid_ip_burst",
+    "net_rapid_ip_burst_3_1_23d75a": "rapid_ip_burst",
+    "net_rapid_ip_burst_3_2_161f50": "rapid_ip_burst",
+    "net_rapid_ip_burst_3_3_8df914": "rapid_ip_burst",
+    "net_rapid_ip_burst_3_4_c080ca": "rapid_ip_burst",
+    "net_rapid_ip_burst_3_5_2c8996": "rapid_ip_burst",
+    "net_rapid_ip_burst_4_0_c4ef16": "rapid_ip_burst",
+    "net_rapid_ip_burst_4_1_d79c16": "rapid_ip_burst",
+    "net_rapid_ip_burst_4_2_f76900": "rapid_ip_burst",
+    "net_rapid_ip_burst_4_3_cb5ea0": "rapid_ip_burst",
+    "net_rapid_ip_burst_4_4_316e97": "rapid_ip_burst",
+    "net_rapid_ip_burst_4_5_6edc61": "rapid_ip_burst",
+    "net_rapid_ip_burst_5_0_f0d31c": "rapid_ip_burst",
+    "net_rapid_ip_burst_5_1_63eaac": "rapid_ip_burst",
+    "net_rapid_ip_burst_5_2_d1ff83": "rapid_ip_burst",
+    "net_rapid_ip_burst_5_3_0f706e": "rapid_ip_burst",
+    "net_rapid_ip_burst_5_4_d96f58": "rapid_ip_burst",
+    "net_rapid_ip_burst_5_5_f0889d": "rapid_ip_burst",
+    "net_rapid_ip_burst_6_0_a65416": "rapid_ip_burst",
+    "net_rapid_ip_burst_6_1_8bb312": "rapid_ip_burst",
+    "net_rapid_ip_burst_6_2_8b66ad": "rapid_ip_burst",
+    "net_rapid_ip_burst_6_3_85ca34": "rapid_ip_burst",
+    "net_rapid_ip_burst_6_4_480d05": "rapid_ip_burst",
+    "net_rapid_ip_burst_6_5_b8bcbd": "rapid_ip_burst",
+    "net_smurf_in_0_0_4b29c3": "smurfing_consolidation",
+    "net_smurf_in_0_1_8a694b": "smurfing_consolidation",
+    "net_smurf_in_0_2_b10037": "smurfing_consolidation",
+    "net_smurf_in_0_3_da0fa5": "smurfing_consolidation",
+    "net_smurf_in_0_4_1a0116": "smurfing_consolidation",
+    "net_smurf_in_0_5_cd11f3": "smurfing_consolidation",
+    "net_smurf_in_0_6_95cd40": "smurfing_consolidation",
+    "net_smurf_in_0_7_8ca2fa": "smurfing_consolidation",
+    "net_smurf_in_0_8_57aaf2": "smurfing_consolidation",
+    "net_smurf_in_0_9_0924f8": "smurfing_consolidation",
+    "net_smurf_out_0_a870a0": "smurfing_consolidation",
+    "net_smurf_in_1_0_66de29": "smurfing_consolidation",
+    "net_smurf_in_1_1_63eb1c": "smurfing_consolidation",
+    "net_smurf_in_1_2_fa5a6d": "smurfing_consolidation",
+    "net_smurf_in_1_3_c14548": "smurfing_consolidation",
+    "net_smurf_in_1_4_f45de6": "smurfing_consolidation",
+    "net_smurf_in_1_5_d98d24": "smurfing_consolidation",
+    "net_smurf_in_1_6_9d9640": "smurfing_consolidation",
+    "net_smurf_in_1_7_741f31": "smurfing_consolidation",
+    "net_smurf_in_1_8_1947a4": "smurfing_consolidation",
+    "net_smurf_in_1_9_2d657b": "smurfing_consolidation",
+    "net_smurf_out_1_f2da02": "smurfing_consolidation",
+    "net_smurf_in_2_0_46b713": "smurfing_consolidation",
+    "net_smurf_in_2_1_c5457a": "smurfing_consolidation",
+    "net_smurf_in_2_2_c3cd6e": "smurfing_consolidation",
+    "net_smurf_in_2_3_7598b4": "smurfing_consolidation",
+    "net_smurf_in_2_4_911030": "smurfing_consolidation",
+    "net_smurf_in_2_5_ebc387": "smurfing_consolidation",
+    "net_smurf_in_2_6_41b879": "smurfing_consolidation",
+    "net_smurf_in_2_7_f2ee6a": "smurfing_consolidation",
+    "net_smurf_in_2_8_38f5ea": "smurfing_consolidation",
+    "net_smurf_in_2_9_a362de": "smurfing_consolidation",
+    "net_smurf_out_2_e12796": "smurfing_consolidation",
+    "net_smurf_in_3_0_f697ae": "smurfing_consolidation",
+    "net_smurf_in_3_1_d137a4": "smurfing_consolidation",
+    "net_smurf_in_3_2_8da6bc": "smurfing_consolidation",
+    "net_smurf_in_3_3_9a06f3": "smurfing_consolidation",
+    "net_smurf_in_3_4_809de6": "smurfing_consolidation",
+    "net_smurf_in_3_5_ca120b": "smurfing_consolidation",
+    "net_smurf_in_3_6_fd3a80": "smurfing_consolidation",
+    "net_smurf_in_3_7_e22363": "smurfing_consolidation",
+    "net_smurf_in_3_8_ad37df": "smurfing_consolidation",
+    "net_smurf_in_3_9_8d3168": "smurfing_consolidation",
+    "net_smurf_out_3_480b5e": "smurfing_consolidation",
+    "net_smurf_in_4_0_3f0cf8": "smurfing_consolidation",
+    "net_smurf_in_4_1_b69810": "smurfing_consolidation",
+    "net_smurf_in_4_2_a21612": "smurfing_consolidation",
+    "net_smurf_in_4_3_fc423d": "smurfing_consolidation",
+    "net_smurf_in_4_4_127575": "smurfing_consolidation",
+    "net_smurf_in_4_5_299ee8": "smurfing_consolidation",
+    "net_smurf_in_4_6_82cd15": "smurfing_consolidation",
+    "net_smurf_in_4_7_4ec156": "smurfing_consolidation",
+    "net_smurf_in_4_8_15515a": "smurfing_consolidation",
+    "net_smurf_in_4_9_29c228": "smurfing_consolidation",
+    "net_smurf_out_4_a7dc0d": "smurfing_consolidation",
+    "net_smurf_in_5_0_d108c4": "smurfing_consolidation",
+    "net_smurf_in_5_1_445b7e": "smurfing_consolidation",
+    "net_smurf_in_5_2_7d5ee1": "smurfing_consolidation",
+    "net_smurf_in_5_3_ea4d31": "smurfing_consolidation",
+    "net_smurf_in_5_4_20b825": "smurfing_consolidation",
+    "net_smurf_in_5_5_21f8aa": "smurfing_consolidation",
+    "net_smurf_in_5_6_b91415": "smurfing_consolidation",
+    "net_smurf_in_5_7_6ac5c1": "smurfing_consolidation",
+    "net_smurf_in_5_8_4213a7": "smurfing_consolidation",
+    "net_smurf_in_5_9_915ba8": "smurfing_consolidation",
+    "net_smurf_out_5_e073dc": "smurfing_consolidation",
+    "net_smurf_in_6_0_c6ad88": "smurfing_consolidation",
+    "net_smurf_in_6_1_3b1a12": "smurfing_consolidation",
+    "net_smurf_in_6_2_3dd741": "smurfing_consolidation",
+    "net_smurf_in_6_3_8f699a": "smurfing_consolidation",
+    "net_smurf_in_6_4_38b2cd": "smurfing_consolidation",
+    "net_smurf_in_6_5_332397": "smurfing_consolidation",
+    "net_smurf_in_6_6_fabca7": "smurfing_consolidation",
+    "net_smurf_in_6_7_1b6a00": "smurfing_consolidation",
+    "net_smurf_in_6_8_f84037": "smurfing_consolidation",
+    "net_smurf_in_6_9_3f174f": "smurfing_consolidation",
+    "net_smurf_out_6_7782f2": "smurfing_consolidation",
+    "net_smurf_in_7_0_5cf51a": "smurfing_consolidation",
+    "net_smurf_in_7_1_5d7b7d": "smurfing_consolidation",
+    "net_smurf_in_7_2_3b01ad": "smurfing_consolidation",
+    "net_smurf_in_7_3_accfe5": "smurfing_consolidation",
+    "net_smurf_in_7_4_93ee33": "smurfing_consolidation",
+    "net_smurf_in_7_5_664224": "smurfing_consolidation",
+    "net_smurf_in_7_6_c722f2": "smurfing_consolidation",
+    "net_smurf_in_7_7_104d90": "smurfing_consolidation",
+    "net_smurf_in_7_8_0e192a": "smurfing_consolidation",
+    "net_smurf_in_7_9_56902b": "smurfing_consolidation",
+    "net_smurf_out_7_b5f176": "smurfing_consolidation",
+    "net_smurf_in_8_0_dec3b7": "smurfing_consolidation",
+    "net_smurf_in_8_1_9cd3c8": "smurfing_consolidation",
+    "net_smurf_in_8_2_3785a9": "smurfing_consolidation",
+    "net_smurf_in_8_3_b25183": "smurfing_consolidation",
+    "net_smurf_in_8_4_c4274d": "smurfing_consolidation",
+    "net_smurf_in_8_5_67fbcd": "smurfing_consolidation",
+    "net_smurf_in_8_6_2ce1a5": "smurfing_consolidation",
+    "net_smurf_in_8_7_46a35c": "smurfing_consolidation",
+    "net_smurf_in_8_8_9cf558": "smurfing_consolidation",
+    "net_smurf_in_8_9_2424bd": "smurfing_consolidation",
+    "net_smurf_out_8_c2ba17": "smurfing_consolidation",
+    "net_peel_chain_c0_hop0_3bc395": "peeling_chain",
+    "net_peel_chain_c0_hop1_9908c8": "peeling_chain",
+    "net_peel_chain_c0_hop2_fbc249": "peeling_chain",
+    "net_peel_chain_c0_hop3_1d305a": "peeling_chain",
+    "net_peel_chain_c0_hop4_eb3db3": "peeling_chain",
+    "net_peel_chain_c1_hop0_cd8b0f": "peeling_chain",
+    "net_peel_chain_c1_hop1_15ffb2": "peeling_chain",
+    "net_peel_chain_c1_hop2_5f395c": "peeling_chain",
+    "net_peel_chain_c1_hop3_ec2d28": "peeling_chain",
+    "net_peel_chain_c1_hop4_f5e0a8": "peeling_chain",
+    "net_peel_chain_c2_hop0_0c35fa": "peeling_chain",
+    "net_peel_chain_c2_hop1_ed6830": "peeling_chain",
+    "net_peel_chain_c2_hop2_9b7fb8": "peeling_chain",
+    "net_peel_chain_c2_hop3_588e0a": "peeling_chain",
+    "net_peel_chain_c2_hop4_058c7a": "peeling_chain",
+    "net_peel_chain_c3_hop0_12fea0": "peeling_chain",
+    "net_peel_chain_c3_hop1_4ba4f9": "peeling_chain",
+    "net_peel_chain_c3_hop2_cf9630": "peeling_chain",
+    "net_peel_chain_c3_hop3_45cf51": "peeling_chain",
+    "net_peel_chain_c3_hop4_fe6be4": "peeling_chain",
+    "net_peel_chain_c4_hop0_368038": "peeling_chain",
+    "net_peel_chain_c4_hop1_a9cfac": "peeling_chain",
+    "net_peel_chain_c4_hop2_c2b83b": "peeling_chain",
+    "net_peel_chain_c4_hop3_33ea84": "peeling_chain",
+    "net_peel_chain_c4_hop4_71b349": "peeling_chain",
+    "net_peel_chain_c5_hop0_c0a8dd": "peeling_chain",
+    "net_peel_chain_c5_hop1_8e4a41": "peeling_chain",
+    "net_peel_chain_c5_hop2_89b97c": "peeling_chain",
+    "net_peel_chain_c5_hop3_9535b4": "peeling_chain",
+    "net_peel_chain_c5_hop4_408fb0": "peeling_chain",
+    "net_peel_chain_c6_hop0_2c13d8": "peeling_chain",
+    "net_peel_chain_c6_hop1_d253b0": "peeling_chain",
+    "net_peel_chain_c6_hop2_871819": "peeling_chain",
+    "net_peel_chain_c6_hop3_a351e4": "peeling_chain",
+    "net_peel_chain_c6_hop4_f5ce17": "peeling_chain",
+    "net_peel_chain_c7_hop0_183499": "peeling_chain",
+    "net_peel_chain_c7_hop1_853e25": "peeling_chain",
+    "net_peel_chain_c7_hop2_e01b5a": "peeling_chain",
+    "net_peel_chain_c7_hop3_71fe23": "peeling_chain",
+    "net_peel_chain_c7_hop4_4a03ea": "peeling_chain",
+    "net_peel_chain_c8_hop0_0ac69e": "peeling_chain",
+    "net_peel_chain_c8_hop1_1b3244": "peeling_chain",
+    "net_peel_chain_c8_hop2_48eadb": "peeling_chain",
+    "net_peel_chain_c8_hop3_bf76a0": "peeling_chain",
+    "net_peel_chain_c8_hop4_ad2c12": "peeling_chain",
+    "net_peel_chain_c9_hop0_b176d1": "peeling_chain",
+    "net_peel_chain_c9_hop1_6f34f0": "peeling_chain",
+    "net_peel_chain_c9_hop2_26f1d1": "peeling_chain",
+    "net_peel_chain_c9_hop3_7734d2": "peeling_chain",
+    "net_peel_chain_c9_hop4_66f464": "peeling_chain",
+    "net_peel_chain_c10_hop0_a9aa32": "peeling_chain",
+    "net_peel_chain_c10_hop1_5e94c2": "peeling_chain",
+    "net_peel_chain_c10_hop2_4dcd2c": "peeling_chain",
+    "net_peel_chain_c10_hop3_e96fec": "peeling_chain",
+    "net_peel_chain_c10_hop4_c1a537": "peeling_chain",
+    "net_peel_chain_c11_hop0_a4e472": "peeling_chain",
+    "net_peel_chain_c11_hop1_eaafdd": "peeling_chain",
+    "net_peel_chain_c11_hop2_90de67": "peeling_chain",
+    "net_peel_chain_c11_hop3_242e7d": "peeling_chain",
+    "net_peel_chain_c11_hop4_cab5bf": "peeling_chain",
+    "net_peel_chain_c12_hop0_1d8e95": "peeling_chain",
+    "net_peel_chain_c12_hop1_3a35af": "peeling_chain",
+    "net_peel_chain_c12_hop2_7578bd": "peeling_chain",
+    "net_peel_chain_c12_hop3_c9971a": "peeling_chain",
+    "net_peel_chain_c12_hop4_06f044": "peeling_chain",
+    "net_peel_chain_c13_hop0_597a11": "peeling_chain",
+    "net_peel_chain_c13_hop1_7b0fbf": "peeling_chain",
+    "net_peel_chain_c13_hop2_fed031": "peeling_chain",
+    "net_peel_chain_c13_hop3_040670": "peeling_chain",
+    "net_peel_chain_c13_hop4_97bcee": "peeling_chain",
+    "net_coinjoin_mix_0_9f689c": "coinjoin_mixing",
+    "net_coinjoin_mix_1_659300": "coinjoin_mixing",
+    "net_coinjoin_mix_2_30e276": "coinjoin_mixing",
+    "net_coinjoin_mix_3_41096e": "coinjoin_mixing",
+    "net_coinjoin_mix_4_80931e": "coinjoin_mixing",
+    "net_coinjoin_mix_5_853f11": "coinjoin_mixing",
+    "net_coinjoin_mix_6_ae8d97": "coinjoin_mixing",
+    "net_coinjoin_mix_7_7a7269": "coinjoin_mixing",
+    "net_coinjoin_mix_8_e9c151": "coinjoin_mixing",
+    "net_coinjoin_mix_9_0308a3": "coinjoin_mixing",
+    "net_coinjoin_mix_10_3e7bcb": "coinjoin_mixing",
+    "net_coinjoin_mix_11_0b4ee7": "coinjoin_mixing",
+    "net_coinjoin_mix_12_d38458": "coinjoin_mixing",
+    "net_coinjoin_mix_13_d2f531": "coinjoin_mixing"
+  },
+  "anomalous_addresses": {
+    "1RapidSrce2GDjgt6R2DW2CeYDbo1ohLAxL66rcojY": "rapid_ip_burst",
+    "1RapidDstyNZqcrah3EH5E6HdNNDGwecAjAPzeZgqn": "rapid_ip_burst",
+    "1RapidSrcQ4uZiDVte99kYkRaMz9Vkr9AgbPbUFZwg": "rapid_ip_burst",
+    "1RapidDst7tkmLJA1iiymW7dqWCNAxvvbV7NzoEEZ5": "rapid_ip_burst",
+    "1RapidSrcmm8UYGsRDYjCKzeSX8ELbED5dEur5EfD8": "rapid_ip_burst",
+    "1RapidDstwaUnoC6SRUjgz6QLrFCTRHFvSrY3zqyvr": "rapid_ip_burst",
+    "1RapidSrcsuA1PvnHhjnfVCD4j4K3UvX4Wr44rQwaa": "rapid_ip_burst",
+    "1RapidDst35fZKGfKG8eTvw1dZ6YW8M4FHSYJzoXfZ": "rapid_ip_burst",
+    "1RapidSrc877ZGciCdGVur6RH1mdGjYR15tuYqa98J": "rapid_ip_burst",
+    "1RapidDstuoruDF6ntQc9vsypt2jLvospGn7srDpTJ": "rapid_ip_burst",
+    "1RapidSrcfQH5mMWgqL2sGaz3bMnSz7uC3SXogwjCS": "rapid_ip_burst",
+    "1RapidDstxvdf8uWfKhZCfNkBaQqJDncKSgWoxjfHf": "rapid_ip_burst",
+    "1RapidSrckgEC2FUr5RdChVFf1km7RBxX3FrTofzbx": "rapid_ip_burst",
+    "1RapidDsttciWqYukUGFdmXdG5HGKY9Ehh4QYRCRua": "rapid_ip_burst",
+    "1RapidSrcaUwJPtqYjouVGVPfojqvyXubf5RsBGKTL": "rapid_ip_burst",
+    "1RapidDsttHxRqUk4xE4x32FqdEU7wTFNcxinAKava": "rapid_ip_burst",
+    "1RapidSrci5hd6mrb8znMRNWLrp7xdqiSjxGoYVSjG": "rapid_ip_burst",
+    "1RapidDstrq6tFTcN2rBDoLthH1w5iVkheVn6DhJaU": "rapid_ip_burst",
+    "1RapidSrcYMTJEiKkxhCjHbmbyqJMJi834Hwdk61HU": "rapid_ip_burst",
+    "1RapidDstLxFr74Vag9px5FZRbcmPuJbRZ4x6mdG5E": "rapid_ip_burst",
+    "1RapidSrcTbHEihTgvndfwRYeup5AJkaH8ghwWV53S": "rapid_ip_burst",
+    "1RapidDstKF6xqaxzfG3kUevBadV6MLfrLhHwpYTKK": "rapid_ip_burst",
+    "1RapidSrcp1sT4XdVS3G8HtV2doiK1QEq7we9wHhRU": "rapid_ip_burst",
+    "1RapidDstUT9Cbk85mrLnG1jqafsSVLmNwsyEPrQKU": "rapid_ip_burst",
+    "1RapidSrcfpyV3WbssSXTiQe9UyLherrrPKims34dv": "rapid_ip_burst",
+    "1RapidDstzkS6dsShu3oJN9XZnA5scEu9TFF1ougAS": "rapid_ip_burst",
+    "1RapidSrcxhTJzr7PMJh2qP1snyukqumEoDCFkmg86": "rapid_ip_burst",
+    "1RapidDstd3n2N8uKRCnsNWGAvwyJsoU5kEggQrZ6P": "rapid_ip_burst",
+    "1RapidSrcgfapw7E2tZvD4puJQ9wJV6t8TfkwRk9R6": "rapid_ip_burst",
+    "1RapidDstVQx2NSxr6gYyMQC8rTfeb2nF8Z4mDDsL9": "rapid_ip_burst",
+    "1RapidSrczzYo7s8Mnb1G8R74SMbTDcjufJe2zrR7i": "rapid_ip_burst",
+    "1RapidDstSuK98daiPbJWRn7esYsRtRpQjKKFxgU65": "rapid_ip_burst",
+    "1RapidSrcpZbZL8MfksiybMaDfE7rNmaorypce2vqG": "rapid_ip_burst",
+    "1RapidDstBhJL1sZQ9d2kDRLNinZ54AcgGfVSGk7RH": "rapid_ip_burst",
+    "1RapidSrcJDz4CwmmH7VR8XEZfMQkST5KRQeHQyAwT": "rapid_ip_burst",
+    "1RapidDstgMS7SQ5skDn5dXCnMxe96FB9m5xdTZagt": "rapid_ip_burst",
+    "1RapidSrcsd94SJG4WKT4q5srcWTZntToeKU947uLi": "rapid_ip_burst",
+    "1RapidDstWBFSSXANHQLbne46gHifusLa9MyhPbwJN": "rapid_ip_burst",
+    "1RapidSrchwzu6fW2JxLmCz9JnWYjXfscb9Bhdui3N": "rapid_ip_burst",
+    "1RapidDstiycknEEynuCgaSmnWRACcs4UNwiW85ATW": "rapid_ip_burst",
+    "1RapidSrcDTM24WEzN2vqen8Hqh9hT15FqYjX7HJ3R": "rapid_ip_burst",
+    "1RapidDstoT7ub1WF9RcERf5y4XWzZPUdyF1nLjdmj": "rapid_ip_burst",
+    "1RapidSrcLeqgyUB8iw3CntKJQpU3eHs3fGoSQSxLB": "rapid_ip_burst",
+    "1RapidDsthNoG5RRzBJ6LJSiASSjucSen4fQWkA2rg": "rapid_ip_burst",
+    "1RapidSrcnNPZcgxNmaXQeF7jVPZGGSzHvV8rTuS6g": "rapid_ip_burst",
+    "1RapidDstrKM4YtrivdoW8C9n2ZNoYc6JziXmp5yeT": "rapid_ip_burst",
+    "1RapidSrcqYbm8WsqXJAwEwXH5CxGdc6ebaAduLv3s": "rapid_ip_burst",
+    "1RapidDst5xmGDac2tYeJFoQTgARTL9rKzMQmW7F8T": "rapid_ip_burst",
+    "1RapidSrcPcFsAKaKmVWVJ2wWyDM3VteUYrRtjmNQa": "rapid_ip_burst",
+    "1RapidDstCZ5WmHzg7yPoLwkCWW38LUTcWLcAzjJLq": "rapid_ip_burst",
+    "1RapidSrcU1L7RJusdbGfyaE3UXimPpFahCSRQCWcU": "rapid_ip_burst",
+    "1RapidDstrjhXZzUNxTXYgsgoGVxHJwymhhVUZwiHa": "rapid_ip_burst",
+    "1RapidSrcpxoHHiMSFUCYwh8cbFfXe4Qi6m1YvQwsU": "rapid_ip_burst",
+    "1RapidDstCxKeu6aYiwuBtBvzQVwxvs1Z7zHzYVwrU": "rapid_ip_burst",
+    "1RapidSrcjei1LJgCceQRLQ6yUw1PSGLaaGMEfTAgv": "rapid_ip_burst",
+    "1RapidDsttmhewNDxUTzNhukopmgbnXXMv7quCYArS": "rapid_ip_burst",
+    "1RapidSrc6WoTWT4ToiPpka3L4zw5w2QmmyeRzPsuN": "rapid_ip_burst",
+    "1RapidDstgfYeMBYXjD12JgYXpFMGwj7oRmt1C62bh": "rapid_ip_burst",
+    "1RapidSrcSYkn9zEvaampEszXQGZbjBgZ3LePXhQJB": "rapid_ip_burst",
+    "1RapidDstYEEr9T4QRXPFL5TNYq3Nc35obfDDuJuDC": "rapid_ip_burst",
+    "1RapidSrcUFcCvZmPXMGWV6yUqvNRZD9GwaR9LPqVe": "rapid_ip_burst",
+    "1RapidDstgFpyeVAoAiVvYe42rwfmQqEi1WNcfcVV1": "rapid_ip_burst",
+    "1RapidSrciYHWhRwBvXEcFMo5xTFhJq5ze2QNUdh5r": "rapid_ip_burst",
+    "1RapidDsteLyytvEuhZGvgHYfBr1D9ppvJZZrgYPjn": "rapid_ip_burst",
+    "1RapidSrcy4SqLmxQm2GzVMwSgf5coi59idjK71JMG": "rapid_ip_burst",
+    "1RapidDst8BTZQ2M6bKPHP5uuyaAP9JV4SRV5FFdbC": "rapid_ip_burst",
+    "1RapidSrcPqPsSRpebJbhUBQKjdynKHnNwCzBm2jwD": "rapid_ip_burst",
+    "1RapidDstoq5rog9JF9RNTbaXvsR3yhpbv7FfAcZee": "rapid_ip_burst",
+    "1RapidSrcR1GWXaaSPmbWM27Rx7w9KTCVUShKJo7re": "rapid_ip_burst",
+    "1RapidDstgAzFBAZxEQBeS2cCbPhCko46sBKTGsXeb": "rapid_ip_burst",
+    "1RapidSrcMTBgovbfKE7N9PbaRVYvvBAHBqcsxVCPZ": "rapid_ip_burst",
+    "1RapidDsteQViSAZoD2EHnZmVWaGYzYkmSDRjeFs2G": "rapid_ip_burst",
+    "1RapidSrczmEpbMidA9CD4MHYKhHGrzg6xnvzs8sFi": "rapid_ip_burst",
+    "1RapidDstqmgVaGRTdt6WHwNxK1mjjTfM4XDRDGqLa": "rapid_ip_burst",
+    "1RapidSrctm3dq1vATzRzutJss6M5fe4djkR66D5bX": "rapid_ip_burst",
+    "1RapidDstS1L7rhUE6o6NJPpseg4ZcAMDkvcSDu98j": "rapid_ip_burst",
+    "1RapidSrc9H5ZbcnhrfJXWkJ4uxV7VbXyzw8rZNgmx": "rapid_ip_burst",
+    "1RapidDstm14G34nWdWRh5YcHJWCoYPdqg4hjr46ST": "rapid_ip_burst",
+    "1RapidSrcfB181VMWpGNksj7uLRXGydVW4rAAmtg7j": "rapid_ip_burst",
+    "1RapidDst1r13NvBx3oifEFvKpa7g4DW3QssmK6TNH": "rapid_ip_burst",
+    "1RapidSrcTbVmCumF1QEMqsx1frj7XEV4zi6vuXhNy": "rapid_ip_burst",
+    "1RapidDst568p5ZSxEGKohjKG5CnaAAUQYxDJG7Agp": "rapid_ip_burst",
+    "1RapidSrcr9iyP3JpBxrZY66o84nDCQgw5av5zCeo6": "rapid_ip_burst",
+    "1RapidDstro8w3vSjVPRMuGS9cceVtU6PReoFzY2Pi": "rapid_ip_burst",
+    "1SmurfCollectoruWPBKDtn4zXmzy6fGpv4zDroMqrBbohv2": "smurfing_consolidation",
+    "1DarkMarketCashouthwZZBztVJV6EDX1vC8ivqK2bvmrrxNwP6": "smurfing_consolidation",
+    "1SmurfCollector2W8inNemdb37q37S8FhCg1R6XdhRuWcHn": "smurfing_consolidation",
+    "1DarkMarketCashoutVcnqyMQAYugUE167aVxn5iueTyG3psrMg": "smurfing_consolidation",
+    "1SmurfCollectorDjSq8jsTMJYBcqr9YGt552W2aQbuYYzUm": "smurfing_consolidation",
+    "1DarkMarketCashoutNDmjHTWQWfrocAWSBxfyjVMDV4N3CuMUT": "smurfing_consolidation",
+    "1SmurfCollectord8q2frKUyYGSyhBbddZXeJMYoSNGJ1prL": "smurfing_consolidation",
+    "1DarkMarketCashoutU1vwU1RHE1NQZPAjPNGREmuogHkoQrBHd": "smurfing_consolidation",
+    "1SmurfCollectorq92KyxJkpdj9B82zcccbE25n8rUeBPUAE": "smurfing_consolidation",
+    "1DarkMarketCashoutQyvxDfCCBxScgstRncpiPwaYeh37TssFY": "smurfing_consolidation",
+    "1SmurfCollector8orthvdTRpPER1VjiGva23VNax5jXrkHW": "smurfing_consolidation",
+    "1DarkMarketCashoutXcFdffgYacuY1TuaLMyJAhbJnGdaafHj2": "smurfing_consolidation",
+    "1SmurfCollectorhXJkhcaDgcLwWuN3PT3NehZm9LYejkshk": "smurfing_consolidation",
+    "1DarkMarketCashoutmKuWR4NTWqUXpuTNghytBt6PBx5A799Cx": "smurfing_consolidation",
+    "1SmurfCollectoryK23qMk2tL6MMMfFebu4JL2KTsZuGhbzN": "smurfing_consolidation",
+    "1DarkMarketCashoutPao6gLWmLcNSVrnqYH3zQEk6q6L4oUDoe": "smurfing_consolidation",
+    "1SmurfCollectorF5W7fBBP5sJbTfdGysBBkcs7X17AUhsyb": "smurfing_consolidation",
+    "1DarkMarketCashoutVcyMghPJ8171yrDeeSdnCJTU2A9hxUraC": "smurfing_consolidation",
+    "1PeelSeed_0P89ZHScxKgLGkTFzLTb1he1UugQthmYne": "peeling_chain",
+    "1PeelHop_0_052qffMppMBmh1TwSD2HvM6cJiEVNHuiDC": "peeling_chain",
+    "1PeelPeeled_0_0pPsaVZfZgZ484GaEXnCgzhXFZTwew4wSz": "peeling_chain",
+    "1PeelHop_0_1HRT1C5a2jyR5FAKd6UobdLF7EL4Lowmcm": "peeling_chain",
+    "1PeelPeeled_0_1da542Kr48vSJd4gZJP6kEbf1PotcLwnTL": "peeling_chain",
+    "1PeelHop_0_2WMUdB838aWeMaY9UbHyXf9EpZ4LyeC4BU": "peeling_chain",
+    "1PeelPeeled_0_2hUhrZLJL7suVvehUDUmpoNQp11MZ9SduM": "peeling_chain",
+    "1PeelHop_0_3rFCBG6q8etLDTNNAXodSi7t8BXhKRdvmb": "peeling_chain",
+    "1PeelPeeled_0_3rJ9FdH8WaVjnncAPtkNXBiXVxUaeneDtT": "peeling_chain",
+    "1PeelHop_0_4Y85SMaTdRUQoKPBEeM5qWenv653CCLJpg": "peeling_chain",
+    "1PeelPeeled_0_4Ghzzkju1JpnQQafUWm9QEkUWnkiTnKBmh": "peeling_chain",
+    "1PeelSeed_1jVfMERkmhJbZ29yzZouaPPx4PULxeJAgB": "peeling_chain",
+    "1PeelHop_1_0pb2CuPCHXTN1KuPz8RkPuCsJpfAaJCiTC": "peeling_chain",
+    "1PeelPeeled_1_0zSpcFLaVT36evMqnPprRBcSPfh6h3tAtY": "peeling_chain",
+    "1PeelHop_1_1kWnQAD32egTLQC3Fi8fTT5fiSUHAqcB8k": "peeling_chain",
+    "1PeelPeeled_1_1Af1GSBitXS3dXff6hSb3NCFuC121pg4x6": "peeling_chain",
+    "1PeelHop_1_2ZBDYw8DMBQKPT4peN4DJbz6YzrAxbyhgy": "peeling_chain",
+    "1PeelPeeled_1_2hLdtKrULcaPeEbzEcuJjkc4NJ9C3vbwjL": "peeling_chain",
+    "1PeelHop_1_3rLFYufFgicPKS1s5Cd9C6bqwE5jKiFBFH": "peeling_chain",
+    "1PeelPeeled_1_3SdGn5yQASWjmpo2Prmvb9jFTTNc58U9B1": "peeling_chain",
+    "1PeelHop_1_4VebQ3vPZCSFuiWVghevjF3pdgheGTgFbx": "peeling_chain",
+    "1PeelPeeled_1_4q1mevQauXBRqFJyfPJQsj6dnL9kvQJzp1": "peeling_chain",
+    "1PeelSeed_2NhCBxTpB4BmGuQddsAJNHLaUg64k1az6X": "peeling_chain",
+    "1PeelHop_2_01bzmwULRNtzpwfN4ML6Thjt9bsHhpNcfU": "peeling_chain",
+    "1PeelPeeled_2_0QBzxp1M3oKScQc5RwvzrujJC9XarW8oJg": "peeling_chain",
+    "1PeelHop_2_1Dkf6SiAvumDFUu88Yj6hswmbeNijPeZro": "peeling_chain",
+    "1PeelPeeled_2_1D766jwk7Nrxa14YryKNgoXbDPYT9wqVTb": "peeling_chain",
+    "1PeelHop_2_2hUqVhNyLqDjph4sBVPzfrzYLgzkPXHhCr": "peeling_chain",
+    "1PeelPeeled_2_2P8kaoriTA8hH9Dkj1jagz9xRqv6yB4yeb": "peeling_chain",
+    "1PeelHop_2_3JbBkmzf6TpPdS178euEbzUh6bPzhJ8Kis": "peeling_chain",
+    "1PeelPeeled_2_3YQhPpnX4qYpekDf7rh1SK3ae6Fk58JyAy": "peeling_chain",
+    "1PeelHop_2_4ahXzMYD6pEBJqxbDM8d5FPuQ5FRhY5jzh": "peeling_chain",
+    "1PeelPeeled_2_4CNfpcR9zS2c587Y4eNLGsE1NyN7vBjJpV": "peeling_chain",
+    "1PeelSeed_3wPMjyXbrU81WA8Nj4jyiFchBzoWGRwtpJ": "peeling_chain",
+    "1PeelHop_3_0rwQK65jwA4kZVsxRWjUWzthQcukihkFjx": "peeling_chain",
+    "1PeelPeeled_3_0ptXccxgtXE5qWxRNN7vFYm7JJDjZDJwep": "peeling_chain",
+    "1PeelHop_3_1M1tBM6V5W98VAfEPJRBp7SqAMSMsCB3Pk": "peeling_chain",
+    "1PeelPeeled_3_1uACUfGRYoiKmtWvqP772AWmEgLyjSHVmF": "peeling_chain",
+    "1PeelHop_3_2FpChohWBzbdE83zvRc63QJdELUWeJGHMR": "peeling_chain",
+    "1PeelPeeled_3_2K334kDUu6BxNJ61ZrLjMnXNeDPt8k7bue": "peeling_chain",
+    "1PeelHop_3_3UmX98RitmrZMNd7SVXxnAGyHx4yCpVXW5": "peeling_chain",
+    "1PeelPeeled_3_3SWZPcD1ab1vWWiGrJG7DXHewH8s3yzD7e": "peeling_chain",
+    "1PeelHop_3_4uJzd1MjHF1fswaigwFdcCSKCdrPSjS9UV": "peeling_chain",
+    "1PeelPeeled_3_4TpBawBHJtpgB9RTeQj8k16P71qw8mGwbn": "peeling_chain",
+    "1PeelSeed_4UZSAL94hd8p6JWq9u2R9fEsPtp7A76xMc": "peeling_chain",
+    "1PeelHop_4_07vvtcBXbg9fJpM7vfwpi51w9fKPinU4ax": "peeling_chain",
+    "1PeelPeeled_4_0H6zBPKRhRoLoeFRVXXpPaRahkhE1z1Zxv": "peeling_chain",
+    "1PeelHop_4_1DEk7h9jhR47aUbA99F1qRmU9XxUiSe174": "peeling_chain",
+    "1PeelPeeled_4_1ecBAPRwTiFaJEwG6NxkQ4Ppyc5hUeQP4N": "peeling_chain",
+    "1PeelHop_4_2HY4bkJYe2GyZZn3Kw1MHQCkjyh6Qk6o9b": "peeling_chain",
+    "1PeelPeeled_4_2PbrH9Tt6itoemAxWjevLnLMrRtmPDc59d": "peeling_chain",
+    "1PeelHop_4_36KwAHN6BmFUFse98Z3rQrv8NrxNgWGsgc": "peeling_chain",
+    "1PeelPeeled_4_3ejFp1rHAQ5PT6UeuT5jvvmCLKzVhUH3AU": "peeling_chain",
+    "1PeelHop_4_4U4sxgGd55QJisXfGq6uLkAMRUgAhMhP1n": "peeling_chain",
+    "1PeelPeeled_4_4b5fcKzwkjK9T9s7yQX1Tq8Ty6DyRYANMx": "peeling_chain",
+    "1PeelSeed_5Jp8VzRMqRyLvTNZASHfgdhwu66q61w7kd": "peeling_chain",
+    "1PeelHop_5_0YdWofrDnY7rxMoTuenPwnWGfJuug1u22n": "peeling_chain",
+    "1PeelPeeled_5_0qXjKAaRZPcP3wRwPjQKAEi87aPmvqAK62": "peeling_chain",
+    "1PeelHop_5_1k8TdMEuJYFnnmfGwdea6Tb7Ht6VMqPV25": "peeling_chain",
+    "1PeelPeeled_5_1x5gNKuoB1BZc2yzVcYAkvC22W9s7DKDjw": "peeling_chain",
+    "1PeelHop_5_2oSwvFCrix6obACiSSbGK7PCMupTtxFQcs": "peeling_chain",
+    "1PeelPeeled_5_2xXQ7oRBFDN9K1giDZKE4HDDZiwofaegSp": "peeling_chain",
+    "1PeelHop_5_3TbbE22na1T8y3XXL1UqRJKM5mV3JzVeuq": "peeling_chain",
+    "1PeelPeeled_5_3w6Dp9zrjE6ippY1g4t33JGgnPhva7K9ar": "peeling_chain",
+    "1PeelHop_5_4VHmU6miMqFerh5VDfUPVLpmWKwifr78vP": "peeling_chain",
+    "1PeelPeeled_5_4TcCQ4Rgxa6T771TGUXM7YMDQRLSN3PvCB": "peeling_chain",
+    "1PeelSeed_677taEXGthQPDphVACdhH1BudjrgAgALTx": "peeling_chain",
+    "1PeelHop_6_0fR2ytAm1MU1sU32gHEWkm6oLVMYfFTqJL": "peeling_chain",
+    "1PeelPeeled_6_0XfsqVGXe9QDzM2ahRC6vN7GdYuzsBuMLb": "peeling_chain",
+    "1PeelHop_6_1oZnM71v9gXHZAV4JTDp8V1Mq38snWxZxi": "peeling_chain",
+    "1PeelPeeled_6_19jSvH2wFgPQutvbBSso9mFRCJJvTBnq6X": "peeling_chain",
+    "1PeelHop_6_2Q2ZxRkcJFW8YZJkPQ1osT44qeL6HUL4jg": "peeling_chain",
+    "1PeelPeeled_6_2j4C9jVDgrJKz1Vg71c86CUqS48QypqYpg": "peeling_chain",
+    "1PeelHop_6_3pfAkYUHfxVfPh7RR2TZ1Jetc3uxUiHyMr": "peeling_chain",
+    "1PeelPeeled_6_3WMhP4fMiLinHmJPveNUfavmX8KxMcQ3rA": "peeling_chain",
+    "1PeelHop_6_4uBtkR4c7r5mcqvKhNzaCFSHCApoCadfCo": "peeling_chain",
+    "1PeelPeeled_6_4tMQY5BjueVqaUMcZ84RN55nJ7EbLDwvFh": "peeling_chain",
+    "1PeelSeed_7cYtawze2RCt4CpLku4VoZcqoM5RjvtU8i": "peeling_chain",
+    "1PeelHop_7_07VEMUnsEw2nCcPg2UPN8hY77cuMLvE61Q": "peeling_chain",
+    "1PeelPeeled_7_0koY3osF44SHKbtz8Qff5wChpurSJNYsFt": "peeling_chain",
+    "1PeelHop_7_1C8yEkDNp9yheT7V2HPp5HcVsP3CBS4JYM": "peeling_chain",
+    "1PeelPeeled_7_12ctvuobkLqSRjj47PigrwTaZXAPkv81ox": "peeling_chain",
+    "1PeelHop_7_2GFem1JfqrS213MdZQa5uYxSFnGVEBsfEe": "peeling_chain",
+    "1PeelPeeled_7_2BWSKZExzy1rrY3E7W75Caqg5RH2cMyuNw": "peeling_chain",
+    "1PeelHop_7_3coWnWaLDq2jPz55wEWaYRjrX3UXSGqHFF": "peeling_chain",
+    "1PeelPeeled_7_3mMTk7EjtMMWvecTRap8YnQa9GHK5Rzadm": "peeling_chain",
+    "1PeelHop_7_46sq2A5WXPR8hFJLpLc7i5vxudjSkhjibp": "peeling_chain",
+    "1PeelPeeled_7_4W91bgTKBiHmEV3XXWvHPkx3wtjRHtKMAH": "peeling_chain",
+    "1PeelSeed_8H6ZWAb3tYCVpNHwRS8Tviv7tV68HfyokD": "peeling_chain",
+    "1PeelHop_8_05ALTjf5gt36hXCZqdxdFbsDCUVBV8d6Wi": "peeling_chain",
+    "1PeelPeeled_8_0DSVci3gcdEMXxsqsfVdbYJDxumRSFRBxf": "peeling_chain",
+    "1PeelHop_8_1EHWtn4mGKPSQuGjLpJQaACdwcLc2io6hu": "peeling_chain",
+    "1PeelPeeled_8_1mZeXNCAYrEouLDjw32w6QVAJEmFG8nf8j": "peeling_chain",
+    "1PeelHop_8_2kYv6bPqrnRkJT6yaNRDQHHhWPzjxmiTa2": "peeling_chain",
+    "1PeelPeeled_8_2mSU7K9d5ZDwb5QqXqm4VQjq3gbsGDZVVx": "peeling_chain",
+    "1PeelHop_8_381X8Cs7tVdX9sR17zitGKtZAHgoxNcUDL": "peeling_chain",
+    "1PeelPeeled_8_3kzvAiUKBUz1hC6T6db4dtM1CHuRjNmwZe": "peeling_chain",
+    "1PeelHop_8_4Z8XeParcyjcuD1EDvc9U15y8oRUJmEPmh": "peeling_chain",
+    "1PeelPeeled_8_4MqK5cDAdH9SShF7ueBsrmMRcsvCNwzCMC": "peeling_chain",
+    "1PeelSeed_9eeQzhG4a2iUcTBkeY7NcihBr5q7SiKrHr": "peeling_chain",
+    "1PeelHop_9_0ejLfuuAziN1fRf4Cm9GB3cgQdqwKZ7Uq5": "peeling_chain",
+    "1PeelPeeled_9_0v6vB6Kd2A1eTswJgwskjKPHHZRqGCyGS6": "peeling_chain",
+    "1PeelHop_9_1qPYDhMpoDhWqo6mFU27fB9bNNb2hds1RL": "peeling_chain",
+    "1PeelPeeled_9_1e6uJUB2oTaSQqFNLgJysmuWRmxQ2Wvtxw": "peeling_chain",
+    "1PeelHop_9_2n9MPTfCAJBrSi9Zm1A6YPDUNTFvPKwQKH": "peeling_chain",
+    "1PeelPeeled_9_2gsbXMfy2tBENW1bQ5EV3J6PB9KgUGxBQX": "peeling_chain",
+    "1PeelHop_9_3oA8Wg1efR4Rk7ouWniqy7BRms51wiFWcs": "peeling_chain",
+    "1PeelPeeled_9_3ST3sT3bNRgm2GJRSJ37jXPBY89VtMTcvu": "peeling_chain",
+    "1PeelHop_9_4cip6WjLdJQBkik5uxoazcYoh3aDwGgBW3": "peeling_chain",
+    "1PeelPeeled_9_4QBH1DnfGTnd6EiDcjcTRbYUZLKp9rVXAP": "peeling_chain",
+    "1PeelSeed_10zNHKg2dAMSz2yZVEv8cr6DzaBAnjQQkRb": "peeling_chain",
+    "1PeelHop_10_0KN7txmKYPrVTpTvBHXLTAuPeyQdc9czbj": "peeling_chain",
+    "1PeelPeeled_10_0wKFaU6NkteZsrANsBwvKHtDTFbzoyW7cL": "peeling_chain",
+    "1PeelHop_10_1gszs5RGi8neX2UjHQpmNiWeR89Gpk7AQL": "peeling_chain",
+    "1PeelPeeled_10_1uoD6e5uVFGJSnhZbm9HDNNHwAdUSJkh9H": "peeling_chain",
+    "1PeelHop_10_21NWsWUuyebWXNvesUVPf4EC9cj7CVae1k": "peeling_chain",
+    "1PeelPeeled_10_2pnujN2dxWGxrY5oSXFoBwrEiByGHkjvu8": "peeling_chain",
+    "1PeelHop_10_3YnKdC75CYDVaar7tnCocT1kbVBWWxJsFG": "peeling_chain",
+    "1PeelPeeled_10_3ZJSywVKyUA4SJvSdYBnmDWKX6Jca9Amnr": "peeling_chain",
+    "1PeelHop_10_4wUrJ9LMkTRPRmQyMoym2hDiJNKnKZCDWr": "peeling_chain",
+    "1PeelPeeled_10_47FKUiUy3fguVHcN6eHNv78kKmQ99JC6Fa": "peeling_chain",
+    "1PeelSeed_11ruStBUTLghFk27QPV3XuW1S2WonVadjZy": "peeling_chain",
+    "1PeelHop_11_0nXor6vczkmRHTtje5eLXhpS2a1q2ERGDg": "peeling_chain",
+    "1PeelPeeled_11_0KTfmaMts9mCB2bqnYxKKEDJRGwDM8uSqN": "peeling_chain",
+    "1PeelHop_11_1CPp6Buj8k7VckKCzoMF7T1oQrMwqSrJz5": "peeling_chain",
+    "1PeelPeeled_11_1ePUxGeK9FZ8Ahm4osfNRABwxkoBs7AVJd": "peeling_chain",
+    "1PeelHop_11_2Uj9QYmiA6MDR4yTRuSro1UuFKYxf6Vqa8": "peeling_chain",
+    "1PeelPeeled_11_2Wo9fkiHcFFjJiTbWzGuLN9jrkodoy1dqE": "peeling_chain",
+    "1PeelHop_11_3zTGSkfWLzBLsmT6rmGnR2Y6yq7i8MTZwy": "peeling_chain",
+    "1PeelPeeled_11_3yBptW9gnCkXnZX3XYhzAAgdrEviYxRC3y": "peeling_chain",
+    "1PeelHop_11_45ifDjb4k9UAyyyPARbFMEx9QjafC9GKdX": "peeling_chain",
+    "1PeelPeeled_11_4XmbESpYc9tkisx3qFdRAisVHX6jxsErVh": "peeling_chain",
+    "1PeelSeed_12WRqz56oFVbf7niZqNXvPbboxa7mMguRPk": "peeling_chain",
+    "1PeelHop_12_0MnraXwpdnf2Z2w6vojrFpLyFS3TzGoDmY": "peeling_chain",
+    "1PeelPeeled_12_0KQMpqrLcjqEq6ieKVBPGiMotkxK7auhZk": "peeling_chain",
+    "1PeelHop_12_1iXQv7xptJa5zS3YfGVqzFEeD1F2cqRYZQ": "peeling_chain",
+    "1PeelPeeled_12_1radtykhyoGNuwKMx8rzFY8ynWUKociieZ": "peeling_chain",
+    "1PeelHop_12_2SxAZZ4Ms9g4iawjiVhwzDTYgLasw9YgK1": "peeling_chain",
+    "1PeelPeeled_12_2ciM7ycXjjFbmBBeV76waxPQh9L6MisVBQ": "peeling_chain",
+    "1PeelHop_12_3s4Zg61z1KJoZN5AdVYy6g9NBSrmWpSdwt": "peeling_chain",
+    "1PeelPeeled_12_3o7ww7gbA6CAcLTfqnwf4F9xVo34yUqfkb": "peeling_chain",
+    "1PeelHop_12_48mHdQNVVKVPVnHg4qB6tkaBK32yPMYpgS": "peeling_chain",
+    "1PeelPeeled_12_4WrWg3DTBDKiVac3Pu7HufvLBPEvQAbdFv": "peeling_chain",
+    "1PeelSeed_131pNqBnF1h3m8g57An4YAjxihHHrGmPtC6": "peeling_chain",
+    "1PeelHop_13_0rCX3U73P5h4SNjSmfWymj319rFBTu4PwW": "peeling_chain",
+    "1PeelPeeled_13_0EdLi2SqbHAYK74X2iiK3ug114PZrm3Y2p": "peeling_chain",
+    "1PeelHop_13_1kgcMzTv9YM9dByztN2o9TiYEQqMwRRjSP": "peeling_chain",
+    "1PeelPeeled_13_1NKQiCDCCsfcuYmQeD97eJqmd3DYAPXBSh": "peeling_chain",
+    "1PeelHop_13_2nCQUs8wKwcjsgn51s4rKuC9DqNuaqUhH6": "peeling_chain",
+    "1PeelPeeled_13_2Zu9RXcAZUzhuyf9Sk8PPA2gpvaBtywZtz": "peeling_chain",
+    "1PeelHop_13_3znfxKix5bo1tRArCHXvVu4EJTS3kmT5Y8": "peeling_chain",
+    "1PeelPeeled_13_3ydj2PuP3fhLornQLwiZVGuv5fKW7po75N": "peeling_chain",
+    "1PeelHop_13_4oscAdsTsn78hCk56x1nE35KXUCzcBHgs4": "peeling_chain",
+    "1PeelPeeled_13_4B1BC9Yyhh5BKzAdbbWHRpjXeyFk44Ljcp": "peeling_chain",
+    "1CoinJoinIn_0_0mvhcxajKMpNJVYkEAhQtKowQsT9jPxsnP": "coinjoin_mixing",
+    "1CoinJoinIn_0_1s9NSpu9wD1UGCVAqrHCcVSrVfM7xhc9XV": "coinjoin_mixing",
+    "1CoinJoinIn_0_2DVxdLKccbXLNg8ZU2NFwguuduUHLohuxn": "coinjoin_mixing",
+    "1CoinJoinIn_0_3auicpFZtKtP9KXTuwj4PCmiNnUD1McZnx": "coinjoin_mixing",
+    "1CoinJoinIn_0_4VKtCpBvcJ4tXWFNhrJCJ2eRNmzSPASKwT": "coinjoin_mixing",
+    "1CoinJoinOut_0_0CcHbK14KU9qN2SKBcmeKk3WiiVv96Ai6M": "coinjoin_mixing",
+    "1CoinJoinOut_0_1M5L5Q4RnhY6DAmsE4g2ehU3kxx8KPdPWH": "coinjoin_mixing",
+    "1CoinJoinOut_0_22iR4C3EVM5tWqQ91ddGNPqkFCuPeTSyfm": "coinjoin_mixing",
+    "1CoinJoinOut_0_3C7P7wCmjJhDbJTeEtqD21qrCwPKzbAVZH": "coinjoin_mixing",
+    "1CoinJoinOut_0_4zrFctrcrwvJPZA4DCRs5R2muJGvtoCvkg": "coinjoin_mixing",
+    "1CoinJoinIn_1_0saZGhUj94g2VqQya34mHHUo2GsES1esqS": "coinjoin_mixing",
+    "1CoinJoinIn_1_1xVEr3NbTUAfNY9jMBQUMHpkVYMSbtLMUk": "coinjoin_mixing",
+    "1CoinJoinIn_1_2rA3WrdbYqAo9pCh5R7W371wfAEiL7joYP": "coinjoin_mixing",
+    "1CoinJoinIn_1_3fPakgzEeAhkityoVvhJkJDexC1JDqg4T7": "coinjoin_mixing",
+    "1CoinJoinIn_1_4wf1bLNJcvdbgyVMFUokmRbtxgzPxm6F6F": "coinjoin_mixing",
+    "1CoinJoinOut_1_0qd6PLcUKZhTc6gbg2W5BGZoYjF7WBTr3b": "coinjoin_mixing",
+    "1CoinJoinOut_1_1Rgy5UFPkeBNJDsaViow7A8yc2VoRiuNYR": "coinjoin_mixing",
+    "1CoinJoinOut_1_22Sh46sfUWFv826BCfYZUyfa73CJkPNW1X": "coinjoin_mixing",
+    "1CoinJoinOut_1_3GXJpKFUDfUDBZdr5fr9mUz5AdQdwqQk3K": "coinjoin_mixing",
+    "1CoinJoinOut_1_4PCjNTqEuUxWQsdEXV5bRZhnm3HHezLqcv": "coinjoin_mixing",
+    "1CoinJoinIn_2_06VLWdFGGHWKuuZMJpXQGRfmt9mJgMYKoa": "coinjoin_mixing",
+    "1CoinJoinIn_2_1BjseCnqBeVFVGZY9cFypz1BwvTzaHZC3R": "coinjoin_mixing",
+    "1CoinJoinIn_2_2ybUP7BMo4rHYGnvgCtZ1LdHREcaGZq9ZK": "coinjoin_mixing",
+    "1CoinJoinIn_2_3DopCcx6jyGV6rDTABD7EJabPD65iSjPcP": "coinjoin_mixing",
+    "1CoinJoinIn_2_4YGtVnXKVcqcNhbhNnDKQFHEbU2wFhToPM": "coinjoin_mixing",
+    "1CoinJoinOut_2_0PVju6FENzUAreboryNm6v6h35wTJrHvEK": "coinjoin_mixing",
+    "1CoinJoinOut_2_1XE64enxwBYwtEoCi46pB8Tmi9wF1rmW2W": "coinjoin_mixing",
+    "1CoinJoinOut_2_2483A8rqaHFB7Fek4N1TogPYQXxwMcikkX": "coinjoin_mixing",
+    "1CoinJoinOut_2_3QWVoCbNJcQNNKC1Se9snkeJF1ESVUTtTR": "coinjoin_mixing",
+    "1CoinJoinOut_2_43wuvJ4TPeSbMWUwsUMCvAz9iG2DX2QoTd": "coinjoin_mixing",
+    "1CoinJoinIn_3_0Vm3njZ4ywNfSiG9v6PP3JxCaRp9YFv14r": "coinjoin_mixing",
+    "1CoinJoinIn_3_1GU4UyvV5TucyrxFZtpLfXfqbgonFpSGwJ": "coinjoin_mixing",
+    "1CoinJoinIn_3_2yz3boFpZqDxT96YNkRL5AUv4KtSp9U2w7": "coinjoin_mixing",
+    "1CoinJoinIn_3_3EsVxbQrHcAAKN55o1YV6yoez1B8zNgpMa": "coinjoin_mixing",
+    "1CoinJoinIn_3_43tL3azcpCAPz7bcXqH4cGeh6cg2rfhoMW": "coinjoin_mixing",
+    "1CoinJoinOut_3_0JhQoEzJKE9A5b77T95mgaiS8ewZbwDU2A": "coinjoin_mixing",
+    "1CoinJoinOut_3_1C42rFBVfQiK8KyRKvZh1nxRVz9tEcxuiR": "coinjoin_mixing",
+    "1CoinJoinOut_3_2mdioN1VpWDLfjWXtzccSxoTiYYk3LQdnU": "coinjoin_mixing",
+    "1CoinJoinOut_3_3svvcEKbTJe3EuFGX3xTQRxoGpYRWxoeJb": "coinjoin_mixing",
+    "1CoinJoinOut_3_43zDfH7EzZLYCg5ew28kFffRuCA6wJYY4z": "coinjoin_mixing",
+    "1CoinJoinIn_4_0mLWqYWUcnM6BoYF2voo649ApYUvd2rnSo": "coinjoin_mixing",
+    "1CoinJoinIn_4_1nQAdVbhykqwnZTKNu3Ba1fNLk1KT86Xmb": "coinjoin_mixing",
+    "1CoinJoinIn_4_2UZYm7pneFYR37wfzhpzHryyNVjQ2HB68X": "coinjoin_mixing",
+    "1CoinJoinIn_4_3b67ymK8aa53Kmku5iwsYuf6QvKs6Lj86w": "coinjoin_mixing",
+    "1CoinJoinIn_4_41t3oQ7AwtFLBvh7pUj8jpgEQgsajqVERc": "coinjoin_mixing",
+    "1CoinJoinOut_4_0PpH8yQaGctiFc17bkhapayFiEF35PxH71": "coinjoin_mixing",
+    "1CoinJoinOut_4_1D7hQLS9e8NyNXGfr9PBfwFVG31T4t4THQ": "coinjoin_mixing",
+    "1CoinJoinOut_4_2t9HR1nXbMeTgGUPADu1EVDxWw7iXhGfok": "coinjoin_mixing",
+    "1CoinJoinOut_4_32ZtEHokfZcoXBVX92mmRLUBjiRhGCQqbZ": "coinjoin_mixing",
+    "1CoinJoinOut_4_46UCF3LUELEx15Z8Q3UYj6zYiDDN31b7Hb": "coinjoin_mixing",
+    "1CoinJoinIn_5_0FbkwEUHAkjvVzot6WEa1hwkZAjyafCpE3": "coinjoin_mixing",
+    "1CoinJoinIn_5_1BpCJ4Tc2jiNkmqSgqANA3BqR5A5RShAii": "coinjoin_mixing",
+    "1CoinJoinIn_5_2tXubxaLTqbfDTAqSKcvoqCJmT6ao84jXr": "coinjoin_mixing",
+    "1CoinJoinIn_5_3ZPeip4BsoE3rY5Y5X6GYq3Vq9nh69SRd5": "coinjoin_mixing",
+    "1CoinJoinIn_5_4mTgzL212f2o2Kkoa5Cx6nYNnkcizKfoWH": "coinjoin_mixing",
+    "1CoinJoinOut_5_0HAY9fYHXm9pHd3P3S2b1GFMLMWXQZE9GE": "coinjoin_mixing",
+    "1CoinJoinOut_5_1KfNpnN3id4DQrZcn1ddwvB4G38Pq8ZX1d": "coinjoin_mixing",
+    "1CoinJoinOut_5_2GrBxVvWNmX4G94hcJAafjQAFRiNjXDJn5": "coinjoin_mixing",
+    "1CoinJoinOut_5_3spHyPMkks3QEgLgJxu25NQHHapWvmjNZW": "coinjoin_mixing",
+    "1CoinJoinOut_5_4ByLyUq4g3g4rEvDmMqFKiPD966bXinYcC": "coinjoin_mixing",
+    "1CoinJoinIn_6_0KEtrixvcWkKPTWQZst1Bpz27n78bvFNUh": "coinjoin_mixing",
+    "1CoinJoinIn_6_1GHy7jR1dDNn84K58XmHYEQUqbkQAiwcW5": "coinjoin_mixing",
+    "1CoinJoinIn_6_2TLR6whrJXQkqdnLVPSn3h78n23CzXCPt6": "coinjoin_mixing",
+    "1CoinJoinIn_6_3s29TKk6BDuMpWBaVrRZudzqHx7JZoznLE": "coinjoin_mixing",
+    "1CoinJoinIn_6_4sujXQDec86Nh2pWza4HawiTFoQbawRdos": "coinjoin_mixing",
+    "1CoinJoinOut_6_0fqemkgmr6X9nadZ9ZJmtanrxt7qoDnnRZ": "coinjoin_mixing",
+    "1CoinJoinOut_6_1x4d2Z9eTRteBDZzEcKfueuXfZ2pH1LQfy": "coinjoin_mixing",
+    "1CoinJoinOut_6_2uZS2onQmY9f6YaLdvDZo6qtmoKLv7qnQ9": "coinjoin_mixing",
+    "1CoinJoinOut_6_3bmrGurqAk1fWbuPz7yPC5Ccpp2wN4e5d5": "coinjoin_mixing",
+    "1CoinJoinOut_6_4j4QBdCaSQ9jDH1VSHAiT9QsfbLZ6sjpvv": "coinjoin_mixing",
+    "1CoinJoinIn_7_0CCEwxKiALx7Y51ruA6b17kEWf8VaM8D5f": "coinjoin_mixing",
+    "1CoinJoinIn_7_1JG3xsK9PWy6GzECF6U79TnfAB1A6VpYBd": "coinjoin_mixing",
+    "1CoinJoinIn_7_2GvRaLqngSksEpF7WYzQLaTjVhYdQv7U4r": "coinjoin_mixing",
+    "1CoinJoinIn_7_3VuXor1mN9fADMg5PsNnYS7GajXmBy9Zyk": "coinjoin_mixing",
+    "1CoinJoinIn_7_4xZXgEdYnsx8vroxhEqSiiFyeJcrcZ45Md": "coinjoin_mixing",
+    "1CoinJoinOut_7_0Wxk3e6vEYSUYyBwTP5cifTcVYraSVrq8W": "coinjoin_mixing",
+    "1CoinJoinOut_7_1Cz3eKXQBdE4G2tMzPcga28HYnLNFwPbCM": "coinjoin_mixing",
+    "1CoinJoinOut_7_2pJed8XaGPssCxvwLA5gLXLzVvLAaQbsDX": "coinjoin_mixing",
+    "1CoinJoinOut_7_3nNDzWZPNxVGPrKckmHG1Jdstp5qvbACqL": "coinjoin_mixing",
+    "1CoinJoinOut_7_4Eo5NP6J7qCDBcDRjx6oSK1dx9soHm6nBP": "coinjoin_mixing",
+    "1CoinJoinIn_8_0G8qXrMA8LooR4KmWnTSJAVLLjfYLbxoKi": "coinjoin_mixing",
+    "1CoinJoinIn_8_1cB8xuypRL8rt3oNEeEx8stpos51L2CdZB": "coinjoin_mixing",
+    "1CoinJoinIn_8_26JrXPbzVVrzDTdSxe91NWjANDxXoBYpjC": "coinjoin_mixing",
+    "1CoinJoinIn_8_34C9q1J6N16FGAiT2AUX6TnuUKkNdVNswK": "coinjoin_mixing",
+    "1CoinJoinIn_8_4cWmfTuZjPYBS8U4gCnjvfyxvKBaZcjtxj": "coinjoin_mixing",
+    "1CoinJoinOut_8_0ofaeEYEAehFatCZJRVejtDoHwaGFpmcjB": "coinjoin_mixing",
+    "1CoinJoinOut_8_1SprSBB54FuUXV7VtKaZvF9pk6oQnsYBtG": "coinjoin_mixing",
+    "1CoinJoinOut_8_2ZcwtXWZMDjhNWBdP4qkzmCHJvepra74qA": "coinjoin_mixing",
+    "1CoinJoinOut_8_3Djus29anjbM2JUejCcC1RUDb6y9399D7g": "coinjoin_mixing",
+    "1CoinJoinOut_8_4hTUf4ck67Q8B8iSifvmwCdj3aSLYfTspn": "coinjoin_mixing",
+    "1CoinJoinIn_9_0ngd9L1fy9H8qbhNyiq4keoDfb8hV16y7G": "coinjoin_mixing",
+    "1CoinJoinIn_9_1RMKNJvD2wtn2zvRMAEV4b4ixSr2E8HeuL": "coinjoin_mixing",
+    "1CoinJoinIn_9_2GsqgeDiHF8cuQVveNtJ4SgzNRBFU7qFS7": "coinjoin_mixing",
+    "1CoinJoinIn_9_3ZmoW32unZ6Qm6AWYWpfS92iyhTC3TFTE5": "coinjoin_mixing",
+    "1CoinJoinIn_9_43sMXGJoBh2ZBXXMRRF271CfsCQpvSFSPp": "coinjoin_mixing",
+    "1CoinJoinOut_9_05aXqhU2yQRKLbko3bf8F2eaYw4ikrdG1F": "coinjoin_mixing",
+    "1CoinJoinOut_9_1z4n3cWoJqpvPczeeCbgpPZHQP6DH3UGEB": "coinjoin_mixing",
+    "1CoinJoinOut_9_2KBjyfbauzS1iuARzf2UWpYA64Af2od6vw": "coinjoin_mixing",
+    "1CoinJoinOut_9_3woEgkabtnT97yxjYdxvWpryvtJ9kTtMWv": "coinjoin_mixing",
+    "1CoinJoinOut_9_4aSWS1BpG3UU6qqP5b6e5AtgbnbRu9jPwf": "coinjoin_mixing",
+    "1CoinJoinIn_10_07u6a7RVZFVgoZDiMnToofQH3cReqNYiwR": "coinjoin_mixing",
+    "1CoinJoinIn_10_1GW9S9LPAwaFdGY1yxnGQhE3SzP9zXb42q": "coinjoin_mixing",
+    "1CoinJoinIn_10_265z7tzFfzeApCQEUQ1BFvKWQnhuMxkVGc": "coinjoin_mixing",
+    "1CoinJoinIn_10_3ReshGnRrUjuw4WhbaY3Yu1Qq9GSQr7EKB": "coinjoin_mixing",
+    "1CoinJoinIn_10_4PNGRfcvhahYKWZgsKbyo388bBqnzFvt37": "coinjoin_mixing",
+    "1CoinJoinOut_10_0URjEbkZPRFye6aLbN12faoJyF3vzgGurc": "coinjoin_mixing",
+    "1CoinJoinOut_10_1SQKSApwKsVSY2TxmxCWcRFnFQP8dmLH7d": "coinjoin_mixing",
+    "1CoinJoinOut_10_2cMv1wRr79BmTxUfK8K425Hz6urpFoez1u": "coinjoin_mixing",
+    "1CoinJoinOut_10_3Y7byUVZC5atMvuvG8inreR97ACFjtLRhj": "coinjoin_mixing",
+    "1CoinJoinOut_10_4sXTMpAzwB8fhEKFoyG2wFeHUjsr59CwzH": "coinjoin_mixing",
+    "1CoinJoinIn_11_0fegAACqYgpuM1Yo4nxpFiCPzyKYqGtLEJ": "coinjoin_mixing",
+    "1CoinJoinIn_11_13vhd75sSWW4RzHFfMG4XpsgUcTn7eeujK": "coinjoin_mixing",
+    "1CoinJoinIn_11_2e8YxWFYPdazXntmbJzUhq7qgFEorzYxiB": "coinjoin_mixing",
+    "1CoinJoinIn_11_38CZETXEn97eY2vAtDAsviZD937BB14XTP": "coinjoin_mixing",
+    "1CoinJoinIn_11_432qbsvgi8YpBP64juHKFwbknHnmY9KQyK": "coinjoin_mixing",
+    "1CoinJoinOut_11_0g61jzTkv1pHLkNqLu3SuPG5uPNsihtwz1": "coinjoin_mixing",
+    "1CoinJoinOut_11_1SKQpvGc3cNZCRCZNjZQPT1ESZuZUzfVcN": "coinjoin_mixing",
+    "1CoinJoinOut_11_2NbBT5TNhE26ShzTxXZsPJ5rmyawwnMWy7": "coinjoin_mixing",
+    "1CoinJoinOut_11_3VH6kVPB5Yoe96iQ8GAbUW54iztiNv7ZgN": "coinjoin_mixing",
+    "1CoinJoinOut_11_4q3SW1a8sV1aw3dDhLG4ApHszWvcttH4Ve": "coinjoin_mixing",
+    "1CoinJoinIn_12_08RPwvoNU4MZhx6aycqt7p5B5tkEpo4aC2": "coinjoin_mixing",
+    "1CoinJoinIn_12_15RK1xFhz6WnZKHp9ZUbasQ8FxmQjxnW9U": "coinjoin_mixing",
+    "1CoinJoinIn_12_2op5uj5F3MZcDBUJynjSXtFs9XQGY3RCYz": "coinjoin_mixing",
+    "1CoinJoinIn_12_3ztvWYyKEvodrQ83LSSH3McMNQCBpbYLm7": "coinjoin_mixing",
+    "1CoinJoinIn_12_4Vhjfbt656nw6z2LJwg4hA2iNEpwh5B158": "coinjoin_mixing",
+    "1CoinJoinOut_12_0SKoZs4ARpv57DiBsyegGdc2HxVmhqTYvi": "coinjoin_mixing",
+    "1CoinJoinOut_12_1bN2Ek41Pxdym1ha1MwsRWhm4YduxzLctx": "coinjoin_mixing",
+    "1CoinJoinOut_12_2MmFNZ9M54xaaeQRvp4YiU3hFUGgixfaHa": "coinjoin_mixing",
+    "1CoinJoinOut_12_3xNE1VNrALDdq5DPFuB7YB4Bwh9nJr5j23": "coinjoin_mixing",
+    "1CoinJoinOut_12_4tRgM1mYuWF9u6PD8vHgxvTkzZyTrr6bbR": "coinjoin_mixing",
+    "1CoinJoinIn_13_0oB1hTMBFzth8u7oqEk1BhAecf4uX8aV1N": "coinjoin_mixing",
+    "1CoinJoinIn_13_1677SYLYjtaTyAhPWikmvUmhr4yc9uUAWL": "coinjoin_mixing",
+    "1CoinJoinIn_13_2tsfz9iU1BDJ8vy8w46Hzejvrk4yxaihgj": "coinjoin_mixing",
+    "1CoinJoinIn_13_3j8dyHi9r8SMvh6NCumWRtQP1z4ibwSTQa": "coinjoin_mixing",
+    "1CoinJoinIn_13_4cEmgez6gpy5Js3waxDw2FxYHcP95swR14": "coinjoin_mixing",
+    "1CoinJoinOut_13_0QtyRyPxs3EP9aoM4annJ3xPCJmiZLJcAC": "coinjoin_mixing",
+    "1CoinJoinOut_13_1rPSq6yFnfvjwZKg6WWt3jxbg6dQejuifa": "coinjoin_mixing",
+    "1CoinJoinOut_13_2PDZotixHTxtfNEFxx3g5hNfV2yGsnPhgV": "coinjoin_mixing",
+    "1CoinJoinOut_13_3oQiiziwvLCySZzGPjnPoRu8BH2h1LqcwW": "coinjoin_mixing",
+    "1CoinJoinOut_13_4pBQ9nNPJS7v1sHEnb7B8p4fGYCnAR7ntD": "coinjoin_mixing"
+  },
+  "scenarios": [
+    {
+      "scenario_id": "scen_ip_burst_0",
+      "pattern_type": "rapid_ip_burst",
+      "description": "Single IP 185.220.101.10 initiated 6 distinct wallet transactions within 5 seconds",
+      "txids": [
+        "tx_rapid_ip_burst_0_0_bf9a6d",
+        "tx_rapid_ip_burst_0_1_d4e6f5",
+        "tx_rapid_ip_burst_0_2_073ca8",
+        "tx_rapid_ip_burst_0_3_a770a1",
+        "tx_rapid_ip_burst_0_4_083670",
+        "tx_rapid_ip_burst_0_5_1bdf6b"
+      ],
+      "event_ids": [
+        "net_rapid_ip_burst_0_0_49341d",
+        "net_rapid_ip_burst_0_1_bcb625",
+        "net_rapid_ip_burst_0_2_86ed58",
+        "net_rapid_ip_burst_0_3_07b417",
+        "net_rapid_ip_burst_0_4_7c1008",
+        "net_rapid_ip_burst_0_5_60e91a"
+      ],
+      "involved_addresses": [
+        "1RapidSrc877ZGciCdGVur6RH1mdGjYR15tuYqa98J",
+        "1RapidSrcQ4uZiDVte99kYkRaMz9Vkr9AgbPbUFZwg",
+        "1RapidDst35fZKGfKG8eTvw1dZ6YW8M4FHSYJzoXfZ",
+        "1RapidDst7tkmLJA1iiymW7dqWCNAxvvbV7NzoEEZ5",
+        "1RapidSrce2GDjgt6R2DW2CeYDbo1ohLAxL66rcojY",
+        "1RapidDstwaUnoC6SRUjgz6QLrFCTRHFvSrY3zqyvr",
+        "1RapidDstyNZqcrah3EH5E6HdNNDGwecAjAPzeZgqn",
+        "1RapidSrcsuA1PvnHhjnfVCD4j4K3UvX4Wr44rQwaa",
+        "1RapidDstuoruDF6ntQc9vsypt2jLvospGn7srDpTJ",
+        "1RapidDstxvdf8uWfKhZCfNkBaQqJDncKSgWoxjfHf",
+        "1RapidSrcmm8UYGsRDYjCKzeSX8ELbED5dEur5EfD8",
+        "1RapidSrcfQH5mMWgqL2sGaz3bMnSz7uC3SXogwjCS"
+      ]
+    },
+    {
+      "scenario_id": "scen_ip_burst_1",
+      "pattern_type": "rapid_ip_burst",
+      "description": "Single IP 185.220.101.11 initiated 6 distinct wallet transactions within 5 seconds",
+      "txids": [
+        "tx_rapid_ip_burst_1_0_8015ff",
+        "tx_rapid_ip_burst_1_1_321707",
+        "tx_rapid_ip_burst_1_2_bf2e4d",
+        "tx_rapid_ip_burst_1_3_aae2e3",
+        "tx_rapid_ip_burst_1_4_0b9210",
+        "tx_rapid_ip_burst_1_5_5b357b"
+      ],
+      "event_ids": [
+        "net_rapid_ip_burst_1_0_f86ebf",
+        "net_rapid_ip_burst_1_1_a168d6",
+        "net_rapid_ip_burst_1_2_13bdd5",
+        "net_rapid_ip_burst_1_3_78b41a",
+        "net_rapid_ip_burst_1_4_8a0550",
+        "net_rapid_ip_burst_1_5_eed2b6"
+      ],
+      "involved_addresses": [
+        "1RapidDstUT9Cbk85mrLnG1jqafsSVLmNwsyEPrQKU",
+        "1RapidDsttciWqYukUGFdmXdG5HGKY9Ehh4QYRCRua",
+        "1RapidSrcTbHEihTgvndfwRYeup5AJkaH8ghwWV53S",
+        "1RapidDstrq6tFTcN2rBDoLthH1w5iVkheVn6DhJaU",
+        "1RapidDstLxFr74Vag9px5FZRbcmPuJbRZ4x6mdG5E",
+        "1RapidSrcYMTJEiKkxhCjHbmbyqJMJi834Hwdk61HU",
+        "1RapidSrci5hd6mrb8znMRNWLrp7xdqiSjxGoYVSjG",
+        "1RapidSrcaUwJPtqYjouVGVPfojqvyXubf5RsBGKTL",
+        "1RapidDsttHxRqUk4xE4x32FqdEU7wTFNcxinAKava",
+        "1RapidSrcp1sT4XdVS3G8HtV2doiK1QEq7we9wHhRU",
+        "1RapidSrckgEC2FUr5RdChVFf1km7RBxX3FrTofzbx",
+        "1RapidDstKF6xqaxzfG3kUevBadV6MLfrLhHwpYTKK"
+      ]
+    },
+    {
+      "scenario_id": "scen_ip_burst_2",
+      "pattern_type": "rapid_ip_burst",
+      "description": "Single IP 185.220.101.12 initiated 6 distinct wallet transactions within 5 seconds",
+      "txids": [
+        "tx_rapid_ip_burst_2_0_77ed52",
+        "tx_rapid_ip_burst_2_1_c080f0",
+        "tx_rapid_ip_burst_2_2_2145cb",
+        "tx_rapid_ip_burst_2_3_6a8369",
+        "tx_rapid_ip_burst_2_4_c4ecd4",
+        "tx_rapid_ip_burst_2_5_fa7d9a"
+      ],
+      "event_ids": [
+        "net_rapid_ip_burst_2_0_4ecae9",
+        "net_rapid_ip_burst_2_1_3519c4",
+        "net_rapid_ip_burst_2_2_e102a6",
+        "net_rapid_ip_burst_2_3_72a864",
+        "net_rapid_ip_burst_2_4_c18473",
+        "net_rapid_ip_burst_2_5_32c5c5"
+      ],
+      "involved_addresses": [
+        "1RapidDstzkS6dsShu3oJN9XZnA5scEu9TFF1ougAS",
+        "1RapidSrcfpyV3WbssSXTiQe9UyLherrrPKims34dv",
+        "1RapidDstd3n2N8uKRCnsNWGAvwyJsoU5kEggQrZ6P",
+        "1RapidDstVQx2NSxr6gYyMQC8rTfeb2nF8Z4mDDsL9",
+        "1RapidDstBhJL1sZQ9d2kDRLNinZ54AcgGfVSGk7RH",
+        "1RapidSrcpZbZL8MfksiybMaDfE7rNmaorypce2vqG",
+        "1RapidDstgMS7SQ5skDn5dXCnMxe96FB9m5xdTZagt",
+        "1RapidSrcxhTJzr7PMJh2qP1snyukqumEoDCFkmg86",
+        "1RapidSrczzYo7s8Mnb1G8R74SMbTDcjufJe2zrR7i",
+        "1RapidSrcgfapw7E2tZvD4puJQ9wJV6t8TfkwRk9R6",
+        "1RapidSrcJDz4CwmmH7VR8XEZfMQkST5KRQeHQyAwT",
+        "1RapidDstSuK98daiPbJWRn7esYsRtRpQjKKFxgU65"
+      ]
+    },
+    {
+      "scenario_id": "scen_ip_burst_3",
+      "pattern_type": "rapid_ip_burst",
+      "description": "Single IP 185.220.101.13 initiated 6 distinct wallet transactions within 5 seconds",
+      "txids": [
+        "tx_rapid_ip_burst_3_0_779b6e",
+        "tx_rapid_ip_burst_3_1_f45a87",
+        "tx_rapid_ip_burst_3_2_0b2638",
+        "tx_rapid_ip_burst_3_3_ada6b7",
+        "tx_rapid_ip_burst_3_4_3b4650",
+        "tx_rapid_ip_burst_3_5_2fdada"
+      ],
+      "event_ids": [
+        "net_rapid_ip_burst_3_0_b258f4",
+        "net_rapid_ip_burst_3_1_23d75a",
+        "net_rapid_ip_burst_3_2_161f50",
+        "net_rapid_ip_burst_3_3_8df914",
+        "net_rapid_ip_burst_3_4_c080ca",
+        "net_rapid_ip_burst_3_5_2c8996"
+      ],
+      "involved_addresses": [
+        "1RapidDstWBFSSXANHQLbne46gHifusLa9MyhPbwJN",
+        "1RapidDstoT7ub1WF9RcERf5y4XWzZPUdyF1nLjdmj",
+        "1RapidSrcLeqgyUB8iw3CntKJQpU3eHs3fGoSQSxLB",
+        "1RapidDsthNoG5RRzBJ6LJSiASSjucSen4fQWkA2rg",
+        "1RapidDst5xmGDac2tYeJFoQTgARTL9rKzMQmW7F8T",
+        "1RapidSrcnNPZcgxNmaXQeF7jVPZGGSzHvV8rTuS6g",
+        "1RapidDstrKM4YtrivdoW8C9n2ZNoYc6JziXmp5yeT",
+        "1RapidSrcDTM24WEzN2vqen8Hqh9hT15FqYjX7HJ3R",
+        "1RapidSrcqYbm8WsqXJAwEwXH5CxGdc6ebaAduLv3s",
+        "1RapidSrcsd94SJG4WKT4q5srcWTZntToeKU947uLi",
+        "1RapidSrchwzu6fW2JxLmCz9JnWYjXfscb9Bhdui3N",
+        "1RapidDstiycknEEynuCgaSmnWRACcs4UNwiW85ATW"
+      ]
+    },
+    {
+      "scenario_id": "scen_ip_burst_4",
+      "pattern_type": "rapid_ip_burst",
+      "description": "Single IP 185.220.101.14 initiated 6 distinct wallet transactions within 5 seconds",
+      "txids": [
+        "tx_rapid_ip_burst_4_0_0c59d0",
+        "tx_rapid_ip_burst_4_1_70b60a",
+        "tx_rapid_ip_burst_4_2_c5364a",
+        "tx_rapid_ip_burst_4_3_8066b6",
+        "tx_rapid_ip_burst_4_4_0960fd",
+        "tx_rapid_ip_burst_4_5_e5e64b"
+      ],
+      "event_ids": [
+        "net_rapid_ip_burst_4_0_c4ef16",
+        "net_rapid_ip_burst_4_1_d79c16",
+        "net_rapid_ip_burst_4_2_f76900",
+        "net_rapid_ip_burst_4_3_cb5ea0",
+        "net_rapid_ip_burst_4_4_316e97",
+        "net_rapid_ip_burst_4_5_6edc61"
+      ],
+      "involved_addresses": [
+        "1RapidSrcpxoHHiMSFUCYwh8cbFfXe4Qi6m1YvQwsU",
+        "1RapidSrcSYkn9zEvaampEszXQGZbjBgZ3LePXhQJB",
+        "1RapidDstrjhXZzUNxTXYgsgoGVxHJwymhhVUZwiHa",
+        "1RapidDstYEEr9T4QRXPFL5TNYq3Nc35obfDDuJuDC",
+        "1RapidDstCxKeu6aYiwuBtBvzQVwxvs1Z7zHzYVwrU",
+        "1RapidDstCZ5WmHzg7yPoLwkCWW38LUTcWLcAzjJLq",
+        "1RapidSrcjei1LJgCceQRLQ6yUw1PSGLaaGMEfTAgv",
+        "1RapidSrc6WoTWT4ToiPpka3L4zw5w2QmmyeRzPsuN",
+        "1RapidDstgfYeMBYXjD12JgYXpFMGwj7oRmt1C62bh",
+        "1RapidSrcPcFsAKaKmVWVJ2wWyDM3VteUYrRtjmNQa",
+        "1RapidDsttmhewNDxUTzNhukopmgbnXXMv7quCYArS",
+        "1RapidSrcU1L7RJusdbGfyaE3UXimPpFahCSRQCWcU"
+      ]
+    },
+    {
+      "scenario_id": "scen_ip_burst_5",
+      "pattern_type": "rapid_ip_burst",
+      "description": "Single IP 185.220.101.15 initiated 6 distinct wallet transactions within 5 seconds",
+      "txids": [
+        "tx_rapid_ip_burst_5_0_094891",
+        "tx_rapid_ip_burst_5_1_f014eb",
+        "tx_rapid_ip_burst_5_2_847aee",
+        "tx_rapid_ip_burst_5_3_3934ce",
+        "tx_rapid_ip_burst_5_4_a7d791",
+        "tx_rapid_ip_burst_5_5_d8bcd8"
+      ],
+      "event_ids": [
+        "net_rapid_ip_burst_5_0_f0d31c",
+        "net_rapid_ip_burst_5_1_63eaac",
+        "net_rapid_ip_burst_5_2_d1ff83",
+        "net_rapid_ip_burst_5_3_0f706e",
+        "net_rapid_ip_burst_5_4_d96f58",
+        "net_rapid_ip_burst_5_5_f0889d"
+      ],
+      "involved_addresses": [
+        "1RapidDsteQViSAZoD2EHnZmVWaGYzYkmSDRjeFs2G",
+        "1RapidDstgAzFBAZxEQBeS2cCbPhCko46sBKTGsXeb",
+        "1RapidSrcMTBgovbfKE7N9PbaRVYvvBAHBqcsxVCPZ",
+        "1RapidSrcy4SqLmxQm2GzVMwSgf5coi59idjK71JMG",
+        "1RapidDsteLyytvEuhZGvgHYfBr1D9ppvJZZrgYPjn",
+        "1RapidDstoq5rog9JF9RNTbaXvsR3yhpbv7FfAcZee",
+        "1RapidSrcR1GWXaaSPmbWM27Rx7w9KTCVUShKJo7re",
+        "1RapidDstgFpyeVAoAiVvYe42rwfmQqEi1WNcfcVV1",
+        "1RapidDst8BTZQ2M6bKPHP5uuyaAP9JV4SRV5FFdbC",
+        "1RapidSrcPqPsSRpebJbhUBQKjdynKHnNwCzBm2jwD",
+        "1RapidSrciYHWhRwBvXEcFMo5xTFhJq5ze2QNUdh5r",
+        "1RapidSrcUFcCvZmPXMGWV6yUqvNRZD9GwaR9LPqVe"
+      ]
+    },
+    {
+      "scenario_id": "scen_ip_burst_6",
+      "pattern_type": "rapid_ip_burst",
+      "description": "Single IP 185.220.101.16 initiated 6 distinct wallet transactions within 5 seconds",
+      "txids": [
+        "tx_rapid_ip_burst_6_0_3d4ec5",
+        "tx_rapid_ip_burst_6_1_0d5d91",
+        "tx_rapid_ip_burst_6_2_adcc48",
+        "tx_rapid_ip_burst_6_3_6a4005",
+        "tx_rapid_ip_burst_6_4_0eac0e",
+        "tx_rapid_ip_burst_6_5_6ec2c5"
+      ],
+      "event_ids": [
+        "net_rapid_ip_burst_6_0_a65416",
+        "net_rapid_ip_burst_6_1_8bb312",
+        "net_rapid_ip_burst_6_2_8b66ad",
+        "net_rapid_ip_burst_6_3_85ca34",
+        "net_rapid_ip_burst_6_4_480d05",
+        "net_rapid_ip_burst_6_5_b8bcbd"
+      ],
+      "involved_addresses": [
+        "1RapidDst1r13NvBx3oifEFvKpa7g4DW3QssmK6TNH",
+        "1RapidSrczmEpbMidA9CD4MHYKhHGrzg6xnvzs8sFi",
+        "1RapidDstS1L7rhUE6o6NJPpseg4ZcAMDkvcSDu98j",
+        "1RapidDstqmgVaGRTdt6WHwNxK1mjjTfM4XDRDGqLa",
+        "1RapidDst568p5ZSxEGKohjKG5CnaAAUQYxDJG7Agp",
+        "1RapidDstro8w3vSjVPRMuGS9cceVtU6PReoFzY2Pi",
+        "1RapidSrcr9iyP3JpBxrZY66o84nDCQgw5av5zCeo6",
+        "1RapidSrcTbVmCumF1QEMqsx1frj7XEV4zi6vuXhNy",
+        "1RapidSrc9H5ZbcnhrfJXWkJ4uxV7VbXyzw8rZNgmx",
+        "1RapidSrctm3dq1vATzRzutJss6M5fe4djkR66D5bX",
+        "1RapidSrcfB181VMWpGNksj7uLRXGydVW4rAAmtg7j",
+        "1RapidDstm14G34nWdWRh5YcHJWCoYPdqg4hjr46ST"
+      ]
+    },
+    {
+      "scenario_id": "scen_smurf_0",
+      "pattern_type": "smurfing_consolidation",
+      "description": "Wallet 1SmurfCollectoruWPBKDtn4zXmzy6fGpv4zDroMqrBbohv2 received 10 small deposits then rapidly consolidated 0.8785 BTC to 1DarkMarketCashouthwZZBztVJV6EDX1vC8ivqK2bvmrrxNwP6",
+      "txids": [
+        "tx_smurf_in_0_0_75f0ba",
+        "tx_smurf_in_0_1_4025dd",
+        "tx_smurf_in_0_2_bd1acf",
+        "tx_smurf_in_0_3_e30c7c",
+        "tx_smurf_in_0_4_cad4ec",
+        "tx_smurf_in_0_5_7b2437",
+        "tx_smurf_in_0_6_cce81c",
+        "tx_smurf_in_0_7_8f915e",
+        "tx_smurf_in_0_8_08cc2c",
+        "tx_smurf_in_0_9_602840",
+        "tx_smurf_out_0_5a4e8c"
+      ],
+      "event_ids": [
+        "net_smurf_in_0_0_4b29c3",
+        "net_smurf_in_0_1_8a694b",
+        "net_smurf_in_0_2_b10037",
+        "net_smurf_in_0_3_da0fa5",
+        "net_smurf_in_0_4_1a0116",
+        "net_smurf_in_0_5_cd11f3",
+        "net_smurf_in_0_6_95cd40",
+        "net_smurf_in_0_7_8ca2fa",
+        "net_smurf_in_0_8_57aaf2",
+        "net_smurf_in_0_9_0924f8",
+        "net_smurf_out_0_a870a0"
+      ],
+      "involved_addresses": [
+        "1SmurfCollectoruWPBKDtn4zXmzy6fGpv4zDroMqrBbohv2",
+        "1DarkMarketCashouthwZZBztVJV6EDX1vC8ivqK2bvmrrxNwP6"
+      ]
+    },
+    {
+      "scenario_id": "scen_smurf_1",
+      "pattern_type": "smurfing_consolidation",
+      "description": "Wallet 1SmurfCollector2W8inNemdb37q37S8FhCg1R6XdhRuWcHn received 10 small deposits then rapidly consolidated 0.8466 BTC to 1DarkMarketCashoutVcnqyMQAYugUE167aVxn5iueTyG3psrMg",
+      "txids": [
+        "tx_smurf_in_1_0_c7bdde",
+        "tx_smurf_in_1_1_d8c4ac",
+        "tx_smurf_in_1_2_31847b",
+        "tx_smurf_in_1_3_526bd0",
+        "tx_smurf_in_1_4_6ad442",
+        "tx_smurf_in_1_5_d7ff8d",
+        "tx_smurf_in_1_6_b8b218",
+        "tx_smurf_in_1_7_0d2343",
+        "tx_smurf_in_1_8_6615ef",
+        "tx_smurf_in_1_9_cfddba",
+        "tx_smurf_out_1_89f120"
+      ],
+      "event_ids": [
+        "net_smurf_in_1_0_66de29",
+        "net_smurf_in_1_1_63eb1c",
+        "net_smurf_in_1_2_fa5a6d",
+        "net_smurf_in_1_3_c14548",
+        "net_smurf_in_1_4_f45de6",
+        "net_smurf_in_1_5_d98d24",
+        "net_smurf_in_1_6_9d9640",
+        "net_smurf_in_1_7_741f31",
+        "net_smurf_in_1_8_1947a4",
+        "net_smurf_in_1_9_2d657b",
+        "net_smurf_out_1_f2da02"
+      ],
+      "involved_addresses": [
+        "1SmurfCollector2W8inNemdb37q37S8FhCg1R6XdhRuWcHn",
+        "1DarkMarketCashoutVcnqyMQAYugUE167aVxn5iueTyG3psrMg"
+      ]
+    },
+    {
+      "scenario_id": "scen_smurf_2",
+      "pattern_type": "smurfing_consolidation",
+      "description": "Wallet 1SmurfCollectorDjSq8jsTMJYBcqr9YGt552W2aQbuYYzUm received 10 small deposits then rapidly consolidated 0.8822 BTC to 1DarkMarketCashoutNDmjHTWQWfrocAWSBxfyjVMDV4N3CuMUT",
+      "txids": [
+        "tx_smurf_in_2_0_2721c3",
+        "tx_smurf_in_2_1_8c1acc",
+        "tx_smurf_in_2_2_59d13d",
+        "tx_smurf_in_2_3_f8892b",
+        "tx_smurf_in_2_4_192931",
+        "tx_smurf_in_2_5_9893b0",
+        "tx_smurf_in_2_6_311ff1",
+        "tx_smurf_in_2_7_b40b41",
+        "tx_smurf_in_2_8_760c35",
+        "tx_smurf_in_2_9_89781f",
+        "tx_smurf_out_2_685b52"
+      ],
+      "event_ids": [
+        "net_smurf_in_2_0_46b713",
+        "net_smurf_in_2_1_c5457a",
+        "net_smurf_in_2_2_c3cd6e",
+        "net_smurf_in_2_3_7598b4",
+        "net_smurf_in_2_4_911030",
+        "net_smurf_in_2_5_ebc387",
+        "net_smurf_in_2_6_41b879",
+        "net_smurf_in_2_7_f2ee6a",
+        "net_smurf_in_2_8_38f5ea",
+        "net_smurf_in_2_9_a362de",
+        "net_smurf_out_2_e12796"
+      ],
+      "involved_addresses": [
+        "1SmurfCollectorDjSq8jsTMJYBcqr9YGt552W2aQbuYYzUm",
+        "1DarkMarketCashoutNDmjHTWQWfrocAWSBxfyjVMDV4N3CuMUT"
+      ]
+    },
+    {
+      "scenario_id": "scen_smurf_3",
+      "pattern_type": "smurfing_consolidation",
+      "description": "Wallet 1SmurfCollectord8q2frKUyYGSyhBbddZXeJMYoSNGJ1prL received 10 small deposits then rapidly consolidated 1.0447 BTC to 1DarkMarketCashoutU1vwU1RHE1NQZPAjPNGREmuogHkoQrBHd",
+      "txids": [
+        "tx_smurf_in_3_0_4738a4",
+        "tx_smurf_in_3_1_bea423",
+        "tx_smurf_in_3_2_754f44",
+        "tx_smurf_in_3_3_0fe59b",
+        "tx_smurf_in_3_4_ed97a7",
+        "tx_smurf_in_3_5_f9583e",
+        "tx_smurf_in_3_6_eec862",
+        "tx_smurf_in_3_7_aac20a",
+        "tx_smurf_in_3_8_bbd1b1",
+        "tx_smurf_in_3_9_9f5aa9",
+        "tx_smurf_out_3_55b549"
+      ],
+      "event_ids": [
+        "net_smurf_in_3_0_f697ae",
+        "net_smurf_in_3_1_d137a4",
+        "net_smurf_in_3_2_8da6bc",
+        "net_smurf_in_3_3_9a06f3",
+        "net_smurf_in_3_4_809de6",
+        "net_smurf_in_3_5_ca120b",
+        "net_smurf_in_3_6_fd3a80",
+        "net_smurf_in_3_7_e22363",
+        "net_smurf_in_3_8_ad37df",
+        "net_smurf_in_3_9_8d3168",
+        "net_smurf_out_3_480b5e"
+      ],
+      "involved_addresses": [
+        "1SmurfCollectord8q2frKUyYGSyhBbddZXeJMYoSNGJ1prL",
+        "1DarkMarketCashoutU1vwU1RHE1NQZPAjPNGREmuogHkoQrBHd"
+      ]
+    },
+    {
+      "scenario_id": "scen_smurf_4",
+      "pattern_type": "smurfing_consolidation",
+      "description": "Wallet 1SmurfCollectorq92KyxJkpdj9B82zcccbE25n8rUeBPUAE received 10 small deposits then rapidly consolidated 1.1457 BTC to 1DarkMarketCashoutQyvxDfCCBxScgstRncpiPwaYeh37TssFY",
+      "txids": [
+        "tx_smurf_in_4_0_6bc824",
+        "tx_smurf_in_4_1_a2766e",
+        "tx_smurf_in_4_2_9f1a03",
+        "tx_smurf_in_4_3_36424f",
+        "tx_smurf_in_4_4_ab7a56",
+        "tx_smurf_in_4_5_4b4a6b",
+        "tx_smurf_in_4_6_826209",
+        "tx_smurf_in_4_7_f55914",
+        "tx_smurf_in_4_8_cff4ee",
+        "tx_smurf_in_4_9_149535",
+        "tx_smurf_out_4_309cf1"
+      ],
+      "event_ids": [
+        "net_smurf_in_4_0_3f0cf8",
+        "net_smurf_in_4_1_b69810",
+        "net_smurf_in_4_2_a21612",
+        "net_smurf_in_4_3_fc423d",
+        "net_smurf_in_4_4_127575",
+        "net_smurf_in_4_5_299ee8",
+        "net_smurf_in_4_6_82cd15",
+        "net_smurf_in_4_7_4ec156",
+        "net_smurf_in_4_8_15515a",
+        "net_smurf_in_4_9_29c228",
+        "net_smurf_out_4_a7dc0d"
+      ],
+      "involved_addresses": [
+        "1SmurfCollectorq92KyxJkpdj9B82zcccbE25n8rUeBPUAE",
+        "1DarkMarketCashoutQyvxDfCCBxScgstRncpiPwaYeh37TssFY"
+      ]
+    },
+    {
+      "scenario_id": "scen_smurf_5",
+      "pattern_type": "smurfing_consolidation",
+      "description": "Wallet 1SmurfCollector8orthvdTRpPER1VjiGva23VNax5jXrkHW received 10 small deposits then rapidly consolidated 1.0529 BTC to 1DarkMarketCashoutXcFdffgYacuY1TuaLMyJAhbJnGdaafHj2",
+      "txids": [
+        "tx_smurf_in_5_0_8f588e",
+        "tx_smurf_in_5_1_33ba0d",
+        "tx_smurf_in_5_2_f280a7",
+        "tx_smurf_in_5_3_e2bd36",
+        "tx_smurf_in_5_4_74a2f1",
+        "tx_smurf_in_5_5_f75dea",
+        "tx_smurf_in_5_6_5c51a0",
+        "tx_smurf_in_5_7_010b11",
+        "tx_smurf_in_5_8_8d6957",
+        "tx_smurf_in_5_9_157ed7",
+        "tx_smurf_out_5_871899"
+      ],
+      "event_ids": [
+        "net_smurf_in_5_0_d108c4",
+        "net_smurf_in_5_1_445b7e",
+        "net_smurf_in_5_2_7d5ee1",
+        "net_smurf_in_5_3_ea4d31",
+        "net_smurf_in_5_4_20b825",
+        "net_smurf_in_5_5_21f8aa",
+        "net_smurf_in_5_6_b91415",
+        "net_smurf_in_5_7_6ac5c1",
+        "net_smurf_in_5_8_4213a7",
+        "net_smurf_in_5_9_915ba8",
+        "net_smurf_out_5_e073dc"
+      ],
+      "involved_addresses": [
+        "1SmurfCollector8orthvdTRpPER1VjiGva23VNax5jXrkHW",
+        "1DarkMarketCashoutXcFdffgYacuY1TuaLMyJAhbJnGdaafHj2"
+      ]
+    },
+    {
+      "scenario_id": "scen_smurf_6",
+      "pattern_type": "smurfing_consolidation",
+      "description": "Wallet 1SmurfCollectorhXJkhcaDgcLwWuN3PT3NehZm9LYejkshk received 10 small deposits then rapidly consolidated 0.8159 BTC to 1DarkMarketCashoutmKuWR4NTWqUXpuTNghytBt6PBx5A799Cx",
+      "txids": [
+        "tx_smurf_in_6_0_f31b7b",
+        "tx_smurf_in_6_1_1d99a4",
+        "tx_smurf_in_6_2_6b1cd3",
+        "tx_smurf_in_6_3_0ff189",
+        "tx_smurf_in_6_4_0dad48",
+        "tx_smurf_in_6_5_5b41c3",
+        "tx_smurf_in_6_6_aaddd6",
+        "tx_smurf_in_6_7_c4cc0a",
+        "tx_smurf_in_6_8_7a0a8f",
+        "tx_smurf_in_6_9_72ebf2",
+        "tx_smurf_out_6_eeccbb"
+      ],
+      "event_ids": [
+        "net_smurf_in_6_0_c6ad88",
+        "net_smurf_in_6_1_3b1a12",
+        "net_smurf_in_6_2_3dd741",
+        "net_smurf_in_6_3_8f699a",
+        "net_smurf_in_6_4_38b2cd",
+        "net_smurf_in_6_5_332397",
+        "net_smurf_in_6_6_fabca7",
+        "net_smurf_in_6_7_1b6a00",
+        "net_smurf_in_6_8_f84037",
+        "net_smurf_in_6_9_3f174f",
+        "net_smurf_out_6_7782f2"
+      ],
+      "involved_addresses": [
+        "1SmurfCollectorhXJkhcaDgcLwWuN3PT3NehZm9LYejkshk",
+        "1DarkMarketCashoutmKuWR4NTWqUXpuTNghytBt6PBx5A799Cx"
+      ]
+    },
+    {
+      "scenario_id": "scen_smurf_7",
+      "pattern_type": "smurfing_consolidation",
+      "description": "Wallet 1SmurfCollectoryK23qMk2tL6MMMfFebu4JL2KTsZuGhbzN received 10 small deposits then rapidly consolidated 0.8572 BTC to 1DarkMarketCashoutPao6gLWmLcNSVrnqYH3zQEk6q6L4oUDoe",
+      "txids": [
+        "tx_smurf_in_7_0_f4d548",
+        "tx_smurf_in_7_1_f3af27",
+        "tx_smurf_in_7_2_c7a6fd",
+        "tx_smurf_in_7_3_3337f4",
+        "tx_smurf_in_7_4_411053",
+        "tx_smurf_in_7_5_3e16b8",
+        "tx_smurf_in_7_6_45d90c",
+        "tx_smurf_in_7_7_7a23f4",
+        "tx_smurf_in_7_8_631f37",
+        "tx_smurf_in_7_9_faca9d",
+        "tx_smurf_out_7_38b63b"
+      ],
+      "event_ids": [
+        "net_smurf_in_7_0_5cf51a",
+        "net_smurf_in_7_1_5d7b7d",
+        "net_smurf_in_7_2_3b01ad",
+        "net_smurf_in_7_3_accfe5",
+        "net_smurf_in_7_4_93ee33",
+        "net_smurf_in_7_5_664224",
+        "net_smurf_in_7_6_c722f2",
+        "net_smurf_in_7_7_104d90",
+        "net_smurf_in_7_8_0e192a",
+        "net_smurf_in_7_9_56902b",
+        "net_smurf_out_7_b5f176"
+      ],
+      "involved_addresses": [
+        "1SmurfCollectoryK23qMk2tL6MMMfFebu4JL2KTsZuGhbzN",
+        "1DarkMarketCashoutPao6gLWmLcNSVrnqYH3zQEk6q6L4oUDoe"
+      ]
+    },
+    {
+      "scenario_id": "scen_smurf_8",
+      "pattern_type": "smurfing_consolidation",
+      "description": "Wallet 1SmurfCollectorF5W7fBBP5sJbTfdGysBBkcs7X17AUhsyb received 10 small deposits then rapidly consolidated 1.0474 BTC to 1DarkMarketCashoutVcyMghPJ8171yrDeeSdnCJTU2A9hxUraC",
+      "txids": [
+        "tx_smurf_in_8_0_4b9336",
+        "tx_smurf_in_8_1_2afd67",
+        "tx_smurf_in_8_2_f5b4b4",
+        "tx_smurf_in_8_3_eb0f40",
+        "tx_smurf_in_8_4_52a4d2",
+        "tx_smurf_in_8_5_765191",
+        "tx_smurf_in_8_6_7e3360",
+        "tx_smurf_in_8_7_54fa09",
+        "tx_smurf_in_8_8_1f3b04",
+        "tx_smurf_in_8_9_a17d20",
+        "tx_smurf_out_8_a57a1c"
+      ],
+      "event_ids": [
+        "net_smurf_in_8_0_dec3b7",
+        "net_smurf_in_8_1_9cd3c8",
+        "net_smurf_in_8_2_3785a9",
+        "net_smurf_in_8_3_b25183",
+        "net_smurf_in_8_4_c4274d",
+        "net_smurf_in_8_5_67fbcd",
+        "net_smurf_in_8_6_2ce1a5",
+        "net_smurf_in_8_7_46a35c",
+        "net_smurf_in_8_8_9cf558",
+        "net_smurf_in_8_9_2424bd",
+        "net_smurf_out_8_c2ba17"
+      ],
+      "involved_addresses": [
+        "1SmurfCollectorF5W7fBBP5sJbTfdGysBBkcs7X17AUhsyb",
+        "1DarkMarketCashoutVcyMghPJ8171yrDeeSdnCJTU2A9hxUraC"
+      ]
+    },
+    {
+      "scenario_id": "scen_peel_0",
+      "pattern_type": "peeling_chain",
+      "description": "Peeling chain sequence across 5 hops starting from 25.0 BTC",
+      "txids": [
+        "tx_peel_chain_c0_hop0_4095ae",
+        "tx_peel_chain_c0_hop1_038578",
+        "tx_peel_chain_c0_hop2_c8737f",
+        "tx_peel_chain_c0_hop3_b88c41",
+        "tx_peel_chain_c0_hop4_2fcd50"
+      ],
+      "event_ids": [
+        "net_peel_chain_c0_hop0_3bc395",
+        "net_peel_chain_c0_hop1_9908c8",
+        "net_peel_chain_c0_hop2_fbc249",
+        "net_peel_chain_c0_hop3_1d305a",
+        "net_peel_chain_c0_hop4_eb3db3"
+      ],
+      "involved_addresses": [
+        "1PeelHop_0_2WMUdB838aWeMaY9UbHyXf9EpZ4LyeC4BU",
+        "1PeelPeeled_0_2hUhrZLJL7suVvehUDUmpoNQp11MZ9SduM",
+        "1PeelSeed_0P89ZHScxKgLGkTFzLTb1he1UugQthmYne",
+        "1PeelHop_0_1HRT1C5a2jyR5FAKd6UobdLF7EL4Lowmcm",
+        "1PeelHop_0_3rFCBG6q8etLDTNNAXodSi7t8BXhKRdvmb",
+        "1PeelPeeled_0_1da542Kr48vSJd4gZJP6kEbf1PotcLwnTL",
+        "1PeelPeeled_0_4Ghzzkju1JpnQQafUWm9QEkUWnkiTnKBmh",
+        "1PeelHop_0_052qffMppMBmh1TwSD2HvM6cJiEVNHuiDC",
+        "1PeelPeeled_0_3rJ9FdH8WaVjnncAPtkNXBiXVxUaeneDtT",
+        "1PeelHop_0_4Y85SMaTdRUQoKPBEeM5qWenv653CCLJpg",
+        "1PeelPeeled_0_0pPsaVZfZgZ484GaEXnCgzhXFZTwew4wSz"
+      ]
+    },
+    {
+      "scenario_id": "scen_peel_1",
+      "pattern_type": "peeling_chain",
+      "description": "Peeling chain sequence across 5 hops starting from 25.0 BTC",
+      "txids": [
+        "tx_peel_chain_c1_hop0_d3d141",
+        "tx_peel_chain_c1_hop1_cfc8ae",
+        "tx_peel_chain_c1_hop2_83240e",
+        "tx_peel_chain_c1_hop3_7921d3",
+        "tx_peel_chain_c1_hop4_4dd751"
+      ],
+      "event_ids": [
+        "net_peel_chain_c1_hop0_cd8b0f",
+        "net_peel_chain_c1_hop1_15ffb2",
+        "net_peel_chain_c1_hop2_5f395c",
+        "net_peel_chain_c1_hop3_ec2d28",
+        "net_peel_chain_c1_hop4_f5e0a8"
+      ],
+      "involved_addresses": [
+        "1PeelPeeled_1_2hLdtKrULcaPeEbzEcuJjkc4NJ9C3vbwjL",
+        "1PeelHop_1_0pb2CuPCHXTN1KuPz8RkPuCsJpfAaJCiTC",
+        "1PeelPeeled_1_0zSpcFLaVT36evMqnPprRBcSPfh6h3tAtY",
+        "1PeelHop_1_4VebQ3vPZCSFuiWVghevjF3pdgheGTgFbx",
+        "1PeelPeeled_1_3SdGn5yQASWjmpo2Prmvb9jFTTNc58U9B1",
+        "1PeelHop_1_2ZBDYw8DMBQKPT4peN4DJbz6YzrAxbyhgy",
+        "1PeelHop_1_3rLFYufFgicPKS1s5Cd9C6bqwE5jKiFBFH",
+        "1PeelHop_1_1kWnQAD32egTLQC3Fi8fTT5fiSUHAqcB8k",
+        "1PeelSeed_1jVfMERkmhJbZ29yzZouaPPx4PULxeJAgB",
+        "1PeelPeeled_1_4q1mevQauXBRqFJyfPJQsj6dnL9kvQJzp1",
+        "1PeelPeeled_1_1Af1GSBitXS3dXff6hSb3NCFuC121pg4x6"
+      ]
+    },
+    {
+      "scenario_id": "scen_peel_2",
+      "pattern_type": "peeling_chain",
+      "description": "Peeling chain sequence across 5 hops starting from 25.0 BTC",
+      "txids": [
+        "tx_peel_chain_c2_hop0_0b7880",
+        "tx_peel_chain_c2_hop1_cf5ffd",
+        "tx_peel_chain_c2_hop2_f5d773",
+        "tx_peel_chain_c2_hop3_9a4e0c",
+        "tx_peel_chain_c2_hop4_9984b4"
+      ],
+      "event_ids": [
+        "net_peel_chain_c2_hop0_0c35fa",
+        "net_peel_chain_c2_hop1_ed6830",
+        "net_peel_chain_c2_hop2_9b7fb8",
+        "net_peel_chain_c2_hop3_588e0a",
+        "net_peel_chain_c2_hop4_058c7a"
+      ],
+      "involved_addresses": [
+        "1PeelPeeled_2_2P8kaoriTA8hH9Dkj1jagz9xRqv6yB4yeb",
+        "1PeelPeeled_2_3YQhPpnX4qYpekDf7rh1SK3ae6Fk58JyAy",
+        "1PeelHop_2_01bzmwULRNtzpwfN4ML6Thjt9bsHhpNcfU",
+        "1PeelHop_2_3JbBkmzf6TpPdS178euEbzUh6bPzhJ8Kis",
+        "1PeelSeed_2NhCBxTpB4BmGuQddsAJNHLaUg64k1az6X",
+        "1PeelPeeled_2_1D766jwk7Nrxa14YryKNgoXbDPYT9wqVTb",
+        "1PeelHop_2_1Dkf6SiAvumDFUu88Yj6hswmbeNijPeZro",
+        "1PeelHop_2_2hUqVhNyLqDjph4sBVPzfrzYLgzkPXHhCr",
+        "1PeelPeeled_2_0QBzxp1M3oKScQc5RwvzrujJC9XarW8oJg",
+        "1PeelHop_2_4ahXzMYD6pEBJqxbDM8d5FPuQ5FRhY5jzh",
+        "1PeelPeeled_2_4CNfpcR9zS2c587Y4eNLGsE1NyN7vBjJpV"
+      ]
+    },
+    {
+      "scenario_id": "scen_peel_3",
+      "pattern_type": "peeling_chain",
+      "description": "Peeling chain sequence across 5 hops starting from 25.0 BTC",
+      "txids": [
+        "tx_peel_chain_c3_hop0_b09e43",
+        "tx_peel_chain_c3_hop1_de109e",
+        "tx_peel_chain_c3_hop2_9167cc",
+        "tx_peel_chain_c3_hop3_a2a152",
+        "tx_peel_chain_c3_hop4_b021b7"
+      ],
+      "event_ids": [
+        "net_peel_chain_c3_hop0_12fea0",
+        "net_peel_chain_c3_hop1_4ba4f9",
+        "net_peel_chain_c3_hop2_cf9630",
+        "net_peel_chain_c3_hop3_45cf51",
+        "net_peel_chain_c3_hop4_fe6be4"
+      ],
+      "involved_addresses": [
+        "1PeelSeed_3wPMjyXbrU81WA8Nj4jyiFchBzoWGRwtpJ",
+        "1PeelHop_3_2FpChohWBzbdE83zvRc63QJdELUWeJGHMR",
+        "1PeelPeeled_3_0ptXccxgtXE5qWxRNN7vFYm7JJDjZDJwep",
+        "1PeelPeeled_3_4TpBawBHJtpgB9RTeQj8k16P71qw8mGwbn",
+        "1PeelPeeled_3_1uACUfGRYoiKmtWvqP772AWmEgLyjSHVmF",
+        "1PeelHop_3_3UmX98RitmrZMNd7SVXxnAGyHx4yCpVXW5",
+        "1PeelHop_3_0rwQK65jwA4kZVsxRWjUWzthQcukihkFjx",
+        "1PeelHop_3_1M1tBM6V5W98VAfEPJRBp7SqAMSMsCB3Pk",
+        "1PeelHop_3_4uJzd1MjHF1fswaigwFdcCSKCdrPSjS9UV",
+        "1PeelPeeled_3_3SWZPcD1ab1vWWiGrJG7DXHewH8s3yzD7e",
+        "1PeelPeeled_3_2K334kDUu6BxNJ61ZrLjMnXNeDPt8k7bue"
+      ]
+    },
+    {
+      "scenario_id": "scen_peel_4",
+      "pattern_type": "peeling_chain",
+      "description": "Peeling chain sequence across 5 hops starting from 25.0 BTC",
+      "txids": [
+        "tx_peel_chain_c4_hop0_b5fdfb",
+        "tx_peel_chain_c4_hop1_aa9995",
+        "tx_peel_chain_c4_hop2_2fcedd",
+        "tx_peel_chain_c4_hop3_b44247",
+        "tx_peel_chain_c4_hop4_0a100f"
+      ],
+      "event_ids": [
+        "net_peel_chain_c4_hop0_368038",
+        "net_peel_chain_c4_hop1_a9cfac",
+        "net_peel_chain_c4_hop2_c2b83b",
+        "net_peel_chain_c4_hop3_33ea84",
+        "net_peel_chain_c4_hop4_71b349"
+      ],
+      "involved_addresses": [
+        "1PeelPeeled_4_0H6zBPKRhRoLoeFRVXXpPaRahkhE1z1Zxv",
+        "1PeelPeeled_4_1ecBAPRwTiFaJEwG6NxkQ4Ppyc5hUeQP4N",
+        "1PeelHop_4_1DEk7h9jhR47aUbA99F1qRmU9XxUiSe174",
+        "1PeelPeeled_4_3ejFp1rHAQ5PT6UeuT5jvvmCLKzVhUH3AU",
+        "1PeelSeed_4UZSAL94hd8p6JWq9u2R9fEsPtp7A76xMc",
+        "1PeelHop_4_4U4sxgGd55QJisXfGq6uLkAMRUgAhMhP1n",
+        "1PeelHop_4_36KwAHN6BmFUFse98Z3rQrv8NrxNgWGsgc",
+        "1PeelHop_4_2HY4bkJYe2GyZZn3Kw1MHQCkjyh6Qk6o9b",
+        "1PeelHop_4_07vvtcBXbg9fJpM7vfwpi51w9fKPinU4ax",
+        "1PeelPeeled_4_4b5fcKzwkjK9T9s7yQX1Tq8Ty6DyRYANMx",
+        "1PeelPeeled_4_2PbrH9Tt6itoemAxWjevLnLMrRtmPDc59d"
+      ]
+    },
+    {
+      "scenario_id": "scen_peel_5",
+      "pattern_type": "peeling_chain",
+      "description": "Peeling chain sequence across 5 hops starting from 25.0 BTC",
+      "txids": [
+        "tx_peel_chain_c5_hop0_79e58a",
+        "tx_peel_chain_c5_hop1_bd0886",
+        "tx_peel_chain_c5_hop2_55a8ae",
+        "tx_peel_chain_c5_hop3_e047d6",
+        "tx_peel_chain_c5_hop4_015ab8"
+      ],
+      "event_ids": [
+        "net_peel_chain_c5_hop0_c0a8dd",
+        "net_peel_chain_c5_hop1_8e4a41",
+        "net_peel_chain_c5_hop2_89b97c",
+        "net_peel_chain_c5_hop3_9535b4",
+        "net_peel_chain_c5_hop4_408fb0"
+      ],
+      "involved_addresses": [
+        "1PeelHop_5_1k8TdMEuJYFnnmfGwdea6Tb7Ht6VMqPV25",
+        "1PeelPeeled_5_1x5gNKuoB1BZc2yzVcYAkvC22W9s7DKDjw",
+        "1PeelHop_5_2oSwvFCrix6obACiSSbGK7PCMupTtxFQcs",
+        "1PeelHop_5_4VHmU6miMqFerh5VDfUPVLpmWKwifr78vP",
+        "1PeelPeeled_5_4TcCQ4Rgxa6T771TGUXM7YMDQRLSN3PvCB",
+        "1PeelPeeled_5_2xXQ7oRBFDN9K1giDZKE4HDDZiwofaegSp",
+        "1PeelPeeled_5_0qXjKAaRZPcP3wRwPjQKAEi87aPmvqAK62",
+        "1PeelHop_5_3TbbE22na1T8y3XXL1UqRJKM5mV3JzVeuq",
+        "1PeelPeeled_5_3w6Dp9zrjE6ippY1g4t33JGgnPhva7K9ar",
+        "1PeelSeed_5Jp8VzRMqRyLvTNZASHfgdhwu66q61w7kd",
+        "1PeelHop_5_0YdWofrDnY7rxMoTuenPwnWGfJuug1u22n"
+      ]
+    },
+    {
+      "scenario_id": "scen_peel_6",
+      "pattern_type": "peeling_chain",
+      "description": "Peeling chain sequence across 5 hops starting from 25.0 BTC",
+      "txids": [
+        "tx_peel_chain_c6_hop0_14dd0a",
+        "tx_peel_chain_c6_hop1_24d49d",
+        "tx_peel_chain_c6_hop2_3845d5",
+        "tx_peel_chain_c6_hop3_5e05c8",
+        "tx_peel_chain_c6_hop4_adef31"
+      ],
+      "event_ids": [
+        "net_peel_chain_c6_hop0_2c13d8",
+        "net_peel_chain_c6_hop1_d253b0",
+        "net_peel_chain_c6_hop2_871819",
+        "net_peel_chain_c6_hop3_a351e4",
+        "net_peel_chain_c6_hop4_f5ce17"
+      ],
+      "involved_addresses": [
+        "1PeelHop_6_2Q2ZxRkcJFW8YZJkPQ1osT44qeL6HUL4jg",
+        "1PeelHop_6_3pfAkYUHfxVfPh7RR2TZ1Jetc3uxUiHyMr",
+        "1PeelPeeled_6_19jSvH2wFgPQutvbBSso9mFRCJJvTBnq6X",
+        "1PeelPeeled_6_4tMQY5BjueVqaUMcZ84RN55nJ7EbLDwvFh",
+        "1PeelHop_6_4uBtkR4c7r5mcqvKhNzaCFSHCApoCadfCo",
+        "1PeelSeed_677taEXGthQPDphVACdhH1BudjrgAgALTx",
+        "1PeelPeeled_6_3WMhP4fMiLinHmJPveNUfavmX8KxMcQ3rA",
+        "1PeelPeeled_6_0XfsqVGXe9QDzM2ahRC6vN7GdYuzsBuMLb",
+        "1PeelHop_6_1oZnM71v9gXHZAV4JTDp8V1Mq38snWxZxi",
+        "1PeelHop_6_0fR2ytAm1MU1sU32gHEWkm6oLVMYfFTqJL",
+        "1PeelPeeled_6_2j4C9jVDgrJKz1Vg71c86CUqS48QypqYpg"
+      ]
+    },
+    {
+      "scenario_id": "scen_peel_7",
+      "pattern_type": "peeling_chain",
+      "description": "Peeling chain sequence across 5 hops starting from 25.0 BTC",
+      "txids": [
+        "tx_peel_chain_c7_hop0_f609d5",
+        "tx_peel_chain_c7_hop1_42e3ae",
+        "tx_peel_chain_c7_hop2_749b6c",
+        "tx_peel_chain_c7_hop3_4c8984",
+        "tx_peel_chain_c7_hop4_37119e"
+      ],
+      "event_ids": [
+        "net_peel_chain_c7_hop0_183499",
+        "net_peel_chain_c7_hop1_853e25",
+        "net_peel_chain_c7_hop2_e01b5a",
+        "net_peel_chain_c7_hop3_71fe23",
+        "net_peel_chain_c7_hop4_4a03ea"
+      ],
+      "involved_addresses": [
+        "1PeelHop_7_3coWnWaLDq2jPz55wEWaYRjrX3UXSGqHFF",
+        "1PeelHop_7_07VEMUnsEw2nCcPg2UPN8hY77cuMLvE61Q",
+        "1PeelPeeled_7_12ctvuobkLqSRjj47PigrwTaZXAPkv81ox",
+        "1PeelHop_7_46sq2A5WXPR8hFJLpLc7i5vxudjSkhjibp",
+        "1PeelPeeled_7_3mMTk7EjtMMWvecTRap8YnQa9GHK5Rzadm",
+        "1PeelPeeled_7_2BWSKZExzy1rrY3E7W75Caqg5RH2cMyuNw",
+        "1PeelPeeled_7_4W91bgTKBiHmEV3XXWvHPkx3wtjRHtKMAH",
+        "1PeelSeed_7cYtawze2RCt4CpLku4VoZcqoM5RjvtU8i",
+        "1PeelHop_7_2GFem1JfqrS213MdZQa5uYxSFnGVEBsfEe",
+        "1PeelHop_7_1C8yEkDNp9yheT7V2HPp5HcVsP3CBS4JYM",
+        "1PeelPeeled_7_0koY3osF44SHKbtz8Qff5wChpurSJNYsFt"
+      ]
+    },
+    {
+      "scenario_id": "scen_peel_8",
+      "pattern_type": "peeling_chain",
+      "description": "Peeling chain sequence across 5 hops starting from 25.0 BTC",
+      "txids": [
+        "tx_peel_chain_c8_hop0_9420a3",
+        "tx_peel_chain_c8_hop1_8e38f6",
+        "tx_peel_chain_c8_hop2_7c68a2",
+        "tx_peel_chain_c8_hop3_a22e07",
+        "tx_peel_chain_c8_hop4_f7c43a"
+      ],
+      "event_ids": [
+        "net_peel_chain_c8_hop0_0ac69e",
+        "net_peel_chain_c8_hop1_1b3244",
+        "net_peel_chain_c8_hop2_48eadb",
+        "net_peel_chain_c8_hop3_bf76a0",
+        "net_peel_chain_c8_hop4_ad2c12"
+      ],
+      "involved_addresses": [
+        "1PeelHop_8_2kYv6bPqrnRkJT6yaNRDQHHhWPzjxmiTa2",
+        "1PeelPeeled_8_1mZeXNCAYrEouLDjw32w6QVAJEmFG8nf8j",
+        "1PeelHop_8_381X8Cs7tVdX9sR17zitGKtZAHgoxNcUDL",
+        "1PeelPeeled_8_4MqK5cDAdH9SShF7ueBsrmMRcsvCNwzCMC",
+        "1PeelSeed_8H6ZWAb3tYCVpNHwRS8Tviv7tV68HfyokD",
+        "1PeelHop_8_05ALTjf5gt36hXCZqdxdFbsDCUVBV8d6Wi",
+        "1PeelPeeled_8_2mSU7K9d5ZDwb5QqXqm4VQjq3gbsGDZVVx",
+        "1PeelPeeled_8_0DSVci3gcdEMXxsqsfVdbYJDxumRSFRBxf",
+        "1PeelHop_8_1EHWtn4mGKPSQuGjLpJQaACdwcLc2io6hu",
+        "1PeelHop_8_4Z8XeParcyjcuD1EDvc9U15y8oRUJmEPmh",
+        "1PeelPeeled_8_3kzvAiUKBUz1hC6T6db4dtM1CHuRjNmwZe"
+      ]
+    },
+    {
+      "scenario_id": "scen_peel_9",
+      "pattern_type": "peeling_chain",
+      "description": "Peeling chain sequence across 5 hops starting from 25.0 BTC",
+      "txids": [
+        "tx_peel_chain_c9_hop0_6a94c4",
+        "tx_peel_chain_c9_hop1_9e4061",
+        "tx_peel_chain_c9_hop2_e310ff",
+        "tx_peel_chain_c9_hop3_3d653c",
+        "tx_peel_chain_c9_hop4_ae01d1"
+      ],
+      "event_ids": [
+        "net_peel_chain_c9_hop0_b176d1",
+        "net_peel_chain_c9_hop1_6f34f0",
+        "net_peel_chain_c9_hop2_26f1d1",
+        "net_peel_chain_c9_hop3_7734d2",
+        "net_peel_chain_c9_hop4_66f464"
+      ],
+      "involved_addresses": [
+        "1PeelSeed_9eeQzhG4a2iUcTBkeY7NcihBr5q7SiKrHr",
+        "1PeelPeeled_9_0v6vB6Kd2A1eTswJgwskjKPHHZRqGCyGS6",
+        "1PeelPeeled_9_4QBH1DnfGTnd6EiDcjcTRbYUZLKp9rVXAP",
+        "1PeelHop_9_3oA8Wg1efR4Rk7ouWniqy7BRms51wiFWcs",
+        "1PeelPeeled_9_1e6uJUB2oTaSQqFNLgJysmuWRmxQ2Wvtxw",
+        "1PeelHop_9_1qPYDhMpoDhWqo6mFU27fB9bNNb2hds1RL",
+        "1PeelPeeled_9_2gsbXMfy2tBENW1bQ5EV3J6PB9KgUGxBQX",
+        "1PeelPeeled_9_3ST3sT3bNRgm2GJRSJ37jXPBY89VtMTcvu",
+        "1PeelHop_9_2n9MPTfCAJBrSi9Zm1A6YPDUNTFvPKwQKH",
+        "1PeelHop_9_4cip6WjLdJQBkik5uxoazcYoh3aDwGgBW3",
+        "1PeelHop_9_0ejLfuuAziN1fRf4Cm9GB3cgQdqwKZ7Uq5"
+      ]
+    },
+    {
+      "scenario_id": "scen_peel_10",
+      "pattern_type": "peeling_chain",
+      "description": "Peeling chain sequence across 5 hops starting from 25.0 BTC",
+      "txids": [
+        "tx_peel_chain_c10_hop0_ec5ddc",
+        "tx_peel_chain_c10_hop1_eec4fb",
+        "tx_peel_chain_c10_hop2_76f443",
+        "tx_peel_chain_c10_hop3_427da6",
+        "tx_peel_chain_c10_hop4_04e7fd"
+      ],
+      "event_ids": [
+        "net_peel_chain_c10_hop0_a9aa32",
+        "net_peel_chain_c10_hop1_5e94c2",
+        "net_peel_chain_c10_hop2_4dcd2c",
+        "net_peel_chain_c10_hop3_e96fec",
+        "net_peel_chain_c10_hop4_c1a537"
+      ],
+      "involved_addresses": [
+        "1PeelHop_10_0KN7txmKYPrVTpTvBHXLTAuPeyQdc9czbj",
+        "1PeelPeeled_10_47FKUiUy3fguVHcN6eHNv78kKmQ99JC6Fa",
+        "1PeelPeeled_10_1uoD6e5uVFGJSnhZbm9HDNNHwAdUSJkh9H",
+        "1PeelPeeled_10_0wKFaU6NkteZsrANsBwvKHtDTFbzoyW7cL",
+        "1PeelHop_10_4wUrJ9LMkTRPRmQyMoym2hDiJNKnKZCDWr",
+        "1PeelHop_10_3YnKdC75CYDVaar7tnCocT1kbVBWWxJsFG",
+        "1PeelPeeled_10_2pnujN2dxWGxrY5oSXFoBwrEiByGHkjvu8",
+        "1PeelHop_10_1gszs5RGi8neX2UjHQpmNiWeR89Gpk7AQL",
+        "1PeelPeeled_10_3ZJSywVKyUA4SJvSdYBnmDWKX6Jca9Amnr",
+        "1PeelHop_10_21NWsWUuyebWXNvesUVPf4EC9cj7CVae1k",
+        "1PeelSeed_10zNHKg2dAMSz2yZVEv8cr6DzaBAnjQQkRb"
+      ]
+    },
+    {
+      "scenario_id": "scen_peel_11",
+      "pattern_type": "peeling_chain",
+      "description": "Peeling chain sequence across 5 hops starting from 25.0 BTC",
+      "txids": [
+        "tx_peel_chain_c11_hop0_afab87",
+        "tx_peel_chain_c11_hop1_bbceba",
+        "tx_peel_chain_c11_hop2_a1cfbc",
+        "tx_peel_chain_c11_hop3_4071c4",
+        "tx_peel_chain_c11_hop4_ed7391"
+      ],
+      "event_ids": [
+        "net_peel_chain_c11_hop0_a4e472",
+        "net_peel_chain_c11_hop1_eaafdd",
+        "net_peel_chain_c11_hop2_90de67",
+        "net_peel_chain_c11_hop3_242e7d",
+        "net_peel_chain_c11_hop4_cab5bf"
+      ],
+      "involved_addresses": [
+        "1PeelHop_11_3zTGSkfWLzBLsmT6rmGnR2Y6yq7i8MTZwy",
+        "1PeelPeeled_11_4XmbESpYc9tkisx3qFdRAisVHX6jxsErVh",
+        "1PeelPeeled_11_1ePUxGeK9FZ8Ahm4osfNRABwxkoBs7AVJd",
+        "1PeelHop_11_2Uj9QYmiA6MDR4yTRuSro1UuFKYxf6Vqa8",
+        "1PeelHop_11_1CPp6Buj8k7VckKCzoMF7T1oQrMwqSrJz5",
+        "1PeelHop_11_45ifDjb4k9UAyyyPARbFMEx9QjafC9GKdX",
+        "1PeelPeeled_11_2Wo9fkiHcFFjJiTbWzGuLN9jrkodoy1dqE",
+        "1PeelHop_11_0nXor6vczkmRHTtje5eLXhpS2a1q2ERGDg",
+        "1PeelPeeled_11_0KTfmaMts9mCB2bqnYxKKEDJRGwDM8uSqN",
+        "1PeelSeed_11ruStBUTLghFk27QPV3XuW1S2WonVadjZy",
+        "1PeelPeeled_11_3yBptW9gnCkXnZX3XYhzAAgdrEviYxRC3y"
+      ]
+    },
+    {
+      "scenario_id": "scen_peel_12",
+      "pattern_type": "peeling_chain",
+      "description": "Peeling chain sequence across 5 hops starting from 25.0 BTC",
+      "txids": [
+        "tx_peel_chain_c12_hop0_ae6ece",
+        "tx_peel_chain_c12_hop1_c15ed7",
+        "tx_peel_chain_c12_hop2_2ad0fd",
+        "tx_peel_chain_c12_hop3_27e19e",
+        "tx_peel_chain_c12_hop4_bcb819"
+      ],
+      "event_ids": [
+        "net_peel_chain_c12_hop0_1d8e95",
+        "net_peel_chain_c12_hop1_3a35af",
+        "net_peel_chain_c12_hop2_7578bd",
+        "net_peel_chain_c12_hop3_c9971a",
+        "net_peel_chain_c12_hop4_06f044"
+      ],
+      "involved_addresses": [
+        "1PeelHop_12_48mHdQNVVKVPVnHg4qB6tkaBK32yPMYpgS",
+        "1PeelHop_12_0MnraXwpdnf2Z2w6vojrFpLyFS3TzGoDmY",
+        "1PeelHop_12_3s4Zg61z1KJoZN5AdVYy6g9NBSrmWpSdwt",
+        "1PeelPeeled_12_3o7ww7gbA6CAcLTfqnwf4F9xVo34yUqfkb",
+        "1PeelPeeled_12_4WrWg3DTBDKiVac3Pu7HufvLBPEvQAbdFv",
+        "1PeelHop_12_1iXQv7xptJa5zS3YfGVqzFEeD1F2cqRYZQ",
+        "1PeelHop_12_2SxAZZ4Ms9g4iawjiVhwzDTYgLasw9YgK1",
+        "1PeelSeed_12WRqz56oFVbf7niZqNXvPbboxa7mMguRPk",
+        "1PeelPeeled_12_0KQMpqrLcjqEq6ieKVBPGiMotkxK7auhZk",
+        "1PeelPeeled_12_2ciM7ycXjjFbmBBeV76waxPQh9L6MisVBQ",
+        "1PeelPeeled_12_1radtykhyoGNuwKMx8rzFY8ynWUKociieZ"
+      ]
+    },
+    {
+      "scenario_id": "scen_peel_13",
+      "pattern_type": "peeling_chain",
+      "description": "Peeling chain sequence across 5 hops starting from 25.0 BTC",
+      "txids": [
+        "tx_peel_chain_c13_hop0_c04422",
+        "tx_peel_chain_c13_hop1_5cdeb9",
+        "tx_peel_chain_c13_hop2_595a99",
+        "tx_peel_chain_c13_hop3_dd35a9",
+        "tx_peel_chain_c13_hop4_9456ca"
+      ],
+      "event_ids": [
+        "net_peel_chain_c13_hop0_597a11",
+        "net_peel_chain_c13_hop1_7b0fbf",
+        "net_peel_chain_c13_hop2_fed031",
+        "net_peel_chain_c13_hop3_040670",
+        "net_peel_chain_c13_hop4_97bcee"
+      ],
+      "involved_addresses": [
+        "1PeelSeed_131pNqBnF1h3m8g57An4YAjxihHHrGmPtC6",
+        "1PeelPeeled_13_1NKQiCDCCsfcuYmQeD97eJqmd3DYAPXBSh",
+        "1PeelHop_13_3znfxKix5bo1tRArCHXvVu4EJTS3kmT5Y8",
+        "1PeelPeeled_13_2Zu9RXcAZUzhuyf9Sk8PPA2gpvaBtywZtz",
+        "1PeelPeeled_13_4B1BC9Yyhh5BKzAdbbWHRpjXeyFk44Ljcp",
+        "1PeelPeeled_13_3ydj2PuP3fhLornQLwiZVGuv5fKW7po75N",
+        "1PeelHop_13_1kgcMzTv9YM9dByztN2o9TiYEQqMwRRjSP",
+        "1PeelHop_13_4oscAdsTsn78hCk56x1nE35KXUCzcBHgs4",
+        "1PeelHop_13_2nCQUs8wKwcjsgn51s4rKuC9DqNuaqUhH6",
+        "1PeelPeeled_13_0EdLi2SqbHAYK74X2iiK3ug114PZrm3Y2p",
+        "1PeelHop_13_0rCX3U73P5h4SNjSmfWymj319rFBTu4PwW"
+      ]
+    },
+    {
+      "scenario_id": "scen_coinjoin_0",
       "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (8 inputs/outputs of 0.25 BTC)"
+      "description": "Equal-value 5x5 CoinJoin mixing transaction masking fund provenance",
+      "txids": [
+        "tx_coinjoin_mix_0_bae68f"
+      ],
+      "event_ids": [
+        "net_coinjoin_mix_0_9f689c"
+      ],
+      "involved_addresses": [
+        "1CoinJoinIn_0_0mvhcxajKMpNJVYkEAhQtKowQsT9jPxsnP",
+        "1CoinJoinIn_0_1s9NSpu9wD1UGCVAqrHCcVSrVfM7xhc9XV",
+        "1CoinJoinIn_0_2DVxdLKccbXLNg8ZU2NFwguuduUHLohuxn",
+        "1CoinJoinIn_0_3auicpFZtKtP9KXTuwj4PCmiNnUD1McZnx",
+        "1CoinJoinIn_0_4VKtCpBvcJ4tXWFNhrJCJ2eRNmzSPASKwT",
+        "1CoinJoinOut_0_0CcHbK14KU9qN2SKBcmeKk3WiiVv96Ai6M",
+        "1CoinJoinOut_0_1M5L5Q4RnhY6DAmsE4g2ehU3kxx8KPdPWH",
+        "1CoinJoinOut_0_22iR4C3EVM5tWqQ91ddGNPqkFCuPeTSyfm",
+        "1CoinJoinOut_0_3C7P7wCmjJhDbJTeEtqD21qrCwPKzbAVZH",
+        "1CoinJoinOut_0_4zrFctrcrwvJPZA4DCRs5R2muJGvtoCvkg"
+      ]
     },
     {
-      "txid": "tx_coinjoin_mixing_1_29ed3808",
+      "scenario_id": "scen_coinjoin_1",
       "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (8 inputs/outputs of 0.25 BTC)"
+      "description": "Equal-value 5x5 CoinJoin mixing transaction masking fund provenance",
+      "txids": [
+        "tx_coinjoin_mix_1_b4e52b"
+      ],
+      "event_ids": [
+        "net_coinjoin_mix_1_659300"
+      ],
+      "involved_addresses": [
+        "1CoinJoinIn_1_0saZGhUj94g2VqQya34mHHUo2GsES1esqS",
+        "1CoinJoinIn_1_1xVEr3NbTUAfNY9jMBQUMHpkVYMSbtLMUk",
+        "1CoinJoinIn_1_2rA3WrdbYqAo9pCh5R7W371wfAEiL7joYP",
+        "1CoinJoinIn_1_3fPakgzEeAhkityoVvhJkJDexC1JDqg4T7",
+        "1CoinJoinIn_1_4wf1bLNJcvdbgyVMFUokmRbtxgzPxm6F6F",
+        "1CoinJoinOut_1_0qd6PLcUKZhTc6gbg2W5BGZoYjF7WBTr3b",
+        "1CoinJoinOut_1_1Rgy5UFPkeBNJDsaViow7A8yc2VoRiuNYR",
+        "1CoinJoinOut_1_22Sh46sfUWFv826BCfYZUyfa73CJkPNW1X",
+        "1CoinJoinOut_1_3GXJpKFUDfUDBZdr5fr9mUz5AdQdwqQk3K",
+        "1CoinJoinOut_1_4PCjNTqEuUxWQsdEXV5bRZhnm3HHezLqcv"
+      ]
     },
     {
-      "txid": "tx_coinjoin_mixing_2_5e029e0a",
+      "scenario_id": "scen_coinjoin_2",
       "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (8 inputs/outputs of 0.1 BTC)"
+      "description": "Equal-value 5x5 CoinJoin mixing transaction masking fund provenance",
+      "txids": [
+        "tx_coinjoin_mix_2_67457a"
+      ],
+      "event_ids": [
+        "net_coinjoin_mix_2_30e276"
+      ],
+      "involved_addresses": [
+        "1CoinJoinIn_2_06VLWdFGGHWKuuZMJpXQGRfmt9mJgMYKoa",
+        "1CoinJoinIn_2_1BjseCnqBeVFVGZY9cFypz1BwvTzaHZC3R",
+        "1CoinJoinIn_2_2ybUP7BMo4rHYGnvgCtZ1LdHREcaGZq9ZK",
+        "1CoinJoinIn_2_3DopCcx6jyGV6rDTABD7EJabPD65iSjPcP",
+        "1CoinJoinIn_2_4YGtVnXKVcqcNhbhNnDKQFHEbU2wFhToPM",
+        "1CoinJoinOut_2_0PVju6FENzUAreboryNm6v6h35wTJrHvEK",
+        "1CoinJoinOut_2_1XE64enxwBYwtEoCi46pB8Tmi9wF1rmW2W",
+        "1CoinJoinOut_2_2483A8rqaHFB7Fek4N1TogPYQXxwMcikkX",
+        "1CoinJoinOut_2_3QWVoCbNJcQNNKC1Se9snkeJF1ESVUTtTR",
+        "1CoinJoinOut_2_43wuvJ4TPeSbMWUwsUMCvAz9iG2DX2QoTd"
+      ]
     },
     {
-      "txid": "tx_coinjoin_mixing_3_5abd0ca0",
+      "scenario_id": "scen_coinjoin_3",
       "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (9 inputs/outputs of 1.0 BTC)"
+      "description": "Equal-value 5x5 CoinJoin mixing transaction masking fund provenance",
+      "txids": [
+        "tx_coinjoin_mix_3_3c2343"
+      ],
+      "event_ids": [
+        "net_coinjoin_mix_3_41096e"
+      ],
+      "involved_addresses": [
+        "1CoinJoinIn_3_0Vm3njZ4ywNfSiG9v6PP3JxCaRp9YFv14r",
+        "1CoinJoinIn_3_1GU4UyvV5TucyrxFZtpLfXfqbgonFpSGwJ",
+        "1CoinJoinIn_3_2yz3boFpZqDxT96YNkRL5AUv4KtSp9U2w7",
+        "1CoinJoinIn_3_3EsVxbQrHcAAKN55o1YV6yoez1B8zNgpMa",
+        "1CoinJoinIn_3_43tL3azcpCAPz7bcXqH4cGeh6cg2rfhoMW",
+        "1CoinJoinOut_3_0JhQoEzJKE9A5b77T95mgaiS8ewZbwDU2A",
+        "1CoinJoinOut_3_1C42rFBVfQiK8KyRKvZh1nxRVz9tEcxuiR",
+        "1CoinJoinOut_3_2mdioN1VpWDLfjWXtzccSxoTiYYk3LQdnU",
+        "1CoinJoinOut_3_3svvcEKbTJe3EuFGX3xTQRxoGpYRWxoeJb",
+        "1CoinJoinOut_3_43zDfH7EzZLYCg5ew28kFffRuCA6wJYY4z"
+      ]
     },
     {
-      "txid": "tx_coinjoin_mixing_4_de49c690",
+      "scenario_id": "scen_coinjoin_4",
       "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (6 inputs/outputs of 0.25 BTC)"
+      "description": "Equal-value 5x5 CoinJoin mixing transaction masking fund provenance",
+      "txids": [
+        "tx_coinjoin_mix_4_a2ec58"
+      ],
+      "event_ids": [
+        "net_coinjoin_mix_4_80931e"
+      ],
+      "involved_addresses": [
+        "1CoinJoinIn_4_0mLWqYWUcnM6BoYF2voo649ApYUvd2rnSo",
+        "1CoinJoinIn_4_1nQAdVbhykqwnZTKNu3Ba1fNLk1KT86Xmb",
+        "1CoinJoinIn_4_2UZYm7pneFYR37wfzhpzHryyNVjQ2HB68X",
+        "1CoinJoinIn_4_3b67ymK8aa53Kmku5iwsYuf6QvKs6Lj86w",
+        "1CoinJoinIn_4_41t3oQ7AwtFLBvh7pUj8jpgEQgsajqVERc",
+        "1CoinJoinOut_4_0PpH8yQaGctiFc17bkhapayFiEF35PxH71",
+        "1CoinJoinOut_4_1D7hQLS9e8NyNXGfr9PBfwFVG31T4t4THQ",
+        "1CoinJoinOut_4_2t9HR1nXbMeTgGUPADu1EVDxWw7iXhGfok",
+        "1CoinJoinOut_4_32ZtEHokfZcoXBVX92mmRLUBjiRhGCQqbZ",
+        "1CoinJoinOut_4_46UCF3LUELEx15Z8Q3UYj6zYiDDN31b7Hb"
+      ]
     },
     {
-      "txid": "tx_coinjoin_mixing_5_d149a9b1",
+      "scenario_id": "scen_coinjoin_5",
       "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (9 inputs/outputs of 0.25 BTC)"
+      "description": "Equal-value 5x5 CoinJoin mixing transaction masking fund provenance",
+      "txids": [
+        "tx_coinjoin_mix_5_c8b7ee"
+      ],
+      "event_ids": [
+        "net_coinjoin_mix_5_853f11"
+      ],
+      "involved_addresses": [
+        "1CoinJoinIn_5_0FbkwEUHAkjvVzot6WEa1hwkZAjyafCpE3",
+        "1CoinJoinIn_5_1BpCJ4Tc2jiNkmqSgqANA3BqR5A5RShAii",
+        "1CoinJoinIn_5_2tXubxaLTqbfDTAqSKcvoqCJmT6ao84jXr",
+        "1CoinJoinIn_5_3ZPeip4BsoE3rY5Y5X6GYq3Vq9nh69SRd5",
+        "1CoinJoinIn_5_4mTgzL212f2o2Kkoa5Cx6nYNnkcizKfoWH",
+        "1CoinJoinOut_5_0HAY9fYHXm9pHd3P3S2b1GFMLMWXQZE9GE",
+        "1CoinJoinOut_5_1KfNpnN3id4DQrZcn1ddwvB4G38Pq8ZX1d",
+        "1CoinJoinOut_5_2GrBxVvWNmX4G94hcJAafjQAFRiNjXDJn5",
+        "1CoinJoinOut_5_3spHyPMkks3QEgLgJxu25NQHHapWvmjNZW",
+        "1CoinJoinOut_5_4ByLyUq4g3g4rEvDmMqFKiPD966bXinYcC"
+      ]
     },
     {
-      "txid": "tx_coinjoin_mixing_6_226f45c7",
+      "scenario_id": "scen_coinjoin_6",
       "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (6 inputs/outputs of 0.1 BTC)"
+      "description": "Equal-value 5x5 CoinJoin mixing transaction masking fund provenance",
+      "txids": [
+        "tx_coinjoin_mix_6_d25f33"
+      ],
+      "event_ids": [
+        "net_coinjoin_mix_6_ae8d97"
+      ],
+      "involved_addresses": [
+        "1CoinJoinIn_6_0KEtrixvcWkKPTWQZst1Bpz27n78bvFNUh",
+        "1CoinJoinIn_6_1GHy7jR1dDNn84K58XmHYEQUqbkQAiwcW5",
+        "1CoinJoinIn_6_2TLR6whrJXQkqdnLVPSn3h78n23CzXCPt6",
+        "1CoinJoinIn_6_3s29TKk6BDuMpWBaVrRZudzqHx7JZoznLE",
+        "1CoinJoinIn_6_4sujXQDec86Nh2pWza4HawiTFoQbawRdos",
+        "1CoinJoinOut_6_0fqemkgmr6X9nadZ9ZJmtanrxt7qoDnnRZ",
+        "1CoinJoinOut_6_1x4d2Z9eTRteBDZzEcKfueuXfZ2pH1LQfy",
+        "1CoinJoinOut_6_2uZS2onQmY9f6YaLdvDZo6qtmoKLv7qnQ9",
+        "1CoinJoinOut_6_3bmrGurqAk1fWbuPz7yPC5Ccpp2wN4e5d5",
+        "1CoinJoinOut_6_4j4QBdCaSQ9jDH1VSHAiT9QsfbLZ6sjpvv"
+      ]
     },
     {
-      "txid": "tx_coinjoin_mixing_7_a27b61e1",
+      "scenario_id": "scen_coinjoin_7",
       "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (12 inputs/outputs of 1.0 BTC)"
+      "description": "Equal-value 5x5 CoinJoin mixing transaction masking fund provenance",
+      "txids": [
+        "tx_coinjoin_mix_7_351856"
+      ],
+      "event_ids": [
+        "net_coinjoin_mix_7_7a7269"
+      ],
+      "involved_addresses": [
+        "1CoinJoinIn_7_0CCEwxKiALx7Y51ruA6b17kEWf8VaM8D5f",
+        "1CoinJoinIn_7_1JG3xsK9PWy6GzECF6U79TnfAB1A6VpYBd",
+        "1CoinJoinIn_7_2GvRaLqngSksEpF7WYzQLaTjVhYdQv7U4r",
+        "1CoinJoinIn_7_3VuXor1mN9fADMg5PsNnYS7GajXmBy9Zyk",
+        "1CoinJoinIn_7_4xZXgEdYnsx8vroxhEqSiiFyeJcrcZ45Md",
+        "1CoinJoinOut_7_0Wxk3e6vEYSUYyBwTP5cifTcVYraSVrq8W",
+        "1CoinJoinOut_7_1Cz3eKXQBdE4G2tMzPcga28HYnLNFwPbCM",
+        "1CoinJoinOut_7_2pJed8XaGPssCxvwLA5gLXLzVvLAaQbsDX",
+        "1CoinJoinOut_7_3nNDzWZPNxVGPrKckmHG1Jdstp5qvbACqL",
+        "1CoinJoinOut_7_4Eo5NP6J7qCDBcDRjx6oSK1dx9soHm6nBP"
+      ]
     },
     {
-      "txid": "tx_coinjoin_mixing_8_410e440e",
+      "scenario_id": "scen_coinjoin_8",
       "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (10 inputs/outputs of 2.0 BTC)"
+      "description": "Equal-value 5x5 CoinJoin mixing transaction masking fund provenance",
+      "txids": [
+        "tx_coinjoin_mix_8_54d31d"
+      ],
+      "event_ids": [
+        "net_coinjoin_mix_8_e9c151"
+      ],
+      "involved_addresses": [
+        "1CoinJoinIn_8_0G8qXrMA8LooR4KmWnTSJAVLLjfYLbxoKi",
+        "1CoinJoinIn_8_1cB8xuypRL8rt3oNEeEx8stpos51L2CdZB",
+        "1CoinJoinIn_8_26JrXPbzVVrzDTdSxe91NWjANDxXoBYpjC",
+        "1CoinJoinIn_8_34C9q1J6N16FGAiT2AUX6TnuUKkNdVNswK",
+        "1CoinJoinIn_8_4cWmfTuZjPYBS8U4gCnjvfyxvKBaZcjtxj",
+        "1CoinJoinOut_8_0ofaeEYEAehFatCZJRVejtDoHwaGFpmcjB",
+        "1CoinJoinOut_8_1SprSBB54FuUXV7VtKaZvF9pk6oQnsYBtG",
+        "1CoinJoinOut_8_2ZcwtXWZMDjhNWBdP4qkzmCHJvepra74qA",
+        "1CoinJoinOut_8_3Djus29anjbM2JUejCcC1RUDb6y9399D7g",
+        "1CoinJoinOut_8_4hTUf4ck67Q8B8iSifvmwCdj3aSLYfTspn"
+      ]
     },
     {
-      "txid": "tx_coinjoin_mixing_9_5565d566",
+      "scenario_id": "scen_coinjoin_9",
       "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (7 inputs/outputs of 0.25 BTC)"
+      "description": "Equal-value 5x5 CoinJoin mixing transaction masking fund provenance",
+      "txids": [
+        "tx_coinjoin_mix_9_00b504"
+      ],
+      "event_ids": [
+        "net_coinjoin_mix_9_0308a3"
+      ],
+      "involved_addresses": [
+        "1CoinJoinIn_9_0ngd9L1fy9H8qbhNyiq4keoDfb8hV16y7G",
+        "1CoinJoinIn_9_1RMKNJvD2wtn2zvRMAEV4b4ixSr2E8HeuL",
+        "1CoinJoinIn_9_2GsqgeDiHF8cuQVveNtJ4SgzNRBFU7qFS7",
+        "1CoinJoinIn_9_3ZmoW32unZ6Qm6AWYWpfS92iyhTC3TFTE5",
+        "1CoinJoinIn_9_43sMXGJoBh2ZBXXMRRF271CfsCQpvSFSPp",
+        "1CoinJoinOut_9_05aXqhU2yQRKLbko3bf8F2eaYw4ikrdG1F",
+        "1CoinJoinOut_9_1z4n3cWoJqpvPczeeCbgpPZHQP6DH3UGEB",
+        "1CoinJoinOut_9_2KBjyfbauzS1iuARzf2UWpYA64Af2od6vw",
+        "1CoinJoinOut_9_3woEgkabtnT97yxjYdxvWpryvtJ9kTtMWv",
+        "1CoinJoinOut_9_4aSWS1BpG3UU6qqP5b6e5AtgbnbRu9jPwf"
+      ]
     },
     {
-      "txid": "tx_coinjoin_mixing_10_1e53be1b",
+      "scenario_id": "scen_coinjoin_10",
       "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (10 inputs/outputs of 2.0 BTC)"
+      "description": "Equal-value 5x5 CoinJoin mixing transaction masking fund provenance",
+      "txids": [
+        "tx_coinjoin_mix_10_086f08"
+      ],
+      "event_ids": [
+        "net_coinjoin_mix_10_3e7bcb"
+      ],
+      "involved_addresses": [
+        "1CoinJoinIn_10_07u6a7RVZFVgoZDiMnToofQH3cReqNYiwR",
+        "1CoinJoinIn_10_1GW9S9LPAwaFdGY1yxnGQhE3SzP9zXb42q",
+        "1CoinJoinIn_10_265z7tzFfzeApCQEUQ1BFvKWQnhuMxkVGc",
+        "1CoinJoinIn_10_3ReshGnRrUjuw4WhbaY3Yu1Qq9GSQr7EKB",
+        "1CoinJoinIn_10_4PNGRfcvhahYKWZgsKbyo388bBqnzFvt37",
+        "1CoinJoinOut_10_0URjEbkZPRFye6aLbN12faoJyF3vzgGurc",
+        "1CoinJoinOut_10_1SQKSApwKsVSY2TxmxCWcRFnFQP8dmLH7d",
+        "1CoinJoinOut_10_2cMv1wRr79BmTxUfK8K425Hz6urpFoez1u",
+        "1CoinJoinOut_10_3Y7byUVZC5atMvuvG8inreR97ACFjtLRhj",
+        "1CoinJoinOut_10_4sXTMpAzwB8fhEKFoyG2wFeHUjsr59CwzH"
+      ]
     },
     {
-      "txid": "tx_coinjoin_mixing_11_4daa87ad",
+      "scenario_id": "scen_coinjoin_11",
       "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (11 inputs/outputs of 1.0 BTC)"
+      "description": "Equal-value 5x5 CoinJoin mixing transaction masking fund provenance",
+      "txids": [
+        "tx_coinjoin_mix_11_0ce35a"
+      ],
+      "event_ids": [
+        "net_coinjoin_mix_11_0b4ee7"
+      ],
+      "involved_addresses": [
+        "1CoinJoinIn_11_0fegAACqYgpuM1Yo4nxpFiCPzyKYqGtLEJ",
+        "1CoinJoinIn_11_13vhd75sSWW4RzHFfMG4XpsgUcTn7eeujK",
+        "1CoinJoinIn_11_2e8YxWFYPdazXntmbJzUhq7qgFEorzYxiB",
+        "1CoinJoinIn_11_38CZETXEn97eY2vAtDAsviZD937BB14XTP",
+        "1CoinJoinIn_11_432qbsvgi8YpBP64juHKFwbknHnmY9KQyK",
+        "1CoinJoinOut_11_0g61jzTkv1pHLkNqLu3SuPG5uPNsihtwz1",
+        "1CoinJoinOut_11_1SKQpvGc3cNZCRCZNjZQPT1ESZuZUzfVcN",
+        "1CoinJoinOut_11_2NbBT5TNhE26ShzTxXZsPJ5rmyawwnMWy7",
+        "1CoinJoinOut_11_3VH6kVPB5Yoe96iQ8GAbUW54iztiNv7ZgN",
+        "1CoinJoinOut_11_4q3SW1a8sV1aw3dDhLG4ApHszWvcttH4Ve"
+      ]
     },
     {
-      "txid": "tx_coinjoin_mixing_12_f8330a49",
+      "scenario_id": "scen_coinjoin_12",
       "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (12 inputs/outputs of 1.0 BTC)"
+      "description": "Equal-value 5x5 CoinJoin mixing transaction masking fund provenance",
+      "txids": [
+        "tx_coinjoin_mix_12_e29c02"
+      ],
+      "event_ids": [
+        "net_coinjoin_mix_12_d38458"
+      ],
+      "involved_addresses": [
+        "1CoinJoinIn_12_08RPwvoNU4MZhx6aycqt7p5B5tkEpo4aC2",
+        "1CoinJoinIn_12_15RK1xFhz6WnZKHp9ZUbasQ8FxmQjxnW9U",
+        "1CoinJoinIn_12_2op5uj5F3MZcDBUJynjSXtFs9XQGY3RCYz",
+        "1CoinJoinIn_12_3ztvWYyKEvodrQ83LSSH3McMNQCBpbYLm7",
+        "1CoinJoinIn_12_4Vhjfbt656nw6z2LJwg4hA2iNEpwh5B158",
+        "1CoinJoinOut_12_0SKoZs4ARpv57DiBsyegGdc2HxVmhqTYvi",
+        "1CoinJoinOut_12_1bN2Ek41Pxdym1ha1MwsRWhm4YduxzLctx",
+        "1CoinJoinOut_12_2MmFNZ9M54xaaeQRvp4YiU3hFUGgixfaHa",
+        "1CoinJoinOut_12_3xNE1VNrALDdq5DPFuB7YB4Bwh9nJr5j23",
+        "1CoinJoinOut_12_4tRgM1mYuWF9u6PD8vHgxvTkzZyTrr6bbR"
+      ]
     },
     {
-      "txid": "tx_coinjoin_mixing_13_b04ce1e7",
+      "scenario_id": "scen_coinjoin_13",
       "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (9 inputs/outputs of 0.5 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_14_3ec177cb",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (12 inputs/outputs of 0.1 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_15_4f9c05f3",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (6 inputs/outputs of 0.25 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_16_772a2d55",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (10 inputs/outputs of 0.5 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_17_b372fc0e",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (8 inputs/outputs of 1.0 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_18_bbb3cf02",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (8 inputs/outputs of 1.0 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_19_bd690c4a",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (11 inputs/outputs of 0.25 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_20_80d2f05f",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (9 inputs/outputs of 0.5 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_21_ab492d9a",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (8 inputs/outputs of 2.0 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_22_d8dcf1e7",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (11 inputs/outputs of 0.5 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_23_6275c444",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (6 inputs/outputs of 2.0 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_24_ea1d5001",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (6 inputs/outputs of 0.5 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_25_eab72d17",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (6 inputs/outputs of 0.25 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_26_15ed70c6",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (8 inputs/outputs of 0.1 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_27_c06f478c",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (9 inputs/outputs of 1.0 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_28_ac96280d",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (10 inputs/outputs of 0.5 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_29_73a1d230",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (11 inputs/outputs of 0.25 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_30_a3fce8ad",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (8 inputs/outputs of 0.1 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_31_372fb837",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (9 inputs/outputs of 2.0 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_32_aeb450c8",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (6 inputs/outputs of 0.1 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_33_23c61bc7",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (6 inputs/outputs of 0.25 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_34_87995d77",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (11 inputs/outputs of 0.5 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_35_3a79028f",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (10 inputs/outputs of 0.5 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_36_a704de69",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (10 inputs/outputs of 0.5 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_37_e85b3fbf",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (7 inputs/outputs of 2.0 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_38_17f4bca1",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (8 inputs/outputs of 2.0 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_39_5b808d87",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (10 inputs/outputs of 2.0 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_40_1d730f77",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (7 inputs/outputs of 0.1 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_41_fa26540f",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (9 inputs/outputs of 0.1 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_42_e37ac0d9",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (11 inputs/outputs of 1.0 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_43_e083610c",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (8 inputs/outputs of 1.0 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_44_39a82dca",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (11 inputs/outputs of 0.25 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_45_cc936138",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (11 inputs/outputs of 1.0 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_46_ff8b2721",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (11 inputs/outputs of 1.0 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_47_c7b04602",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (11 inputs/outputs of 0.25 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_48_52c884f1",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (12 inputs/outputs of 1.0 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_49_f02d810c",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (12 inputs/outputs of 1.0 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_50_2371e006",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (9 inputs/outputs of 2.0 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_51_260b4daf",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (6 inputs/outputs of 0.25 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_52_f27b4706",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (12 inputs/outputs of 0.25 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_53_d60c5e06",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (11 inputs/outputs of 2.0 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_54_c961dc68",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (11 inputs/outputs of 2.0 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_55_3a2be411",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (8 inputs/outputs of 1.0 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_56_2e5ca04e",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (7 inputs/outputs of 0.5 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_57_48073ea4",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (8 inputs/outputs of 0.5 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_58_18f41483",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (11 inputs/outputs of 0.1 BTC)"
-    },
-    {
-      "txid": "tx_coinjoin_mixing_59_08416217",
-      "pattern_type": "coinjoin_mixing",
-      "reason": "Equal-value multi-party CoinJoin transaction (11 inputs/outputs of 2.0 BTC)"
-    },
-    {
-      "txid": "tx_burst_layering_h0_n0_ba785b6f",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 1/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h0_n1_e8ec049b",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 2/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h0_n2_f1f7beb3",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 3/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h0_n3_fc1fd332",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 4/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h0_n4_0bfc0228",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 5/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h1_n0_ab983b61",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 1/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h1_n1_3467280c",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 2/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h1_n2_5a525c45",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 3/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h1_n3_9c5a14eb",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 4/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h1_n4_be5836a1",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 5/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h2_n0_e3ace794",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 1/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h2_n1_12eb10fb",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 2/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h2_n2_309e5db2",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 3/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h2_n3_413ecebc",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 4/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h2_n4_5be15fae",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 5/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h3_n0_198d28fe",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 1/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h3_n1_0ff23c5f",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 2/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h3_n2_5b59c21e",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 3/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h3_n3_3dd91122",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 4/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h3_n4_003df93a",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 5/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h4_n0_8ecc0da0",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 1/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h4_n1_30d1956a",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 2/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h4_n2_6040f992",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 3/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h4_n3_34d26160",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 4/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h4_n4_0a3f05ba",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 5/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h5_n0_3fa03785",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 1/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h5_n1_8b5c6a0b",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 2/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h5_n2_bdb2cbc3",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 3/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h5_n3_41b5705d",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 4/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h5_n4_f3c16820",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 5/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h6_n0_ea91edf9",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 1/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h6_n1_e0744b25",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 2/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h6_n2_c1164aa9",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 3/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h6_n3_5c276539",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 4/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h6_n4_dc76e8b3",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 5/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h7_n0_8fce9eb6",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 1/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h7_n1_77eaec83",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 2/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h7_n2_442ddc23",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 3/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h7_n3_b5f34eb6",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 4/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h7_n4_57a546e5",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 5/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h8_n0_30cefd3c",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 1/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h8_n1_56cba694",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 2/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h8_n2_201bd5ea",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 3/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h8_n3_e5396f2c",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 4/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h8_n4_bbd847a0",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 5/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h9_n0_1aa09e50",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 1/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h9_n1_0a06f712",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 2/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h9_n2_1c320f12",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 3/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h9_n3_70aa5dcf",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 4/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h9_n4_3980967a",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 5/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h10_n0_39913a27",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 1/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h10_n1_4f6ad383",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 2/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h10_n2_d5c0a1a5",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 3/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h10_n3_8cc9171f",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 4/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h10_n4_6f66fd0f",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 5/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h11_n0_fdd276d7",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 1/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h11_n1_69d2d282",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 2/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h11_n2_d468dd44",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 3/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h11_n3_0310f96d",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 4/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h11_n4_a047cc3e",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 5/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h12_n0_e12fa4a9",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 1/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h12_n1_3209d94a",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 2/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h12_n2_ec50d76c",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 3/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h12_n3_ecfd39c4",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 4/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h12_n4_42368be7",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 5/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h13_n0_e12cd549",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 1/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h13_n1_9b61b8ad",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 2/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h13_n2_59309b9a",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 3/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h13_n3_16a2517a",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 4/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h13_n4_2d2cf42f",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 5/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h14_n0_63a70342",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 1/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h14_n1_75f58323",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 2/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h14_n2_afc88913",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 3/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h14_n3_63082a7d",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 4/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h14_n4_7ea7a4df",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 5/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h15_n0_f738f990",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 1/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h15_n1_ab5f5e4e",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 2/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h15_n2_c7619554",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 3/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h15_n3_12c6f262",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 4/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_burst_layering_h15_n4_87fc9bf8",
-      "pattern_type": "rapid_layering",
-      "reason": "High-frequency burst hop 5/5 from hub 1RapidLayerHub within 30 minutes"
-    },
-    {
-      "txid": "tx_whale_spike_0_66dbed4b",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 28.6636 BTC is >20x historical mean for sender bc1q180c8fa9"
-    },
-    {
-      "txid": "tx_whale_spike_1_e121ad7e",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 44.5052 BTC is >20x historical mean for sender bc1qc99081a3"
-    },
-    {
-      "txid": "tx_whale_spike_2_3ddc6ed0",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 107.9306 BTC is >20x historical mean for sender 1ff5a6fe3867"
-    },
-    {
-      "txid": "tx_whale_spike_3_6bb8ad7c",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 10.7144 BTC is >20x historical mean for sender bc1pb2bee741"
-    },
-    {
-      "txid": "tx_whale_spike_4_4a419461",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 39.1853 BTC is >20x historical mean for sender bc1qe04be954"
-    },
-    {
-      "txid": "tx_whale_spike_5_513ef43f",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 422.2065 BTC is >20x historical mean for sender bc1qa1223313"
-    },
-    {
-      "txid": "tx_whale_spike_6_d74704a8",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 10.238 BTC is >20x historical mean for sender 1567ea5df2c5"
-    },
-    {
-      "txid": "tx_whale_spike_7_bf97a4d4",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 7.5349 BTC is >20x historical mean for sender 353857f0c8e6"
-    },
-    {
-      "txid": "tx_whale_spike_8_bffb868b",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 62.0763 BTC is >20x historical mean for sender 188f2a5985da"
-    },
-    {
-      "txid": "tx_whale_spike_9_93e0f4d0",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 40.2214 BTC is >20x historical mean for sender bc1qcd84291c"
-    },
-    {
-      "txid": "tx_whale_spike_10_874c117f",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 7.5231 BTC is >20x historical mean for sender bc1qebcc1be7"
-    },
-    {
-      "txid": "tx_whale_spike_11_17ddf15a",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 10.8918 BTC is >20x historical mean for sender 1751bc0fd076"
-    },
-    {
-      "txid": "tx_whale_spike_12_850fd809",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 13.5953 BTC is >20x historical mean for sender bc1q3f46c970"
-    },
-    {
-      "txid": "tx_whale_spike_13_8225c10b",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 7.314 BTC is >20x historical mean for sender 1567ea5df2c5"
-    },
-    {
-      "txid": "tx_whale_spike_14_b17e98a9",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 7.628 BTC is >20x historical mean for sender bc1q5992e120"
-    },
-    {
-      "txid": "tx_whale_spike_15_1285cb9d",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 30.7115 BTC is >20x historical mean for sender 1ad54fdf1dd9"
-    },
-    {
-      "txid": "tx_whale_spike_16_7bb52f93",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 7.3147 BTC is >20x historical mean for sender bc1qf4d31233"
-    },
-    {
-      "txid": "tx_whale_spike_17_6606c5f6",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 14.1633 BTC is >20x historical mean for sender 1d849dc09f10"
-    },
-    {
-      "txid": "tx_whale_spike_18_a0969047",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 18.897 BTC is >20x historical mean for sender 1392f1e56655"
-    },
-    {
-      "txid": "tx_whale_spike_19_5e46a587",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 4.8165 BTC is >20x historical mean for sender bc1q1e99551a"
-    },
-    {
-      "txid": "tx_whale_spike_20_fe42183a",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 21.4183 BTC is >20x historical mean for sender bc1q12b0b6a9"
-    },
-    {
-      "txid": "tx_whale_spike_21_779ce3a6",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 25.8824 BTC is >20x historical mean for sender 1294848c736f"
-    },
-    {
-      "txid": "tx_whale_spike_22_cd66bae2",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 151.3597 BTC is >20x historical mean for sender bc1q14550de0"
-    },
-    {
-      "txid": "tx_whale_spike_23_2a7eb2c1",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 49.0961 BTC is >20x historical mean for sender 1e273997a9c9"
-    },
-    {
-      "txid": "tx_whale_spike_24_20a28861",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 543.0384 BTC is >20x historical mean for sender bc1qca6f723f"
-    },
-    {
-      "txid": "tx_whale_spike_25_18502876",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 42.5719 BTC is >20x historical mean for sender bc1q7ac19cda"
-    },
-    {
-      "txid": "tx_whale_spike_26_43d677ba",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 3.4618 BTC is >20x historical mean for sender 3a1c30e10dfc"
-    },
-    {
-      "txid": "tx_whale_spike_27_e287ea2d",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 7.2653 BTC is >20x historical mean for sender 1123c9a12220"
-    },
-    {
-      "txid": "tx_whale_spike_28_cbfa8012",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 248.8323 BTC is >20x historical mean for sender 1a76ad803b96"
-    },
-    {
-      "txid": "tx_whale_spike_29_70f76ed8",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 610.8787 BTC is >20x historical mean for sender 11aabb132535"
-    },
-    {
-      "txid": "tx_whale_spike_30_4b846195",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 3.3001 BTC is >20x historical mean for sender bc1q95697d3e"
-    },
-    {
-      "txid": "tx_whale_spike_31_7083bde3",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 24.5785 BTC is >20x historical mean for sender 13fb80dc8076"
-    },
-    {
-      "txid": "tx_whale_spike_32_c1be3821",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 0.5445 BTC is >20x historical mean for sender bc1q338ab97b"
-    },
-    {
-      "txid": "tx_whale_spike_33_0718c17e",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 4.3529 BTC is >20x historical mean for sender bc1qfb57fdb3"
-    },
-    {
-      "txid": "tx_whale_spike_34_3967da88",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 329.3777 BTC is >20x historical mean for sender bc1q8ec7a8ee"
-    },
-    {
-      "txid": "tx_whale_spike_35_d6ad0042",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 15.7081 BTC is >20x historical mean for sender bc1q40d0afa9"
-    },
-    {
-      "txid": "tx_whale_spike_36_abe7f30a",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 188.5301 BTC is >20x historical mean for sender 1a76ad803b96"
-    },
-    {
-      "txid": "tx_whale_spike_37_0911618e",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 16.8469 BTC is >20x historical mean for sender 17e4290e4fcf"
-    },
-    {
-      "txid": "tx_whale_spike_38_16e36a70",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 7.2089 BTC is >20x historical mean for sender 19835cde2c1a"
-    },
-    {
-      "txid": "tx_whale_spike_39_15158ebd",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 29.6423 BTC is >20x historical mean for sender 174a567164ac"
-    },
-    {
-      "txid": "tx_whale_spike_40_f5ad852e",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 18.9309 BTC is >20x historical mean for sender bc1q89b96b91"
-    },
-    {
-      "txid": "tx_whale_spike_41_8e396a72",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 28.3105 BTC is >20x historical mean for sender 38da3bc662aa"
-    },
-    {
-      "txid": "tx_whale_spike_42_b2cbb812",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 34.7115 BTC is >20x historical mean for sender 34c3da83a456"
-    },
-    {
-      "txid": "tx_whale_spike_43_eac18ef4",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 46.8176 BTC is >20x historical mean for sender bc1qc99081a3"
-    },
-    {
-      "txid": "tx_whale_spike_44_eb11b0ec",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 1.609 BTC is >20x historical mean for sender 19faa9cc3145"
-    },
-    {
-      "txid": "tx_whale_spike_45_c5295b10",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 10.4084 BTC is >20x historical mean for sender bc1qfe3a6a97"
-    },
-    {
-      "txid": "tx_whale_spike_46_5112d8a5",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 46.6525 BTC is >20x historical mean for sender 30d6ec83750c"
-    },
-    {
-      "txid": "tx_whale_spike_47_38dd46c8",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 11.2802 BTC is >20x historical mean for sender bc1qa341c798"
-    },
-    {
-      "txid": "tx_whale_spike_48_034e865a",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 633.4922 BTC is >20x historical mean for sender 36afe4039141"
-    },
-    {
-      "txid": "tx_whale_spike_49_11ab95d2",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 25.4265 BTC is >20x historical mean for sender 12dbeed37483"
-    },
-    {
-      "txid": "tx_whale_spike_50_06053373",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 372.8777 BTC is >20x historical mean for sender 127b7cdd113d"
-    },
-    {
-      "txid": "tx_whale_spike_51_00d9d65e",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 43.5679 BTC is >20x historical mean for sender bc1qa3c51970"
-    },
-    {
-      "txid": "tx_whale_spike_52_37263d90",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 36.9413 BTC is >20x historical mean for sender bc1q76afad2d"
-    },
-    {
-      "txid": "tx_whale_spike_53_2d9cb2c2",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 6.8872 BTC is >20x historical mean for sender 39ba6f8e13cd"
-    },
-    {
-      "txid": "tx_whale_spike_54_e91dc8a1",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 1578.8206 BTC is >20x historical mean for sender bc1q17436174"
-    },
-    {
-      "txid": "tx_whale_spike_55_1908ec47",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 14.9676 BTC is >20x historical mean for sender bc1qab77a781"
-    },
-    {
-      "txid": "tx_whale_spike_56_d1fbfa46",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 3997.4084 BTC is >20x historical mean for sender 11276ec41b55"
-    },
-    {
-      "txid": "tx_whale_spike_57_e088e122",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 28.2139 BTC is >20x historical mean for sender 17c00e3c5bba"
-    },
-    {
-      "txid": "tx_whale_spike_58_39043ecd",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 52.3043 BTC is >20x historical mean for sender 3f6831e4da72"
-    },
-    {
-      "txid": "tx_whale_spike_59_45706b66",
-      "pattern_type": "whale_spike",
-      "reason": "Amount 31.875 BTC is >20x historical mean for sender bc1qc54311d3"
-    },
-    {
-      "txid": "tx_tor_proxied_0_487e03e8",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (13:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_1_1bef8c4b",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (11:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_2_68ca89e1",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (10:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_3_5ffd702c",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (10:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_4_a28ad403",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (10:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_5_2c922bfc",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (11:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_6_ae3bfb55",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (10:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_7_d5868460",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (09:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_8_660cabf9",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (08:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_9_de8ee4c8",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (09:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_10_4574353d",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (09:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_11_b2e83aa3",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (08:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_12_539c2dfd",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (11:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_13_d7025421",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (10:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_14_8007e509",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (08:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_15_ea8e9ef4",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (13:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_16_2ef4f595",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (12:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_17_6727d2b8",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (13:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_18_9aae1b08",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (10:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_19_2b523fc0",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (13:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_20_fda427e4",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (09:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_21_dc184a73",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (11:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_22_71820943",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (13:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_23_070534ac",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (13:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_24_2a832581",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (13:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_25_b04c461f",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (10:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_26_bb69bd40",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (13:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_27_1bcb4fc5",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (11:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_28_7218625a",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (08:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_29_85e2cda3",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (08:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_30_d5f0c379",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (13:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_31_5962d889",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (09:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_32_4d9be01b",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (12:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_33_61161e75",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (09:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_34_4295e2e8",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (12:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_35_eff3f828",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (09:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_36_b9022019",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (12:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_37_58211e09",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (11:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_38_9d88e2fb",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (12:00 UTC)"
-    },
-    {
-      "txid": "tx_tor_proxied_39_aff17919",
-      "pattern_type": "tor_obscuration",
-      "reason": "Broadcast via Tor darknet proxy with cross-border hop at night (09:00 UTC)"
+      "description": "Equal-value 5x5 CoinJoin mixing transaction masking fund provenance",
+      "txids": [
+        "tx_coinjoin_mix_13_43c1c1"
+      ],
+      "event_ids": [
+        "net_coinjoin_mix_13_d2f531"
+      ],
+      "involved_addresses": [
+        "1CoinJoinIn_13_0oB1hTMBFzth8u7oqEk1BhAecf4uX8aV1N",
+        "1CoinJoinIn_13_1677SYLYjtaTyAhPWikmvUmhr4yc9uUAWL",
+        "1CoinJoinIn_13_2tsfz9iU1BDJ8vy8w46Hzejvrk4yxaihgj",
+        "1CoinJoinIn_13_3j8dyHi9r8SMvh6NCumWRtQP1z4ibwSTQa",
+        "1CoinJoinIn_13_4cEmgez6gpy5Js3waxDw2FxYHcP95swR14",
+        "1CoinJoinOut_13_0QtyRyPxs3EP9aoM4annJ3xPCJmiZLJcAC",
+        "1CoinJoinOut_13_1rPSq6yFnfvjwZKg6WWt3jxbg6dQejuifa",
+        "1CoinJoinOut_13_2PDZotixHTxtfNEFxx3g5hNfV2yGsnPhgV",
+        "1CoinJoinOut_13_3oQiiziwvLCySZzGPjnPoRu8BH2h1LqcwW",
+        "1CoinJoinOut_13_4pBQ9nNPJS7v1sHEnb7B8p4fGYCnAR7ntD"
+      ]
     }
   ]
 }
