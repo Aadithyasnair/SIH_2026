@@ -157,36 +157,66 @@ def load_clusters_from_json():
             )
             count += 1
         # Synchronize avg_risk_score from associated alerts using severity-preserving weighting
-        conn.execute(
-            text("""
-                UPDATE clusters
-                SET avg_risk_score = COALESCE((
-                    SELECT ROUND(CAST(0.75 * MAX(alerts.risk_score) + 0.25 * AVG(alerts.risk_score) AS numeric), 4)
-                    FROM alerts
-                    WHERE alerts.cluster_id = clusters.cluster_id
-                ), clusters.avg_risk_score)
-                WHERE EXISTS (
-                    SELECT 1 FROM alerts WHERE alerts.cluster_id = clusters.cluster_id
-                )
-            """)
-        )
-        # Ensure clusters touching detected patterns are labeled and scored as high-risk
-        conn.execute(
-            text("""
-                UPDATE clusters
-                SET avg_risk_score = GREATEST(avg_risk_score, 0.75),
-                    label = CASE
-                        WHEN label = 'Multi-Wallet Entity' THEN 'High-Risk Peeling & Laundering Entity'
-                        WHEN label = 'Consolidation Vault Entity' THEN 'High-Risk Layering Vault'
-                        ELSE label
-                    END
-                WHERE EXISTS (
-                    SELECT 1 FROM alerts 
-                    WHERE alerts.cluster_id = clusters.cluster_id 
-                    AND (alerts.pattern_type IN ('peeling_chain', 'coinjoin_mixing') OR alerts.flags::text LIKE '%peel%' OR alerts.flags::text LIKE '%layer%')
-                )
-            """)
-        )
+        if "sqlite" in DATABASE_URL:
+            conn.execute(
+                text("""
+                    UPDATE clusters
+                    SET avg_risk_score = COALESCE((
+                        SELECT ROUND(0.75 * MAX(alerts.risk_score) + 0.25 * AVG(alerts.risk_score), 4)
+                        FROM alerts
+                        WHERE alerts.cluster_id = clusters.cluster_id
+                    ), clusters.avg_risk_score)
+                    WHERE EXISTS (
+                        SELECT 1 FROM alerts WHERE alerts.cluster_id = clusters.cluster_id
+                    )
+                """)
+            )
+            conn.execute(
+                text("""
+                    UPDATE clusters
+                    SET avg_risk_score = CASE WHEN avg_risk_score > 0.75 THEN avg_risk_score ELSE 0.75 END,
+                        label = CASE
+                            WHEN label = 'Multi-Wallet Entity' THEN 'High-Risk Peeling & Laundering Entity'
+                            WHEN label = 'Consolidation Vault Entity' THEN 'High-Risk Layering Vault'
+                            ELSE label
+                        END
+                    WHERE EXISTS (
+                        SELECT 1 FROM alerts 
+                        WHERE alerts.cluster_id = clusters.cluster_id 
+                        AND (alerts.pattern_type IN ('peeling_chain', 'coinjoin_mixing') OR alerts.flags LIKE '%peel%' OR alerts.flags LIKE '%layer%')
+                    )
+                """)
+            )
+        else:
+            conn.execute(
+                text("""
+                    UPDATE clusters
+                    SET avg_risk_score = COALESCE((
+                        SELECT ROUND(CAST(0.75 * MAX(alerts.risk_score) + 0.25 * AVG(alerts.risk_score) AS numeric), 4)
+                        FROM alerts
+                        WHERE alerts.cluster_id = clusters.cluster_id
+                    ), clusters.avg_risk_score)
+                    WHERE EXISTS (
+                        SELECT 1 FROM alerts WHERE alerts.cluster_id = clusters.cluster_id
+                    )
+                """)
+            )
+            conn.execute(
+                text("""
+                    UPDATE clusters
+                    SET avg_risk_score = GREATEST(avg_risk_score, 0.75),
+                        label = CASE
+                            WHEN label = 'Multi-Wallet Entity' THEN 'High-Risk Peeling & Laundering Entity'
+                            WHEN label = 'Consolidation Vault Entity' THEN 'High-Risk Layering Vault'
+                            ELSE label
+                        END
+                    WHERE EXISTS (
+                        SELECT 1 FROM alerts 
+                        WHERE alerts.cluster_id = clusters.cluster_id 
+                        AND (alerts.pattern_type IN ('peeling_chain', 'coinjoin_mixing') OR alerts.flags::text LIKE '%peel%' OR alerts.flags::text LIKE '%layer%')
+                    )
+                """)
+            )
         conn.commit()
     return count
 

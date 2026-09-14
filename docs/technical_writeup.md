@@ -1,13 +1,85 @@
-# Module C — Technical Write-Up: AI/ML Anomaly Detection
+# SIH26146 — Technical Write-Up: AI-Powered Monitoring & Analysis of Bitcoin Transaction Traffic
 
 **Project:** SIH26146 — AI-Powered Monitoring & Analysis of Bitcoin Transaction Traffic  
-**Module:** C — AI/ML Detection  
-**Author:** Aadithya S Nair  
-**Target Platform:** Kali Linux (offline, Python 3.11)
+**Organization / Department:** National Technical Research Organisation (NTRO)  
+**Target Platform:** Kali Linux (offline, Python 3.11, Docker, Node.js 20)  
 
 ---
 
-## 1. Problem & Scope
+## 1. System Overview & End-to-End Architecture
+
+The SIH26146 platform is an offline surveillance, correlation, and anomaly detection pipeline designed to ingest network-layer and blockchain-layer metadata, associate entities, detect suspicious laundering topologies, apply machine learning models, and generate explainable prioritized leads.
+
+```
+       [ Network Metadata (CSV/JSON/XML) ]       [ Blockchain Transactions (CSV/JSON/XML) ]
+                                    \                 /
+                                     ▼               ▼
+                        +-----------------------------------------+
+                        | Module A: Ingestion & Preprocessing     |
+                        | (Parsers, GeoIP enrichment, Validation) |
+                        +-----------------------------------------+
+                                             │
+                                             ▼
+                        +-----------------------------------------+
+                        | Module B: Correlation & Graph Analysis  |
+                        | (Entity graph, Clustering, Laundering)  |
+                        +-----------------------------------------+
+                                             │
+                                             ▼
+                        +-----------------------------------------+
+                        | Module C: AI/ML Anomaly Detection       |
+                        | (Isolation Forest + Autoencoder)        |
+                        +-----------------------------------------+
+                                             │
+                                             ▼
+                        +-----------------------------------------+
+                        | Module D: Explainability & Ranking      |
+                        | (SHAP explanations, Risk scoring)       |
+                        +-----------------------------------------+
+                                             │
+                                             ▼
+                        +-----------------------------------------+
+                        | Module F: Backend API & Storage         |
+                        | (FastAPI, SQLite / PostgreSQL, Neo4j)   |
+                        +-----------------------------------------+
+                                             │
+                                             ▼
+                        +-----------------------------------------+
+                        | Module E: Interactive Dashboard         |
+                        | (Next.js, 3D Globe, Visual Graph)       |
+                        +-----------------------------------------+
+```
+
+### Module Summary Across the Pipeline
+
+- **Module A — Ingestion & Preprocessing (`/ingestion` | Lead: Madhumitha A Rao):**
+  Parses bulk heterogeneous formats (CSV, JSON, XML) for network traffic events and Bitcoin blockchain records into Pydantic models (`NetworkEvent` and `BlockchainTxn`). Enriches source and destination IPs with local offline GeoIP databases (`src_geo_country`, `src_asn`). Handles data quarantine and standardizes UTC timestamps.
+
+- **Module B — Correlation, Entity Clustering, Pattern Detection & Risk Propagation (`/correlation` | Lead: Sufiyan Khan):**
+  Constructs a multi-layer NetworkX entity graph linking IP addresses, transactions, and wallets. Implements common-input-ownership heuristics and Node2Vec structural embeddings to cluster wallet addresses (`Cluster`). Detects laundering patterns (peeling chains, CoinJoin mixers) and computes risk score propagation outwards from known seed illicit entities.
+
+- **Module C — AI/ML Detection (`/ml_detection` | Lead: Aadithya S Nair):**
+  Extracts 30 statistical, topological, and behavioral features per transaction. Trains an ensemble composed of an Isolation Forest and a deep Feedforward PyTorch Autoencoder to output a combined calibrated `anomaly_score ∈ [0, 1]`.
+
+- **Module D — Explainability Layer (`/explainability` | Lead: Maumita Saha):**
+  Generates model-agnostic feature attributions (SHAP) for the anomaly detector, combines anomaly and propagation scores into a final weighted `risk_score`, and constructs plain-language, jargon-free investigative explanations and geographic movement summaries (`Alert`).
+
+- **Module E — Dashboard Frontend (`/Frontend` | Lead: Mohammed Saleem):**
+  A Next.js 15 interface providing interactive network and transaction graph visualizations, an interactive 3D WebGL globe for geographic flows, an alert review table with evidence breakdown panels, and cluster management views.
+
+- **Module F — Backend & Orchestration (`/backend` | Lead: Lakshmi A):**
+  FastAPI application orchestrating pipeline triggers, persisting ingested items, alerts, and clusters to relational (PostgreSQL / SQLite) and graph storage, and exposing REST endpoints for the dashboard.
+
+---
+
+# Detailed Focus: Module C — AI/ML Anomaly Detection
+
+**Author:** Aadithya S Nair  
+
+---
+
+## 2. Problem & Scope
+
 
 Bitcoin transactions are pseudonymous and irreversible, making them attractive to criminal actors for layering illicit funds. Module C is responsible for **flagging statistically unusual transactions and flows** — the "Anomaly Detection" focus area from the problem statement — using trained machine learning models, not hand-written rules.
 

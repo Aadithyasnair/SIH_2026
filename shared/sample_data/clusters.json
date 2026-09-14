@@ -2063,7 +2063,7 @@
       "1NormalOutzxrXzpz5gJqZzDQA1oWfmzLNu9HrdSkjr"
     ],
     "member_count": 2058,
-    "avg_risk_score": 0.0,
+    "avg_risk_score": 0.15,
     "description": "2058 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 686 interacting transactions.",
     "clustering_method": "common_input_ownership+node2vec_embedding"
   },
@@ -3557,7 +3557,7 @@
       "1NormalOutzyuP6FZiJQZzU9HGBxFPnaS5zZMYdUobi"
     ],
     "member_count": 1484,
-    "avg_risk_score": 0.0,
+    "avg_risk_score": 0.15,
     "description": "1484 addresses regularly co-spent in multi-input transactions consolidating 834.38 BTC. Strong common-input-ownership signals confirm these addresses are controlled by a single entity.",
     "clustering_method": "common_input_ownership+node2vec_embedding"
   },
@@ -4813,7 +4813,7 @@
       "1RapidSrczzYo7s8Mnb1G8R74SMbTDcjufJe2zrR7i"
     ],
     "member_count": 1246,
-    "avg_risk_score": 0.0,
+    "avg_risk_score": 0.15,
     "description": "1246 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 623 interacting transactions.",
     "clustering_method": "common_input_ownership+node2vec_embedding"
   },
@@ -5428,7 +5428,7 @@
       "1NormalOutzq3rzUSP9kwBcxCAzMbFuPUV26Z72csWW"
     ],
     "member_count": 605,
-    "avg_risk_score": 0.0,
+    "avg_risk_score": 0.15,
     "description": "605 addresses regularly co-spent in multi-input transactions consolidating 266.86 BTC. Strong common-input-ownership signals confirm these addresses are controlled by a single entity.",
     "clustering_method": "common_input_ownership+node2vec_embedding"
   },
@@ -5578,7 +5578,7 @@
       "1CoinJoinOut_9_4aSWS1BpG3UU6qqP5b6e5AtgbnbRu9jPwf"
     ],
     "member_count": 140,
-    "avg_risk_score": 0.0,
+    "avg_risk_score": 0.15,
     "description": "140 addresses regularly co-spent in multi-input transactions consolidating 69.93 BTC. Strong common-input-ownership signals confirm these addresses are controlled by a single entity.",
     "clustering_method": "common_input_ownership+node2vec_embedding"
   },
@@ -5687,7 +5687,7 @@
       "1SmurfSrc_9xGKZ42du2Za6me8ZSrWn9YAFxxZ3pxdeA"
     ],
     "member_count": 99,
-    "avg_risk_score": 0.0,
+    "avg_risk_score": 0.15,
     "description": "99 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 99 interacting transactions.",
     "clustering_method": "common_input_ownership+node2vec_embedding"
   },
@@ -5793,7 +5793,7 @@
       "1NormalOutzyih5V1fhu67WmHKs7in2tFxGN2VFXmMp"
     ],
     "member_count": 96,
-    "avg_risk_score": 0.0,
+    "avg_risk_score": 0.15,
     "description": "96 addresses regularly co-spent in multi-input transactions consolidating 38.91 BTC. Strong common-input-ownership signals confirm these addresses are controlled by a single entity.",
     "clustering_method": "common_input_ownership+node2vec_embedding"
   },
@@ -5859,7 +5859,7 @@
       "1PeelSeed_9eeQzhG4a2iUcTBkeY7NcihBr5q7SiKrHr"
     ],
     "member_count": 56,
-    "avg_risk_score": 0.0,
+    "avg_risk_score": 0.15,
     "description": "56 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 28 interacting transactions.",
     "clustering_method": "common_input_ownership+node2vec_embedding"
   },
@@ -5911,46 +5911,8 @@
       "1PeelPeeled_9_3ST3sT3bNRgm2GJRSJ37jXPBY89VtMTcvu"
     ],
     "member_count": 42,
-    "avg_risk_score": 0.0,
+    "avg_risk_score": 0.15,
     "description": "42 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 42 interacting transactions.",
-    "clustering_method": "common_input_ownership+node2vec_embedding"
-  },
-  {
-    "cluster_id": "cluster_1fbd1b87e050",
-    "label": "Multi-Wallet Entity",
-    "member_addresses": [
-      "1PeelHop_0_1HRT1C5a2jyR5FAKd6UobdLF7EL4Lowmcm",
-      "1PeelHop_0_2WMUdB838aWeMaY9UbHyXf9EpZ4LyeC4BU",
-      "1PeelHop_10_1gszs5RGi8neX2UjHQpmNiWeR89Gpk7AQL",
-      "1PeelHop_10_21NWsWUuyebWXNvesUVPf4EC9cj7CVae1k",
-      "1PeelHop_11_1CPp6Buj8k7VckKCzoMF7T1oQrMwqSrJz5",
-      "1PeelHop_11_2Uj9QYmiA6MDR4yTRuSro1UuFKYxf6Vqa8",
-      "1PeelHop_12_1iXQv7xptJa5zS3YfGVqzFEeD1F2cqRYZQ",
-      "1PeelHop_12_2SxAZZ4Ms9g4iawjiVhwzDTYgLasw9YgK1",
-      "1PeelHop_13_1kgcMzTv9YM9dByztN2o9TiYEQqMwRRjSP",
-      "1PeelHop_13_2nCQUs8wKwcjsgn51s4rKuC9DqNuaqUhH6",
-      "1PeelHop_1_1kWnQAD32egTLQC3Fi8fTT5fiSUHAqcB8k",
-      "1PeelHop_1_2ZBDYw8DMBQKPT4peN4DJbz6YzrAxbyhgy",
-      "1PeelHop_2_1Dkf6SiAvumDFUu88Yj6hswmbeNijPeZro",
-      "1PeelHop_2_2hUqVhNyLqDjph4sBVPzfrzYLgzkPXHhCr",
-      "1PeelHop_3_1M1tBM6V5W98VAfEPJRBp7SqAMSMsCB3Pk",
-      "1PeelHop_3_2FpChohWBzbdE83zvRc63QJdELUWeJGHMR",
-      "1PeelHop_4_1DEk7h9jhR47aUbA99F1qRmU9XxUiSe174",
-      "1PeelHop_4_2HY4bkJYe2GyZZn3Kw1MHQCkjyh6Qk6o9b",
-      "1PeelHop_5_1k8TdMEuJYFnnmfGwdea6Tb7Ht6VMqPV25",
-      "1PeelHop_5_2oSwvFCrix6obACiSSbGK7PCMupTtxFQcs",
-      "1PeelHop_6_1oZnM71v9gXHZAV4JTDp8V1Mq38snWxZxi",
-      "1PeelHop_6_2Q2ZxRkcJFW8YZJkPQ1osT44qeL6HUL4jg",
-      "1PeelHop_7_1C8yEkDNp9yheT7V2HPp5HcVsP3CBS4JYM",
-      "1PeelHop_7_2GFem1JfqrS213MdZQa5uYxSFnGVEBsfEe",
-      "1PeelHop_8_1EHWtn4mGKPSQuGjLpJQaACdwcLc2io6hu",
-      "1PeelHop_8_2kYv6bPqrnRkJT6yaNRDQHHhWPzjxmiTa2",
-      "1PeelHop_9_1qPYDhMpoDhWqo6mFU27fB9bNNb2hds1RL",
-      "1PeelHop_9_2n9MPTfCAJBrSi9Zm1A6YPDUNTFvPKwQKH"
-    ],
-    "member_count": 28,
-    "avg_risk_score": 0.0,
-    "description": "28 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 42 interacting transactions.",
     "clustering_method": "common_input_ownership+node2vec_embedding"
   },
   {
@@ -5987,8 +5949,46 @@
       "1PeelHop_9_3oA8Wg1efR4Rk7ouWniqy7BRms51wiFWcs"
     ],
     "member_count": 28,
-    "avg_risk_score": 0.0,
+    "avg_risk_score": 0.15,
     "description": "28 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 56 interacting transactions.",
+    "clustering_method": "common_input_ownership+node2vec_embedding"
+  },
+  {
+    "cluster_id": "cluster_1fbd1b87e050",
+    "label": "Multi-Wallet Entity",
+    "member_addresses": [
+      "1PeelHop_0_1HRT1C5a2jyR5FAKd6UobdLF7EL4Lowmcm",
+      "1PeelHop_0_2WMUdB838aWeMaY9UbHyXf9EpZ4LyeC4BU",
+      "1PeelHop_10_1gszs5RGi8neX2UjHQpmNiWeR89Gpk7AQL",
+      "1PeelHop_10_21NWsWUuyebWXNvesUVPf4EC9cj7CVae1k",
+      "1PeelHop_11_1CPp6Buj8k7VckKCzoMF7T1oQrMwqSrJz5",
+      "1PeelHop_11_2Uj9QYmiA6MDR4yTRuSro1UuFKYxf6Vqa8",
+      "1PeelHop_12_1iXQv7xptJa5zS3YfGVqzFEeD1F2cqRYZQ",
+      "1PeelHop_12_2SxAZZ4Ms9g4iawjiVhwzDTYgLasw9YgK1",
+      "1PeelHop_13_1kgcMzTv9YM9dByztN2o9TiYEQqMwRRjSP",
+      "1PeelHop_13_2nCQUs8wKwcjsgn51s4rKuC9DqNuaqUhH6",
+      "1PeelHop_1_1kWnQAD32egTLQC3Fi8fTT5fiSUHAqcB8k",
+      "1PeelHop_1_2ZBDYw8DMBQKPT4peN4DJbz6YzrAxbyhgy",
+      "1PeelHop_2_1Dkf6SiAvumDFUu88Yj6hswmbeNijPeZro",
+      "1PeelHop_2_2hUqVhNyLqDjph4sBVPzfrzYLgzkPXHhCr",
+      "1PeelHop_3_1M1tBM6V5W98VAfEPJRBp7SqAMSMsCB3Pk",
+      "1PeelHop_3_2FpChohWBzbdE83zvRc63QJdELUWeJGHMR",
+      "1PeelHop_4_1DEk7h9jhR47aUbA99F1qRmU9XxUiSe174",
+      "1PeelHop_4_2HY4bkJYe2GyZZn3Kw1MHQCkjyh6Qk6o9b",
+      "1PeelHop_5_1k8TdMEuJYFnnmfGwdea6Tb7Ht6VMqPV25",
+      "1PeelHop_5_2oSwvFCrix6obACiSSbGK7PCMupTtxFQcs",
+      "1PeelHop_6_1oZnM71v9gXHZAV4JTDp8V1Mq38snWxZxi",
+      "1PeelHop_6_2Q2ZxRkcJFW8YZJkPQ1osT44qeL6HUL4jg",
+      "1PeelHop_7_1C8yEkDNp9yheT7V2HPp5HcVsP3CBS4JYM",
+      "1PeelHop_7_2GFem1JfqrS213MdZQa5uYxSFnGVEBsfEe",
+      "1PeelHop_8_1EHWtn4mGKPSQuGjLpJQaACdwcLc2io6hu",
+      "1PeelHop_8_2kYv6bPqrnRkJT6yaNRDQHHhWPzjxmiTa2",
+      "1PeelHop_9_1qPYDhMpoDhWqo6mFU27fB9bNNb2hds1RL",
+      "1PeelHop_9_2n9MPTfCAJBrSi9Zm1A6YPDUNTFvPKwQKH"
+    ],
+    "member_count": 28,
+    "avg_risk_score": 0.15,
+    "description": "28 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 42 interacting transactions.",
     "clustering_method": "common_input_ownership+node2vec_embedding"
   },
   {
@@ -6006,7 +6006,7 @@
       "1SmurfCollectoryK23qMk2tL6MMMfFebu4JL2KTsZuGhbzN"
     ],
     "member_count": 9,
-    "avg_risk_score": 0.0,
+    "avg_risk_score": 0.15,
     "description": "9 addresses exhibiting structural graph proximity and co-occurrence. Graph embedding analysis indicates related ownership with 99 interacting transactions.",
     "clustering_method": "common_input_ownership+node2vec_embedding"
   }
