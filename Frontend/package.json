@@ -1,0 +1,7 @@
+{
+  "name": "sih26146-frontend",
+  "private": true,
+  "scripts": { "dev": "next dev", "build": "next build", "start": "next start", "test": "vitest run" },
+  "dependencies": { "@types/node": "22.10.2", "@types/react": "19.0.2", "@types/react-dom": "19.0.2", "@types/three": "0.172.0", "next": "15.1.2", "react": "19.0.0", "react-dom": "19.0.0", "three": "0.172.0" },
+  "devDependencies": { "typescript": "5.7.2", "vitest": "2.1.8" }
+}
