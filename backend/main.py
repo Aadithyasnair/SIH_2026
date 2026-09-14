@@ -156,17 +156,34 @@ def load_clusters_from_json():
                 },
             )
             count += 1
-        # Synchronize avg_risk_score from associated alerts if alerts exist
+        # Synchronize avg_risk_score from associated alerts using severity-preserving weighting
         conn.execute(
             text("""
                 UPDATE clusters
-                SET avg_risk_score = (
-                    SELECT COALESCE(AVG(alerts.risk_score), clusters.avg_risk_score)
+                SET avg_risk_score = COALESCE((
+                    SELECT ROUND(CAST(0.75 * MAX(alerts.risk_score) + 0.25 * AVG(alerts.risk_score) AS numeric), 4)
                     FROM alerts
                     WHERE alerts.cluster_id = clusters.cluster_id
-                )
+                ), clusters.avg_risk_score)
                 WHERE EXISTS (
                     SELECT 1 FROM alerts WHERE alerts.cluster_id = clusters.cluster_id
+                )
+            """)
+        )
+        # Ensure clusters touching detected patterns are labeled and scored as high-risk
+        conn.execute(
+            text("""
+                UPDATE clusters
+                SET avg_risk_score = GREATEST(avg_risk_score, 0.75),
+                    label = CASE
+                        WHEN label = 'Multi-Wallet Entity' THEN 'High-Risk Peeling & Laundering Entity'
+                        WHEN label = 'Consolidation Vault Entity' THEN 'High-Risk Layering Vault'
+                        ELSE label
+                    END
+                WHERE EXISTS (
+                    SELECT 1 FROM alerts 
+                    WHERE alerts.cluster_id = clusters.cluster_id 
+                    AND (alerts.pattern_type IN ('peeling_chain', 'coinjoin_mixing') OR alerts.flags::text LIKE '%peel%' OR alerts.flags::text LIKE '%layer%')
                 )
             """)
         )

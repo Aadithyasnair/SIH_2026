@@ -198,28 +198,44 @@ def generate_cluster_description(
     member_set = set(addresses)
     count = len(addresses)
 
-    # Compute average risk score
-    if risk_scores:
-        scores = [risk_scores.get(addr, 0.0) for addr in addresses]
-        avg_risk = round(float(np.mean(scores)), 2)
-    else:
-        avg_risk = 0.15
-
     # Analyze transaction properties touching these addresses
     involved_txns = []
     total_btc = 0.0
+    has_peeling = False
+    has_mixing = False
     for tx in txns:
         in_overlap = member_set.intersection(tx.input_addresses)
         out_overlap = member_set.intersection(tx.output_addresses)
         if in_overlap or out_overlap:
             involved_txns.append(tx)
             total_btc += sum(tx.output_amounts)
+            pat_type = getattr(tx, "pattern_type", "") or ""
+            flags = getattr(tx, "flags", []) or []
+            if "peel" in pat_type or any("peel" in str(f) for f in flags):
+                has_peeling = True
+            if "mixing" in pat_type or "coinjoin" in pat_type or any("mix" in str(f) or "coinjoin" in str(f) for f in flags):
+                has_mixing = True
+
+    # Compute risk score: severity-weighted so volume does not dilute high-risk members
+    if risk_scores:
+        scores = [risk_scores.get(addr, 0.0) for addr in addresses]
+        max_score = float(max(scores)) if scores else 0.0
+        mean_score = float(np.mean(scores)) if scores else 0.0
+        raw_risk = (0.75 * max_score + 0.25 * mean_score) if max_score > 0 else 0.15
+        avg_risk = round(raw_risk, 4)
+    else:
+        avg_risk = 0.15
+
+    # Pattern signals (peeling chain, mixing) directly lift cluster risk
+    if has_peeling or has_mixing:
+        avg_risk = max(avg_risk, 0.75)
 
     btc_str = f"{round(total_btc, 2)} BTC"
 
     # Pattern and label classification
-    if avg_risk >= 0.70:
-        label = "High-Risk Mixing Cluster"
+    if avg_risk >= 0.70 or has_peeling or has_mixing:
+        pattern_name = "Peeling Chain" if has_peeling else "CoinJoin Mixing" if has_mixing else "High-Risk Laundering"
+        label = f"High-Risk {pattern_name} Entity"
         desc = (
             f"{count} addresses exhibiting coordinated fund transfers totalling {btc_str} "
             f"across {len(involved_txns)} transactions. Topological structure and high propagated "
