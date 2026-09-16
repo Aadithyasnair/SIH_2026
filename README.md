@@ -176,7 +176,7 @@ Mixing Detection focus areas). Any change to these schemas must be proposed to L
 them staying in sync.
 
 ## Deliverables
-- [ ] Working offline Kali Linux prototype (code repo) with ingestion, correlation, clustering, 
+- [ ] Working offline Linux prototype (code repo) with ingestion, correlation, clustering, 
       pattern detection, and AI/ML model
 - [ ] Ranked, explainable alert list with confidence scores
 - [ ] Dashboard / link-analysis visualization
@@ -187,5 +187,5 @@ them staying in sync.
 - One branch per module: `module/ingestion`, `module/correlation`, `module/ml_detection`, 
   `module/explainability`, `module/frontend`, `module/backend`
 - Commit convention: `[module-name] short description`
-- Pull requests into `main` reviewed and merged by Lakshmi (integration owner)
+- Pull requests into `main` reviewed and merged
 - Always `git pull --rebase origin main` before pushing to avoid conflicts
