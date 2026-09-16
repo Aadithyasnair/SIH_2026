@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useMemo, useState } from "react";
 import { Alert, Cluster, getRisk, getRiskColor, isDarknetOrTor } from "@/lib/data";
 import {
@@ -24,9 +25,19 @@ const glossary: Record<string, string> = {
   Cluster: "A group of Bitcoin wallet addresses mathematically determined to be controlled by the same actor or service.",
   "Propagated Risk": "Risk score assigned to a transaction based on multi-hop network proximity to sanctioned or illicit seed wallets.",
   "Risk Score": "The unified composite risk metric combining ML anomaly scoring, graph propagation, and heuristic flags.",
-  "Confidence Score": "Statistical certainty metric associated with network event to transaction correlation."
 };
 
+const MONITORED_COUNTRIES: string[] = [
+  "Afghanistan", "Albania", "Algeria", "Argentina", "Australia", "Austria",
+  "Bangladesh", "Belgium", "Brazil", "Canada", "Chile", "China", "Colombia",
+  "Cyprus", "Czechia", "Denmark", "Egypt", "Finland", "France", "Germany",
+  "Ghana", "Greece", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel",
+  "Italy", "Japan", "Kenya", "Mexico", "Netherlands", "Nigeria", "Norway",
+  "Pakistan", "Panama", "Poland", "Portugal", "Russian Federation",
+  "Saudi Arabia", "Singapore", "South Africa", "South Korea", "Spain",
+  "Sweden", "Switzerland", "Thailand", "Turkey", "Ukraine",
+  "United Arab Emirates", "United Kingdom", "United States", "Vietnam",
+];
 
 function formatTimeAgo(dateString: string): string {
   if (!dateString) return "just now";
@@ -71,7 +82,7 @@ function RiskBadge({ value }: { value: number }) {
         background: `${r.color}20`,
         fontWeight: 700,
         fontSize: "11px",
-        padding: "3px 9px",
+        padding: "2px 8px",
         borderRadius: "8px",
         border: `1px solid ${r.color}99`,
         display: "inline-flex",
@@ -101,7 +112,9 @@ function AlertPanel({ alert, close }: { alert: Alert; close: () => void }) {
   const isTor = isDarknetOrTor(alert);
   return (
     <aside className="detail glass">
-      <button onClick={close} aria-label="Close">×</button>
+      <button onClick={close} aria-label="Close">
+        ×
+      </button>
       <div
         className="risk-ring"
         style={{
@@ -115,11 +128,11 @@ function AlertPanel({ alert, close }: { alert: Alert; close: () => void }) {
       <div style={{ display: "flex", gap: "6px", alignItems: "center", marginBottom: "8px", flexWrap: "wrap" }}>
         <RiskPill value={alert.risk_score} />
         {isTor ? (
-          <span style={{ fontSize: "10px", fontWeight: 700, padding: "3px 8px", borderRadius: "6px", background: "rgba(192, 132, 252, 0.2)", border: "1px solid #c084fc", color: "#e9d5ff" }}>
+          <span style={{ fontSize: "10px", fontWeight: 700, padding: "2px 7px", borderRadius: "6px", background: "rgba(192, 132, 252, 0.2)", border: "1px solid #c084fc", color: "#e9d5ff" }}>
             🧅 Tor / Darknet Overlay
           </span>
         ) : (
-          <span style={{ fontSize: "10px", fontWeight: 600, padding: "3px 8px", borderRadius: "6px", background: "rgba(0, 240, 255, 0.1)", border: "1px solid rgba(0, 240, 255, 0.3)", color: "var(--cyan)" }}>
+          <span style={{ fontSize: "10px", fontWeight: 600, padding: "2px 7px", borderRadius: "6px", background: "rgba(0, 240, 255, 0.1)", border: "1px solid rgba(0, 240, 255, 0.3)", color: "var(--cyan)" }}>
             🌐 Clearnet P2P Route
           </span>
         )}
@@ -136,18 +149,30 @@ function AlertPanel({ alert, close }: { alert: Alert; close: () => void }) {
       <p>{alert.explanation}</p>
       <h4>Flags</h4>
       <div className="tags">
-        {alert.flags.map(flag => <span key={flag}>{flag.replaceAll("_", " ")}</span>)}
+        {alert.flags.map((flag) => (
+          <span key={flag}>{flag.replaceAll("_", " ")}</span>
+        ))}
       </div>
       <p className="geo">◎ {alert.geo_summary}</p>
       <details>
         <summary>Technical details</summary>
         <p>
-          <b>TXID:</b> {alert.txid}<br />
-          <b>Network Transport:</b> {isTor ? "Tor Onion Proxy (Port 9050 / Anonymized P2P)" : "Clearnet TCP (Port 8333 / Clearnet P2P)"}<br />
-          <b>Addresses:</b> {alert.involved_addresses.join(", ")}<br />
-          <b>Anomaly score:</b> {alert.anomaly_score}<br />
-          <b>Propagated risk:</b> {alert.propagated_risk_score}<br />
-          {alert.cluster_id && <><b>Cluster ID:</b> {alert.cluster_id}<br /></>}
+          <b>TXID:</b> {alert.txid}
+          <br />
+          <b>Network Transport:</b> {isTor ? "Tor Onion Proxy (Port 9050 / Anonymized P2P)" : "Clearnet TCP (Port 8333 / Clearnet P2P)"}
+          <br />
+          <b>Addresses:</b> {alert.involved_addresses.join(", ")}
+          <br />
+          <b>Anomaly score:</b> {alert.anomaly_score}
+          <br />
+          <b>Propagated risk:</b> {alert.propagated_risk_score}
+          <br />
+          {alert.cluster_id && (
+            <>
+              <b>Cluster ID:</b> {alert.cluster_id}
+              <br />
+            </>
+          )}
           <b>Timestamp:</b> {alert.timestamp}
         </p>
       </details>
@@ -171,6 +196,8 @@ export default function Dashboard() {
   const [live, setLive] = useState(true);
   const [speed, setSpeed] = useState(1);
   const [isBackendOnline, setIsBackendOnline] = useState(true);
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
+
   // Live Simulation state
   const [simMode, setSimMode] = useState(false);
   const [simEvents, setSimEvents] = useState<NetworkEvent[]>([]);
@@ -181,10 +208,28 @@ export default function Dashboard() {
   const [simByteRate, setSimByteRate] = useState(0);
   const [simAlerts, setSimAlerts] = useState<Alert[]>([]);
   const [alertPage, setAlertPage] = useState(1);
-  const ALERTS_PER_PAGE = 10;
+  const ALERTS_PER_PAGE = 8;
 
   // Pipeline execution job state
   const [ingestJob, setIngestJob] = useState<{ id: string; progress: number; stage: string } | null>(null);
+
+  // Theme setup
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") as "dark" | "light" | null;
+    if (savedTheme) {
+      setTheme(savedTheme);
+      document.documentElement.setAttribute("data-theme", savedTheme);
+    } else {
+      document.documentElement.setAttribute("data-theme", "dark");
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const nextTheme = theme === "dark" ? "light" : "dark";
+    setTheme(nextTheme);
+    localStorage.setItem("theme", nextTheme);
+    document.documentElement.setAttribute("data-theme", nextTheme);
+  };
 
   const handleInspectAddress = async (addr: string) => {
     setActiveAddress(addr);
@@ -202,7 +247,7 @@ export default function Dashboard() {
   // Lazy-load live network feed when simulation mode is first activated
   useEffect(() => {
     if (simMode && simEvents.length === 0) {
-      getLiveFeed().then(events => {
+      getLiveFeed().then((events) => {
         setSimEvents(events);
       });
     }
@@ -216,11 +261,10 @@ export default function Dashboard() {
     const intervalMs = Math.max(300, Math.floor(1000 / speed));
 
     const timer = setInterval(() => {
-      setSimIndex(prev => {
+      setSimIndex((prev) => {
         const next = (prev + BATCH_SIZE) % simEvents.length;
         const batch = simEvents.slice(prev, prev + BATCH_SIZE);
 
-        // Periodically inject authentic Tor exit relay traffic into live sim (every 4 ticks)
         const isTorTick = (next / BATCH_SIZE) % 4 === 0;
         const effectiveBatch = [...batch];
         if (isTorTick) {
@@ -243,16 +287,17 @@ export default function Dashboard() {
           effectiveBatch.unshift(torEvent);
         }
 
-        setSimTicker(t => [...effectiveBatch, ...t].slice(0, 8));
+        setSimTicker((t) => [...effectiveBatch, ...t].slice(0, 10));
         setLiveArcs(effectiveBatch);
-        setSimPktCount(c => c + effectiveBatch.length);
+        setSimPktCount((c) => c + effectiveBatch.length);
         const bytes = effectiveBatch.reduce((sum, e) => sum + (e.packet_size || 0), 0);
         setSimByteRate(bytes);
 
-        // Turn anomalous network burst / smurf / tor events into real-time alerts
-        const anomBatch = effectiveBatch.filter(e => e.event_id.includes("rapid") || e.event_id.includes("smurf") || e.event_id.includes("tor_relay"));
+        const anomBatch = effectiveBatch.filter(
+          (e) => e.event_id.includes("rapid") || e.event_id.includes("smurf") || e.event_id.includes("tor_relay")
+        );
         if (anomBatch.length > 0) {
-          const generatedAlerts: Alert[] = anomBatch.map(e => {
+          const generatedAlerts: Alert[] = anomBatch.map((e) => {
             const isTor = e.event_id.includes("tor_relay") || isDarknetOrTor(e);
             const isRapid = e.event_id.includes("rapid");
             const risk = isTor ? 0.94 : isRapid ? 0.88 : 0.76;
@@ -281,7 +326,7 @@ export default function Dashboard() {
                 : `Live P2P route ${e.src_geo_country} → ${e.dst_geo_country}`,
             };
           });
-          setSimAlerts(prevA => [...generatedAlerts, ...prevA].slice(0, 50));
+          setSimAlerts((prevA) => [...generatedAlerts, ...prevA].slice(0, 50));
         }
 
         return next;
@@ -291,7 +336,6 @@ export default function Dashboard() {
     return () => clearInterval(timer);
   }, [simMode, simEvents, speed, live]);
 
-  // Pipeline trigger handler
   const handleTriggerPipeline = async () => {
     const res = await triggerIngest();
     if (res && res.job_id) {
@@ -299,7 +343,6 @@ export default function Dashboard() {
     }
   };
 
-  // Pipeline job polling loop
   useEffect(() => {
     if (!ingestJob || ingestJob.progress >= 1) return;
 
@@ -312,7 +355,6 @@ export default function Dashboard() {
           stage: info.stage || info.status || "Processing...",
         });
         if (info.status === "completed" || info.status === "failed") {
-          // Refresh alerts & clusters upon pipeline completion
           const [nextAlerts, nextClusters] = await Promise.all([getAlerts(), getClusters()]);
           setAlerts(nextAlerts);
           setClusters(nextClusters);
@@ -353,7 +395,6 @@ export default function Dashboard() {
     return sortedClusters.slice(0, clusterLimit);
   }, [sortedClusters, clusterLimit]);
 
-  // Combine base alerts with dynamic live simulation alerts
   const activeAlerts = useMemo(() => {
     if (simMode && simAlerts.length > 0) {
       return [...simAlerts, ...alerts];
@@ -364,13 +405,16 @@ export default function Dashboard() {
   const filtered = useMemo(
     () =>
       activeAlerts
-        .filter(a => `${a.txid} ${a.explanation} ${a.geo_summary} ${a.flags.join(" ")}`.toLowerCase().includes(query.toLowerCase()))
-        .filter(a => a.risk_score >= minRisk)
-        .filter(a => !torOnly || isDarknetOrTor(a)),
+        .filter((a) =>
+          `${a.txid} ${a.explanation} ${a.geo_summary} ${a.flags.join(" ")}`
+            .toLowerCase()
+            .includes(query.toLowerCase())
+        )
+        .filter((a) => a.risk_score >= minRisk)
+        .filter((a) => !torOnly || isDarknetOrTor(a)),
     [activeAlerts, query, minRisk, torOnly]
   );
 
-  // Reset page to 1 whenever query, minRisk, or torOnly changes
   useEffect(() => {
     setAlertPage(1);
   }, [query, minRisk, simMode, torOnly]);
@@ -381,10 +425,9 @@ export default function Dashboard() {
     return filtered.slice(start, start + ALERTS_PER_PAGE);
   }, [filtered, alertPage, ALERTS_PER_PAGE]);
 
-
   const countries = useMemo(() => {
     const set = new Set<string>();
-    alerts.forEach(a => {
+    alerts.forEach((a) => {
       const summary = a.geo_summary || "";
       for (const [key, val] of Object.entries(countryCoordinates)) {
         if (key.length >= 3 && new RegExp(`\\b${key}\\b`, "i").test(summary)) {
@@ -403,13 +446,23 @@ export default function Dashboard() {
       <header>
         <div className="brand">
           <b>₿</b>
-          <h1>SIH26146 <em>—</em> Bitcoin Transaction Monitor</h1>
-          <span className={isBackendOnline ? "online" : "online"} style={isBackendOnline ? {} : { background: "#42171d", color: "#ff8290" }}>
+          <h1>
+            SIH26146 <em>—</em> Bitcoin Transaction Monitor
+          </h1>
+          <span
+            className={isBackendOnline ? "online" : "online"}
+            style={isBackendOnline ? {} : { background: "#42171d", color: "#ff8290" }}
+          >
             ● {isBackendOnline ? "System online" : "Offline mode"}
           </span>
         </div>
         <label className="search">
-          ⌕ <input value={query} onChange={e => setQuery(e.target.value)} placeholder="Search wallet, TXID, country, or keyword…" />
+          ⌕{" "}
+          <input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search wallet, TXID, country, or keyword…"
+          />
         </label>
         <button
           className={`mode-toggle ${simMode ? "active" : ""}`}
@@ -417,6 +470,14 @@ export default function Dashboard() {
           title={simMode ? "Switch back to static historical batch mode" : "Activate live peer-to-peer network stream simulation"}
         >
           {simMode ? "⚡ Live Sim ON" : "📊 Batch Mode"}
+        </button>
+        <button
+          className="icon"
+          onClick={toggleTheme}
+          aria-label={theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
+          title={theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
+        >
+          {theme === "dark" ? "☼" : "☾"}
         </button>
       </header>
 
@@ -426,20 +487,58 @@ export default function Dashboard() {
         </div>
       )}
 
+      {/* Dual-Track Continuous Seamless Marquee */}
+      <section className="country-strip" aria-label="Countries covered">
+        <b>COUNTRIES MONITORED</b>
+        <div className="marquee-container">
+          <div className="marquee-track">
+            {MONITORED_COUNTRIES.map((c, i) => {
+              const isActive = countries.has(c);
+              return (
+                <span
+                  key={`c1-${i}`}
+                  style={isActive ? { color: "var(--strip-title)", fontWeight: 700 } : undefined}
+                >
+                  {isActive ? "● " : ""}
+                  {c}
+                </span>
+              );
+            })}
+          </div>
+          <div className="marquee-track" aria-hidden="true">
+            {MONITORED_COUNTRIES.map((c, i) => {
+              const isActive = countries.has(c);
+              return (
+                <span
+                  key={`c2-${i}`}
+                  style={isActive ? { color: "var(--strip-title)", fontWeight: 700 } : undefined}
+                >
+                  {isActive ? "● " : ""}
+                  {c}
+                </span>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
       <section className="kpis">
         {simMode ? (
           <>
             <Kpi label="Packets Simulated" value={simPktCount} hint="Network packets replayed from Module A's live feed." />
             <Kpi label="Throughput (last tick)" value={simByteRate} hint="Total bytes observed across active peer connections in the last tick." />
-            <Kpi label="Anomalous Packets" value={simTicker.filter(e => e.event_id.includes("rapid") || e.event_id.includes("smurf")).length} hint="Packets tagged with Sybil bursts or smurf flooding signatures." />
+            <Kpi
+              label="Anomalous Packets"
+              value={simTicker.filter((e) => e.event_id.includes("rapid") || e.event_id.includes("smurf")).length}
+              hint="Packets tagged with Sybil bursts or smurf flooding signatures."
+            />
             <Kpi label="Active Feeds Monitored" value={simEvents.length > 0 ? 9 : 0} hint="Network observer regions currently transmitting live traffic." />
           </>
         ) : (
           <>
             <Kpi label="Transactions Analyzed" value={alerts.length > 0 ? alerts.length : 0} hint="Total Bitcoin transactions analyzed in active dataset." />
             <Kpi label="Active Alerts" value={alerts.length} hint="Transactions needing investigation." />
-            <Kpi label="High Risk Flags" value={alerts.filter(a => a.risk_score > 0.7).length} hint="Alerts above a 70% risk score." />
+            <Kpi label="High Risk Flags" value={alerts.filter((a) => a.risk_score > 0.7).length} hint="Alerts above a 70% risk score." />
             <Kpi label="Countries Involved" value={countries.size} hint="Unique countries detected in related network traffic." />
           </>
         )}
@@ -459,8 +558,14 @@ export default function Dashboard() {
           <CountryGlobe alerts={filtered} playing={live} speed={speed} liveEvents={simMode ? liveArcs : []} />
           <div className="globe-controls">
             <button onClick={() => setLive(!live)}>{live ? "Ⅱ Pause" : "▶ Play"}</button>
-            {[1, 5, 20].map(n => (
-              <button className={speed === n ? "selected" : ""} onClick={() => setSpeed(n)} key={n}>{n}×</button>
+            {[1, 5, 20].map((n) => (
+              <button
+                className={speed === n ? "selected" : ""}
+                onClick={() => setSpeed(n)}
+                key={n}
+              >
+                {n}×
+              </button>
             ))}
           </div>
         </article>
@@ -474,18 +579,21 @@ export default function Dashboard() {
               </div>
               <p style={{ fontSize: "11px", color: "var(--muted)", margin: "0 0 8px" }}>Replaying live peer metadata from observer nodes.</p>
               <div className="ticker-scroll">
-                {simTicker.map(e => {
+                {simTicker.map((e) => {
                   const isTor = e.event_id.includes("tor_relay") || isDarknetOrTor(e);
                   const isAnom = e.event_id.includes("rapid") || e.event_id.includes("smurf");
                   return (
                     <div key={e.event_id} className={`tick-row ${isTor ? "tor" : isAnom ? "high" : "low"}`}>
                       <span className="tick-flag">
-                        {isTor ? "🧅 " : ""}{e.src_geo_country} → {e.dst_geo_country}
+                        {isTor ? "🧅 " : ""}
+                        {e.src_geo_country} → {e.dst_geo_country}
                       </span>
                       <span className="tick-detail" title={`${e.src_ip} -> ${e.dst_ip}`}>
                         {e.src_ip} → {e.dst_ip}
                       </span>
-                      <span className="tick-badge">{e.protocol}:{e.dst_port}</span>
+                      <span className="tick-badge">
+                        {e.protocol}:{e.dst_port}
+                      </span>
                       <span className="tick-size">{e.packet_size}B</span>
                       {isTor ? (
                         <span className="pill tor" style={{ padding: "1px 6px", fontSize: "9px", fontWeight: 700 }}>
@@ -504,13 +612,18 @@ export default function Dashboard() {
           ) : (
             <>
               <h2>Latest events</h2>
-              {filtered.slice(0, 5).map(a => (
-                <button key={a.alert_id} onClick={() => setSelected(a)}>
-                  <RiskPill value={a.risk_score} />
-                  <span>{a.geo_summary}<small>{a.explanation.slice(0, 65)}…</small></span>
-                  <time>{formatTimeAgo(a.timestamp)}</time>
-                </button>
-              ))}
+              <div className="events-scroll">
+                {filtered.slice(0, 8).map((a) => (
+                  <button key={a.alert_id} onClick={() => setSelected(a)}>
+                    <RiskPill value={a.risk_score} />
+                    <span>
+                      {a.geo_summary}
+                      <small>{a.explanation.slice(0, 65)}…</small>
+                    </span>
+                    <time>{formatTimeAgo(a.timestamp)}</time>
+                  </button>
+                ))}
+              </div>
             </>
           )}
         </article>
@@ -540,11 +653,26 @@ export default function Dashboard() {
               >
                 🧅 Tor / Darknet {torOnly ? "ON" : "Filter"}
               </button>
-              <label>Minimum risk <input type="range" min="0" max="1" step="0.1" value={minRisk} onChange={e => setMinRisk(+e.target.value)} /></label>
+              <label>
+                Minimum risk{" "}
+                <input
+                  type="range"
+                  min="0"
+                  max="1"
+                  step="0.1"
+                  value={minRisk}
+                  onChange={(e) => setMinRisk(+e.target.value)}
+                />
+              </label>
             </div>
           </div>
           <div className="table">
-            <div className="thead"><span>TXID</span><span>Summary</span><span>Risk</span><span>Time</span></div>
+            <div className="thead">
+              <span>TXID</span>
+              <span>Summary</span>
+              <span>Risk</span>
+              <span>Time</span>
+            </div>
             <div className="table-scroll">
               {loading ? (
                 <div className="skeleton" />
@@ -553,21 +681,43 @@ export default function Dashboard() {
                   No alerts matching the current search / risk criteria.
                 </div>
               ) : (
-                paginatedAlerts.map(a => {
+                paginatedAlerts.map((a) => {
                   const isTor = isDarknetOrTor(a);
                   return (
-                    <button className={`row ${getRisk(a.risk_score).key}`} onClick={() => setSelected(a)} key={a.alert_id}>
-                      <span>{a.txid.slice(0, 8)}…{a.txid.slice(-4)}</span>
+                    <button
+                      className={`row ${getRisk(a.risk_score).key}`}
+                      onClick={() => setSelected(a)}
+                      key={a.alert_id}
+                    >
+                      <span>
+                        {a.txid.slice(0, 8)}…{a.txid.slice(-4)}
+                      </span>
                       <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                         {isTor && (
-                          <span style={{ fontSize: "9px", padding: "1px 5px", borderRadius: "4px", background: "rgba(168, 85, 247, 0.2)", border: "1px solid #c084fc", color: "#e9d5ff", fontWeight: 700, whiteSpace: "nowrap" }}>
+                          <span
+                            style={{
+                              fontSize: "9px",
+                              padding: "1px 5px",
+                              borderRadius: "4px",
+                              background: "rgba(168, 85, 247, 0.2)",
+                              border: "1px solid #c084fc",
+                              color: "#e9d5ff",
+                              fontWeight: 700,
+                              whiteSpace: "nowrap",
+                            }}
+                          >
                             🧅 Tor
                           </span>
                         )}
                         <span>{a.explanation.slice(0, isTor ? 72 : 86)}…</span>
                       </span>
                       <RiskPill value={a.risk_score} />
-                      <time>{new Date(a.timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</time>
+                      <time>
+                        {new Date(a.timestamp).toLocaleTimeString([], {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                        })}
+                      </time>
                     </button>
                   );
                 })
@@ -582,17 +732,17 @@ export default function Dashboard() {
                 <div style={{ display: "flex", gap: "6px" }}>
                   <button
                     className="pagination-btn"
-                    onClick={() => setAlertPage(p => Math.max(1, p - 1))}
+                    onClick={() => setAlertPage((p) => Math.max(1, p - 1))}
                     disabled={alertPage === 1}
                   >
                     ◀ Prev
                   </button>
-                  <span style={{ padding: "4px 8px", background: "rgba(11,33,76,0.6)", borderRadius: "6px" }}>
+                  <span style={{ padding: "4px 8px", background: "var(--ctrl-btn-bg)", borderRadius: "6px" }}>
                     Page {alertPage} / {totalPages}
                   </span>
                   <button
                     className="pagination-btn"
-                    onClick={() => setAlertPage(p => Math.min(totalPages, p + 1))}
+                    onClick={() => setAlertPage((p) => Math.min(totalPages, p + 1))}
                     disabled={alertPage >= totalPages}
                   >
                     Next ▶
@@ -603,6 +753,7 @@ export default function Dashboard() {
           </div>
         </article>
 
+        {/* Cluster / Link Analysis - Scrollable & Compact */}
         <article className="glass clusters">
           <div className="section-title">
             <div>
@@ -620,7 +771,7 @@ export default function Dashboard() {
           </div>
 
           {!selectedCluster ? (
-            /* DEFAULT VIEW: Sorted Grid of Cluster Cards - NO Web Graph */
+            /* DEFAULT VIEW: Scrollable Grid of Cluster Cards */
             <>
               <div className="cluster-grid">
                 {visibleClusters.map((c) => {
@@ -643,7 +794,17 @@ export default function Dashboard() {
                         <div style={{ display: "flex", gap: "6px", alignItems: "center" }}>
                           <RiskBadge value={c.avg_risk_score} />
                           {isTor && (
-                            <span style={{ fontSize: "9px", padding: "2px 6px", borderRadius: "4px", background: "rgba(168, 85, 247, 0.25)", border: "1px solid #c084fc", color: "#f3e8ff", fontWeight: 700 }}>
+                            <span
+                              style={{
+                                fontSize: "9px",
+                                padding: "2px 6px",
+                                borderRadius: "4px",
+                                background: "rgba(168, 85, 247, 0.25)",
+                                border: "1px solid #c084fc",
+                                color: "#f3e8ff",
+                                fontWeight: 700,
+                              }}
+                            >
                               🧅 Tor / Darknet
                             </span>
                           )}
@@ -654,13 +815,17 @@ export default function Dashboard() {
                       </div>
 
                       <h3 className="card-label">
-                        {isTor ? "🧅 " : ""}{c.label}
+                        {isTor ? "🧅 " : ""}
+                        {c.label}
                       </h3>
 
                       <p className="card-description">{c.description}</p>
 
                       <div className="card-footer">
-                        <span className="method-tag" style={isTor ? { color: "#d8b4fe", background: "rgba(168, 85, 247, 0.15)" } : undefined}>
+                        <span
+                          className="method-tag"
+                          style={isTor ? { color: "#d8b4fe", background: "rgba(168, 85, 247, 0.15)" } : undefined}
+                        >
                           {c.clustering_method.replace(/_/g, " ")}
                         </span>
                         <span className="open-link" style={isTor ? { color: "#d8b4fe" } : undefined}>
@@ -673,19 +838,16 @@ export default function Dashboard() {
               </div>
 
               {sortedClusters.length > 15 && (
-                <div style={{ display: "flex", justifyContent: "center", marginTop: "14px", marginBottom: "6px" }}>
+                <div style={{ display: "flex", justifyContent: "center", marginTop: "10px", marginBottom: "4px" }}>
                   {clusterLimit < sortedClusters.length ? (
                     <button
                       className="show-more-btn"
-                      onClick={() => setClusterLimit(prev => Math.min(prev + 15, sortedClusters.length))}
+                      onClick={() => setClusterLimit((prev) => Math.min(prev + 15, sortedClusters.length))}
                     >
                       Show More Clusters ({sortedClusters.length - clusterLimit} remaining) ▼
                     </button>
                   ) : (
-                    <button
-                      className="show-more-btn"
-                      onClick={() => setClusterLimit(15)}
-                    >
+                    <button className="show-more-btn" onClick={() => setClusterLimit(15)}>
                       Show Less ▲
                     </button>
                   )}
@@ -693,7 +855,7 @@ export default function Dashboard() {
               )}
             </>
           ) : (
-            /* SINGLE-CLUSTER DETAIL VIEW: Web Graph Scoped Strictly to Selected Entity */
+            /* SINGLE-CLUSTER DETAIL VIEW: Force-Directed Graph */
             <div className="single-cluster-detail">
               <div className="detail-nav-bar">
                 <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
@@ -717,16 +879,14 @@ export default function Dashboard() {
                 </div>
               </div>
 
-              <div style={{ marginBottom: "12px" }}>
-                <h3 style={{ margin: "0 0 4px", fontSize: "16px", color: "#fff" }}>
+              <div style={{ marginBottom: "10px" }}>
+                <h3 style={{ margin: "0 0 4px", fontSize: "15px", color: "var(--ink)" }}>
                   {selectedCluster.label}
                 </h3>
-                <p className="detail-prominent-desc">
-                  {selectedCluster.description}
-                </p>
+                <p className="detail-prominent-desc">{selectedCluster.description}</p>
               </div>
 
-              {/* Interactive Force-Directed Network Web Centerpiece - ONLY IN DETAIL VIEW */}
+              {/* Force-directed graph canvas */}
               <ClusterWebGraph
                 cluster={selectedCluster}
                 subgraphData={graphData}
@@ -734,10 +894,13 @@ export default function Dashboard() {
                 onSelectAddress={(addr) => handleInspectAddress(addr)}
               />
 
-              {/* Cluster Intelligence Dossier underneath */}
-              <div className="cluster-detail" style={{ marginTop: "12px" }}>
+              {/* Member address chips & Ego preview */}
+              <div className="cluster-detail" style={{ marginTop: "10px" }}>
                 <div className="cluster-members">
-                  <h4>Member Addresses ({selectedCluster.member_count.toLocaleString()} total, showing top {Math.min(16, selectedCluster.member_addresses?.length || 0)}):</h4>
+                  <h4>
+                    Member Addresses ({selectedCluster.member_count.toLocaleString()} total, showing top{" "}
+                    {Math.min(16, selectedCluster.member_addresses?.length || 0)}):
+                  </h4>
                   <div className="cluster-addr-list">
                     {(selectedCluster.member_addresses || []).slice(0, 16).map((addr) => (
                       <button
@@ -755,8 +918,8 @@ export default function Dashboard() {
                 {activeAddress && (
                   <div className="cluster-graph-preview">
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                      <h5 style={{ margin: 0, fontSize: "11px", color: "#7ee787" }}>
-                        Ego Subgraph Analysis: <code style={{ color: "#fff" }}>{activeAddress}</code>
+                      <h5 style={{ margin: 0, fontSize: "11px", color: "#48f2a0" }}>
+                        Ego Subgraph Analysis: <code style={{ color: "var(--ink)" }}>{activeAddress}</code>
                       </h5>
                       {graphLoading && <span style={{ fontSize: "10px", color: "var(--cyan)" }}>Querying Neo4j…</span>}
                     </div>
@@ -767,7 +930,9 @@ export default function Dashboard() {
                         <span>● Component Status: <b>Connected</b></span>
                       </div>
                     ) : !graphLoading ? (
-                      <span style={{ fontSize: "10px", color: "var(--muted)" }}>No external multi-hop neighbors found for this address.</span>
+                      <span style={{ fontSize: "10px", color: "var(--muted)" }}>
+                        No external multi-hop neighbors found for this address.
+                      </span>
                     ) : null}
                   </div>
                 )}
@@ -782,9 +947,7 @@ export default function Dashboard() {
                 <p>Execute offline ingestion, ML anomaly detection, and clustering over incoming traffic.</p>
               </div>
               {!ingestJob && (
-                <button onClick={handleTriggerPipeline}>
-                  ▶ Run Pipeline
-                </button>
+                <button onClick={handleTriggerPipeline}>▶ Run Pipeline</button>
               )}
             </div>
 
@@ -806,9 +969,11 @@ export default function Dashboard() {
       <footer>
         Hover terms for help:{" "}
         {Object.entries(glossary).map(([term, desc]) => (
-          <abbr key={term} title={desc}>{term}</abbr>
-        ))}
-        {" "}<span>•</span> Playback of analyzed data, not real-time interception.
+          <abbr key={term} title={desc}>
+            {term}
+          </abbr>
+        ))}{" "}
+        <span>•</span> Playback of analyzed data, not real-time interception.
       </footer>
     </main>
   );
