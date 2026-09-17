@@ -17,11 +17,14 @@ import uuid
 from contextlib import contextmanager
 
 import networkx as nx
-from fastapi import FastAPI, HTTPException
-from fastapi.responses import FileResponse
+from fastapi import FastAPI, HTTPException, Request
+from fastapi.responses import FileResponse, Response
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import create_engine, text
 
+from backend.analysis_parser import parse_uploaded_file
+from backend.analysis_engine import analyze_records
+from backend.pdf_report_generator import generate_transaction_pdf
 from shared.schemas.records import Alert, Cluster
 
 DATABASE_URL = os.environ.get("DATABASE_URL", "sqlite:///./app.db")
@@ -613,7 +616,234 @@ def download_training_file(file_key: str):
     return FileResponse(target, media_type=media_type, filename=filename)
 
 
+@app.post("/api/analysis/upload")
+async def upload_and_analyze(request: Request):
+    """
+    Accepts uploaded file content in CSV, JSON, XML, or TSV format,
+    parses & normalizes heterogeneous records, and executes the ML anomaly
+    scoring & forensic topology detection pipeline.
+    """
+    filename = "uploaded_data.json"
+    content = ""
+
+    # Check content type: JSON wrapper or raw body
+    content_type = request.headers.get("content-type", "")
+    if "application/json" in content_type:
+        try:
+            body = await request.json()
+            filename = body.get("filename", "uploaded_data.json")
+            content = body.get("content", "")
+        except Exception:
+            raw_bytes = await request.body()
+            content = raw_bytes.decode("utf-8", errors="replace")
+    else:
+        raw_bytes = await request.body()
+        content = raw_bytes.decode("utf-8", errors="replace")
+        query_filename = request.query_params.get("filename")
+        if query_filename:
+            filename = query_filename
+
+    if not content or not content.strip():
+        raise HTTPException(status_code=400, detail="Empty upload content provided.")
+
+    try:
+        detected_format, normalized_records = parse_uploaded_file(filename, content)
+    except Exception as e:
+        raise HTTPException(status_code=422, detail=f"File parsing error: {str(e)}")
+
+    if not normalized_records:
+        raise HTTPException(status_code=422, detail="No valid transaction or event records could be extracted.")
+
+    try:
+        analysis_report = analyze_records(normalized_records)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Analysis engine failure: {str(e)}")
+
+    return {
+        "status": "success",
+        "filename": filename,
+        "format": detected_format,
+        "records_count": len(normalized_records),
+        "analysis": analysis_report,
+    }
+
+
+@app.post("/api/reports/transaction-pdf")
+async def export_transaction_pdf(request: Request):
+    """
+    Generates and returns an institutional-grade, law-enforcement format
+    Forensic PDF Dossier for any Bitcoin transaction, alert, or analyzed record.
+    """
+    try:
+        body = await request.json()
+    except Exception:
+        raise HTTPException(status_code=400, detail="Invalid JSON body provided.")
+
+    if not body:
+        raise HTTPException(status_code=400, detail="Empty transaction record provided.")
+
+    try:
+        pdf_bytes = generate_transaction_pdf(body)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"PDF generation failed: {str(e)}")
+
+    txid = str(body.get("txid") or body.get("alert_id") or "report")
+    safe_txid = "".join(c for c in txid if c.isalnum() or c in ("-", "_"))[:16]
+    filename = f"Forensic_Report_{safe_txid}.pdf"
+
+    return Response(
+        content=pdf_bytes,
+        media_type="application/pdf",
+        headers={
+            "Content-Disposition": f'attachment; filename="{filename}"',
+            "Access-Control-Expose-Headers": "Content-Disposition",
+        },
+    )
+
+
+@app.get("/api/reports/tx/{txid}/pdf")
+def get_tx_report_pdf(txid: str):
+    """
+    Finds transaction or alert by TXID/alert_id and returns the forensic PDF dossier.
+    """
+    record = None
+    with get_db() as db:
+        if db:
+            row = db.execute(text("SELECT * FROM alerts WHERE txid = :txid OR alert_id = :txid LIMIT 1"), {"txid": txid}).fetchone()
+            if row:
+                d = dict(row._mapping)
+                record = {
+                    "txid": d.get("txid"),
+                    "alert_id": d.get("alert_id"),
+                    "risk_score": d.get("risk_score"),
+                    "pattern_type": d.get("pattern_type"),
+                    "explanation": d.get("explanation"),
+                    "cluster_id": d.get("cluster_id"),
+                    "timestamp": str(d.get("created_at") or "2026-09-17 00:00:00 UTC"),
+                }
+
+    if not record and os.path.exists(ALERTS_FILE):
+        with open(ALERTS_FILE, "r") as f:
+            alerts = json.load(f)
+            for a in alerts:
+                if a.get("txid") == txid or a.get("alert_id") == txid:
+                    record = a
+                    break
+
+    if not record:
+        record = {
+            "txid": txid,
+            "risk_score": 0.50,
+            "pattern_type": "standard_transaction",
+            "explanation": f"On-demand forensic dossier request for transaction hash {txid}.",
+            "amount_btc": 1.0,
+            "timestamp": "2026-09-17 00:00:00 UTC",
+        }
+
+    try:
+        pdf_bytes = generate_transaction_pdf(record)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"PDF generation failed: {str(e)}")
+
+    safe_txid = "".join(c for c in txid if c.isalnum() or c in ("-", "_"))[:16]
+    filename = f"Forensic_Report_{safe_txid}.pdf"
+
+    return Response(
+        content=pdf_bytes,
+        media_type="application/pdf",
+        headers={
+            "Content-Disposition": f'attachment; filename="{filename}"',
+            "Access-Control-Expose-Headers": "Content-Disposition",
+        },
+    )
+
+
+@app.get("/api/analysis/sample-templates")
+def get_sample_templates():
+    """Provides standard sample CSV, JSON, and XML templates for one-click testing."""
+    sample_csv = (
+        "txid,sender,outputs,amount_btc,fee,country\n"
+        "tx_peel_chain_01,1WhaleAlpha83mN,1MerchantBulk99;1ChangeAddr22,12.5000,0.00012,US\n"
+        "tx_peel_chain_02,1ChangeAddr22,1MerchantBulk98;1ChangeAddr23,12.4850,0.00010,US\n"
+        "tx_peel_chain_03,1ChangeAddr23,1MerchantBulk97;1ChangeAddr24,12.4700,0.00010,US\n"
+        "tx_peel_chain_04,1ChangeAddr24,1MerchantBulk96;1ChangeAddr25,12.4550,0.00010,US\n"
+    )
+    sample_json = json.dumps([
+        {
+            "txid": "tx_coinjoin_round_42",
+            "inputs": ["1MixerInA_991", "1MixerInB_882", "1MixerInC_773", "1MixerInD_664", "1MixerInE_555"],
+            "outputs": ["1MixerOutA_111", "1MixerOutB_222", "1MixerOutC_333", "1MixerOutD_444", "1MixerOutE_555"],
+            "amount_btc": 5.0000,
+            "fee": 0.0005,
+            "src_country": "DE",
+            "dst_country": "FI",
+            "type": "coinjoin_mixing"
+        },
+        {
+            "txid": "tx_coinjoin_round_43",
+            "inputs": ["1MixerInF_111", "1MixerInG_222", "1MixerInH_333"],
+            "outputs": ["1MixerOutF_444", "1MixerOutG_555", "1MixerOutH_666"],
+            "amount_btc": 3.0000,
+            "fee": 0.0003,
+            "src_country": "NL",
+            "dst_country": "GB",
+            "type": "coinjoin_mixing"
+        }
+    ], indent=2)
+
+    sample_xml = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<transactions>\n'
+        '  <transaction>\n'
+        '    <txid>tx_smurf_sweep_88</txid>\n'
+        '    <inputs>\n'
+        '      <input>1MuleA_981a</input>\n'
+        '      <input>1MuleB_772b</input>\n'
+        '      <input>1MuleC_663c</input>\n'
+        '      <input>1MuleD_554d</input>\n'
+        '      <input>1MuleE_445e</input>\n'
+        '      <input>1MuleF_336f</input>\n'
+        '    </inputs>\n'
+        '    <outputs>\n'
+        '      <output>1ConsolidationWalletMaster</output>\n'
+        '    </outputs>\n'
+        '    <amount_btc>8.4500</amount_btc>\n'
+        '    <fee>0.00025</fee>\n'
+        '    <src_country>RU</src_country>\n'
+        '    <dst_country>CH</dst_country>\n'
+        '  </transaction>\n'
+        '</transactions>'
+    )
+
+    return {
+        "templates": [
+            {
+                "id": "csv_peeling",
+                "label": "Peeling Chain (CSV)",
+                "filename": "sample_peeling_chain.csv",
+                "format": "CSV",
+                "content": sample_csv,
+            },
+            {
+                "id": "json_coinjoin",
+                "label": "CoinJoin Mixer (JSON)",
+                "filename": "sample_coinjoin_mixer.json",
+                "format": "JSON",
+                "content": sample_json,
+            },
+            {
+                "id": "xml_smurfing",
+                "label": "Smurfing Fan-In (XML)",
+                "filename": "sample_smurfing_consolidation.xml",
+                "format": "XML",
+                "content": sample_xml,
+            }
+        ]
+    }
+
+
 @app.get("/")
 def health():
     return {"status": "ok", "database": DATABASE_URL.split("://")[0]}
+
 

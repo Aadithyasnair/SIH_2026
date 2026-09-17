@@ -419,3 +419,137 @@ export async function getTrainingSamples(pattern = "all", limit = 50): Promise<T
   };
   return await read<TrainingSamplesResponse>(`/api/dataset/training-samples?pattern=${encodeURIComponent(pattern)}&limit=${limit}`, fallback);
 }
+
+export interface AnalyzedTransaction {
+  txid: string;
+  timestamp: string;
+  risk_score: number;
+  risk_level: "CRITICAL" | "HIGH" | "MEDIUM" | "LOW";
+  is_anomaly: boolean;
+  detected_pattern: string;
+  explanation: string;
+  amount_btc: number;
+  fee: number;
+  input_count: number;
+  output_count: number;
+  degree_ratio: number;
+  src_country: string;
+  dst_country: string;
+  inputs: string[];
+  outputs: string[];
+  ml_anomaly_score: number;
+}
+
+export interface AnalysisReport {
+  total_records: number;
+  anomalies_detected: number;
+  critical_count: number;
+  total_volume_btc: number;
+  avg_risk_score: number;
+  pattern_distribution: Record<string, number>;
+  country_distribution: Record<string, number>;
+  analyzed_transactions: AnalyzedTransaction[];
+  processed_at: string;
+}
+
+export interface UploadAnalysisResponse {
+  status: string;
+  filename: string;
+  format: string;
+  records_count: number;
+  analysis: AnalysisReport;
+}
+
+export interface SampleTemplate {
+  id: string;
+  label: string;
+  filename: string;
+  format: string;
+  content: string;
+}
+
+export interface SampleTemplatesResponse {
+  templates: SampleTemplate[];
+}
+
+export async function uploadAndAnalyze(filename: string, content: string): Promise<UploadAnalysisResponse> {
+  const url = `${base}/api/analysis/upload`;
+  const res = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ filename, content }),
+  });
+
+  if (!res.ok) {
+    const errorData = await res.json().catch(() => ({ detail: "Upload failed" }));
+    throw new Error(errorData.detail || `Server error: ${res.status}`);
+  }
+
+  return await res.json();
+}
+
+export async function getSampleTemplates(): Promise<SampleTemplatesResponse> {
+  const fallback: SampleTemplatesResponse = {
+    templates: [
+      {
+        id: "csv_peeling",
+        label: "Peeling Chain (CSV)",
+        filename: "sample_peeling_chain.csv",
+        format: "CSV",
+        content: "txid,sender,outputs,amount_btc,fee,country\ntx_peel_chain_01,1WhaleAlpha83mN,1MerchantBulk99;1ChangeAddr22,12.5000,0.00012,US\ntx_peel_chain_02,1ChangeAddr22,1MerchantBulk98;1ChangeAddr23,12.4850,0.00010,US\n",
+      },
+      {
+        id: "json_coinjoin",
+        label: "CoinJoin Mixer (JSON)",
+        filename: "sample_coinjoin_mixer.json",
+        format: "JSON",
+        content: JSON.stringify([
+          {
+            txid: "tx_coinjoin_round_42",
+            inputs: ["1MixerInA_991", "1MixerInB_882", "1MixerInC_773"],
+            outputs: ["1MixerOutA_111", "1MixerOutB_222", "1MixerOutC_333"],
+            amount_btc: 3.0,
+            fee: 0.0003,
+            src_country: "DE",
+            dst_country: "FI"
+          }
+        ], null, 2),
+      }
+    ]
+  };
+  return await read<SampleTemplatesResponse>("/api/analysis/sample-templates", fallback);
+}
+
+export async function downloadTransactionPdf(record: any, preferredFilename?: string): Promise<void> {
+  const txid = record.txid || record.alert_id || "transaction";
+  const safeTxid = String(txid).replace(/[^a-zA-Z0-9_-]/g, "").slice(0, 16);
+  const filename = preferredFilename || `Forensic_Report_${safeTxid}.pdf`;
+
+  try {
+    const res = await fetch(`${base}/api/reports/transaction-pdf`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(record),
+    });
+
+    if (!res.ok) {
+      throw new Error(`Failed to generate PDF: ${res.statusText}`);
+    }
+
+    const blob = await res.blob();
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    window.URL.revokeObjectURL(url);
+    document.body.removeChild(a);
+  } catch (err) {
+    console.error("PDF download error, fallback to direct GET:", err);
+    window.open(`${base}/api/reports/tx/${encodeURIComponent(txid)}/pdf`, "_blank");
+  }
+}
+

@@ -1,6 +1,6 @@
 "use client";
 
-import { RealtimeAnalysis } from "@/lib/api";
+import { RealtimeAnalysis, downloadTransactionPdf } from "@/lib/api";
 import { getRisk, getRiskColor } from "@/lib/data";
 
 interface RealtimeCardPanelProps {
@@ -148,6 +148,14 @@ export function RealtimeCardPanel({ analysis, onClose }: RealtimeCardPanelProps)
           ))}
         </div>
       </div>
+
+      <button
+        onClick={() => downloadTransactionPdf(analysis, `Forensic_Report_${analysis.txid.slice(0, 12)}.pdf`)}
+        className="download-report-btn"
+        title="Download Law-Enforcement Forensic Intelligence PDF Dossier"
+      >
+        📄 Download Forensic PDF Report
+      </button>
     </aside>
   );
 }

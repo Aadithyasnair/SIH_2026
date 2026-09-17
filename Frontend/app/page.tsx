@@ -17,11 +17,14 @@ import {
   startRealtime,
   stopRealtime,
   analyzeRealtimeTx,
+  AnalyzedTransaction,
+  downloadTransactionPdf,
 } from "@/lib/api";
 import { CountryGlobe, countryCoordinates } from "@/components/country-globe";
 import { ClusterWebGraph } from "@/components/cluster-web-graph";
 import { DatasetModal } from "@/components/dataset-modal";
 import { RealtimeCardPanel } from "@/components/realtime-card-panel";
+import { UploadModal } from "@/components/upload-modal";
 
 
 const glossary: Record<string, string> = {
@@ -121,7 +124,7 @@ function AlertPanel({ alert, close }: { alert: Alert; close: () => void }) {
   const isTor = isDarknetOrTor(alert);
   return (
     <aside className="detail glass">
-      <button onClick={close} aria-label="Close">
+      <button onClick={close} aria-label="Close" className="detail-close-btn">
         ×
       </button>
       <div
@@ -185,6 +188,13 @@ function AlertPanel({ alert, close }: { alert: Alert; close: () => void }) {
           <b>Timestamp:</b> {alert.timestamp}
         </p>
       </details>
+      <button
+        onClick={() => downloadTransactionPdf(alert, `Forensic_Report_${alert.txid.slice(0, 12)}.pdf`)}
+        className="download-report-btn"
+        title="Download Law-Enforcement Forensic Intelligence PDF Dossier"
+      >
+        📄 Download Forensic PDF Report
+      </button>
     </aside>
   );
 }
@@ -230,6 +240,58 @@ export default function Dashboard() {
   const [customTxidInput, setCustomTxidInput] = useState("");
   const [txidSearching, setTxidSearching] = useState(false);
   const [datasetModalOpen, setDatasetModalOpen] = useState(false);
+  const [uploadModalOpen, setUploadModalOpen] = useState(false);
+
+  const handlePlotUploadedTxs = (uploaded: AnalyzedTransaction[]) => {
+    if (!uploaded || uploaded.length === 0) return;
+    const converted: RealtimeAnalysis[] = uploaded.map((u) => ({
+      txid: u.txid,
+      amount_btc: u.amount_btc,
+      fee_btc: u.fee,
+      confirmed: true,
+      timestamp: u.timestamp,
+      origin: {
+        estimated_country: u.src_country,
+        estimated_country_code: u.src_country,
+        confidence_score: 0.88,
+        confidence_level: "High",
+        classification: "POSSIBLE ORIGIN",
+        evidence: `Uploaded Dataset: ${u.detected_pattern}`,
+        warning: "Ingested via Universal File Ingestion Pipeline",
+      },
+      propagation_hops: [
+        { node_label: `Source Node (${u.src_country})`, peer_ip: "10.0.0.1", country: u.src_country, country_code: u.src_country, delta_ms: 0, is_first_seen: true },
+        { node_label: `Destination Node (${u.dst_country})`, peer_ip: "10.0.0.2", country: u.dst_country, country_code: u.dst_country, delta_ms: 120, is_first_seen: false },
+      ],
+      destinations: u.outputs.map((addr) => ({
+        address: addr,
+        value_btc: u.amount_btc / Math.max(1, u.outputs.length),
+        role: "Recipient",
+        entity_name: u.detected_pattern.replace(/_/g, " "),
+        entity_type: "Target Destination",
+        region: u.dst_country,
+        confidence: "High",
+        tx_count: 1,
+        total_btc: u.amount_btc,
+      })),
+      risk_score: u.risk_score,
+      anomaly_score: u.ml_anomaly_score,
+      propagated_risk_score: u.risk_score,
+      pattern_type: u.detected_pattern,
+      flags: [u.detected_pattern, u.is_anomaly ? "anomaly_flagged" : "normal"],
+      explanation: u.explanation,
+      geo_summary: `${u.src_country} → ${u.dst_country}`,
+      primary_dest_entity: u.detected_pattern.replace(/_/g, " "),
+      primary_dest_country: u.dst_country,
+      is_live_wire: true,
+    }));
+
+    setRealtimeTxs(converted);
+    if (converted.length > 0) {
+      setSelectedRealtime(converted[0]);
+    }
+    setMode("realtime");
+  };
 
   // Pipeline execution job state
   const [ingestJob, setIngestJob] = useState<{ id: string; progress: number; stage: string } | null>(null);
@@ -603,44 +665,54 @@ export default function Dashboard() {
             placeholder="Search wallet, TXID, country, or keyword…"
           />
         </label>
-        <div className="segmented-modes" role="group" aria-label="Operating Modes">
+        <div className="header-actions">
+          <div className="segmented-modes" role="group" aria-label="Operating Modes">
+            <button
+              className={`mode-btn ${mode === "batch" ? "active" : ""}`}
+              onClick={() => { setMode("batch"); setSelectedRealtime(null); }}
+              title="Batch Mode: Static historical analyzed transactions & clusters"
+            >
+              📊 Batch
+            </button>
+            <button
+              className={`mode-btn ${mode === "simulation" ? "active" : ""}`}
+              onClick={() => { setMode("simulation"); setSelectedRealtime(null); }}
+              title="Simulation Mode: Replay P2P network telemetry packet stream"
+            >
+              ⚡ Simulation
+            </button>
+            <button
+              className={`mode-btn live-btn ${mode === "realtime" ? "active" : ""}`}
+              onClick={() => setMode("realtime")}
+              title="Live Real Data Mode: Real Bitcoin Mainnet P2P wire telemetry & on-chain origin/destination intelligence"
+            >
+              <span className="live-dot" /> 🔴 Live Real Data
+            </button>
+          </div>
           <button
-            className={`mode-btn ${mode === "batch" ? "active" : ""}`}
-            onClick={() => { setMode("batch"); setSelectedRealtime(null); }}
-            title="Batch Mode: Static historical analyzed transactions & clusters"
+            className="dataset-inspector-btn"
+            onClick={() => setDatasetModalOpen(true)}
+            title="Open Dataset & Methodology reference for judging criteria"
           >
-            📊 Batch
+            📁 Dataset & Info
           </button>
           <button
-            className={`mode-btn ${mode === "simulation" ? "active" : ""}`}
-            onClick={() => { setMode("simulation"); setSelectedRealtime(null); }}
-            title="Simulation Mode: Replay P2P network telemetry packet stream"
+            className="dataset-inspector-btn"
+            style={{ background: "rgba(0, 240, 255, 0.12)", borderColor: "rgba(0, 240, 255, 0.4)", color: "var(--cyan)" }}
+            onClick={() => setUploadModalOpen(true)}
+            title="Upload CSV, JSON, XML, or TSV data and execute AI/ML forensic analysis"
           >
-            ⚡ Simulation
+            📤 Upload & Analyze
           </button>
           <button
-            className={`mode-btn live-btn ${mode === "realtime" ? "active" : ""}`}
-            onClick={() => setMode("realtime")}
-            title="Live Real Data Mode: Real Bitcoin Mainnet P2P wire telemetry & on-chain origin/destination intelligence"
+            className="icon"
+            onClick={toggleTheme}
+            aria-label={theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
+            title={theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
           >
-            <span className="live-dot" /> 🔴 Live Real Data
+            {theme === "dark" ? "☼" : "☾"}
           </button>
         </div>
-        <button
-          className="dataset-inspector-btn"
-          onClick={() => setDatasetModalOpen(true)}
-          title="Open Dataset & Methodology reference for judging criteria"
-        >
-          📁 Dataset & Info
-        </button>
-        <button
-          className="icon"
-          onClick={toggleTheme}
-          aria-label={theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
-          title={theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
-        >
-          {theme === "dark" ? "☼" : "☾"}
-        </button>
       </header>
 
       {!isBackendOnline && (
@@ -754,7 +826,7 @@ export default function Dashboard() {
                 <span style={{ fontSize: "10px", color: "#ff8282", fontWeight: 700 }}>PORT 8333 WIRE</span>
               </div>
               <p style={{ fontSize: "11px", color: "var(--muted)", margin: "0 0 8px" }}>
-                Real-time mempool transactions with origin & destination attribution. Click to inspect card.
+                Real-time mempool transactions with origin &amp; destination attribution. Click to inspect card.
               </p>
               <div className="events-scroll">
                 {realtimeTxs.map((rt) => (
@@ -764,14 +836,18 @@ export default function Dashboard() {
                       setSelectedRealtime(rt);
                       setSelected(null);
                     }}
-                    style={selectedRealtime?.txid === rt.txid ? { borderColor: "var(--cyan)", background: "rgba(0, 240, 255, 0.12)" } : undefined}
+                    className={`event-card-btn ${selectedRealtime?.txid === rt.txid ? "selected" : ""}`}
                   >
-                    <RiskPill value={rt.risk_score} />
-                    <span>
-                      <b>{rt.origin.estimated_country} → {rt.primary_dest_country}</b>
-                      <small>{rt.amount_btc.toFixed(4)} BTC to {rt.primary_dest_entity}</small>
-                    </span>
-                    <time>{formatTimeAgo(rt.timestamp)}</time>
+                    <div className="event-card-header">
+                      <RiskPill value={rt.risk_score} />
+                      <time>{formatTimeAgo(rt.timestamp)}</time>
+                    </div>
+                    <div className="event-card-title">
+                      {rt.origin.estimated_country} → {rt.primary_dest_country}
+                    </div>
+                    <div className="event-card-desc">
+                      {rt.amount_btc.toFixed(4)} BTC to {rt.primary_dest_entity}
+                    </div>
                   </button>
                 ))}
               </div>
@@ -816,16 +892,30 @@ export default function Dashboard() {
             </>
           ) : (
             <>
-              <h2>Latest events</h2>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "6px" }}>
+                <h2 style={{ margin: 0, fontSize: "14px", color: "var(--ink)" }}>Latest events</h2>
+                <span style={{ fontSize: "10px", color: "var(--cyan)", fontWeight: 600 }}>{filtered.length} ALERTS</span>
+              </div>
+              <p style={{ fontSize: "11px", color: "var(--muted)", margin: "0 0 8px" }}>
+                Forensic anomalies &amp; high-risk alerts. Scroll to view all.
+              </p>
               <div className="events-scroll">
-                {filtered.slice(0, 8).map((a) => (
-                  <button key={a.alert_id} onClick={() => setSelected(a)}>
-                    <RiskPill value={a.risk_score} />
-                    <span>
+                {filtered.slice(0, 25).map((a) => (
+                  <button
+                    key={a.alert_id}
+                    onClick={() => setSelected(a)}
+                    className={`event-card-btn ${selected?.alert_id === a.alert_id ? "selected" : ""}`}
+                  >
+                    <div className="event-card-header">
+                      <RiskPill value={a.risk_score} />
+                      <time>{formatTimeAgo(a.timestamp)}</time>
+                    </div>
+                    <div className="event-card-title" title={a.geo_summary}>
                       {a.geo_summary}
-                      <small>{a.explanation.slice(0, 65)}…</small>
-                    </span>
-                    <time>{formatTimeAgo(a.timestamp)}</time>
+                    </div>
+                    <div className="event-card-desc" title={a.explanation}>
+                      {a.explanation}
+                    </div>
                   </button>
                 ))}
               </div>
@@ -1219,6 +1309,11 @@ export default function Dashboard() {
       </footer>
 
       <DatasetModal isOpen={datasetModalOpen} onClose={() => setDatasetModalOpen(false)} />
+      <UploadModal
+        isOpen={uploadModalOpen}
+        onClose={() => setUploadModalOpen(false)}
+        onPlotOnGlobe={handlePlotUploadedTxs}
+      />
     </main>
   );
 }
